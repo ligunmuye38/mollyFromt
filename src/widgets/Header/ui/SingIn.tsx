@@ -1,11 +1,10 @@
-"use client"
 import { useTranslations } from "next-intl"
 import Button from '@/shared/ui/Button/Button'
 
 import { useModal } from "@/shared/context/ModalContext"
-import SignInModal from "@/widgets/auth/SignInModal"
-import SignUpModal from "@/widgets/auth/SignUpModal"
-import ForgetPassword from "@/widgets/auth/ForgetPasswordModal"
+import SignInModal from "@/widgets/Auth/SignInModal"
+import SignUpModal from "@/widgets/Auth/SignUpModal"
+import ForgetPassword from "@/widgets/Auth/ForgetPasswordModal"
 
 import HeaderIcon from '@/shared/assets/icons/icon-auth.svg'
 
@@ -26,7 +25,11 @@ export const SignIn = () => {
             <SignInModal onClickForgetPassword={foregetPassword} onClickSignUp={signUpModal} />,
             {},
             <HeaderIcon />,
-            t('auth.sigin_btn_text')
+            t('auth.sigin_btn_text'),
+            {
+                body: '',
+                modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+            }
         );
     };
 
@@ -35,7 +38,11 @@ export const SignIn = () => {
             <SignUpModal onClickSignIn={signInModal} />,
             {},
             <HeaderIcon />,
-            t('auth.signup_btn_text')
+            t('auth.signup_btn_text'),
+            {
+                body: '',
+                modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+            }
         );
     }
 
@@ -44,7 +51,11 @@ export const SignIn = () => {
             <ForgetPassword />,
             {},
             <HeaderIcon />,
-            t('auth.password_recovery')
+            t('auth.password_recovery'),
+            {
+                body: '',
+                modal: 'relative w-full lg:h-full h-screen flex justify-center items-center'
+            }
         );
     }
 

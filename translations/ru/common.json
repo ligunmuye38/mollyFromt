@@ -13,7 +13,8 @@
 		"vip": "ВИП клуб",
 		"bonuses": "Бонусы",
 		"leaderboard": "Лидерборд",
-		"notifications": "Уведомления"
+		"notifications": "Уведомления",
+		"item": "Элемент"
 	},
 	"livefeed": {
 		"title": "live drops",
@@ -85,5 +86,10 @@
 		"create_new_account": "Создать новый аккаунт",
 		"password_recovery": "Восстановление пароля",
 		"continue": "Продолжать"
+	},
+	"topbar": {
+		"provably_fair":"Доказуемо честный",
+		"faq":"FAQ",
+		"term_of_service": "Условия обслуживания"
 	}
 }

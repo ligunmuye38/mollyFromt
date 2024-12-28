@@ -6,12 +6,18 @@ interface ModalOptions {
     onClose?: () => void;
 }
 
+interface ClassNamesConfig {
+    body?: string
+    modal?: string
+}
+
 interface ModalContextType {
     openModal: (
         content: ReactNode,
         options?: ModalOptions,
         headerIcon?: ReactNode,
-        headerTitle?: string
+        headerTitle?: string,
+        classNames?: ClassNamesConfig
     ) => void;
     closeModal: () => void;
     isOpen: boolean;
@@ -19,6 +25,7 @@ interface ModalContextType {
     options: ModalOptions;
     headerIcon: ReactNode | null;
     headerTitle: string;
+    classNames: ClassNamesConfig;
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined);
@@ -29,18 +36,22 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     const [options, setOptions] = useState<ModalOptions>({});
     const [headerIcon, setHeaderIcon] = useState<ReactNode | null>(null);
     const [headerTitle, setHeaderTitle] = useState<string>('');
+    const [classNames, setClassNames] = useState<ClassNamesConfig>({ body: "", modal: "" });
 
     const openModal = (
         content: ReactNode,
         options: ModalOptions = {},
         headerIcon: ReactNode | null = null,
-        headerTitle: string = ''
+        headerTitle: string = '',
+        classNames: ClassNamesConfig = { body: "", modal: "" }
     ) => {
         setContent(content);
         setOptions(options);
         setHeaderIcon(headerIcon);
         setHeaderTitle(headerTitle);
         setIsOpen(true);
+        setClassNames(classNames)
+        console.log(classNames)
     };
 
     const closeModal = () => {
@@ -52,7 +63,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     };
 
     return (
-        <ModalContext.Provider value={{ openModal, closeModal, isOpen, content, options, headerIcon, headerTitle }}>
+        <ModalContext.Provider value={{ openModal, closeModal, isOpen, content, options, headerIcon, headerTitle, classNames }}>
             {children}
         </ModalContext.Provider>
     );
