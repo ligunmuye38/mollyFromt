@@ -100,7 +100,8 @@
 		"bonuses": "Bonuses",
 		"cases": "Cases",
 		"items": "Items",
-		"processing": "Processing"
+		"processing": "Processing",
+		"title": "Find the question you are interested in and get a quick answer."
 	},
 	"faq_datas": {
 		"first":{
@@ -131,5 +132,20 @@
 			"title": "Is it safe to store money on the project?",
 			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
 		}
+	},
+	"support_datas": {
+		"title": "Ask your question in a ticket to our specialists.",
+		"new_ticket": "New Ticket"
+		
+	},
+	"support_chat_header": {
+		"id_ticket": "ID Ticket",
+		"subject_of_appeal": "Subject of the appeal",
+		"last_update": "Last Update",
+		"status_of_the_req": "Status of the request",
+		"ticket_closed": "Ticket closed",
+		"problem_with_receiving_money": "Problem with receiving money",
+		"consideration": "Under consideration",
+		"response_from_support": "Response from support"
 	}
 }

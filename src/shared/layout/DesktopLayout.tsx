@@ -15,6 +15,7 @@ import { MobileMenu } from '@/widgets/MobileMenu/ui/MobileMenu'
 import { Sidebar } from '@/widgets/Sidebar/ui/Sidebar'
 import { HeaderLiveKeed } from '@/features/LiveFeed/ui/HeaderLiveKeed'
 import { useCommonStore } from '@/entities/Common/model/store'
+import { usePathname, useRouter } from '@/shared/config/i18n/navigation'
 
 const Chat = dynamic(() => import('@/widgets/Chat/ui/Chat'), { ssr: false, loading: () => <ChatLoader /> })
 const MainLiveFeed = dynamic(() => import('@/features/LiveFeed/ui/MainLiveFeed'), {
@@ -26,6 +27,8 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
 
     const itemPosition = useCommonStore(state => state.itemPosition)
 
+    const pathname = usePathname();
+
     return (
         <div className='layout-main relative z-[0] grid grid-cols-[auto_1fr_auto] lg:block lg:pb-[70px]'>
             <div className='lg:layout-main__inner  lg:grid-rows[auto-1fr]'>
@@ -33,7 +36,7 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
                 <div className='layout-main grid grid-cols-[auto_1fr_auto]'>
                     <Sidebar />
                     {
-                        itemPosition == "right" &&
+                        itemPosition == "right" && pathname != '/' &&
                         <HeaderLiveKeed className='h-[calc(100vh-48px)] w-[100px]' />
                     }
                     <div className='h-[calc(100vh-48px)] overflow-y-auto app-scrollbar lg:overflow-visible lg:h-auto'>
@@ -54,7 +57,7 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
                         <Footer className='container-common' />
                     </div>
                     {
-                        itemPosition == "left" &&
+                        itemPosition == "left" && pathname != '/' &&
                         <HeaderLiveKeed className='h-[calc(100vh-48px)] w-[100px]' />
                     }
                 </div>
