@@ -1,4 +1,6 @@
-import FaqHeader from '@/entities/Faq/ui/FaqHeader'
+import FaqBar from '@/widgets/Faq/ui/FaqBar'
+import FaqHeader from '@/widgets/Faq/ui/FaqHeader'
+import FaqBody from '@/widgets/Faq/ui/FaqBody'
 
 import { IMetadata } from '@/shared/types/metadata'
 
@@ -16,8 +18,10 @@ export async function generateMetadata({ params: { locale } }: IMetadata) {
 
 const Faq = () => {
     return (
-        <div>
+        <div className='mt-4 flex flex-col gap-4 px-5'>
             <FaqHeader />
+            <FaqBar />
+            <FaqBody />
         </div>
     )
 }
