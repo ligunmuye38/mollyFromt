@@ -17,7 +17,6 @@ import cls from './Header.module.sass'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 import { useTranslations } from 'next-intl'
-import Button from '@/shared/ui/Button/Button'
 
 
 interface HeaderBarContentProps {

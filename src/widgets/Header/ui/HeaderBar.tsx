@@ -7,20 +7,15 @@ import { useCommonStore } from '@/entities/Common/model/store'
 
 import { HeaderBarContent } from './HeaderBarContent'
 
-
-
-
 interface HeaderBarProps {
 	className?: string
 }
 
 export const HeaderBar: FC<HeaderBarProps> = ({ className }) => {
-
 	const barRef = useRef<HTMLDivElement>(null)
 	const [inViewport] = useInViewport(barRef)
 
 	const setHeaderBarInView = useCommonStore(state => state.setHeaderBarInView)
-
 
 	useEffect(() => {
 		if (inViewport !== undefined) {
@@ -29,7 +24,7 @@ export const HeaderBar: FC<HeaderBarProps> = ({ className }) => {
 	}, [inViewport])
 
 	return (
-		<div ref={barRef} >
+		<div ref={barRef}>
 			<HeaderBarContent />
 		</div>
 	)
