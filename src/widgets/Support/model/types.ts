@@ -20,3 +20,8 @@ export interface ISupportItem {
     responseType: ResponseType
     responseNumber?: string
 }
+
+export interface IProblemItem {
+    id: number
+    type: string
+}

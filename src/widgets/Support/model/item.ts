@@ -1,4 +1,4 @@
-import { ISupportItem } from './types'
+import { ISupportItem, IProblemItem } from './types'
 
 export const supportItems: ISupportItem[] = [
     {
@@ -122,5 +122,24 @@ export const supportItems: ISupportItem[] = [
                 timestamp: '15:28'
             },
         ]
+    }
+]
+
+export const problems: IProblemItem[] = [
+    {
+        id: 1,
+        type: 'create_new_ticket.issue_with_withdraw'
+    },
+    {
+        id: 2,
+        type: 'create_new_ticket.issue_with_withdraw'
+    },
+    {
+        id: 3,
+        type: 'create_new_ticket.issue_with_withdraw'
+    },
+    {
+        id: 4,
+        type: 'create_new_ticket.issue_with_withdraw'
     }
 ]

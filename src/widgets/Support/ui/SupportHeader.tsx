@@ -1,3 +1,5 @@
+"use client"
+
 import IntroBar from "@/shared/ui/IntroBar/IntroBar";
 import IconQuestion from '@/shared/assets/icons/icon-question.svg'
 import IconNewTicket from '@/shared/assets/icons/icon-new-ticket.svg'
@@ -7,17 +9,34 @@ import IconSupportBtn from '@/shared/assets/icons/icon-support-btn.svg'
 import clsx from "clsx";
 import cls from './Support.module.sass'
 import { useTranslations } from "next-intl";
+import { useModal } from "@/shared/context/ModalContext";
+import CreateNewTicket from "./CreateNewTicket";
 
 
 const SupportHeader = () => {
+    const { openModal } = useModal();
 
     const t = useTranslations();
+
+
+    const createNewTicket = () => {
+        openModal(
+            <CreateNewTicket />,
+            {},
+            <span className="text-[#2F374A] text-[30px]">+</span>,
+            t('create_new_ticket.create_ticket'),
+            {
+                body: '',
+                modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+            }
+        )
+    }
 
     return (
         <IntroBar title={'sidebar.support'} icon={<IconQuestion />} content={'support_datas.title'}
             buttons={
                 <div className="flex gap-3 flex-row md:flex-col h-full items-center">
-                    <Button disableAnimation classNames={{ base: clsx('w-[170px] md:w-[140px] h-[45px] flex items-center relative'), content: clsx('w-full h-full flex justify-center items-center') }}>
+                    <Button onPress={createNewTicket} disableAnimation classNames={{ base: clsx('w-[170px] md:w-[140px] h-[45px] flex items-center relative'), content: clsx('w-full h-full flex justify-center items-center') }}>
                         <div className='w-full h-full top-0 right-0 absolute'>
                             <IconNewTicket className={'w-full h-full'} />
                         </div>

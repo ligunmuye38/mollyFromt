@@ -133,3 +133,26 @@
 
 
 
+.modal
+    width: 496px
+    display: flex
+    flex-direction: column
+
+@media ( max-width: 768px )
+  .modal
+    width: calc(100vw  -  40px)
+
+.bar
+
+  &_input
+    flex-grow: 1
+    resize: none
+    height: 100%
+    padding-top: 10px
+    padding-left: 12px
+    padding-right: 8px
+    font-size: 14px
+    @apply text-text-primary
+    outline: none
+    &::placeholder
+      color: #2F374A

@@ -147,5 +147,14 @@
 		"problem_with_receiving_money": "Problem with receiving money",
 		"consideration": "Under consideration",
 		"response_from_support": "Response from support"
+	},
+	"create_new_ticket": {
+		"create_ticket": "Create ticket",
+		"select_problem": "Select a problem",
+		"subject": "Subject",
+		"describe": "Describe your problem",
+		"subject_placeholder": "Enter subject",
+		"issue_with_withdraw": "Issue with withdraw",
+		"max_size": "Max 64MB"
 	}
 }

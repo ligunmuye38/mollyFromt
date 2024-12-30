@@ -143,5 +143,16 @@
 		"problem_with_receiving_money": "Проблема с получением денег",
 		"consideration": "На рассмотрении",
 		"response_from_support": "Ответ от службы поддержки"
+	},
+	"create_new_ticket": {
+		"create_ticket": "Создать тикет",
+		"select_problem": "Выберите проблему",
+		"subject": "Предмет",
+		"describe": "Опишите вашу проблему",
+		"subject_placeholder": "Введите тему",
+		"issue_with_withdraw": "Проблема с выводом средств",
+		"max_size": "до 64MB"
+
+
 	}
 }
