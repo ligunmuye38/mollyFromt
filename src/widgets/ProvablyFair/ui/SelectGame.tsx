@@ -1,17 +1,15 @@
 'use client'
 
-import { problems } from '../model/item'
+import { listGames } from '../model/item'
 import { Selection } from '@nextui-org/react'
 import { useLocale, useTranslations } from 'next-intl'
-
-import { FC } from 'react'
-
 import React from 'react'
 
 import { ISelectItem, Select } from '@/shared/ui/Select/Select'
 
 
-const SelectProblem = () => {
+
+const SelectGame = () => {
 
     const t = useTranslations();
 
@@ -25,11 +23,11 @@ const SelectProblem = () => {
         setValue(newValue)
     }
 
-    const items = problems.map(
+    const items = listGames.map(
         item =>
             ({
-                value: t(item.id),
-                label: t(item.type)
+                value: t(item),
+                label: t(item)
             }) as ISelectItem
     )
 
@@ -38,11 +36,11 @@ const SelectProblem = () => {
             <Select
                 value={value}
                 onChangeValue={changeLocale}
-                theme='theme-3'
+                theme='theme-2'
                 items={items}
                 classNames={
                     {
-                        itemLabel: "text-[#D1D9EB]"
+                        itemLabel: "text-[#D1D9EB]",
                     }
                 }
             />
@@ -50,4 +48,4 @@ const SelectProblem = () => {
     )
 }
 
-export default SelectProblem
+export default SelectGame
