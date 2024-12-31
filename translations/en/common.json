@@ -156,6 +156,7 @@
 		"subject_placeholder": "Enter subject",
 		"issue_with_withdraw": "Issue with withdraw",
 		"max_size": "Max 64MB"
+
 	},
 	"provably_fair_header": {
 		"title": "Povably fair",
@@ -210,5 +211,7 @@
 		"result7": "Persons located in or residents of the United States, Australia, Aruba, Bonaire, Curaçao, Cyprus, France, Netherlands, Saba, Statia, Iran, or St Martin (the ”Prohibited Jurisdictions”) are not permitted to make use of the Service. For the avoidance of doubt, the foregoing restrictions on Engaging in real-money play from Prohibited Jurisdictions applies equally to residents and Citizens of other nations while located in a Prohibited Jurisdiction. Any attempt to Circumvent the restrictions on play by any persons located in a Prohibited Jurisdiction or Restricted Jurisdiction, is a breach of this Agreement. An attempt at circumvention Includes, but is not limited to, manipulating the information used by HYBETS to identify your location and providing HYBETS with false or misleading information regarding your location or place of residence.",
 		"result8": "Harm or threaten to harm other users in any way or interfere with, or attempt to interfere with, the access of any user, host or network, including without limitation, by sending a virus, overloading, flooding, spamming, or mail-bombing the Service;",
 		"result9": "Use the Service in an abusive way contrary to its intended use, to HYBETS.com policies and instructions and to any applicable law;"
+
+
 	}
 }

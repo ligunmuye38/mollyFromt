@@ -13,7 +13,8 @@ import { Header } from '@/widgets/Header/ui/Header'
 import { Sidebar } from '@/widgets/Sidebar/ui/Sidebar'
 import { HeaderLiveKeed } from '@/features/LiveFeed/ui/HeaderLiveKeed'
 import { useCommonStore } from '@/entities/Common/model/store'
-import { usePathname } from '@/shared/config/i18n/navigation'
+
+import { usePathname, useRouter } from '@/shared/config/i18n/navigation'
 
 const Chat = dynamic(() => import('@/widgets/Chat/ui/Chat'), { ssr: false, loading: () => <ChatLoader /> })
 const MainLiveFeed = dynamic(() => import('@/features/LiveFeed/ui/MainLiveFeed'), {
