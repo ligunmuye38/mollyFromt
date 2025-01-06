@@ -10,11 +10,10 @@ import { ChatLoader } from '@/widgets/Chat/ui/ChatLoader'
 import { FixedTopBar } from '@/widgets/FixedTopBar/ui/FixedTopBar'
 import { Footer } from '@/widgets/Footer/ui/Footer'
 import { Header } from '@/widgets/Header/ui/Header'
-import { MobileBar } from '@/widgets/MobileBar/ui/MobileBar'
-import { MobileMenu } from '@/widgets/MobileMenu/ui/MobileMenu'
 import { Sidebar } from '@/widgets/Sidebar/ui/Sidebar'
 import { HeaderLiveKeed } from '@/features/LiveFeed/ui/HeaderLiveKeed'
 import { useCommonStore } from '@/entities/Common/model/store'
+
 import { usePathname, useRouter } from '@/shared/config/i18n/navigation'
 
 const Chat = dynamic(() => import('@/widgets/Chat/ui/Chat'), { ssr: false, loading: () => <ChatLoader /> })
