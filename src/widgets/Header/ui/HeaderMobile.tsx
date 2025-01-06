@@ -9,9 +9,7 @@ import { Link } from '@/shared/config/i18n/navigation'
 
 import { HeaderBar } from './HeaderBar'
 import Button from '@/shared/ui/Button/Button'
-import { useTranslations } from 'next-intl'
 
-import cls from './Header.module.sass'
 import IconItem from '@/shared/assets/icons/icon-item.svg'
 import { HeaderLiveKeed } from '@/features/LiveFeed/ui/HeaderLiveKeed'
 import { useCommonStore } from '@/entities/Common/model/store'
@@ -22,7 +20,6 @@ interface HeaderMobileProps {
 
 export const HeaderMobile: FC<HeaderMobileProps> = ({ className }) => {
 
-	const t = useTranslations()
 
 	const setMobileRightBarState = useCommonStore(state => state.setMobileRightBarState)
 	const mobileRightBarState = useCommonStore(state => state.mobileRightBarState)
@@ -60,6 +57,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({ className }) => {
 				</div>
 				<HeaderBar />
 				<Button
+					disableAnimation
 					onPress={() => { setMobileRightBarState(!rightBarState); setRightBarState(!rightBarState) }}
 					className={clsx('w-[30px] h-[30px] transition-transform animate-pulse duration-500 ease-in-out rotate-0 transform', rightBarState ? "rotate-180" : "rotate-0")}>
 					<IconItem />

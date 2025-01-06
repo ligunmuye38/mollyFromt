@@ -5,36 +5,28 @@ import { Link } from '@/shared/config/i18n/navigation'
 
 import { HeaderBar } from './HeaderBar'
 import { HeaderNav } from './HeaderNav'
-import { useCommonStore } from '@/entities/Common/model/store'
 
 interface HeaderDesktopProps {
 	className?: string
 }
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({ className }) => {
-
-	const headerState = useCommonStore(state => state.headerState)
-	const headerBarInView = useCommonStore(state => state.headerBarInView)
-
-
 	return (
-		<header className={clsx(className, 'flex items-center relative justify-center gap-2')}>
-			<div className={clsx('absolute left-10')}>
-				<HeaderNav />
+		<header className={clsx(className, 'flex items-center justify-between gap-2')}>
+			<HeaderNav />
+			<div className='flex flex-1 justify-center'>
+				<Link
+					href='/'
+					className='w-[386px] h-[92px] 3xl:w-[300px] 3xl:h-[72px] flex justify-center items-center'
+					style={{
+						backgroundImage: 'url(/images/logo-header.svg)',
+						backgroundSize: 'contain',
+						backgroundRepeat: 'no-repeat'
+					}}
+				></Link>
 			</div>
-			<Link
-				href='/'
-				className={clsx('shrink-0 self-start w-[338px] h-[140px] fixed duration-400 z-[200]', headerBarInView ? '-mt-[42.5px]' : '-mt-[400px]')}
-				style={{
-					backgroundImage: (headerState == 1 ? 'url(/images/logo-header.svg)' : 'url(/images/logo-header-big.svg)'),
-					backgroundSize: 'contain',
-					backgroundRepeat: 'no-repeat'
-				}}
-			></Link>
-			<div className='h-[92px] 3xl:h-[72px]'></div>
-			<div className={clsx('absolute right-10')}>
-				<HeaderBar />
-			</div>
+
+			<HeaderBar />
 		</header>
 	)
 }

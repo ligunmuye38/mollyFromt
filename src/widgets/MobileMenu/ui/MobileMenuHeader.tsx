@@ -1,7 +1,7 @@
 "use client"
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
 import { HeaderSettings } from '@/features/HeaderSettings/ui/HeaderSettings'
 
@@ -11,7 +11,6 @@ import IconSignIn from '@/shared/assets/icons/icon-signin.svg'
 
 import cls from './MobileMenu.module.sass'
 import { useCommonStore } from '@/entities/Common/model/store'
-import { ButtonHexSquare } from '@/shared/ui/ButtonHexSquare/ButtonHexSquare'
 import { useModal } from '@/shared/context/ModalContext'
 import SignInModal from '@/widgets/auth/SignInModal'
 import SignUpModal from '@/widgets/auth/SignUpModal'
@@ -27,14 +26,27 @@ interface MobileMenuHeaderProps {
 export const MobileMenuHeader: FC<MobileMenuHeaderProps> = ({ className }) => {
 	const t = useTranslations()
 	const signinState = useCommonStore(state => state.signinState)
+	const setSigninState = useCommonStore(state => state.setSigninState)
 
 	const [isSignin, setIsSignin] = useState(signinState);
 
 	const { openModal } = useModal();
+	const { closeModal } = useModal();
+
+	const signIn = () => {
+		setSigninState(true)
+		closeModal();
+	}
+
+
+	const logOut = () => {
+		setSigninState(false)
+	}
+
 
 	const signInModal = () => {
 		openModal(
-			<SignInModal onClickForgetPassword={foregetPassword} onClickSignUp={signUpModal} />,
+			<SignInModal onClickForgetPassword={foregetPassword} onClickSignUp={signUpModal} onClickSignIn={signIn} />,
 			{},
 			<HeaderIcon />,
 			t('auth.sigin_btn_text'),
@@ -72,6 +84,11 @@ export const MobileMenuHeader: FC<MobileMenuHeaderProps> = ({ className }) => {
 		);
 	}
 
+
+	useEffect(() => {
+		setIsSignin(signinState)
+	}, [signinState])
+
 	return (
 		<div className={clsx(cls.header, className)}>
 			{
@@ -82,16 +99,18 @@ export const MobileMenuHeader: FC<MobileMenuHeaderProps> = ({ className }) => {
 					<span className='font-primary-bold text-sm md:text-xs'>Aleksandr</span>
 				</div>
 			}
-			<div className='ml-auto flex items-center gap-2'>
+			<div className='ml-auto flex items-center gap-4'>
 				<HeaderSettings />
 				<div className='shrink-0 w-5 h-5 md:w-3 md:h-3 cursor-pointer'>
 					{
 						isSignin ?
 
-							<IconLogout className='shrink-0 w-full h-full fill-[#364055]' />
+							<Button onPress={logOut}>
+								<IconLogout className='shrink-0 w-full h-full fill-[#364055]' />
+							</Button>
 							:
 							<Button onPress={signInModal}>
-								<IconSignIn className='shrink-0 w-full h-full fill-[#364055]' />
+								<IconSignIn className='shrink-0  fill-[#fff] w-[16px] h-[16px]' />
 							</Button>
 					}
 				</div>

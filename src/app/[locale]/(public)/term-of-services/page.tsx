@@ -1,6 +1,7 @@
 import { IMetadata } from "@/shared/types/metadata";
-import SupportHeader from "@/widgets/Support/ui/SupportHeader";
-import SupportBody from "@/widgets/Support/ui/SupportBody";
+import TermsHeader from "@/widgets/TermsOfServices/TermsHeader";
+import TermsBody from "@/widgets/TermsOfServices/TermsBody";
+
 
 export async function generateMetadata({ params: { locale } }: IMetadata) {
     // const t = await getTranslations({ locale, namespace: 'Main' })
@@ -13,14 +14,13 @@ export async function generateMetadata({ params: { locale } }: IMetadata) {
     }
 }
 
-
-const Support = () => {
+const TermsOfServices = () => {
     return (
         <div className='mt-5 flex flex-col gap-4 px-5'>
-            <SupportHeader />
-            <SupportBody />
+            <TermsHeader />
+            <TermsBody />
         </div>
     )
 }
 
-export default Support;
+export default TermsOfServices;

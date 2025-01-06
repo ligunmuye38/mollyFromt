@@ -1,6 +1,8 @@
 import { IMetadata } from "@/shared/types/metadata";
-import SupportHeader from "@/widgets/Support/ui/SupportHeader";
-import SupportBody from "@/widgets/Support/ui/SupportBody";
+
+import ProvablyFairHeader from "@/widgets/ProvablyFair/ui/ProvablyFairHeader";
+import ProvablyFairBody from "@/widgets/ProvablyFair/ui/ProvablyFairBody";
+
 
 export async function generateMetadata({ params: { locale } }: IMetadata) {
     // const t = await getTranslations({ locale, namespace: 'Main' })
@@ -14,13 +16,13 @@ export async function generateMetadata({ params: { locale } }: IMetadata) {
 }
 
 
-const Support = () => {
+const ProvablyFair = () => {
     return (
         <div className='mt-5 flex flex-col gap-4 px-5'>
-            <SupportHeader />
-            <SupportBody />
+            <ProvablyFairHeader />
+            <ProvablyFairBody />
         </div>
     )
 }
 
-export default Support;
+export default ProvablyFair;
