@@ -57,7 +57,7 @@ const ProvablyFairBody = () => {
             <div className={clsx("w-auto h-auto fixed top-[85px] left-3 md:flex hidden z-[46] p-2 rounded-md  duration-150 transform", isShow && cls.rotateX)} onClick={showHeader}>
                 <IconDoubleArrow className="w-6 h-6 fill-[#24FDBC]" />
             </div>
-            <div className={clsx("min-w-[237px] h-full sticky lg:top-[100px] top-[10px] duration-150 z-[45] md:fixed md:h-auto md:max-w-0 md:min-w-0 md:overflow-hidden", isShow && "!min-w-[237px] transition-all")}>
+            <div className={clsx("min-w-[237px] h-full sticky top-[100px] md:top-[10px] duration-150 z-[45] md:fixed md:h-auto md:max-w-0 md:min-w-0 md:overflow-hidden", isShow && "!min-w-[237px] transition-all")}>
                 <List items={listItems} />
             </div>
             <div className="flex flex-col gap-4 w-full px-4 flex-1 h-auto">
@@ -142,13 +142,11 @@ const ProvablyFairBody = () => {
                         />
                     </div>
                     <div className="flex relative justify-center">
-                        <div className="relative w-auto h-full hover:cursor-pointer">
-                            <span className="text-[#121722] text-[14px] uppercase font-[900] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                        <div className="relative w-full h-full sm:w-auto flex justify-center hover:cursor-pointer">
+                            <span className="text-[#121722] text-center w-full text-[14px] uppercase font-[900] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
                                 {t('fair_footer.show_result')}
                             </span>
-                            <div>
-                                <SvgFooterBtn />
-                            </div>
+                            <SvgFooterBtn />
                         </div>
 
                     </div>
