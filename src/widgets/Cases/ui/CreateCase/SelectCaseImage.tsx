@@ -8,6 +8,7 @@ import CaseImageItem from "./CaseImageItem";
 
 import { selectImages } from '../../model/items';
 import { useTranslations } from 'next-intl';
+import { useAppResponsive } from '@/shared/lib/useResponsive';
 
 
 const SelectCaseImage = () => {
@@ -18,6 +19,9 @@ const SelectCaseImage = () => {
     // The values are to reference swiper and swiper index.
     const [swiperIndex, setSwiperIndex] = useState<number>(0)
     const swiperRef = useRef<SwiperRef>(null)
+
+    // responsive
+    const breakpoints = useAppResponsive()
 
     // For slider(Select Images)
     const slides = selectImages.map((item) => (
@@ -34,7 +38,7 @@ const SelectCaseImage = () => {
             <div className='flex relative w-full'>
                 <Swiper
                     spaceBetween={1}
-                    slidesPerView={7}
+                    slidesPerView={breakpoints?.['sm'] ? 7 : 5}
                     loop={false}
                     tabIndex={swiperIndex}
                     ref={swiperRef}
