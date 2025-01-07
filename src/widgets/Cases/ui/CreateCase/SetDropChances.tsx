@@ -18,6 +18,7 @@ const SetDropChances = () => {
     const [swiperIndex, setSwiperIndex] = useState<number>(0)
     const swiperRef = useRef<SwiperRef>(null)
 
+
     // For slider(Select Images)
     const slides = chances.map((item) => (
         <SwiperSlide
@@ -29,14 +30,11 @@ const SetDropChances = () => {
 
     return (
         <div className={clsx("flex flex-col relative")}>
-            <div className={clsx(cls.chance_body, ' absolute left-0 -bottom-1 w-full h-[98px] z-[35]')}>
-
-            </div>
             <div className="flex justify-between">
                 <span className="text-[14px] font-[500] text-white">{t('create_case.set_drop_chances')}</span>
                 <span className="text-[14px] font-[500] text-[#17E2A5]">100%</span>
             </div>
-            <div className={clsx("h-[416px] overflow-hidden")}>
+            <div className={clsx("h-[406px] overflow-hidden")}>
                 <Swiper
                     direction="vertical"
                     spaceBetween={1}
