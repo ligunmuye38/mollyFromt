@@ -14,7 +14,7 @@ const CreateCaseFooter = () => {
     return (
         <div className={clsx(cls.footer_body, "w-full")}>
             <div className={clsx(cls.footer_body_inner, "w-full h-full py-3 px-4")}>
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center flex-row md:flex-col md:justify-center md:items-center md:gap-2">
                     <div className={clsx(cls.footer_body_btn)}>
                         <div className={clsx(cls.footer_body_btn_inner, "py-[10px] px-3 gap-2 flex items-center")}>
                             <IconBagTick className="w-6 h-6" />
@@ -28,7 +28,7 @@ const CreateCaseFooter = () => {
                         </div>
                     </div>
                     <div className="flex items-center">
-                        <Button className={clsx(cls.header_btn, "flex items-center mr-4")}
+                        <Button className={clsx(cls.header_btn, "flex items-center mr-4 md:mr-0")}
                             classNames={{
                                 content: "w-full h-full"
                             }}
