@@ -30,8 +30,8 @@ const CasesHeader = () => {
             <IconCreateModalLogo className=" w-[20px] h-[20px]" />,
             t('create_case.title'),
             {
-                body: '',
-                modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+                body: 'lg:w-full',
+                modal: 'relative w-full lg:h-full lg:w-screen h-screen flex lg:items-start justify-center items-center'
             }
         )
     }
