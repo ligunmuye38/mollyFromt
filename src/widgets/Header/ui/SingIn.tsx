@@ -2,9 +2,9 @@ import { useTranslations } from "next-intl"
 import Button from '@/shared/ui/Button/Button'
 
 import { useModal } from "@/shared/context/ModalContext"
-import SignInModal from "@/widgets/auth/SignInModal"
-import SignUpModal from "@/widgets/auth/SignUpModal"
-import ForgetPassword from "@/widgets/auth/ForgetPasswordModal"
+import SignInModal from "@/widgets/Auth/SignInModal"
+import SignUpModal from "@/widgets/Auth/SignUpModal"
+import ForgetPassword from "@/widgets/Auth/ForgetPasswordModal"
 
 import HeaderIcon from '@/shared/assets/icons/icon-auth.svg'
 
