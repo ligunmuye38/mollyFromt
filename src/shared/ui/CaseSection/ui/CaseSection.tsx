@@ -22,7 +22,7 @@ const CaseSection = ({ className, items, isBig = true }: CaseSectionProps) => {
         >
             {
                 isBig == true &&
-                    <BigCaseItem className="min-w-[194px] h-full" key={index} title={item.title} picUrl={item.picUrl} type={item.type} name={item.name} />
+                    <BigCaseItem className="min-w-[194px]" key={index} title={item.title} picUrl={item.picUrl} type={item.type} name={item.name} />
             }
             {
                 isBig == false &&
