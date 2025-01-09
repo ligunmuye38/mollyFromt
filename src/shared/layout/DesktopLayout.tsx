@@ -35,10 +35,10 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
                     <Sidebar />
                     {
                         itemPosition == "right" && pathname != '/' &&
-                        <HeaderLiveKeed className='h-[calc(100vh-48px)] w-[100px]' />
+                        <HeaderLiveKeed className='h-screen w-[100px]' />
                     }
-                    <div className='h-[calc(100vh-48px)] overflow-y-auto app-scrollbar lg:overflow-visible lg:h-auto'>
-                        <div className='layout-main__content min-h-[calc(100vh-48px)] pb-[30px]'>
+                    <div className='h-screen overflow-y-auto app-scrollbar lg:overflow-visible lg:h-auto'>
+                        <div className='layout-main__content min-h-screen pb-[30px]'>
                             <Client>
                                 <FixedTopBar className='px-10' />
                             </Client>
@@ -56,7 +56,7 @@ const DesktopLayout = ({ children }: { children: React.ReactNode }) => {
                     </div>
                     {
                         itemPosition == "left" && pathname != '/' &&
-                        <HeaderLiveKeed className='h-[calc(100vh-48px)] w-[100px]' />
+                        <HeaderLiveKeed className='h-screen w-[100px]' />
                     }
                 </div>
             </div>

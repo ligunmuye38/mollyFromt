@@ -5,6 +5,7 @@ import cls from "./CaseItem.module.sass";
 import { ImageBgType } from "@/widgets/Cases/model/types";
 
 interface CaseItemProps {
+    className?: string
     title?: string
     content?: string
     percent?: number
@@ -14,7 +15,7 @@ interface CaseItemProps {
     type: ImageBgType
 }
 
-const CaseItem = ({ title, content, percent, picUrl, name, price, type }: CaseItemProps) => {
+const CaseItem = ({ title, content, percent, picUrl, name, price, type, className }: CaseItemProps) => {
 
     // Get background based on type
     const getBackground = (type: ImageBgType) => {
@@ -63,7 +64,7 @@ const CaseItem = ({ title, content, percent, picUrl, name, price, type }: CaseIt
     }
 
     return (
-        <div className={clsx("w-[133px] h-[153px] rounded-[12px] p-[13px] flex flex-col justify-between relative", cls.item_shadow, cls.item)}>
+        <div className={clsx("w-[133px] h-[153px] rounded-[12px] p-[13px] flex flex-col justify-between relative", cls.item_shadow, cls.item, className)}>
 
             <div className={clsx("flex items-start justify-between")}>
                 <span className="text-[#2F374A] font-[700] text-[10px] uppercase">{title}</span>
@@ -83,7 +84,7 @@ const CaseItem = ({ title, content, percent, picUrl, name, price, type }: CaseIt
             </div>
             <div className="flex flex-col gap-1">
                 <span className="text-[#2F374A] text-[10px] font-[500]">{name}</span>
-                <span className="text-[#D1D9EB] text-[12px] font-[600]">$ {price}</span>
+                <span className="text-[#D1D9EB] text-[12px] font-[500]">$ {price}</span>
             </div>
         </div>
     )

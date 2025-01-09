@@ -227,5 +227,18 @@
 		"search": "Search",
 		"price_descending": "Price Descending",
 		"create_case": "Create Case"
+	},
+	"open_case": {
+		"beach_season": "Beach Season",
+		"selected_top": "selected case",
+		"limited_edition": "Limited Edition",
+		"limited_content": "Open the case before the limit expires!",
+		"count_title": "Open at the same time",
+		"click_open": "Click to open",
+		"open_case": "Open Case",
+		"fast_mod": "Fast mode",
+		"instant_result": "Instant results",
+		"top_drops": "top drops",
+		"case_content": "Case contents"
 	}
 }

@@ -8,8 +8,8 @@ const CaseItems = () => {
 
 
     // Build case item list
-    const cases = caseItems.map(item => (
-        <CaseItem title={item.title} content={item.content} price={item.price} picUrl={item.picUrl} type={item.type} name={item.name} percent={item.percent} />
+    const cases = caseItems.map((item, index) => (
+        <CaseItem key={index} title={item.title} content={item.content} price={item.price} picUrl={item.picUrl} type={item.type} name={item.name} percent={item.percent} />
     ))
     return (
         <div className="flex flex-wrap justify-between sm:justify-center gap-2 h-full relative">

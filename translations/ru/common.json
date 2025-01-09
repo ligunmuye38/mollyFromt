@@ -224,5 +224,18 @@
 		"search": "Поиск",
 		"price_descending": "Цена по убыванию",
 		"create_case": "Создать дело"
+	},
+	"open_case": {
+		"beach_season": "Пляжный сезон",
+		"selected_top": "выбранный случай",
+		"limited_edition": "Ограниченный выпуск",
+		"limited_content": "Откройте кейс, пока не истечет лимит!",
+		"count_title": "Открыто одновременно",
+		"click_open": "Нажмите, чтобы открыть",
+		"open_case": "Открыть дело",
+		"fast_mod": "Быстрый режим",
+		"instant_result": "Мгновенные результаты",
+		"top_drops": "верхние капли",
+		"case_content": "Содержимое кейса"
 	}
 }
