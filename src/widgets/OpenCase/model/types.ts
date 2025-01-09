@@ -26,3 +26,18 @@ export interface ICaseItemType {
     price: string
     type: ImageBgType
 }
+
+// FarmItem type interface
+export interface IFarmItemType {
+    id: string
+    title: string
+    content: string
+    percent: number
+    picUrl: string
+    name: string
+    price: string
+    type: ImageBgType
+    pricesTitle: string[]
+    prices: string[]
+    oods: string[]
+}
