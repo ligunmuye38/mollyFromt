@@ -108,12 +108,10 @@ export const OpenCase: FC<OpenCaseProps> = ({ className }) => {
 				</div>
 			</div>
 			<div className={clsx('relative w-full justify-center flex overflow-hidden')}>
-				<div className={clsx(cls.border_bg, 'h-0.5 bg-opacity-10 opacity-90 absolute w-full')}>
+				<div className={clsx(cls.border_bg, 'min-h-0.5 bg-opacity-10 opacity-90 w-full')}>
 
 				</div>
-				<div className={clsx(" border-[2px] w-2/5	 border-dotted")}>
-
-				</div>
+				
 			</div>
 		</div>
 	)
