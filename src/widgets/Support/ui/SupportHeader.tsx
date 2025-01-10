@@ -4,7 +4,6 @@ import IntroBar from "@/shared/ui/IntroBar/IntroBar";
 import IconQuestion from '@/shared/assets/icons/icon-question.svg'
 import IconNewTicket from '@/shared/assets/icons/icon-new-ticket.svg'
 import Button from "@/shared/ui/Button/Button"
-import IconSupportBtn from '@/shared/assets/icons/icon-support-btn.svg'
 
 import clsx from "clsx";
 import cls from './Support.module.sass'

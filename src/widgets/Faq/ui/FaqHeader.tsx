@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import IconFaq from '@/shared/assets/icons/icon-faq-white.svg'
-import IconSupportBtn from '@/shared/assets/icons/icon-support-btn.svg'
 import IconQuestion from '@/shared/assets/icons/icon-question.svg'
 import Button from '@/shared/ui/Button/Button';
 import IntroBar from '@/shared/ui/IntroBar/IntroBar';
