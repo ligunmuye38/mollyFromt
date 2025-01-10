@@ -147,7 +147,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 		icon: IconLockOpen,
 		items: [
 			{
-				id: 'case/1',
+				id: 'case/farm',
 				name: 'Cases Magic',
 				picUrl: '/images/case/case-full-1.png',
 				price: '15.50',
@@ -171,7 +171,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 				oldPrice: '25.50'
 			},
 			{
-				id: 'case/3',
+				id: 'case/mystery',
 				name: 'Cases Magic',
 				picUrl: '/images/case/case-full-3.png',
 				price: '15.50',
@@ -197,7 +197,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 		icon: IconStar,
 		items: [
 			{
-				id: 'case/1',
+				id: 'case/farm',
 				name: 'Cases Magic',
 				picUrl: '/images/case/case-full-1.png',
 				price: '15.50',
@@ -219,7 +219,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 				},
 			},
 			{
-				id: 'case/3',
+				id: 'case/mystery',
 				name: 'Cases Magic',
 				picUrl: '/images/case/case-full-3.png',
 				price: '15.50',
