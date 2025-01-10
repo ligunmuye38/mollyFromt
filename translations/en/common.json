@@ -257,7 +257,8 @@
 		"hint_content1": "Farmcases are designed to ensure that you only get the best items.",
 		"hint_content2": "Junk items are sold automatically!",
 		"price": "price",
-		"odds": "odds"
+		"odds": "odds",
+		"try_again": "Try again"
 	},
 	"open": "open"
 }
