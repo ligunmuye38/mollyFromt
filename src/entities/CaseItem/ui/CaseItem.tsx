@@ -25,9 +25,10 @@ interface CaseItemProps {
     hoverContent?: React.ReactNode
     isOpen?: boolean
     isRotate?: boolean
+    onClick?: () => void
 }
 
-const CaseItem = ({ title, content, percent, picUrl, name, price, type, className, isHover = false, isRotate = true, hoverContent, isOpen = true, backTheme }: CaseItemProps) => {
+const CaseItem = ({ title, content, percent, picUrl, name, price, type, className, isHover = false, isRotate = true, hoverContent, isOpen = true, backTheme, onClick }: CaseItemProps) => {
 
 
     // For translation
@@ -80,24 +81,45 @@ const CaseItem = ({ title, content, percent, picUrl, name, price, type, classNam
     }
 
 
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState<boolean>(false);
+    const [isRotated, setIsRotated] = useState<boolean>(isRotate);
+    const [isOpened, setIsOpened] = useState<boolean>(isOpen)
+    const [isRotation, setIsRotation] = useState<boolean>(false)
 
     const hoverHandle = (value: boolean) => {
-        if (isHover == true) {
+        if (isHover == true && isOpened == true) {
             setIsHovered(value);
         }
     }
 
+    // click function
+    const clickHandle = () => {
+        if (isRotated == true) {
+            if (isOpened == false) {
+                setIsRotation(true)
+                setTimeout(() => {
+                    setIsOpened(true)
+                }, 150);
+            }
+            else if (isOpened == true) {
+                if (onClick) {
+                    onClick();
+                }
+            }
+        }
+    }
+
     return (
-        <div className="w-auto h-auto hover:cursor-pointer"
+        <div className={clsx("w-auto h-auto hover:cursor-pointer", isRotation && cls.open_rotation)}
+            onClick={() => clickHandle()}
             onMouseEnter={() => hoverHandle(true)} 
             onMouseLeave={() => hoverHandle(false)}>
-            <div className={clsx(cls.item_box)}>
+            <div className={clsx(cls.item_box, backTheme && cls[backTheme])}>
                 {
-                    isRotate == true && 
+                    isRotated == true && 
                     <>
                         {
-                            isOpen == true &&
+                            isOpened == true &&
                             <div className={clsx("w-[133px] h-[153px] rounded-[12px] p-[13px] flex flex-col justify-between relative overflow-hidden", cls.item_shadow, cls.item, className)}>
                                 <div className={clsx("flex items-start justify-between")}>
                                     <span className="text-[#2F374A] font-[700] text-[10px] uppercase">{title}</span>
@@ -126,7 +148,7 @@ const CaseItem = ({ title, content, percent, picUrl, name, price, type, classNam
                             </div>
                         }
                         {
-                            isOpen == false &&
+                            isOpened == false &&
                             <div className={clsx("w-[133px] h-[153px] rounded-[12px] p-[13px] flex flex-col justify-center items-center relative", cls.item_back, backTheme && cls[backTheme])}>
                                 <IconLogo />
                             </div>
@@ -135,7 +157,7 @@ const CaseItem = ({ title, content, percent, picUrl, name, price, type, classNam
                     
                 }
                 {
-                    isRotate == false && 
+                    isRotated == false && 
                     <div className={clsx("w-[133px] h-[153px] rounded-[12px] p-[13px] flex flex-col justify-center items-center relative bg-[#141925]", cls.item_back)}>
                             <div className={clsx(cls.item_open_hexagon)}>
                                 <div className={clsx(cls.item_open_hexagon_body)}>
