@@ -22,7 +22,7 @@ const FarmContents = () => {
                 </div>
                 {
                     pricesTitle.map((item, index) => (
-                        <div className="flex justify-between w-full">
+                        <div className="flex justify-between w-full" key={index}>
                             <span className="flex gap-0.5">
                                 <span className="text-white text-[8px] uppercase">{item}</span>
                                 <span className="text-[#24FDBC] text-[8px] uppercase">${prices[index]}</span>
