@@ -15,6 +15,8 @@ export interface IState {
 	headerState: number
 	mobileRightBarState: boolean
 	itemPosition: string
+	caseCount: number
+	openFarm: boolean
 }
 export interface IActions {
 	setChatHidden: (value: boolean) => void
@@ -27,6 +29,8 @@ export interface IActions {
 	setHeaderState: (value: number) => void
 	setMobileRightBarState: (value: boolean) => void
 	setItemPosition: (value: string) => void
+	setCaseCount: (value: number) => void
+	setOpenFarm: (value: boolean) => void
 }
 
 export const initialState: IState = {
@@ -39,7 +43,9 @@ export const initialState: IState = {
 	signinState: false,
 	headerState: 0,
 	mobileRightBarState: false,
-	itemPosition: 'left'
+	itemPosition: 'left',
+	caseCount: 0,
+	openFarm: true
 }
 
 export const useCommonStore = create<IState & IActions>()(
@@ -127,6 +133,22 @@ export const useCommonStore = create<IState & IActions>()(
 							},
 							undefined,
 							'SET_ITEM_POSITION_STATE' 
+						),
+					setCaseCount: value =>
+						set(
+							state => {
+								state.caseCount = value
+							},
+							undefined,
+							'SET_CASE_COUNT'
+						),
+					setOpenFarm: value =>
+						set(
+							state => {
+								state.openFarm = value
+							},
+							undefined,
+							'SET_OPEN_FARM'
 						),
 				}),
 				{
