@@ -4,7 +4,6 @@ import cls from '../OpenCase.module.sass'
 
 import HeaderBg from '@/shared/assets/section-header-bg-top.svg'
 import IconCase from '@/shared/assets/icons/icon-case-open.svg'
-import IconInstance from '@/shared/assets/icons/icon-instance.svg'
 
 import Pagination from '@/shared/ui/Pagination/ui/Pagination'
 import { farmPaginationData } from '../../model/items'
@@ -18,8 +17,11 @@ const FarmToolBar = () => {
     // For translation
     const t = useTranslations();
 
+    const openFarm = useCommonStore(state => state.openFarm)
+
 
     return (
+        openFarm == true &&
         <div>
             <div className='relative w-full overflow-hidden h-auto py-3'>
                 <div className='w-full absolute bottom-0 h-[74px] -z-10 md:hidden flex'>

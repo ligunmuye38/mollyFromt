@@ -41,3 +41,11 @@ export interface IFarmItemType {
     prices: string[]
     oods: string[]
 }
+
+// Farm badge title interface
+export interface IBadgeItem {
+    icon: React.FC<React.SVGProps<SVGSVGElement>>
+    title: string
+    content: string
+    iconClassName: string
+}

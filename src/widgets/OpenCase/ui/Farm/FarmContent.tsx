@@ -1,12 +1,17 @@
+"use client"
+
 import CaseItem from "@/entities/CaseItem/ui/CaseItem";
 import { useTranslations } from "next-intl";
 
 import { farmItems } from "../../model/items";
+import { useCommonStore } from "@/entities/Common/model/store";
 
 const FarmContents = () => {
 
     // For translation
     const t = useTranslations();
+    const openFarm = useCommonStore(state => state.openFarm)
+    const setOpenFarm = useCommonStore(state => state.setOpenFarm)
 
     const hoverContent = (prices: string[], odds: string[], pricesTitle: string[]) => {
         return (
@@ -30,16 +35,23 @@ const FarmContents = () => {
         )
     }
 
+
+    // Item click function
+    const clickHandle = () => {
+        setOpenFarm(false);
+    }
+
     // Build case item list
     const cases = farmItems.map((item, index) => (
         <CaseItem key={index} title={item.title} content={item.content} price={item.price} picUrl={item.picUrl} type={item.type} name={item.name} percent={item.percent}
             isHover={true}
             hoverContent={hoverContent(item.prices, item.oods, item.pricesTitle)}
+            onClick={() => clickHandle()}
         />
     ))
 
     return (
-        <div className="flex flex-col w-full justify-center items-center gap-5 py-3 px-3">
+        openFarm  == true && <div className="flex flex-col w-full justify-center items-center gap-5 py-3 px-3">
             <span className="text-[#D1D9EB] font-[500] text-[18px]">{t('open_case.case_content')}</span>
             <div className="flex justify-center flex-wrap gap-3">
                 {cases}
