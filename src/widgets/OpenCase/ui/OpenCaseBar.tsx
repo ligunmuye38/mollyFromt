@@ -13,6 +13,7 @@ import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/Button/Button'
 import SwitchButton from '@/shared/ui/SwitchButton/SwitchButton'
 import { useCommonStore } from '@/entities/Common/model/store'
+import { useState } from 'react'
 
 
 const OpenCaseBar = () => {
@@ -23,9 +24,19 @@ const OpenCaseBar = () => {
     // Get setCaseCount function
     const setCaseCount = useCommonStore(state => state.setCaseCount)
 
+    // Case count value
+    const [count, setCount] = useState<number>(0);
+
     // For pagination function
     const setPagination = (value: number) => {
-        setCaseCount(value)
+        setCount(value)
+    }
+
+    // For open case function
+    const openCase = () => {
+        if (count > 0) {
+            setCaseCount(count);
+        }
     }
 
     return (
@@ -47,6 +58,7 @@ const OpenCaseBar = () => {
                                     base: "w-full h-full"
                                 }}
                                     startContent={<IconCase className='w-[22px] h-[20px]' />}
+                                    onClick={openCase}
                                 >
                                     <span className='text-[#000000] text-[15px] font-[900]'>{t('open_case.open_case') + '• $15.50'}</span>
                                 </Button>
