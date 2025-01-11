@@ -23,20 +23,13 @@ export const OpenCase: FC<OpenCaseProps> = ({ className }) => {
 	// For translation
 	const t = useTranslations();
 
-	const setItemPosition = useCommonStore(state => state.setItemPosition)
 	const caseCount = useCommonStore(state => state.caseCount)
-	const setCaseCount = useCommonStore(state => state.setCaseCount)
 
 
 	// For case count
 	const [caseCountState, setCaseCountState] = useState<number>(0);
 
-	// Init function
-	useEffect(() => {
-		setItemPosition("left")
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-		setCaseCount(0)
-	}, [])
+	
 
 	
 	// Case count hook
