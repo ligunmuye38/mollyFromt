@@ -1,14 +1,11 @@
-"use client"
 import clsx from "clsx";
 import cls from "./OpenCase.module.sass";
 
 import IconCrown from '@/shared/assets/icons/icon-crown-gradient-grey.svg'
-import { CardLiveFeed } from "@/shared/ui/CardLiveFeed/CardLiveFeed";
-
 import { useTranslations } from "next-intl";
-import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { itemsList } from "../model/items";
+import { CardLiveFeed } from "@/shared/ui/CardLiveFeed/CardLiveFeed";
 
 const CaseLiveFeed = () => {
 
@@ -17,16 +14,13 @@ const CaseLiveFeed = () => {
 
     // Build live feeds
     const items = itemsList.map(item => (
-        <SwiperSlide
-            key={item.id}
-        >
         <CardLiveFeed
+            key={item.id}
             title={item.title}
             pic={item.picUrl}
             theme={item.rarity}
             className={cls.card}
-            />
-        </SwiperSlide>
+        />
     ))
 
     return (
@@ -41,17 +35,7 @@ const CaseLiveFeed = () => {
                 <div className={clsx(cls.livefeed_container)}>
                     <div className={clsx(cls.livefeed_container_inner, 'overflow-hidden')}>
                         <div className="relative w-full h-full z-20 p-1 flex gap-0.5">
-                            <Swiper
-                                spaceBetween={2}
-                                slidesPerView={'auto'}
-                                loop={true}
-                                wrapperClass={clsx('flex w-full',)}
-                                className='relative w-full'
-                                tabIndex={8}
-                                direction={'horizontal'}
-                                >
-                                    {items}
-                            </Swiper>
+                            {items}
                         </div>
                     </div>
                 </div>
