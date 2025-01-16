@@ -32,7 +32,7 @@ const OpenFarm = () => {
 
     return (
         <div className="flex flex-col gap-5 items-center">
-            <div className="w-full flex justify-center gap-[45px] flex-wrap">
+            <div className="w-full flex justify-center gap-[45px] 3sm:gap-0 3sm:justify-between px-1 flex-wrap">
                 {
                     badgeItems.map(item => (
                         <BadgeTitle icon={<item.icon className={item.iconClassName} />} title={item.title} content={item.content} key={item.title} />
@@ -42,16 +42,18 @@ const OpenFarm = () => {
             <div className="w-full flex flex-wrap justify-center gap-2.5">
                 {farms}
             </div>
-            <div className={clsx('w-[313px] h-[48px]', cls.btn_hexagon_yellow)}>
-                <div className={clsx('w-full h-full', cls.btn_hexagon_yellow_inner)}>
-                    <Button fullWidth={true} hexagon={true} classNames={{
-                        base: "w-full h-full"
-                    }}
-                        onClick={tryAgain}
-                        startContent={<IconTryagain className='w-[22px] h-[20px]' />}
-                    >
-                        <span className='text-[#000000] text-[15px] font-[900]'>{t('case_farm.try_again')}</span>
-                    </Button>
+            <div className={clsx('min-w-[313px] h-[52px] flex justify-center items-center relative', cls.btn_hexagon_yellow_shadow)}>
+                <div className={clsx('w-[313px] h-[48px] relative', cls.btn_hexagon_yellow)}>
+                    <div className={clsx('w-full h-full relative', cls.btn_hexagon_yellow_inner)}>
+                        <Button fullWidth={true} hexagon={true} classNames={{
+                            base: "w-full h-full"
+                        }}
+                            onClick={tryAgain}
+                            startContent={<IconTryagain className='w-[22px] h-[20px]' />}
+                        >
+                            <span className='text-[#000000] text-[15px] font-[900]'>{t('case_farm.try_again')}</span>
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>
