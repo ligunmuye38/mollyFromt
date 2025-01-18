@@ -78,8 +78,8 @@ const MainBestDrop = ({title, type, name, imgUrl}: MainBestDropProps) => {
 
 
     return (
-        <div className={clsx("w-full mt-[15px] flex gap-5 h-full md:flex-col items-center", !chatViewHidden && "flex-col")}>
-            <div className={clsx("bg-[#E3B718] rounded-xl p-[1px] w-[200px] h-[271px] md:w-full md:h-auto", !chatViewHidden && "!w-full !h-auto")}>
+        <div className={clsx("w-full mt-[15px] flex gap-5 h-full md:flex-col items-center", !chatViewHidden && "3lg:flex-col")}>
+            <div className={clsx("bg-[#E3B718] rounded-xl p-[1px] w-[200px] h-[271px] md:w-full md:h-auto", !chatViewHidden && "3lg:!w-full 3lg:!h-auto")}>
                 <div className="rounded-xl bg-yellow-400 w-full h-full relative">
                     <div className={clsx("rounded-[12px] p-5 bg-[#121722] flex flex-col relative overflow-hidden w-full h-full")}>
                         <div className={clsx("flex items-start justify-between w-full")}>
@@ -89,8 +89,8 @@ const MainBestDrop = ({title, type, name, imgUrl}: MainBestDropProps) => {
                             <div className={clsx("w-[12px] h-[12px] rounded-[3px]", getMarkBackground(type))}>
                             </div>
                         </div>
-                        <div className={clsx("w-full flex md:gap-5 justify-center items-center flex-col md:flex-row", !chatViewHidden && "!flex-row !gap-5")}>
-                            <div className="w-full flex justify-center md:w-auto">
+                        <div className={clsx("w-full flex md:gap-5 justify-center items-center flex-col md:flex-row", !chatViewHidden && "3lg:!flex-row 3lg:!gap-5")}>
+                            <div className={clsx("w-full flex justify-center md:w-auto", !chatViewHidden && "3lg:!w-auto")}>
                                 <div className="relative w-[180px] h-[127px]">
                                     <div className={clsx("relative w-full h-full flex justify-center items-center", getBackground(type))}>
                                         <Image src={'/images/case/skin-2.png'} height={127} width={180} alt="box" />
