@@ -127,7 +127,7 @@ const MainBestDrop = ({title, type, name, imgUrl}: MainBestDropProps) => {
                             )}
                                 style={{ order: item.id }}
                             >
-                                <BadgeBarItem key={item.id} title={item.title} content={t(item.content)} icon={item.icon} titleType={item?.titleType} />
+                                <BadgeBarItem key={item.id} titleIcon={item?.titleIcon} title={item.title} content={t(item.content)} icon={item.icon} titleType={item?.titleType} />
                             </div>
                         ))
                     }

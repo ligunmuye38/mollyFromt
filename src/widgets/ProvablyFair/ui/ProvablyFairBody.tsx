@@ -75,6 +75,8 @@ const ProvablyFairBody = () => {
         if (refs.current[index + 3]) {
             refs.current[index + 3]?.scrollIntoView({ behavior: 'smooth' });
             setActiveNumber(index)
+        } else {
+            console.error("Element not found or is not an HTML element.");
         }
     }
 
@@ -113,8 +115,8 @@ const ProvablyFairBody = () => {
         window.addEventListener('scroll', handleScroll);
         setIsScrollTop(true)
         return () => {
-            window.removeEventListener('scroll', handleScroll);
             setIsScrollTop(false)
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
@@ -125,9 +127,13 @@ const ProvablyFairBody = () => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const id = entry.target.id;
-                    updateActiveState(id);
+                    console.log(id, entry.target.getBoundingClientRect().top)
+                
+                        updateActiveState(id);
                 }
             });
+        }, {
+            threshold: 1 // Adjust threshold as needed
         });
 
         // Observe each section
