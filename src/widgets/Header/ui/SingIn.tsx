@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl"
 import Button from '@/shared/ui/Button/Button'
 
 import { useModal } from "@/shared/context/ModalContext"
-import SignInModal from "@/widgets/Auth/SignInModal"
 import SignUpModal from "@/widgets/Auth/SignUpModal"
 import ForgetPassword from "@/widgets/Auth/ForgetPasswordModal"
 
@@ -42,7 +41,8 @@ export const SignIn = () => {
             {
                 body: '',
                 modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
-            }
+            },
+            true
         );
     }
 
@@ -55,7 +55,8 @@ export const SignIn = () => {
             {
                 body: '',
                 modal: 'relative w-full lg:h-full h-screen flex justify-center items-center'
-            }
+            },
+            true
         );
     }
 

@@ -15,17 +15,13 @@ interface CaseToolbarProps {
 	isHeader?: boolean
 }
 
-export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = true, isHeader = true }) => {
+export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = true }) => {
 	const baseRef = useRef<HTMLDivElement>(null)
 
 	const [inViewport] = useInViewport(baseRef)
 
 	const setCaseToolbarInView = useCommonStore(state => state.setCaseToolbarInView)
-	const setItemPosition = useCommonStore(state => state.setItemPosition)
 
-	useEffect(() => {
-		setItemPosition("left")
-	}, [])
 
 	useEffect(() => {
 		if (inViewport !== undefined) {
@@ -40,7 +36,7 @@ export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = t
 		>
 			<div className={cls.wrapper}>
 				<div className={cls.inner}>
-					<CaseToolbarContent isHeader={isHeader} />
+					<CaseToolbarContent />
 				</div>
 			</div>
 		</div>

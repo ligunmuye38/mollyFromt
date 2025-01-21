@@ -47,7 +47,8 @@
 		"weapon_type": "Тип оружия",
 		"mode": "Мод",
 		"enough_balance": "Хватает баланса",
-		"clear": "Очистить"
+		"clear": "Очистить",
+		"cases": "Дела сообщества"
 	},
 	"chat": {
 		"chat": "Чат",
@@ -85,9 +86,15 @@
 		"sigin_btn_text": "Войти",
 		"signup_btn_text": "Зарегистрироваться",
 		"sigin_in_via_steam": "Войти через Steam",
+		"sigin_in_via_twitch": "Войти через Twitch",
 		"create_new_account": "Создать новый аккаунт",
 		"password_recovery": "Восстановление пароля",
-		"continue": "Продолжать"
+		"continue": "Продолжать",
+		"login_or_create": "Войти или создать",
+		"login": "Авторизоваться",
+		"register": "Регистрация",
+		"sent_email_success": "Письмо успешно отправлено!",
+		"check_email": "Пожалуйста, проверьте свою почту."
 	},
 	"topbar": {
 		"provably_fair": "Доказуемо честный",
@@ -212,7 +219,10 @@
 	"cases_header": {
 		"title": "СОЗДАЙТЕ СВОИ СОБСТВЕННЫЕ ИНДИВИДУАЛЬНЫЕ ДЕЛА",
 		"content": "Вы можете создавать кейсы с предметами и коэффициентами по вашему выбору.",
-		"create_case": "создать дело"
+		"create_case": "создать дело",
+		"to_favorites": "в избранное",
+		"add_to_battle": "добавить в битву",
+		"percent_of_income": "процент от вашего дохода"
 	},
 	"create_case": {
 		"title": "Создание дела",
@@ -238,7 +248,10 @@
 		"fast_mod": "Быстрый режим",
 		"instant_result": "Мгновенные результаты",
 		"top_drops": "верхние капли",
-		"case_content": "Содержимое кейса"
+		"case_content": "Содержимое кейса",
+		"refill": "не покидай",
+		"refill_btn": "Пополнить баланс",
+		"refill_text": "Недостаточно средств для открытия дела"
 	},
 	"case_mystery": {
 		"title": "Таинственное дело",
@@ -258,5 +271,57 @@
 		"odds": "odds",
 		"try_again": "Попробуйте еще раз"
 	},
-	"open": "открыть"
+	"open": "открыть",
+	"case_congratulation": {
+		"title": "Поздравления!",
+		"try_again": "Попробуй ещё раз",
+		"sell_everything": "Продать все",
+		"go_inventory": "Перейти к инвентаризации",
+		"top_title": "Поздравляем, вы выиграли следующие лоты:",
+		"bottom_title": "Вы можете продать весь товар или попробовать открыть кейс заново."
+	},
+	"profile_main": {
+		"title": "профиль",
+		"balance": "Баланс",
+		"deposit": "Депозит",
+		"profile": "Профиль",
+		"history_games": "Исторические игры",
+		"transaction_history": "История транзакций",
+		"achievements": "Достижения",
+		"verification": "Проверка",
+		"settings": "Настройки",
+		"attain": "Достичь",
+		"promocode": "Промо-код"
+	},
+	"profile_page": {
+		"leave_site": "Покинуть сайт",
+		"trade_url": "Торговый URL",
+		"trade_url_content": "Получите предметы в свой инвентарь Steam",
+		"trade_url_placeholder": "Торговля-URL",
+		"trade_link": "Где получить TRADE-URL?",
+		"case_opened": "Открытые дела",
+		"upgrades": "Обновления",
+		"lotto": "Лото играли",
+		"refferal_level": "Уровень реферала",
+		"refferal_number": "Количество рефералов",
+		"all_earned": "Все заработано",
+		"earned_from_cases": "Заработано на кейсах",
+		"promocode": "Промо-код",
+		"cases_created": "Создано дел"
+	},
+	"user_profile": {
+		"games_played": "Сыграно игр",
+		"winnings": "Сумма выигрыша",
+		"top_winnings": "Лучшие выигрыши",
+		"best_drop": "Лучший дроп",
+		"investory": "Инвесторы"
+	},
+	"game_history_profile": {
+		"history_games": "Исторические игры",
+		"case_battle": "Дело битвы",
+		"case_name": "Название дела",
+		"price": "Цена",
+		"date_of_opening": "Дата открытия",
+		"prizes": "Призы"
+	}
 }

@@ -30,7 +30,7 @@ const SwitchButton = ({ prevClick, nextClick }: SwitchButtonProps) => {
     return (
         <div className={clsx(cls.switch_btn, 'w-[42px] h-[22px] hover:cursor-pointer')} onClick={switchHandle}>
             <div className={clsx('w-full h-full relative', cls.switch_btn_inner)}>
-                <div className={clsx(cls.switch_btn_icon, 'absolute', isPrev ? "left-0 duration-150" : "right-0 duration-150")}>
+                <div className={clsx(cls.switch_btn_icon, 'absolute', isPrev ? "left-0 duration-150" : "left-[18px] duration-150")}>
                     <div className={clsx(cls.switch_btn_icon_inner)}>
                         <div className={clsx(cls.switch_btn_icon_inner_center)}>
 

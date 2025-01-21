@@ -1,6 +1,5 @@
 "use client"
 import Image from 'next/image'
-import { FC, useEffect, useState } from 'react'
 
 import Backshape from '@/shared/assets/open-case-backshape.svg'
 import openCaseBg from '@/shared/assets/open-case-bg.png'
@@ -12,6 +11,7 @@ import { useCommonStore } from '@/entities/Common/model/store'
 import { useTranslations } from 'next-intl'
 
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
+import IconBorder from '@/shared/assets/icons/icon-dotted-border.svg'
 import OpenFarm from './OpenFarm'
 
 export const FarmBody = () => {
@@ -19,17 +19,7 @@ export const FarmBody = () => {
     // For translation
     const t = useTranslations();
 
-    const setItemPosition = useCommonStore(state => state.setItemPosition)
-    const setCaseCount = useCommonStore(state => state.setCaseCount)
 
-
-
-    // Init function
-    useEffect(() => {
-        setItemPosition("left")
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        setCaseCount(0)
-    }, [])
 
 
     // Open farm state
@@ -37,8 +27,8 @@ export const FarmBody = () => {
 
     return (
         <div className={clsx(cls.base)}>
-            <div className={clsx(cls.container, '!pt-0')}>
-                <div className={clsx(cls.type, openFarm == false ? "hidden" : "flex justify-center")}>{t('open_case.selected_top')}</div>
+            <div className={clsx(cls.container , openFarm == false ? "!pt-0" : "md:!pt-9")}>
+                <div className={clsx(cls.type, openFarm == false ? "hidden" : "flex justify-center", "md:hidden flex")}>{t('open_case.selected_top')}</div>
                 {
                     openFarm == true && 
                     <div
@@ -46,7 +36,7 @@ export const FarmBody = () => {
                         style={{ backgroundImage: `url(${openCaseBg.src})` }}
                     >
                         <Backshape className={cls.backshape} />
-                        <div className={clsx(cls.backshape, '3sm:!left-0 3sm:!transform-none 3sm:!top-0 flex')}>
+                        <div className={clsx(cls.backshape, 'flex')}>
                             <Image
                                 src={'/images/case/case-full-2.png'}
                                 alt='case'
@@ -54,11 +44,11 @@ export const FarmBody = () => {
                                 height={320}
                             />
                         </div>
-                        <div className={clsx(cls.grid, 'justify-end w-full flex-row flex')}>
-                            <div className={clsx(cls.farm_hint, ' max-w-[374px] mr-5 sm:mr-0 sm:mx-1 sm:mt-[140px]')}>
+                        <div className={clsx(cls.grid, 'justify-end w-full flex-row flex md:justify-start md:ml-3')}>
+                            <div className={clsx(cls.farm_hint, ' max-w-[374px] mr-5 md:mr-0 md:mx-1')}>
                                 <div className={clsx(cls.farm_hint_inner, 'p-4 flex gap-2')}>
-                                    <IconHint className='w-7 h-7 fill-[#FFA3A3]' />
-                                    <div className='flex flex-col gap-2'>
+                                    <IconHint className='w-[34px] h-[34px] fill-[#FFA3A3] absolute md:-top-9' />
+                                    <div className='flex flex-col gap-1 text-[#FFA3A3] text-[12px] font-[500] ml-12 md:ml-[15px]'>
                                         <span className='text-[#FFA3A3] text-[14px] font-[500] uppercase'>{t('case_farm.hint_title')}</span>
                                         <span className='text-[#FFA3A3] text-[12px] flex flex-col'>
                                             <span>{t('case_farm.hint_content1')}</span>
@@ -82,12 +72,7 @@ export const FarmBody = () => {
                 
             </div>
             <div className={clsx('relative w-full justify-center overflow-hidden', openFarm == false ? "hidden" : "flex")}>
-                <div className={clsx(cls.border_bg, 'h-0.5 bg-opacity-10 opacity-90 absolute w-full')}>
-
-                </div>
-                <div className={clsx(" border-[2px] w-2/5 border-dotted")}>
-
-                </div>
+                <IconBorder />
             </div>
         </div>
     )

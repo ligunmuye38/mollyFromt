@@ -47,7 +47,8 @@
 		"weapon_type": "Weapon type",
 		"mode": "Mode",
 		"enough_balance": "Enough balance",
-		"clear": "Clear"
+		"clear": "Clear",
+		"cases": "Community cases"
 	},
 	"chat": {
 		"chat": "Chat",
@@ -88,9 +89,15 @@
 		"sigin_btn_text": "Sign in",
 		"signup_btn_text": "Sign up",
 		"sigin_in_via_steam": "Sign in via Steam",
+		"sigin_in_via_twitch": "Log in via Twitch",
 		"create_new_account": "Create new account",
 		"password_recovery": "Password recovery",
-		"continue": "Continue"
+		"continue": "Continue",
+		"login_or_create": "Log in or create",
+		"login": "Log in",
+		"register": "Registration",
+		"sent_email_success": "The email has been sent successfully!",
+		"check_email": "Please check your email"
 	},
 	"topbar": {
 		"provably_fair": "Provably Fair",
@@ -215,7 +222,10 @@
 	"cases_header": {
 		"title": "CREATE YOUR OWN CUSTOM CASES",
 		"content": "You can create cases with items and odds of your choice.",
-		"create_case": "create case"
+		"create_case": "create case",
+		"to_favorites": "to favorites",
+		"add_to_battle": "add to battle",
+		"percent_of_income": "percentage of your income"
 	},
 	"create_case": {
 		"title": "Case Creation",
@@ -241,7 +251,10 @@
 		"fast_mod": "Fast mode",
 		"instant_result": "Instant results",
 		"top_drops": "top drops",
-		"case_content": "Case contents"
+		"case_content": "Case contents",
+		"refill": "don't leave",
+		"refill_btn": "Refill balance",
+		"refill_text": "Insufficient funds to open a case"
 	},
 	"case_mystery": {
 		"title": "Mystery Case",
@@ -261,5 +274,57 @@
 		"odds": "odds",
 		"try_again": "Try again"
 	},
-	"open": "open"
+	"open": "open",
+	"case_congratulation": {
+		"title": "Congratulations!",
+		"try_again":"Try again",
+		"sell_everything": "Sell everything",
+		"go_inventory": "Go inventory",
+		"top_title": "Congratulations, you have won the following items:",
+		"bottom_title": "You can sell the entire item or try to open the case again."
+	},
+	"profile_main": {
+		"title": "profile",
+		"balance": "Balance",
+		"deposit": "Deposit",
+		"profile": "Profile",
+		"history_games": "History games",
+		"transaction_history": "Transaction history",
+		"achievements": "Achievements",
+		"verification": "Verification",
+		"settings": "Settings",
+		"attain": "Attain",
+		"promocode": "Promocode"
+	},
+	"profile_page":{
+		"leave_site": "Leave site",
+		"trade_url": "Trade URL",
+		"trade_url_content": "Get items in your Steam inventory",
+		"trade_url_placeholder": "Trade-URL",
+		"trade_link": "Where to get TRADE-URL ?",
+		"case_opened": "Cases Opened",
+		"upgrades": "Upgrades",
+		"lotto": "Lotto played",
+		"refferal_level": "Refferal Level",
+		"refferal_number": "Number of referrals",
+		"all_earned": "All earned",
+		"earned_from_cases": "Earned from cases",
+		"promocode": "Promocode",
+		"cases_created": "Cases created"
+	},
+	"user_profile": {
+		"games_played": "Games played",
+		"winnings": "Winnings amount",
+		"top_winnings": "Top winnings",
+		"best_drop": "Best drop",
+		"investory": "Investory"
+	},
+	"game_history_profile": {
+		"history_games": "History games",
+		"case_battle": "Case Battle",
+		"case_name": "Case name",
+		"price": "Price",
+		"date_of_opening": "Date of opening",
+		"prizes": "Prizes"
+	}
 }
