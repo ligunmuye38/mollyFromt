@@ -40,7 +40,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY . .
 
 # Run build.
-RUN npm run build
+RUN --mount=type=cache,id=next-cache,target=.next/cache \
+    npm run build
 
 ################################################################################
 # Create a new stage to run the application with minimal runtime dependencies
