@@ -1,11 +1,8 @@
 .base
   position: relative
-  // overflow: hidden
+  overflow: hidden
   transition-duration: 0.4s
   transition-property: filter, background-color, color, fill, stroke
-  user-select: none
-  clip-path: polygon( var(--hexagon-angle-offset) 0%, calc(100% - var(--hexagon-angle-offset)) 0%, 100% 50%, calc(100% - var(--hexagon-angle-offset)) 100%, var(--hexagon-angle-offset) 100%, 0% 50%)
-  // border: 2px solid #ffffff
   &[data-disabled], &:disabled
     opacity: 0.5
     pointer-events: none
@@ -13,8 +10,6 @@
     filter: brightness(120%)
   &:focus
     outline: none
-  
-  
 
 .content
   display: flex
