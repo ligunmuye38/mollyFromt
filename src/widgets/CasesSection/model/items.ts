@@ -1,4 +1,5 @@
 import IconLockOpen from '@/shared/assets/icons/icon-lock-open.svg'
+import IconRewardGold from '@/shared/assets/icons/icon-reward-gold.svg'
 import IconStar from '@/shared/assets/icons/icon-star.svg'
 import { CaseType } from '@/shared/types/case'
 
@@ -139,6 +140,83 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 					current: 9415,
 					total: 10000
 				}
+			}
+		]
+	},
+	caseCashback: {
+		title: 'Cashback cases',
+		icon: IconRewardGold,
+		items: [
+			{
+				id: 'case/farm',
+				name: 'Level 3',
+				picUrl: '/images/case/case-full-1.png',
+				price: '',
+				type: CaseType.AVAILABELED_IN,
+				availableIn: '2025-2-1'
+			},
+			{
+				id: 'case/2',
+				name: 'Level 4',
+				picUrl: '/images/case/case-full-2.png',
+				price: '',
+				type: CaseType.AVAILABLE
+			},
+			{
+				id: 'case/mystery',
+				name: 'Level 5',
+				picUrl: '/images/case/case-full-3.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/4',
+				name: 'Level 6',
+				picUrl: '/images/case/case-full-4.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/4',
+				name: 'Level 7',
+				picUrl: '/images/case/case-full-5.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/farm',
+				name: 'Level 8',
+				picUrl: '/images/case/case-full-1.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/2',
+				name: 'Level 9',
+				picUrl: '/images/case/case-full-2.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/mystery',
+				name: 'Level 10',
+				picUrl: '/images/case/case-full-3.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/4',
+				name: 'Level 11',
+				picUrl: '/images/case/case-full-4.png',
+				price: '',
+				type: CaseType.LOCKED
+			},
+			{
+				id: 'case/4',
+				name: 'Level 12',
+				picUrl: '/images/case/case-full-5.png',
+				price: '',
+				type: CaseType.LOCKED
 			}
 		]
 	},
