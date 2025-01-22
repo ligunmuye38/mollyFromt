@@ -32,7 +32,8 @@
 		"discount": "**-{discount}%** discount",
 		"locked": "lock",
 		"free": "free",
-		"unique": "unique case"
+		"unique": "unique case",
+		"available": "available"
 	},
 	"settings": {
 		"trade": "Trade URL",
@@ -277,7 +278,7 @@
 	"open": "open",
 	"case_congratulation": {
 		"title": "Congratulations!",
-		"try_again":"Try again",
+		"try_again": "Try again",
 		"sell_everything": "Sell everything",
 		"go_inventory": "Go inventory",
 		"top_title": "Congratulations, you have won the following items:",
@@ -296,7 +297,7 @@
 		"attain": "Attain",
 		"promocode": "Promocode"
 	},
-	"profile_page":{
+	"profile_page": {
 		"leave_site": "Leave site",
 		"trade_url": "Trade URL",
 		"trade_url_content": "Get items in your Steam inventory",

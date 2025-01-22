@@ -63,6 +63,14 @@
   border-radius: 10px
   max-width: calc(100% - 20px)
   padding: 2px
+  &.green
+    .badge_inner
+      border: 2px solid rgba(36,250,186,1)
+      background-color: rgba(47, 55, 74, 0.35)
+      backdrop-filter: blur(12px)
+    .badge
+      &_label
+        color: #24FDBC
   &.default
     .badge_inner
       border: 2px solid #262F40
@@ -98,6 +106,9 @@
     justify-content: center
     gap: 8px
   &_icon
+    display: flex
+    justify-content: center
+    align-items: center
     flex-shrink: 0
     width: 24px
     height: 24px

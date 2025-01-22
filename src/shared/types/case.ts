@@ -5,6 +5,7 @@ export enum CaseType {
 	LIMITED = 'limit',
 	DISCOUNTED = 'discount',
 	AVAILABELED_IN = 'available_in',
+	AVAILABLE = 'available',
 	EXPIRED_AT = 'expired_at',
 	UNIQUE = 'unique'
 }

@@ -1,6 +1,7 @@
 import { CaseType } from '../types/case'
 import { CaseConfigProps } from '../ui/CaseCard/CaseCardView'
 
+import IconSuccess from '@/shared/assets/icons/icon-check-rounded-2.svg'
 import IconDiscount from '@/shared/assets/icons/icon-discount.svg'
 import IconLightning from '@/shared/assets/icons/icon-lightning.svg'
 import IconLock from '@/shared/assets/icons/icon-lock.svg'
@@ -12,10 +13,18 @@ interface Props extends CaseConfigProps {
 	icon?: any
 	iconTheme?: string
 	iconShadow?: boolean
+	theme?: string
 }
 
 export const caseTypeToProps: Record<CaseType, Props> = {
 	[CaseType.COMMON]: {},
+	[CaseType.AVAILABLE]: {
+		badgeMode: 'wide',
+		badgeTheme: 'green',
+		icon: IconSuccess,
+		iconTheme: 'green',
+		iconShadow: true
+	},
 	[CaseType.AVAILABELED_IN]: {
 		badgeMode: 'wide',
 		icon: IconLock,

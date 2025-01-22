@@ -47,6 +47,8 @@ export const CaseCard: FC<CaseCardProps> = ({ className, ...item }) => {
 				return <CaseMarkdown>{`**${item.limit?.current}**/${item.limit?.total}`}</CaseMarkdown>
 			case CaseType.LOCKED:
 				return t('caseCard.locked')
+			case CaseType.AVAILABLE:
+				return t('caseCard.available')
 			case CaseType.UNIQUE:
 				return t('caseCard.unique')
 			default:
