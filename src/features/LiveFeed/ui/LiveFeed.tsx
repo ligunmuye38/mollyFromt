@@ -1,4 +1,6 @@
-"use client"
+'use client'
+
+import { LiveFeedItem } from '../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { FC } from 'react'
@@ -10,7 +12,6 @@ import { CardLiveFeed } from '@/shared/ui/CardLiveFeed/CardLiveFeed'
 
 import { FeedButton } from './Button/Button'
 import cls from './LiveFeed.module.sass'
-import { LiveFeedItem } from '../model/types'
 
 interface LiveFeedProps {
 	className?: string

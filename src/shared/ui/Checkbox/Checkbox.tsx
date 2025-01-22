@@ -14,10 +14,6 @@ const checkIconByType: Record<CheckIcon, React.ElementType> = {
 }
 
 const CheckboxIcon = ({
-	isChecked,
-	isIndeterminate,
-	isSelected,
-	disableAnimation,
 	as: Element,
 	...rest
 }: {

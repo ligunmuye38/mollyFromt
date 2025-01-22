@@ -7,7 +7,12 @@ import IconLock from '@/shared/assets/icons/icon-lock.svg'
 import IconTimer from '@/shared/assets/icons/icon-timer-3.svg'
 import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
 
-interface Props extends CaseConfigProps {}
+interface Props extends CaseConfigProps {
+	badgeMode?: string
+	icon?: any
+	iconTheme?: string
+	iconShadow?: boolean
+}
 
 export const caseTypeToProps: Record<CaseType, Props> = {
 	[CaseType.COMMON]: {},

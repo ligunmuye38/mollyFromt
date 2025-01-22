@@ -19,15 +19,15 @@ export const AchievementsFilters = () => {
 
 	return (
 		<div
-			className={`${cls.achievementsFilters} flex justify-between px-[30px] bg-[#0F131C] py-3 mt-[37px] 2md:mt-5 2md:grid 2md:grid-cols-2 3sm:px-[10px]`}
+			className={`${cls.achievementsFilters} mt-[37px] flex justify-between bg-[#0F131C] px-[30px] py-3 2md:mt-5 2md:grid 2md:grid-cols-2 3sm:px-[10px]`}
 		>
 			<div className='flex items-center'>
-				<div className='border rounded-lg border-solid border-[#21293A] bg-[#181E2B] w-[38px] h-[38px] flex justify-center items-center'>
+				<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg border border-solid border-[#21293A] bg-[#181E2B]'>
 					<Ranking />
 				</div>
 				<div className='pl-[10px]'>
-					<p className='block text-white text-base font-bold leading-4'>483735</p>
-					<span className='block text-[#5A6786] text-xs font-medium leading-4'>You rank</span>
+					<p className='block text-base font-bold leading-4 text-white'>483735</p>
+					<span className='block text-xs font-medium leading-4 text-[#5A6786]'>You rank</span>
 				</div>
 			</div>
 
@@ -55,10 +55,10 @@ export const AchievementsFilters = () => {
 
 			<div className='flex items-center 2md:justify-end'>
 				<div className='pr-[10px]'>
-					<p className='block text-white text-base font-bold leading-4 text-right'>43/100</p>
-					<span className='block text-[#5A6786] text-xs font-medium leading-4 text-right'>Score</span>
+					<p className='block text-right text-base font-bold leading-4 text-white'>43/100</p>
+					<span className='block text-right text-xs font-medium leading-4 text-[#5A6786]'>Score</span>
 				</div>
-				<div className='border rounded-lg border-solid border-[#21293A] bg-[#181E2B] w-[38px] h-[38px] flex justify-center items-center'>
+				<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg border border-solid border-[#21293A] bg-[#181E2B]'>
 					<Crows />
 				</div>
 			</div>

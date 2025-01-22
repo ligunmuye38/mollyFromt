@@ -1,25 +1,24 @@
+import { FaqBarItemType } from '../model/type'
+import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
+
 import cls from './Faq.module.sass'
 
-import clsx from "clsx";
-import { FaqBarItemType } from '../model/type';
-import { useTranslations } from 'next-intl';
-
 const FaqBarItem = ({ content, icon: Icons }: FaqBarItemType) => {
+	const t = useTranslations()
 
-    const t = useTranslations();
-
-    return (
-        <div className={clsx('w-full h-[94px] 2sm:h-[47px]', cls.faq, cls.item)}>
-            <div className={clsx('w-full h-full', cls.faq_border, cls.border_12)}>
-                <div className={clsx(cls.faq_body, cls.border_12, 'flex w-full justify-center items-center gap-3 h-full')}>
-                    <div className={clsx('w-8 h-8', cls.item_icon)}>
-                        <Icons className={clsx('w-8 h-8')} />
-                    </div>
-                    <span className={clsx(cls.faq_text)}>{t(content)}</span>
-                </div>
-            </div>
-        </div>
-    )
+	return (
+		<div className={clsx('h-[94px] w-full 2sm:h-[47px]', cls.faq, cls.item)}>
+			<div className={clsx('h-full w-full', cls.faq_border, cls.border_12)}>
+				<div className={clsx(cls.faq_body, cls.border_12, 'flex h-full w-full items-center justify-center gap-3')}>
+					<div className={clsx('h-8 w-8', cls.item_icon)}>
+						<Icons className={clsx('h-8 w-8')} />
+					</div>
+					<span className={clsx(cls.faq_text)}>{t(content)}</span>
+				</div>
+			</div>
+		</div>
+	)
 }
 
-export default FaqBarItem;
+export default FaqBarItem

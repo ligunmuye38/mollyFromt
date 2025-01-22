@@ -22,9 +22,9 @@ export const Balance: FC<BalanceProps> = ({ className }) => {
 				</div>
 			</div>
 			<div className={clsx(cls.item_wrapper, cls._yellow, 'relative z-[1] -translate-x-3 3lg:transform-none')}>
-				<div className={clsx(cls.item, 'pl-[25px] pr-3 gap-1.5 lg:gap-1')}>
+				<div className={clsx(cls.item, 'gap-1.5 pl-[25px] pr-3 lg:gap-1')}>
 					<div className={clsx(cls.icon)}>
-						<IconPoint className='w-4 h-4 2md:w-3 2md:h-3' />
+						<IconPoint className='h-4 w-4 2md:h-3 2md:w-3' />
 					</div>
 					<div className={cls.label}>5.500</div>
 				</div>

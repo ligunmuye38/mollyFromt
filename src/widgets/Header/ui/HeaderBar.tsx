@@ -7,7 +7,6 @@ import { useCommonStore } from '@/entities/Common/model/store'
 
 import { HeaderBarContent } from './HeaderBarContent'
 
-
 export const HeaderBar = () => {
 	const barRef = useRef<HTMLDivElement>(null)
 	const [inViewport] = useInViewport(barRef)
@@ -18,7 +17,7 @@ export const HeaderBar = () => {
 		if (inViewport !== undefined) {
 			setHeaderBarInView(inViewport)
 		}
-	}, [inViewport])
+	}, [inViewport, setHeaderBarInView])
 
 	return (
 		<div ref={barRef}>

@@ -21,7 +21,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 					<div className='text-xs'>© 2024 – Molly csgo open cases</div>
 					<Link
 						href='/'
-						className='shrink-0 block w-[57px] h-[52px]'
+						className='block h-[52px] w-[57px] shrink-0'
 						style={{
 							backgroundImage: 'url(/images/logo-footer.svg)',
 							backgroundSize: 'contain',
@@ -29,15 +29,15 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 						}}
 					/>
 				</div>
-				<div className='flex flex-wrap items-center justify-between gap-4 mt-1'>
-					<div className='flex items-start gap-2 '>
-						<IconPg18 className='shrink-0 w-8 h-8' />
+				<div className='mt-1 flex flex-wrap items-center justify-between gap-4'>
+					<div className='flex items-start gap-2'>
+						<IconPg18 className='h-8 w-8 shrink-0' />
 						<p className='max-w-[450px] text-[10px] text-[#566488]'>
 							MOLLY LTD: Company number 13246765, 16 John Nicholas Crescent, Ellesmere Port, Cheshire, United Kingdom,
 							CH65 2DL
 						</p>
 					</div>
-					<nav className='flex flex-wrap items-center justify-end lg:justify-center gap-x-5 gap-y-3'>
+					<nav className='flex flex-wrap items-center justify-end gap-x-5 gap-y-3 lg:justify-center'>
 						<Link
 							href={AppRoute.USER_AGREEMENT}
 							className='text-xs'

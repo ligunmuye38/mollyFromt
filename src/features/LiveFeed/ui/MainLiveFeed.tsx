@@ -1,11 +1,12 @@
 'use client'
 
+import { itemsList } from '../model/items'
 import { FC } from 'react'
 
 import { usePathname } from '@/shared/config/i18n/navigation'
 import { AppRoute } from '@/shared/const/pages'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
-import { itemsList } from '../model/items'
+
 import { LiveFeed } from './LiveFeed'
 
 interface MainLiveFeedProps {

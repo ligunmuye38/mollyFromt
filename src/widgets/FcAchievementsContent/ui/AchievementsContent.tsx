@@ -14,20 +14,20 @@ export const AchievementsContent = () => {
 
 	return (
 		<>
-			<div className='flex justify-between rounded-[8px] bg-[#171D29] py-[13px] pl-[16px] pr-[22px] mb-3 3sm:py-[5px] 3sm:px-[10px]'>
+			<div className='mb-3 flex justify-between rounded-[8px] bg-[#171D29] py-[13px] pl-[16px] pr-[22px] 3sm:px-[10px] 3sm:py-[5px]'>
 				<div className='flex justify-between'>
 					<div className='pr-[30px] md:pr-[20px] 3sm:hidden'>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 3sm:text-[10px]'>PLACE</span>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] 3sm:text-[10px]'>PLACE</span>
 					</div>
-					<div className='pr-[110px] md:pr-[90px] 3sm:pr-[40px] '>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 3sm:text-[10px]'>PLAYER</span>
+					<div className='pr-[110px] md:pr-[90px] 3sm:pr-[40px]'>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] 3sm:text-[10px]'>PLAYER</span>
 					</div>
 					<div className=''>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 3sm:text-[10px]'>ACHIEVEMENTS</span>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] 3sm:text-[10px]'>ACHIEVEMENTS</span>
 					</div>
 				</div>
 				<div className=''>
-					<span className='text-[#5A6786] text-xs font-bold leading-4 3sm:text-[10px]'>ACHIEVE POINTS</span>
+					<span className='text-xs font-bold leading-4 text-[#5A6786] 3sm:text-[10px]'>ACHIEVE POINTS</span>
 				</div>
 			</div>
 			<div className=''>
@@ -55,16 +55,16 @@ export const AchievementsContent = () => {
 									<span>cineincwne</span>
 								</Link>
 							</div>
-							<div className='flex ml-[60px] items-center w-full max-w-[325px] md:max-w-[235px] md:ml-[30px] 3sm:max-w-[155px] 3sm:ml-[10px]'>
+							<div className='ml-[60px] flex w-full max-w-[325px] items-center md:ml-[30px] md:max-w-[235px] 3sm:ml-[10px] 3sm:max-w-[155px]'>
 								{progress[e] == 100 ? (
 									<div className='flex items-center'>
 										<div
-											className='w-[24px] h-[24px] rounded-[6px] flex items-center justify-center'
+											className='flex h-[24px] w-[24px] items-center justify-center rounded-[6px]'
 											style={{ background: 'rgba(16, 170, 124, 0.15)' }}
 										>
 											<Check />
 										</div>
-										<span className='text-white text-xs font-bold leading-4 pl-[8px]'>Completed</span>
+										<span className='pl-[8px] text-xs font-bold leading-4 text-white'>Completed</span>
 									</div>
 								) : (
 									<>

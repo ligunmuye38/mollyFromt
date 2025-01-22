@@ -15,7 +15,6 @@ import { ChatBar } from './ChatBar'
 import { ChatHeader } from './ChatHeader'
 import { ChatMessage } from './ChatMessage'
 
-
 const Chat = () => {
 	const { lg, xl } = useAppResponsive()
 
@@ -57,20 +56,20 @@ const Chat = () => {
 			setChatHidden(true)
 			setViewChatHidden(true)
 		}
-	}, [lg])
+	}, [lg, setChatHidden, setViewChatHidden])
 
 	useEffect(() => {
 		if (lg) {
 			document.body.classList.remove('overflow-hidden')
 		} else {
-			chatViewHidden
-				? document.body.classList.remove('overflow-hidden')
-				: document.body.classList.add('overflow-hidden')
+			if (chatViewHidden) document.body.classList.remove('overflow-hidden')
+			else document.body.classList.add('overflow-hidden')
 		}
 	}, [chatViewHidden, lg])
 
 	useEffect(() => {
-		chatViewHidden ? document.body.classList.add('chat-hidden') : document.body.classList.remove('chat-hidden')
+		if (chatViewHidden) document.body.classList.add('chat-hidden')
+		else document.body.classList.remove('chat-hidden')
 	}, [chatViewHidden])
 
 	return (
@@ -89,11 +88,11 @@ const Chat = () => {
 				}
 			}}
 			onAnimationStart={variant => {
-				variant === 'active' && setActive(true)
+				if (variant === 'active') setActive(true)
 			}}
 			className={clsx(cls.base, active && cls.active)}
 		>
-			<div className='w-[320px] xl:w-[280px] h-screen bg-[#10151E] lg:bg-[#121722] flex flex-col lg:w-full lg:h-full'>
+			<div className='flex h-screen w-[320px] flex-col bg-[#10151E] xl:w-[280px] lg:h-full lg:w-full lg:bg-[#121722]'>
 				<ChatHeader />
 				{/* <div className='grow p-4 flex items-center justify-center'>
 					<div className='text-base text-center text-text-primary'>Chat is currently offline</div>
@@ -101,7 +100,7 @@ const Chat = () => {
 				<ScrollShadow
 					ref={trackRef}
 					hideScrollBar
-					className={clsx('grow p-2.5 overflow-y-auto', cls.track)}
+					className={clsx('grow overflow-y-auto p-2.5', cls.track)}
 				>
 					<div className='flex flex-col gap-2.5'>{messages}</div>
 				</ScrollShadow>

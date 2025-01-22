@@ -1,4 +1,4 @@
 export interface IPagination {
-    value: number,
-    content: string
+	value: number
+	content: string
 }

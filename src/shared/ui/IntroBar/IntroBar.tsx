@@ -1,37 +1,39 @@
-"use client"
-import clsx from 'clsx';
+'use client'
+
+import clsx from 'clsx'
+import { useTranslations } from 'next-intl'
+
 import cls from './IntroBar.module.sass'
 
-import { useTranslations } from 'next-intl';
-
 interface IntroBarProps {
-    icon: React.ReactNode
-    title: string
-    content: string
-    buttons: React.ReactNode
+	icon: React.ReactNode
+	title: string
+	content: string
+	buttons: React.ReactNode
 }
 
 const IntroBar = ({ icon, title, content, buttons }: IntroBarProps) => {
+	const t = useTranslations()
 
-    const t = useTranslations();
-
-
-    return (
-        <div className={clsx('h-auto w-full flex justify-between items-center px-5 2sm:px-0 py-[14px]', cls.header_gradient)}>
-            <div className='flex gap-7 md:gap-3 items-center 2sm:gap-1'>
-                <div className='flex items-center gap-5 2sm:gap-1'>
-                    <div className='fill-white w-6 h-6 '>
-                        {icon}
-                    </div>
-                    <span className={clsx('font-[1000] font-[Gotham Ultra] italic text-[20px] block px-[5px]', cls.mask_text)}>{t(title).toUpperCase()}</span>
-                </div>
-                <div className='w-[2px] bg-[#1C2232] h-8 rotate-[20deg] md:hidden flex'></div>
-                <span className={clsx('font-[Gotham Ultra] italic text-[12px] text-[#545778] ,block lg:hidden')}>{t(content)}</span>
-            </div>
-            {buttons}
-
-        </div>
-    )
+	return (
+		<div
+			className={clsx('flex h-auto w-full items-center justify-between px-5 py-[14px] 2sm:px-0', cls.header_gradient)}
+		>
+			<div className='flex items-center gap-7 md:gap-3 2sm:gap-1'>
+				<div className='flex items-center gap-5 2sm:gap-1'>
+					<div className='h-6 w-6 fill-white'>{icon}</div>
+					<span className={clsx('font-[Gotham Ultra] block px-[5px] text-[20px] font-[1000] italic', cls.mask_text)}>
+						{t(title).toUpperCase()}
+					</span>
+				</div>
+				<div className='flex h-8 w-[2px] rotate-[20deg] bg-[#1C2232] md:hidden'></div>
+				<span className={clsx('font-[Gotham Ultra] ,block text-[12px] italic text-[#545778] lg:hidden')}>
+					{t(content)}
+				</span>
+			</div>
+			{buttons}
+		</div>
+	)
 }
 
-export default IntroBar;
+export default IntroBar

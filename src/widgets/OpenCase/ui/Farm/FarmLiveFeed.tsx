@@ -1,17 +1,19 @@
-"use client"
-import { useCommonStore } from "@/entities/Common/model/store";
-import CaseLiveFeed from "../CaseLiveFeed"
+'use client'
+
+import CaseLiveFeed from '../CaseLiveFeed'
+
+import { useCommonStore } from '@/entities/Common/model/store'
 
 const FarmLiveFeed = () => {
+	const openFarm = useCommonStore(state => state.openFarm)
 
-    const openFarm = useCommonStore(state => state.openFarm)
-    
-    return (
-        openFarm == true &&
-        <div className={'w-full overflow-hidden flex justify-start'}>
-            <CaseLiveFeed />
-        </div>
-    )
+	return (
+		openFarm == true && (
+			<div className={'flex w-full justify-start overflow-hidden'}>
+				<CaseLiveFeed />
+			</div>
+		)
+	)
 }
 
-export default FarmLiveFeed;
+export default FarmLiveFeed

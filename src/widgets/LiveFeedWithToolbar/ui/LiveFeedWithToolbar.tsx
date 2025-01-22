@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 import { FC } from 'react'
 
+import { itemsList } from '@/features/LiveFeed/model/items'
 import { LiveFeed } from '@/features/LiveFeed/ui/LiveFeed'
 
 import { CaseToolbar } from '@/entities/CaseToolbar/ui/CaseToolbar'
@@ -10,8 +11,6 @@ import { CaseToolbar } from '@/entities/CaseToolbar/ui/CaseToolbar'
 import { Media } from '@/shared/ui/Media/Media'
 
 import cls from './LiveFeedWithToolbar.module.sass'
-
-import { itemsList } from '@/features/LiveFeed/model/items'
 
 interface LiveFeedWithToolbarProps {
 	className?: string

@@ -21,8 +21,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
 	return (
 		<Media greaterThanOrEqual='lg'>
-			<aside className={clsx(className, 'w-[136px] xl:w-[110px] h-screen py-6 px-1 flex flex-col bg-[#141925]')}>
-				<div className={clsx(cls.sb_body, 'grow px-5 xl:px-2 mb-3')}>
+			<aside className={clsx(className, 'flex h-screen w-[136px] flex-col bg-[#141925] px-1 py-6 xl:w-[110px]')}>
+				<div className={clsx(cls.sb_body, 'mb-3 grow px-5 xl:px-2')}>
 					<button
 						type='button'
 						className={clsx(cls.btn_rew)}
@@ -38,7 +38,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 					/>
 				</div>
 				<div className='shrink-0 px-5 xl:px-2'>
-					<div className='flex flex-wrap items-center gap-x-[14px] xl:gap-x-[10px] gap-y-2'>
+					<div className='flex flex-wrap items-center gap-x-[14px] gap-y-2 xl:gap-x-[10px]'>
 						{socialsitems.map(item => (
 							<Link
 								key={item.label}

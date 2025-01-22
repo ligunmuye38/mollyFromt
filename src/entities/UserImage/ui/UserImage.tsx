@@ -16,12 +16,12 @@ export const UserImage: React.FC<UserImageProps> = ({ Icon, imageSize, userImage
 	return (
 		<div
 			style={{ width: blockSize, height: blockSize, maxWidth: '100%' }}
-			className={clsx(cls.avatar_wrapper, `relative z-[1] shrink-0 flex items-center justify-center cursor-pointer`)}
+			className={clsx(cls.avatar_wrapper, `relative z-[1] flex shrink-0 cursor-pointer items-center justify-center`)}
 		>
 			<Icon
 				className={clsx(
 					cls.avatar_frame,
-					'absolute z-[2] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full'
+					'absolute left-1/2 top-1/2 z-[2] h-full w-full -translate-x-1/2 -translate-y-1/2'
 				)}
 			/>
 

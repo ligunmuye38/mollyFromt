@@ -205,7 +205,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 				limit: {
 					current: 9415,
 					total: 10000
-				},
+				}
 			},
 			{
 				id: 'case/2',
@@ -216,7 +216,7 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 				limit: {
 					current: 9415,
 					total: 10000
-				},
+				}
 			},
 			{
 				id: 'case/mystery',
@@ -252,5 +252,4 @@ export const caseSection: Record<CaseCategory, CaseSection> = {
 			}
 		]
 	}
-
 }

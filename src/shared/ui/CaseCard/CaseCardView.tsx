@@ -42,7 +42,7 @@ export const CaseCardView: FC<CaseCardViewProps> = ({
 }) => {
 	const onFavoriteClick = (e: React.MouseEvent) => {
 		e.preventDefault()
-		onSetFavorite && onSetFavorite()
+		onSetFavorite!()
 	}
 
 	return (

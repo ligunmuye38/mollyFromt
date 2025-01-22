@@ -13,7 +13,7 @@ export enum RarityTheme {
 	SHADOW_MYTHICAL = 'shadow_purple',
 	SHADOW_LEGENDARY = 'shadow_pink',
 	SHADOW_ANCIENT = 'shadow_red',
-	SHADOW_EXCEEDINGLY = 'shadow_yellow',
+	SHADOW_EXCEEDINGLY = 'shadow_yellow'
 }
 
 export enum BackDropTheme {

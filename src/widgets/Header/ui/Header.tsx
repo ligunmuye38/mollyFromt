@@ -2,11 +2,12 @@
 
 import { FC } from 'react'
 
+import MainLiveFeed from '@/features/LiveFeed/ui/MainLiveFeed'
+
 import { Media } from '@/shared/ui/Media/Media'
 
 import { HeaderDesktop } from './HeaderDesktop'
 import { HeaderMobile } from './HeaderMobile'
-import MainLiveFeed from '@/features/LiveFeed/ui/MainLiveFeed'
 
 interface HeaderProps {
 	className?: string

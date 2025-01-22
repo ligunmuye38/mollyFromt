@@ -38,10 +38,10 @@ export const HeaderNotifications: FC<HeaderNotificationsProps> = ({ className })
 			}}
 		>
 			<PopoverTrigger>
-				<div className={clsx(cls.trigger, className, 'relative z-[1] w-[24px] h-[27px]')}>
+				<div className={clsx(cls.trigger, className, 'relative z-[1] h-[27px] w-[24px]')}>
 					<div className={cls.indicator}></div>
-					<ButtonHexSquare className='w-full h-full'>
-						<IconNotifications className='w-[14px] h-[14px] text-[#64749B]' />
+					<ButtonHexSquare className='h-full w-full'>
+						<IconNotifications className='h-[14px] w-[14px] text-[#64749B]' />
 					</ButtonHexSquare>
 				</div>
 			</PopoverTrigger>

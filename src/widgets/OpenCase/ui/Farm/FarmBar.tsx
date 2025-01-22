@@ -1,16 +1,11 @@
-
-
-import CaseBar from '../CaseBar';
-import { useTranslations } from 'next-intl';
+import CaseBar from '../CaseBar'
+import { useTranslations } from 'next-intl'
 
 const FarmBar = () => {
+	// For translation
+	const t = useTranslations()
 
-    // For translation
-    const t = useTranslations();
-
-    return (
-        <CaseBar title={t('case_farm.title')} />
-    )
+	return <CaseBar title={t('case_farm.title')} />
 }
 
-export default FarmBar;
+export default FarmBar

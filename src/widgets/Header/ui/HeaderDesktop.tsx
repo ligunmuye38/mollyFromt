@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import cls from "./Header.module.sass"
 import { FC } from 'react'
 
 import { Link } from '@/shared/config/i18n/navigation'
 
+import cls from './Header.module.sass'
 import { HeaderBar } from './HeaderBar'
 import { HeaderNav } from './HeaderNav'
 
@@ -13,12 +13,12 @@ interface HeaderDesktopProps {
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({ className }) => {
 	return (
-		<header className={clsx(className, 'flex items-center justify-between gap-2 relative')}>
+		<header className={clsx(className, 'relative flex items-center justify-between gap-2')}>
 			<HeaderNav />
 			<div className={clsx('absolute left-1/2', cls.logo_center)}>
 				<Link
 					href='/'
-					className='w-[386px] h-[92px] 3xl:w-[300px] 3xl:h-[72px] flex justify-center items-center'
+					className='flex h-[92px] w-[386px] items-center justify-center 3xl:h-[72px] 3xl:w-[300px]'
 					style={{
 						backgroundImage: 'url(/images/logo-header.svg)',
 						backgroundSize: 'contain',

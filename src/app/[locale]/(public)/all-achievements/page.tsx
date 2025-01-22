@@ -7,7 +7,7 @@ const Page = () => {
 	return (
 		<>
 			<PageName title='Achievements' />
-			<main className='px-5 flex flex-col'>
+			<main className='flex flex-col px-5'>
 				<AllAchievementsFilters />
 				<AllAchievementsItems />
 				<AllAchievementsItems />
