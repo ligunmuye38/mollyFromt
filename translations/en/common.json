@@ -257,6 +257,13 @@
 		"refill_btn": "Refill balance",
 		"refill_text": "Insufficient funds to open a case"
 	},
+	"case_accept": {
+		"title": "Accept Case",
+		"cases_magic": "Cases Magic",
+		"try_again": "Try again",
+		"sell_for": "Sell for",
+		"upgrade": "Upgrade"
+	},
 	"case_mystery": {
 		"title": "Mystery Case",
 		"cases_magic": "Cases Magic",

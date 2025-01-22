@@ -17,6 +17,7 @@ export interface IState {
 	itemPosition: string
 	caseCount: number
 	openFarm: boolean
+	openAcceptCase: boolean
 	currentCaseNumber: number
 	selectedCaseItems: any[]
 	isScrollTop: boolean
@@ -35,6 +36,7 @@ export interface IActions {
 	setItemPosition: (value: string) => void
 	setCaseCount: (value: number) => void
 	setOpenFarm: (value: boolean) => void
+	setOpenAcceptCase: (value: boolean) => void
 	setCurrentCaseNumber: (value: number) => void
 	setSelectedCaseItems: (value: any[]) => void
 	setIsScrollTop: (value: boolean) => void
@@ -54,6 +56,7 @@ export const initialState: IState = {
 	itemPosition: 'center',
 	caseCount: 0,
 	openFarm: true,
+	openAcceptCase: true,
 	currentCaseNumber: 0,
 	selectedCaseItems: [],
 	isScrollTop: false,
@@ -161,6 +164,14 @@ export const useCommonStore = create<IState & IActions>()(
 							},
 							undefined,
 							'SET_OPEN_FARM'
+						),
+					setOpenAcceptCase: value =>
+						set(
+							state => {
+								state.openAcceptCase = value
+							},
+							undefined,
+							'SET_OPEN_ACCEPT_CASE'
 						),
 					setCurrentCaseNumber: value =>
 						set(
