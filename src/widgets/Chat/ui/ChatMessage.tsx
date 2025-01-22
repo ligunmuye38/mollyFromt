@@ -14,6 +14,8 @@ interface ChatMessageProps {
 	message?: string
 	type?: MessageType
 	timestamp: string
+	titleClass?: string
+	contentClass?: string
 }
 
 interface ThemeConfig {
@@ -35,6 +37,10 @@ const typeToView: Record<MessageType, ThemeConfig> = {
 	admin: {
 		avatarStartColor: '#FDCD24',
 		avatarEndColor: '#FDCD24'
+	},
+	toadmin: {
+		avatarStartColor: '#FDCD24',
+		avatarEndColor: '#FDCD24'
 	}
 }
 
@@ -44,15 +50,17 @@ export const ChatMessage: FC<ChatMessageProps> = ({
 	avatarUrl,
 	message,
 	type = 'default',
-	timestamp
+	timestamp,
+	titleClass,
+	contentClass
 }) => {
 	return (
 		<div className={clsx(cls.base, className, cls[type])}>
 			<div className={cls.inner}>
 				<div className={clsx(cls.avatar)}>
 					<Image
-						width={30}
-						height={30}
+						width={40}
+						height={40}
 						alt='avatar'
 						className={cls.avatar_pic}
 						src={avatarUrl}
@@ -105,12 +113,12 @@ export const ChatMessage: FC<ChatMessageProps> = ({
 				<div className='grow'>
 					<div className='flex items-center justify-between gap-2.5'>
 						<div className='flex items-center flex-wrap gap-2.5'>
-							<div className={cls.name}>{name}</div>
-							{type === 'admin' && <div className={cls.tag}>Admin</div>}
+							<div className={clsx(cls.name, titleClass)}>{name}</div>
+							{(type === 'admin') && <div className={cls.tag}>Admin</div>}
 						</div>
 						<div className={cls.time}>{timestamp}</div>
 					</div>
-					<div className={clsx(cls.message, 'mt-1')}>
+					<div className={clsx(cls.message, 'mt-1', contentClass)}>
 						<Markdown rehypePlugins={[rehypeSanitize]}>{message}</Markdown>
 					</div>
 				</div>

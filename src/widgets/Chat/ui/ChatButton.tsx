@@ -30,9 +30,9 @@ export const ChatButton: FC = () => {
 	const breakpoints = useAppResponsive()
 
 	const chatViewHidden = useCommonStore(state => state.chatViewHidden)
+	const mobileRightBarState = useCommonStore(state => state.mobileRightBarState)
 	const setViewChatHidden = useCommonStore(state => state.setViewChatHidden)
 	const [active, setActive] = useState(!chatViewHidden)
-
 	return (
 		<Portal className='portal-chatbutton'>
 			<motion.div
@@ -47,7 +47,7 @@ export const ChatButton: FC = () => {
 					variant === 'active' && setActive(true)
 				}}
 				transition={{ duration: 0.2 }}
-				className={clsx(cls.btn_open_wrapper, active && cls.active)}
+				className={clsx(cls.btn_open_wrapper, active && cls.active, mobileRightBarState ? 'hidden' : 'flex')}
 			>
 				<Button
 					theme='gradient-outline-green-2'
@@ -56,7 +56,7 @@ export const ChatButton: FC = () => {
 					hexagon
 					hexagonAxis={breakpoints?.lg ? 'x' : 'y'}
 					hexagonAngleOffset={breakpoints?.lg ? 10 : 13}
-					onClick={() => setViewChatHidden(false)}
+					onClick={() => { setViewChatHidden(false) }}
 					classNames={{
 						base: cls.btn_open_base,
 						content: cls.btn_open_content

@@ -13,7 +13,8 @@
 		"vip": "VIP Club",
 		"bonuses": "Bonuses",
 		"leaderboard": "Leaderboard",
-		"notifications": "Notification"
+		"notifications": "Notification",
+		"item": "Item"
 	},
 	"livefeed": {
 		"title": "live drops",
@@ -30,7 +31,8 @@
 	"caseCard": {
 		"discount": "**-{discount}%** discount",
 		"locked": "lock",
-		"free": "free"
+		"free": "free",
+		"unique": "unique case"
 	},
 	"settings": {
 		"trade": "Trade URL",
@@ -45,7 +47,8 @@
 		"weapon_type": "Weapon type",
 		"mode": "Mode",
 		"enough_balance": "Enough balance",
-		"clear": "Clear"
+		"clear": "Clear",
+		"cases": "Community cases"
 	},
 	"chat": {
 		"chat": "Chat",
@@ -66,11 +69,262 @@
 		"provablyFair": "Provably fair",
 		"contacts": "Contacts",
 		"privacyPolicy": "Privacy Policy",
+		"tos": "Term of services",
 		"short": {
 			"cases_opening": "Cases",
 			"battles": "Battles",
 			"upgrades": "Upgrades",
 			"contracts": "Contracts"
 		}
+	},
+	"auth": {
+		"signin": "SignIn",
+		"signup": "SignUp",
+		"email_label": "email",
+		"password_label": "password",
+		"forget_password": "Forget Password",
+		"email_placeholder": "Enter your email",
+		"password_placeholder": "•••••••••••••",
+		"forget_pwd_btn_text": "Forgot your password?",
+		"sigin_btn_text": "Sign in",
+		"signup_btn_text": "Sign up",
+		"sigin_in_via_steam": "Sign in via Steam",
+		"sigin_in_via_twitch": "Log in via Twitch",
+		"create_new_account": "Create new account",
+		"password_recovery": "Password recovery",
+		"continue": "Continue",
+		"login_or_create": "Log in or create",
+		"login": "Log in",
+		"register": "Registration",
+		"sent_email_success": "The email has been sent successfully!",
+		"check_email": "Please check your email"
+	},
+	"topbar": {
+		"provably_fair": "Provably Fair",
+		"faq": "FAQ",
+		"term_of_service": "Term of Services"
+	},
+	"faq_bar": {
+		"replenishment": "Replenishment",
+		"bonuses": "Bonuses",
+		"cases": "Cases",
+		"items": "Items",
+		"processing": "Processing",
+		"title": "Find the question you are interested in and get a quick answer."
+	},
+	"faq_datas": {
+		"first": {
+			"title": "How do we work and why should you choose us?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"second": {
+			"title": "How are we better than other similar sites?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"third": {
+			"title": "How can I contact technical support personally?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"forth": {
+			"title": "Is this legal?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"fifth": {
+			"title": "How are we better than other similar sites?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"sixth": {
+			"title": "How does replenishment of skins on a project work?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		},
+		"seventh": {
+			"title": "Is it safe to store money on the project?",
+			"content": "Our service may contain links to third-party web sites or services that are not owned or controlled by HYBETS.com. HYBETS.com has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that HYBETS.com shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services. We strongly advise you to read the terms and conditions and privacy policies of any third-party web sites or services that you visit."
+		}
+	},
+	"support_datas": {
+		"title": "Ask your question in a ticket to our specialists.",
+		"new_ticket": "New Ticket"
+	},
+	"support_chat_header": {
+		"id_ticket": "ID Ticket",
+		"subject_of_appeal": "Subject of the appeal",
+		"last_update": "Last Update",
+		"status_of_the_req": "Status of the request",
+		"ticket_closed": "Ticket closed",
+		"problem_with_receiving_money": "Problem with receiving money",
+		"consideration": "Under consideration",
+		"response_from_support": "Response from support"
+	},
+	"create_new_ticket": {
+		"create_ticket": "Create ticket",
+		"select_problem": "Select a problem",
+		"subject": "Subject",
+		"describe": "Describe your problem",
+		"subject_placeholder": "Enter subject",
+		"issue_with_withdraw": "Issue with withdraw",
+		"max_size": "Max 64MB"
+	},
+	"provably_fair_header": {
+		"title": "Povably fair",
+		"description": "Find the question you are interested in and get a quick answer."
+	},
+	"fair_list": {
+		"review": "Review",
+		"implementation": "Implementation",
+		"conversion": "Conversion",
+		"game_events": "Game events",
+		"decoding": "Decoding",
+		"calculation": "Calculation"
+	},
+	"fair_body_data1": {
+		"title": "How are game results generated fairly?",
+		"footer": "e850222d-ec90-46e9-a69d-7d483ff8a2f9:2.00:ef6e64a9-8c8b-49f4-8304-fdd4dd030cbf:4.00",
+		"content1": "Our system uses a local random seed plus a random seed from a reputable 3rd party (RANDOM.ORG). By doing this, you are able to see the exact seed we request from Random.org, which will match up with the game's end time (when the game will roll).",
+		"content2": "This system makes it impossible for anyone, including us or the third party, to predict the winning outcome and makes each round provable and legitimate."
+	},
+	"fair_body_data2": {
+		"title": "Brief technical overview",
+		"content": "When a game is started, we create the local random seed. We hash it and show it to you before the game rolls (under the players). You are able to use the hash to verify that the local random seed remained unchanged throughout the game. Here is a code snippet of how it works."
+	},
+	"fair_footer": {
+		"seed": "Seed",
+		"verification": "Verification",
+		"game": "Game",
+		"client_seed": "Cleint seed",
+		"server_seed": "Server seed",
+		"show_result": "Show result"
+	},
+	"fair_footer_select": {
+		"mine": "Mine",
+		"game": "Game"
+	},
+	"terms_data": {
+		"title": "Terms of services",
+		"description": "Find the question you are interested in and get a quick answer."
+	},
+	"terms_content": {
+		"title": "No person below the age of eighteen (18) may use the Service, regardless of your parent or guardian's consent to use the Service. For access the Service you will need a registered Web browser. You acknowledge and agree that HYBETS.com may cease supporting a given Web browser and will require you to download a supported Web browser for your continued use of the Service. You further accept and recognize that the Service's output is the duty of operating the computer equipment and connecting to the Internet. You agree that you are responsible for all activities that take place on your account or through the use of your password by yourself or others. When you think a third party has access to your password, change your password and activate Two Factor Authenticator for the best account security.",
+		"license": "License grant",
+		"content1": "1.1. HYBETS grants you a limited, non-transferable, royalty-free license to use the Service in accordance with the terms of this agreement.",
+		"content2": "1.2. You are (i) aged 18 or over, (ii) you are of the age of majority in your jurisdiction, (iii) you are accessing the Service from a jurisdiction in which it is legal to do so, (iv) You are not currently self-excluded from any gambling site or gambling premises, and (v) That you will inform HYBETS immediately if you enter into a self-exclusion agreement with Any gambling provider.",
+		"content3": "1.3. You are under no legal disability that would prevent you from forming a binding contract with us. 1.4. HYBETS and its licensors are the sole holders of all rights in and to the Service and code, structure and organization, including copyright, trade secrets, intellectual property and other rights. You may not, within the limits prescribed by applicable laws: (a) copy, distribute, publish, reverse engineer, decompile, disassemble, modify, or translate the website; or (b) use the Service in a manner prohibited by applicable laws or regulations (each of the above is an 'Unauthorized Use').",
+		"result1": "As a condition to your use of the Service, you agree not to:",
+		"result2": "Impersonate or misrepresent your affiliation with any person or entity;",
+		"result3": "Access, tamper with, or use any non-public areas of the Service or HYBETS.com's computer systems;",
+		"result4": "The Service is intended solely for the User’s personal use. The User is only allowed to wager for his/her personal entertainment and may not create multiple accounts, including for the purpose of collusion and/or abuse of service.",
+		"result5": "HYBETS may not be used for illegal or unauthorized purposes and you must abide completely by the laws, rules, and regulations that apply to you. Whether that be federal, state, or local laws.",
+		"result6": "Attempt to probe, scan, or test the vulnerability of the Service or any related system or network or breach any security or authentication measures used in connection with the Service and such systems and networks;",
+		"result7": "Persons located in or residents of the United States, Australia, Aruba, Bonaire, Curaçao, Cyprus, France, Netherlands, Saba, Statia, Iran, or St Martin (the ”Prohibited Jurisdictions”) are not permitted to make use of the Service. For the avoidance of doubt, the foregoing restrictions on Engaging in real-money play from Prohibited Jurisdictions applies equally to residents and Citizens of other nations while located in a Prohibited Jurisdiction. Any attempt to Circumvent the restrictions on play by any persons located in a Prohibited Jurisdiction or Restricted Jurisdiction, is a breach of this Agreement. An attempt at circumvention Includes, but is not limited to, manipulating the information used by HYBETS to identify your location and providing HYBETS with false or misleading information regarding your location or place of residence.",
+		"result8": "Harm or threaten to harm other users in any way or interfere with, or attempt to interfere with, the access of any user, host or network, including without limitation, by sending a virus, overloading, flooding, spamming, or mail-bombing the Service;",
+		"result9": "Use the Service in an abusive way contrary to its intended use, to HYBETS.com policies and instructions and to any applicable law;"
+	},
+	"cases_header": {
+		"title": "CREATE YOUR OWN CUSTOM CASES",
+		"content": "You can create cases with items and odds of your choice.",
+		"create_case": "create case",
+		"to_favorites": "to favorites",
+		"add_to_battle": "add to battle",
+		"percent_of_income": "percentage of your income"
+	},
+	"create_case": {
+		"title": "Case Creation",
+		"case_name": "Your case name",
+		"case_name_placeholder": "Enter a name",
+		"opening_type": "Opening type",
+		"select_case_image": "Select case image",
+		"set_drop_chances": "Set Drop Chances",
+		"total_cost": "Total cost",
+		"select_up": "Select up to 20 items",
+		"search": "Search",
+		"price_descending": "Price Descending",
+		"create_case": "Create Case"
+	},
+	"open_case": {
+		"beach_season": "Beach Season",
+		"selected_top": "selected case",
+		"limited_edition": "Limited Edition",
+		"limited_content": "Open the case before the limit expires!",
+		"count_title": "Open at the same time",
+		"click_open": "Click to open",
+		"open_case": "Open Case",
+		"fast_mod": "Fast mode",
+		"instant_result": "Instant results",
+		"top_drops": "top drops",
+		"case_content": "Case contents",
+		"refill": "don't leave",
+		"refill_btn": "Refill balance",
+		"refill_text": "Insufficient funds to open a case"
+	},
+	"case_mystery": {
+		"title": "Mystery Case",
+		"cases_magic": "Cases Magic",
+		"luck_text": "Open up and try your luck",
+		"prizes_text": "No one knows the list of prizes",
+		"cost_text": "The cost of the case is constantly changing",
+		"content1": "Mystery case. Inside the case is absolutely everything you can find on our site.",
+		"content2": "A variety of items, site bonuses and much more awaits you!"
+	},
+	"case_farm": {
+		"title": "Farm Case",
+		"hint_title": "let's say no to consumer goods",
+		"hint_content1": "Farmcases are designed to ensure that you only get the best items.",
+		"hint_content2": "Junk items are sold automatically!",
+		"price": "price",
+		"odds": "odds",
+		"try_again": "Try again"
+	},
+	"open": "open",
+	"case_congratulation": {
+		"title": "Congratulations!",
+		"try_again":"Try again",
+		"sell_everything": "Sell everything",
+		"go_inventory": "Go inventory",
+		"top_title": "Congratulations, you have won the following items:",
+		"bottom_title": "You can sell the entire item or try to open the case again."
+	},
+	"profile_main": {
+		"title": "profile",
+		"balance": "Balance",
+		"deposit": "Deposit",
+		"profile": "Profile",
+		"history_games": "History games",
+		"transaction_history": "Transaction history",
+		"achievements": "Achievements",
+		"verification": "Verification",
+		"settings": "Settings",
+		"attain": "Attain",
+		"promocode": "Promocode"
+	},
+	"profile_page":{
+		"leave_site": "Leave site",
+		"trade_url": "Trade URL",
+		"trade_url_content": "Get items in your Steam inventory",
+		"trade_url_placeholder": "Trade-URL",
+		"trade_link": "Where to get TRADE-URL ?",
+		"case_opened": "Cases Opened",
+		"upgrades": "Upgrades",
+		"lotto": "Lotto played",
+		"refferal_level": "Refferal Level",
+		"refferal_number": "Number of referrals",
+		"all_earned": "All earned",
+		"earned_from_cases": "Earned from cases",
+		"promocode": "Promocode",
+		"cases_created": "Cases created"
+	},
+	"user_profile": {
+		"games_played": "Games played",
+		"winnings": "Winnings amount",
+		"top_winnings": "Top winnings",
+		"best_drop": "Best drop",
+		"investory": "Investory"
+	},
+	"game_history_profile": {
+		"history_games": "History games",
+		"case_battle": "Case Battle",
+		"case_name": "Case name",
+		"price": "Price",
+		"date_of_opening": "Date of opening",
+		"prizes": "Prizes"
 	}
 }
