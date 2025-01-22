@@ -1,0 +1,34 @@
+$hexagon-angle-offset: 20px
+$hexagon-angle-offset-input: 15px
+    
+.search
+    // height: 64px
+    clip-path: polygon( #{$hexagon-angle-offset} 0%, calc(100% - #{$hexagon-angle-offset}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset}) 100%, #{$hexagon-angle-offset} 100%, 0% 50%)
+    background: #0F131C
+    // max-width: 1155px
+    box-sizing: border-box
+    margin-bottom: 20px
+    margin-top: 37px
+    &__inner
+        position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 12px 20px
+        svg
+            position: absolute
+            display: block
+            left: 40px
+            z-index: 10
+        input
+            clip-path: polygon( #{$hexagon-angle-offset-input} 0%, calc(100% - #{$hexagon-angle-offset-input}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset-input}) 100%, #{$hexagon-angle-offset-input} 100%, 0% 50%)
+            padding: 15px 48px
+            color: #60719A
+            font-size: 14px
+            font-weight: 500
+            line-height: 16px
+            width: 100%
+            // max-width: 1130px
+            background: #3F4654
+            background: #0F131C
+            box-sizing: border-box

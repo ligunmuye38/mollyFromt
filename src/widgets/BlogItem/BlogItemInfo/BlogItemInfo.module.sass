@@ -1,0 +1,61 @@
+.blog__info
+    display: flex
+    justify-content: space-between
+    .info
+        display: flex
+        > *:not(:last-child)
+            margin-right: 16px
+        .author
+            display: flex
+            align-items: center
+            // span
+            //     color: #FFF
+            //     font-size: 12px
+            //     font-style: normal
+            //     font-weight: 700
+            //     line-height: 16px
+            //     padding-left: 8px
+            // .avatar_pic
+            //     width: 31.579px
+            //     height: 31.579px
+            //     clip-path: path('M12.2504 1.79816C13.3333 1.17295 14.6675 1.17295 15.7504 1.79816L25.4245 7.3835C26.5074 8.00871 27.1745 9.16416 27.1745 10.4146V21.5853C27.1745 22.8357 26.5074 23.9911 25.4245 24.6163L15.7504 30.2017C14.6675 30.8269 13.3333 30.8269 12.2504 30.2017L2.57633 24.6163C1.49342 23.9911 0.826325 22.8357 0.826325 21.5853V10.4146C0.826325 9.16416 1.49342 8.00871 2.57633 7.3835L12.2504 1.79816Z')
+
+    .social
+        display: flex
+        > *:not(:last-child)
+            margin-right: 8.2px
+        .soc__item
+            border-radius: 10px
+            background: #5865F2
+            width: 40px
+            height: 40px
+            display: flex
+            justify-content: center
+            align-items: center
+    @media (max-width: 768px)
+        flex-direction: column
+        .info
+            padding-bottom: 20px
+        .social
+            padding-bottom: 10px
+    @media (max-width: 480px)
+        .info
+            padding-bottom: 10px
+            > *:not(:last-child)
+                margin-right: 5px
+        .social
+            padding-bottom: 10px
+.title
+    color: #FFF
+    font-size: 24px
+    font-style: normal
+    font-weight: 700
+    line-height: 25px
+    padding-bottom: 15px
+
+    @media (max-width: 660px)
+        font-size: 22px
+        line-height: 23px
+    @media (max-width: 480px)
+        font-size: 18px
+        line-height: 20px

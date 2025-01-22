@@ -1,4 +1,4 @@
-"use client"
+import { itemsList } from '../model/items'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { FC } from 'react'
@@ -10,16 +10,14 @@ import { CardLiveFeed } from '@/shared/ui/CardLiveFeed/CardLiveFeed'
 
 import { FeedButton } from './Button/Button'
 import cls from './LiveFeed.module.sass'
-import { LiveFeedItem } from '../model/types'
 
 interface LiveFeedProps {
 	className?: string
 	axis?: 'x' | 'y'
 	title?: string
-	itemsList: LiveFeedItem[]
 }
 
-export const LiveFeed: FC<LiveFeedProps> = ({ className, axis = 'y', title, itemsList }) => {
+export const LiveFeed: FC<LiveFeedProps> = ({ className, axis = 'y', title }) => {
 	const t = useTranslations()
 
 	const { lg } = useAppResponsive()
@@ -60,7 +58,7 @@ export const LiveFeed: FC<LiveFeedProps> = ({ className, axis = 'y', title, item
 					className={cls.bar_btn}
 				/>
 			</div>
-			<div className={clsx(cls.track)}>{items}</div>
+			<div className={cls.track}>{items}</div>
 		</div>
 	)
 }

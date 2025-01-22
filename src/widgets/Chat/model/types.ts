@@ -1,4 +1,4 @@
-export type MessageType = 'default' | 'admin' | 'my' | 'toadmin'
+export type MessageType = 'default' | 'admin' | 'my'
 
 export interface IChatMessage {
 	name: string

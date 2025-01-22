@@ -2,23 +2,26 @@
 
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { FC } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import IconAngleRight from '@/shared/assets/icons/icon-angle-right-grey.svg'
 import IconChat from '@/shared/assets/icons/icon-chat-grey.svg'
 import IconChatUsers from '@/shared/assets/icons/icon-chat-users.svg'
+import IconClose from '@/shared/assets/icons/icon-close.svg'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
-import IconCancel from '@/shared/assets/icons/icon-cancel.svg'
 
 import cls from './Chat.module.sass'
 
+interface ChatHeaderProps {
+	className?: string
+}
 
-export const ChatHeader = () => {
+export const ChatHeader: FC<ChatHeaderProps> = ({ className }) => {
 	const t = useTranslations()
 	const breakpoints = useAppResponsive()
 	const setViewChatHidden = useCommonStore(state => state.setViewChatHidden)
-
 	return (
 		<div
 			className={clsx(
@@ -40,14 +43,10 @@ export const ChatHeader = () => {
 			</div>
 			<button
 				type='button'
-				onClick={() => { setViewChatHidden(true);  }}
+				onClick={() => setViewChatHidden(true)}
 				className={cls.btn_close}
 			>
-				{breakpoints.lg ? <IconAngleRight className='w-[18px] h-[18px]' /> : 
-					<div className='w-5 h-5 rounded-[5px] bg-[#0C131B] flex justify-center items-center'>
-						<IconCancel className="fill-[#2F374A] w-2 h-2" />
-					</div>
-				}
+				{breakpoints.lg ? <IconAngleRight className='w-[18px] h-[18px]' /> : <IconClose className='w-2 h-2' />}
 			</button>
 		</div>
 	)

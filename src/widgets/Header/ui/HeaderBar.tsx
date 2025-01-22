@@ -1,14 +1,17 @@
 'use client'
 
 import { useInViewport } from 'ahooks'
-import { useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import { HeaderBarContent } from './HeaderBarContent'
 
+interface HeaderBarProps {
+	className?: string
+}
 
-export const HeaderBar = () => {
+export const HeaderBar: FC<HeaderBarProps> = ({ className }) => {
 	const barRef = useRef<HTMLDivElement>(null)
 	const [inViewport] = useInViewport(barRef)
 

@@ -12,7 +12,6 @@ import { CaseToolbarContent } from './CaseToolbarContent'
 interface CaseToolbarProps {
 	className?: string
 	withContainer?: boolean
-	isHeader?: boolean
 }
 
 export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = true }) => {
@@ -21,7 +20,6 @@ export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = t
 	const [inViewport] = useInViewport(baseRef)
 
 	const setCaseToolbarInView = useCommonStore(state => state.setCaseToolbarInView)
-
 
 	useEffect(() => {
 		if (inViewport !== undefined) {

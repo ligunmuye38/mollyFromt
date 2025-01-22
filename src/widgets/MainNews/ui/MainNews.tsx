@@ -17,8 +17,6 @@ interface MainNewsProps {
 
 export const MainNews: FC<MainNewsProps> = ({ className }) => {
 	const breakpoints = useAppResponsive()
-	
-
 
 	const slides = newsList.map(item => (
 		<SwiperSlide

@@ -1,0 +1,48 @@
+.skin
+    position: relative
+    &::before
+        content: ""
+        display: block
+        width: 100%
+        max-width: 200px
+        height: 4px
+        background: #C84646
+        border-radius: 0px 0px 14px 14px
+        position: absolute
+        top: 0
+        top: 0
+        left: 50%
+        transform: translateX(-50%)
+    .img
+        &::before
+            content: ""
+            display: block
+            width: 100%
+            max-width: 200px
+            height: 4px
+            background: #C84646
+            border-radius: 0px 0px 14px 14px
+            position: absolute
+            top: 0
+            top: 0
+            left: 50%
+            transform: translateX(-50%)
+.filters
+    clip-path: polygon(0.596343px 20px, 13.2713px 0.5px, 276.729px 0.5px, 289.404px 20px, 276.729px 39.5px, 13.2713px 39.5px, 0.596343px 20px)
+    stroke-width: 1px
+    stroke: #2D374F
+    display: flex
+    margin-bottom: 15px
+    &__btn
+        width: 100%
+        height: 40px
+        clip-path: polygon( 8.667% 0%,91.333% 0%,100% 50%,91.333% 100%,8.667% 100%,0% 50%,8.667% 0% )
+        color: #617196
+        font-size: 14px
+        font-style: normal
+        font-weight: 500
+        line-height: 16px
+    .active
+        background: #121722
+        color: #FFF
+        font-weight: 700

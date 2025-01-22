@@ -13,6 +13,7 @@ const config: Config = {
 			lg: { max: '1200px' },
 			'3md': { max: '1024px' },
 			'2md': { max: '991px' },
+			'1md': { max: '867' },
 			md: { max: '768px' },
 			'3sm': { max: '640px' },
 			'2sm': { max: '520px' },

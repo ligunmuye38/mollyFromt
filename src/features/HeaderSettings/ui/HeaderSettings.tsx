@@ -17,7 +17,6 @@ import Button from '@/shared/ui/Button/Button'
 import { ButtonHexSquare } from '@/shared/ui/ButtonHexSquare/ButtonHexSquare'
 
 import cls from './HeaderSettings.module.sass'
-import { useCommonStore } from '@/entities/Common/model/store'
 
 interface HeaderSettingsProps {
 	className?: string
@@ -26,14 +25,7 @@ interface HeaderSettingsProps {
 export const HeaderSettings: FC<HeaderSettingsProps> = ({ className }) => {
 	const t = useTranslations()
 
-	const setSigninState = useCommonStore(state => state.setSigninState)
-	const signinState = useCommonStore(state => state.signinState)
-
 	const breakpoints = useAppResponsive()
-
-	const logOut = () => {
-		setSigninState(false)
-	}
 
 	return (
 		<Popover
@@ -65,22 +57,21 @@ export const HeaderSettings: FC<HeaderSettingsProps> = ({ className }) => {
 						<VolumeSlider />
 					</div>
 
-					<div className={clsx('grid gap-2.5 lg:block', signinState && 'grid-cols-2')}>
+					<div className='grid grid-cols-2 gap-2.5 lg:block'>
 						<Button
 							strokeSize='thin'
 							theme='grey-2'
 							startContent={<IconSteamLogo />}
-							classNames={{ base: [cls.btn, 'lg:w-full', !signinState ? '!w-full' : ''], content: cls.btn_content }}
+							classNames={{ base: [cls.btn, 'lg:w-full'], content: cls.btn_content }}
 						>
 							{t('settings.trade')}
 						</Button>
-						{breakpoints.lg && signinState && (
+						{breakpoints.lg && (
 							<Button
 								strokeSize='thin'
 								theme='gradient-red-2'
 								startContent={<IconLogout />}
 								classNames={{ base: cls.btn, content: cls.btn_content }}
-								onPress={logOut}
 							>
 								{t('settings.logout')}
 							</Button>
