@@ -10,6 +10,10 @@ FROM node:${NODE_VERSION}-alpine as base
 WORKDIR /usr/src/app
 
 ################################################################################
+# Install system dependencies and prepare base image.
+RUN apk add --no-cache git bash
+
+################################################################################
 # Create a stage for installing production dependencies.
 FROM base as deps
 
@@ -19,7 +23,7 @@ FROM base as deps
 # into this layer.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
+    --mount=type=cache,id=npm-cache,target=/root/.npm \
     npm ci --omit=dev
 
 ################################################################################
@@ -29,7 +33,7 @@ FROM deps as build
 # Install dev dependencies and Husky before the build.
 RUN --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=package-lock.json,target=package-lock.json \
-    --mount=type=cache,target=/root/.npm \
+    --mount=type=cache,id=npm-cache,target=/root/.npm \
     npm ci
 
 # Copy the rest of the source files into the image.
