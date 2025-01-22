@@ -77,19 +77,6 @@
         @apply text-text-primary
         b, strong
           color: #24FDBC
-
-  &.gradient-yellow
-    background: linear-gradient(0deg, rgba(59, 69, 92, 0.35), rgba(59, 69, 92, 0.35)),linear-gradient(360deg, #FDCD24 0%, rgba(253, 205, 36, 0) 100%)
-
-
-    .badge
-      &_inner
-        background: linear-gradient(0deg, rgba(32,72,72,1) 0%, rgba(28,36,49,1) 100%)
-      &_label
-        @apply text-text-primary
-        b, strong
-          color: #24FDBC
-
   &_inner
     border-radius: 9px
     padding: 6px 10px
@@ -283,6 +270,19 @@
       background-color: rgba(39, 50, 82, 0.5)
       backdrop-filter: blur(4px)
 
+@media ( max-width: 640px )
+  .badge
+    border-radius: 12px
+    &_inner
+      border-radius: 11px
+      padding: 5px 8px
+      gap: 6px
+    &_icon
+      width: 12px
+      height: 12px
+    &_label
+      font-size: 10px
+      line-height: 1
 
   .pic
     height: 140px

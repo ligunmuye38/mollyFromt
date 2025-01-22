@@ -11,13 +11,5 @@
 	"prettier.configPath": ".prettierrc",
 	"eslint.run": "onSave",
 	"eslint.lintTask.options": ".eslintrc",
-	"tailwindCSS.experimental.classRegex": [
-		[
-			"clsx\\(([^)]*)\\)",
-			"(?:'|\"|`)([^']*)(?:'|\"|`)"
-		]
-	],
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features"
-	}
+	"tailwindCSS.experimental.classRegex": [["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
 }

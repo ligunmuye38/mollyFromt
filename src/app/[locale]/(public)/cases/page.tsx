@@ -1,11 +1,10 @@
-
-
+// import { useTranslations } from 'next-intl'
+// import { getTranslations } from 'next-intl/server'
 import { CasesSection } from '@/widgets/CasesSection/ui/CasesSection'
 
 import { CaseToolbar } from '@/entities/CaseToolbar/ui/CaseToolbar'
 
 import { IMetadata } from '@/shared/types/metadata'
-import CasesHeader from '@/widgets/Cases/ui/CasesHeader'
 
 export async function generateMetadata({ params: { locale } }: IMetadata) {
 	// const t = await getTranslations({ locale, namespace: 'Main' })
@@ -23,10 +22,9 @@ const Page = async () => {
 	return (
 		<>
 			<div className='mt-4'>
-				<CasesHeader />
 				<CaseToolbar className='container-common' />
-				<CasesSection categoryKey='caseLimited' />
-				<CasesSection categoryKey='caseBranded' />
+				<CasesSection categoryKey='limited' />
+				<CasesSection categoryKey='branded' />
 			</div>
 		</>
 	)

@@ -1,26 +1,22 @@
 .base
+  padding-top: 30px
+  padding-bottom: 30px
+
 .title
   text-align: center
-  font-size: 17px
+  font-size: 18px
   @apply font-primary-bold text-text-primary
-  padding-top: 20px
-  letter-spacing: 0.02
-  line-height: 20px
-  mask-image: linear-gradient(0deg, #D1D9EB, #D1D9EB),linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)
-  mask-size: 100%
-  mask-repeat: no-repeat
-
 
 .container
   position: relative
   padding-top: 30px
-  overflow: hidden
 
 .border
   &_top
     position: absolute
+    top: 8px
     left: 50%
-    transform: translateX(-50%) translateY(-100%)
+    transform: translateX(-50%) translateY(-90%)
     width: auto
 
 .type
@@ -42,15 +38,16 @@
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
-  height: 340px
-  width: 340px
+  height: 100%
 
 .grid
   position: relative
   z-index: 2
-
+  display: grid
+  grid-template-columns: repeat(3, 1fr)
 
 .pic
+  display: flex
   align-items: center
   justify-content: center
   height: 320px
@@ -77,369 +74,4 @@
     position: static
     transform: none
 
-.rotate_180
-  @apply transform
-  transform: rotateY(180deg)
 
-.explain
-  clip-path: polygon(0 0, 100% 0, 84% 100%, 0% 100%)
-  border-radius: 20px
-  background: #000
-  min-width: 53px
-  height: 60px
-
-.bg
-  &_img
-    &_girl
-      background-image: url('/images/case/girl-1.png')
-      background-position: center
-      background-repeat: no-repeat
-      background-size: 320px
-
-.speaking
-    &_body
-      background: linear-gradient(98.74deg, rgba(209, 217, 235, 0.0875) 0%, rgba(209, 217, 235, 0.01) 100%)
-      backdrop-filter: blur(12px)
-      padding: 2px
-      border-radius: 8px
-
-      &_inner
-        background: linear-gradient(98.74deg, rgba(209, 217, 235, 0.0875) 0%, rgba(209, 217, 235, 0.01) 100%)
-        border-radius: 8px
-
-
-
-.btn
-  &_hexagon
-    position: relative
-    &_yellow
-      background:  linear-gradient(90deg, rgba(253, 206, 36, 0.753) 56.8%, #FDCD24 65.65%),linear-gradient(270deg, rgba(253, 206, 36, 0.664) 56.55%, #FDCD24 69.17%)
-      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-      position: relative
-      padding: 2px
-
-      &_inner
-        clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-        background: linear-gradient(0deg, #E2B617, #E2B617),linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
-        &:hover
-          background: #ffd231
-    &_yellow_shadow
-      &::after
-        content: ''
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-        z-index: -1
-        width: calc(100% - 10px)
-        height: calc(100% + 5px)
-        background-color: #FD3E2459
-        filter: blur(8px)
-    &_green_shadow
-      &::after
-        content: ''
-        position: absolute
-        top: 50%
-        left: 50%
-        transform: translate(-50%, -50%)
-        z-index: -1
-        width: calc(100% - 10px)
-        height: calc(100% + 5px)
-        background-color: #10AA7C59
-        filter: blur(8px)
-
-
-    &_green
-      background: linear-gradient(90deg, rgba(36, 253, 188, 0.308) 77.44%, #24FDBC 89.52%),linear-gradient(270deg, rgba(36, 253, 188, 0.308) 40.76%, #24FDBC 57.96%)
-      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-      box-shadow: 0px 0px 24px 0px #10AA7C59
-      box-shadow: 0px 0px 12px 0px #10AA7C40
-      padding: 2px
-
-      &_inner
-        clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-        background: linear-gradient(0deg, #3be0af, #10AA7C),linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(71, 250, 196, 0.65) 100%)
-
-        &:hover
-          background: linear-gradient(0deg, #53ebbd, #28bd90),linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(85, 252, 202, 0.65) 100%)
-
-    &_purple
-      background: #8714E1
-      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-      &_inner
-        background: #8714E1
-
-        &:hover
-          background: #901fe6
-  &_refill
-    clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-    background: #DD2C2C
-    padding: 1px
-
-    &_inner
-      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
-      background: #471010
-      width: 100%
-      height: 100%
-
-
-.livefeed
-  &_logo
-    background: #2e2d2d85
-    padding-top: 1.5px
-    padding-left: 1.5px
-    padding-right: 1.5px
-    border-radius: 8px 8px 0px 0px
-    width: 85px
-    height: 33px
-
-    &_inner
-      background: #191F2D
-      width: 100%
-      height: 100%
-      border-radius: 8px 8px 0px 0px
-
-
-  &_container
-    background: #2e2d2d85
-    padding: 1.5px
-    border-radius: 0px 8px 8px 8px
-    height: 86px
-    width: 100%
-
-    &_inner
-      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.986) 100%)
-      width: 100%
-      height: 100%
-      border-radius: 0px 8px 8px 8px
-
-.crown_bg 
-  fill: linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)
-
-.feed_shadow
-  background: linear-gradient(270deg, #161C28 0%, rgba(24, 30, 43, 0) 100%)
-
-.card
-  min-width: 78px
-  min-height: 78px
-
-.border_bg
-  background:  linear-gradient(90deg, #151823 24.23%, #575E83 61.61%, #151823 100.92%)
-
-.center
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-
-.pointer
-  &_shadow
-    box-shadow: 0px 0px 18px 0px #FFC600CC
-    box-shadow: 0px 0px 48px 0px #FFC600
-
-.section
-    border-radius: 12px
-    border: 2px solid #263B4C
-    box-shadow: 0px 0px 32px 0px #00000080 inset
-
-.item
-  position: relative
-  z-index: 1
-  display: flex
-  align-items: center
-  gap: 6px
-  background-color: transparent
-  transition: background-color 0.3s
-  cursor: pointer
-  background: #27325280
-  backdrop-filter: blur(4px)
-  border-radius: 10px
-  border: 1px solid #27325280
-  &.active, &:hover
-    &::after
-      opacity: 1
-      transform: scale(1)
-    .item
-      &_icon
-        &::after
-          opacity: 1
-        svg
-          @apply stroke-primary-2 fill-primary
-      &_label
-        @apply text-text-primary
-  &.active
-    border: 1px solid #18E4A7 !important
-    background: #1AE9AB1A !important
-
-
-  &_icon
-    position: relative
-    flex-shrink: 0
-    &::after
-      content: ''
-      position: absolute
-      z-index: 1
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      width: 70%
-      height: 70%
-      background-color: rgba(0, 154, 99, 0.65)
-      filter: blur(8px)
-      opacity: 0
-      transition: opacity 0.3s
-    svg
-      position: relative
-      z-index: 2
-      stroke: #2F374A
-      fill: #2F374A
-      transition: 0.3s
-      transition-property: fill, stroke
-  &_label
-    line-height: 1.3
-    text-align: center
-    color: #2F374A
-    transition: color 0.3s
-
-
-
-// Mystery section
-
-.mystery
-  &_bg
-    background-image: url('/images/case/mystery-bg.png')
-    width: 100%
-    height: auto
-    background-repeat: no-repeat
-    background-size: 100% 100%
-    background-position: center
-  
-    &_over1
-      background: linear-gradient(180deg, #121722 0%, rgba(18, 23, 34, 0.15) 23.16%)
-      width: 100%
-      height: 100%
-    &_over2
-      background: linear-gradient(90deg,#121722 0%, rgba(18, 23, 34, 0.15) 30.66%)
-      width: 100%
-      height: 100%
-    &_over3
-      background: linear-gradient(270deg, #121722 0%, rgba(18, 23, 34, 0.15) 23.16%)
-      width: 100%
-      height: 100%
-    &_over4
-      background: linear-gradient(360deg, #121722 0%, rgba(18, 23, 34, 0.15) 30.66%)
-      width: 100%
-      height: 100%
-
-
-    &_inner1
-      background: linear-gradient(180deg, #121722 0%, rgba(18, 23, 34, 0.15) 23.16%)
-    &_inner2
-      background: linear-gradient(180deg, #121722 0%, rgba(18, 23, 34, 0.15) 30.66%)
-
-  &_group
-    background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
-    padding: 2px
-    border-radius: 12px
-
-    &_inner
-      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
-      backdrop-filter: blur(5px)
-      border-radius: 12px
-      width: 100%
-      height: 100%
-
-  &_content
-    &_bg
-      background: linear-gradient(270deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
-      backdrop-filter: blur(5px)
-      border-radius: 12px
-
-
-// Farm section
-
-.farm
-  &_hint
-    background: #E5484873
-    padding: 1px
-    border-radius: 12px
-
-    &_inner
-      background: linear-gradient(270deg, #BF3333 0%, rgba(241, 46, 46, 0.25) 100%)
-      width: 100%
-      height: 100%
-      border-radius: 12px
-
-@media ( max-width: 768px )
-
-  .farm
-    &_hint
-      background: linear-gradient(90deg, #FAAA65 0%, #161E37 100%)
-
-      &_inner
-        background: linear-gradient(270deg, #151E39 0%, #714825 100%)
-
-.dotted_color
-  border-image: linear-gradient(90deg, #dddfe6 24.23%, #ffffff 61.61%, #ecedf3 100.92%)
-
-// Congratulation Modal
-
-.congratulation_logo 
-  left: 50%
-  transform: translate(-50%, 0%)
-
-.congratulation
-  position: relative
-  filter: blur(60px)
- 
-  &.grey
-    background: radial-gradient(circle, rgba(70,70,70,1) 0%, rgba(0,0,0,0) 150%)
-  &.light-blue
-    background: radial-gradient(circle, rgba(11,177,229,1) 0%, rgba(0,0,0,0) 150%)
-  &.blue
-    background: radial-gradient(circle, rgba(11,72,229,1) 0%, rgba(0,0,0,0) 150%)
-  &.purple
-    background: radial-gradient(circle, rgba(107,11,229,1) 0%, rgba(0,0,0,0) 150%)
-  &.pink
-    background: radial-gradient(circle, rgba(174,17,200,1) 0%, rgba(0,0,0,0) 150%)
-  &.red
-    background: radial-gradient(circle, rgba(185,32,32,1) 0%, rgba(0,0,0,0) 150%)
-  &.yellow
-    background: radial-gradient(circle, rgba(225,181,20,1) 0%, rgba(0,0,0,0) 150%)
-  &.shadow_grey
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(24, 182, 232, 0.65) 100%)
-  &.shadow_light-blue
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(63, 72, 95, 0.65) 100%)
-  &.shadow_blue
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(24, 57, 232, 0.65) 100%)
-  &.shadow_purple
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(103, 24, 232, 0.65) 100%)
-  &.shadow_pink
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(191, 24, 232, 0.65) 100%)
-  &.shadow_red
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(180, 38, 72, 0.65) 100%)
-  &.shadow_yellow
-    background: linear-gradient(180deg, rgba(47, 55, 74, 0.25) 0%, rgba(35, 41, 58, 0.25) 100%),linear-gradient(140.14deg, rgba(20, 25, 37, 0) 53.41%, rgba(253, 205, 36, 0.65) 100%)
-
-  &_backdrop
-    z-index: 1
-
-  &_inner
-    position: relative
-    z-index: 2
-    height: 100%
-    padding: 8px 5px
-    display: flex
-    flex-direction: column
-    gap: 2px
-  &_pic
-    width: 100%
- 
-  &_title
-    flex-shrink: 0
-    width: 100%
-    overflow: hidden
-    text-overflow: ellipsis
-    white-space: nowrap
-    font-size: 8px
-    align-self: start
-    @apply text-text-primary

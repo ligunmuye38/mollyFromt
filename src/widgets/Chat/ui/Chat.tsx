@@ -4,7 +4,8 @@ import { messagesList } from '../model/messages'
 import { ScrollShadow } from '@nextui-org/react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
+import { FC, useEffect, useRef, useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
@@ -15,8 +16,11 @@ import { ChatBar } from './ChatBar'
 import { ChatHeader } from './ChatHeader'
 import { ChatMessage } from './ChatMessage'
 
+interface ChatProps {
+	className?: string
+}
 
-const Chat = () => {
+const Chat: FC<ChatProps> = ({ className }) => {
 	const { lg, xl } = useAppResponsive()
 
 	const desktopAnimationVariants = {

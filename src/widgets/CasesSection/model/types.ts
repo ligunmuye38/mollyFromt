@@ -1,6 +1,6 @@
 import { ICase } from '@/shared/types/case'
 
-export type CaseCategory = 'branded' | 'limited' | 'caseLimited' | 'caseBranded'
+export type CaseCategory = 'branded' | 'limited'
 
 export interface CaseSection {
 	title: string

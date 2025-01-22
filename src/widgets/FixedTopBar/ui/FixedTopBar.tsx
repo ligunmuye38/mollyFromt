@@ -10,8 +10,6 @@ import { CaseToolbarFixed } from '@/entities/CaseToolbar/ui/CaseToolbarFixed'
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import { useAppResponsive } from '@/shared/lib/useResponsive'
-import { usePathname } from '@/shared/config/i18n/navigation'
-import { AppRoute } from '@/shared/const/pages'
 
 interface FixedTopBarProps {
 	className?: string
@@ -28,7 +26,6 @@ export const FixedTopBar: FC<FixedTopBarProps> = ({ className }) => {
 	const headerBarInView = useCommonStore(state => state.headerBarInView)
 	const fixedCaseToolbarInView = useCommonStore(state => state.fixedCaseToolbarInView)
 
-	const pathname = usePathname();
 	const breakpoints = useAppResponsive()
 
 	useEffect(() => {
@@ -67,15 +64,12 @@ export const FixedTopBar: FC<FixedTopBarProps> = ({ className }) => {
 					right: window.innerWidth - (holderRef.current?.getBoundingClientRect().right ?? holderWidth),
 					maxWidth: holderWidth
 				}}
-				className={clsx('fixed top-4 z-[100] flex items-start justify-end gap-4', className, (pathname == AppRoute.MAIN || pathname == AppRoute.CASES) ? "w-full" : "!w-auto", {
-					['top-[-200px] duration-500']: headerBarInView,
+				className={clsx('fixed top-4 z-[100] flex items-start justify-end gap-4', className, {
+					['top-[-100px] duration-500']: headerBarInView,
 					['w-full']: fixedCaseToolbarInView
 				})}
 			>
-				{
-					(pathname == AppRoute.MAIN || pathname == AppRoute.CASES) &&
-					<CaseToolbarFixed className='grow' />
-				}
+				<CaseToolbarFixed className='grow' />
 				<HeaderBarFixed />
 			</motion.div>
 		</div>

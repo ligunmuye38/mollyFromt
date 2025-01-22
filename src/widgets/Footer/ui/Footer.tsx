@@ -62,12 +62,6 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 						>
 							{t('pages.privacyPolicy')}
 						</Link>
-						<Link
-							href={AppRoute.TERM_OF_SERVICES}
-							className='text-xs'
-						>
-							{t('pages.tos')}
-						</Link>
 					</nav>
 				</div>
 			</div>

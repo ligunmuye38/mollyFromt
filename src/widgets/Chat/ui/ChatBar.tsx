@@ -4,17 +4,15 @@ import { FC } from 'react'
 
 import IconSend from '@/shared/assets/icons/icon-send.svg'
 import IconSmile from '@/shared/assets/icons/icon-smile.svg'
-import IconFile from '@/shared/assets/icons/icon-select-file.svg'
 import Button from '@/shared/ui/Button/Button'
 
 import cls from './Chat.module.sass'
 
 interface ChatBarProps {
 	className?: string
-	isEmoji?: boolean
 }
 
-export const ChatBar: FC<ChatBarProps> = ({ className, isEmoji = true }) => {
+export const ChatBar: FC<ChatBarProps> = ({ className }) => {
 	const t = useTranslations()
 	return (
 		<div className={clsx(cls.bar, className)}>
@@ -33,12 +31,7 @@ export const ChatBar: FC<ChatBarProps> = ({ className, isEmoji = true }) => {
 						base: cls.bar_btn_picker
 					}}
 				>
-					{
-						isEmoji == true ? 
-							<IconSmile className={cls.bar_btn_picker_icon} />
-							:
-							<IconFile className={cls.bar_btn_picker_icon} />
-					}
+					<IconSmile className={cls.bar_btn_picker_icon} />
 				</Button>
 				<Button
 					theme='gradient-outline-green-3'

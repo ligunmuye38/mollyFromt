@@ -1,0 +1,63 @@
+.warning
+    border-radius: 12px
+    background: linear-gradient(92deg, rgba(226, 181, 23, 0.15) 0%, rgba(28, 35, 50, 0.00) 35.22%)
+    width: 100%
+    // max-width: 757px
+    border: 2px dashed #E2B51726
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 15px
+
+    // border-width: 2px
+    // border-style: solid
+    // border-image: linear-gradient(90deg, rgba(226, 181, 23, 0.15) 0%, rgba(226, 181, 23, 0.15) 15px, transparent 15px, transparent 30px) 1 stretch
+    margin-bottom: 20px
+    .text
+        display: flex
+        align-items: center
+        .icon
+            filter: drop-shadow(0px 0px 24px rgba(253, 62, 36, 0.35)) drop-shadow(0px 0px 12px rgba(253, 62, 36, 0.25))
+            .icon__inner
+                width: 46px
+                height: 50px
+                display: flex
+                justify-content: center
+                align-items: center
+                stroke-width: 1px
+                background: #E2B617 
+                clip-path: path('M21.5 1.44338C21.8094 1.26474 22.1906 1.26474 22.5 1.44338L42.1506 12.7887C42.46 12.9673 42.6506 13.2974 42.6506 13.6547V36.3453C42.6506 36.7026 42.46 37.0327 42.1506 37.2113L22.5 48.5566C22.1906 48.7353 21.8094 48.7353 21.5 48.5566L1.84937 37.2113C1.53996 37.0327 1.34937 36.7026 1.34937 36.3453V13.6547C1.34937 13.2974 1.53996 12.9673 1.84937 12.7887L21.5 1.44338Z')
+        p
+            padding-left: 15px
+            color: #F4AD5C
+            font-size: 14px
+            font-style: normal
+            font-weight: 500
+            line-height: 16px
+    .btn
+        filter: drop-shadow(0px 0px 24px rgba(253, 62, 36, 0.35)) drop-shadow(0px 0px 12px rgba(253, 62, 36, 0.25))
+        button
+            padding: 11px 27px
+            background: #E2B617
+            clip-path: polygon(8.863% 3.857%, 8.863% 3.857%, 8.909% 3.607%, 8.964% 3.377%, 9.027% 3.169%, 9.097% 2.984%, 9.173% 2.824%, 9.255% 2.689%, 9.343% 2.582%, 9.434% 2.504%, 9.529% 2.455%, 9.626% 2.439%, 90.719% 2.439%, 90.719% 2.439%, 90.816% 2.455%, 90.91% 2.503%, 91.001% 2.581%, 91.088% 2.688%, 91.171% 2.822%, 91.247% 2.982%, 91.317% 3.166%, 91.38% 3.374%, 91.434% 3.603%, 91.48% 3.851%, 99.238% 52.413%, 100% 51.387%, 99.238% 52.413%, 99.238% 52.413%, 99.267% 52.62%, 99.29% 52.832%, 99.305% 53.047%, 99.314% 53.265%, 99.316% 53.484%, 99.311% 53.702%, 99.3% 53.919%, 99.282% 54.132%, 99.257% 54.341%, 99.225% 54.545%, 91.509% 98.666%, 91.509% 98.666%, 91.462% 98.902%, 91.406% 99.119%, 91.344% 99.315%, 91.275% 99.489%, 91.199% 99.64%, 91.119% 99.766%, 91.034% 99.867%, 90.946% 99.94%, 90.854% 99.985%, 90.76% 100%, 9.626% 100%, 9.626% 100%, 9.529% 99.984%, 9.434% 99.936%, 9.343% 99.857%, 9.255% 99.75%, 9.173% 99.615%, 9.097% 99.455%, 9.027% 99.27%, 8.964% 99.062%, 8.909% 98.832%, 8.863% 98.582%, 1.507% 52.241%, 1.507% 52.241%, 1.479% 52.044%, 1.457% 51.842%, 1.442% 51.636%, 1.433% 51.428%, 1.429% 51.22%, 1.433% 51.011%, 1.442% 50.803%, 1.457% 50.597%, 1.479% 50.395%, 1.507% 50.198%, 8.863% 3.857%)
+            color: #121722
+            font-size: 12px
+            font-style: normal
+            font-weight: 900
+            line-height: 16px
+
+    @media (max-width: 550px)
+        flex-direction: column
+        padding: 10px
+        padding-bottom: 0
+        padding-left: 7px
+        .text
+            width: 100%
+            p
+                padding-left: 7px
+                font-size: 13px
+        .btn
+            display: flex
+            justify-content: flex-end
+            width: 100%
+            transform: translate(0, -10px)

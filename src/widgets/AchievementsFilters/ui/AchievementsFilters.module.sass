@@ -1,0 +1,46 @@
+.achievementsFilters
+    // clip-path: path('M20 0H1128L1148 32L1128 64H20L0 32L20 0Z')
+    clip-path: polygon( 20px 0%, calc(100% - 20px) 0%, 100% 50%, calc(100% - 20px) 100%, 20px 100%, 0% 50%)
+    margin-bottom: 15px
+    @media (max-width: 640px)
+        clip-path: none
+        border-radius: 10px
+    .filters
+        display: flex
+        &__btn
+            width: 106px
+            height: 40px
+            clip-path: polygon( 10px 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0% 50%)
+            color: #60719A
+            text-transform: uppercase
+            font-size: 12px
+            font-weight: 700
+            line-height: 16px
+            display: flex
+            justify-content: center
+            align-items: center
+        &__btn.active
+            background: linear-gradient(90deg, #232B3E 0%, rgba(35, 43, 62, 0.25) 50%, #232B3E 100%)
+            color: #FFF
+        @media (max-width: 991px)
+            // width: 100%
+            order: 1
+            margin: 20px auto 0
+            grid-column: 1/4
+        @media (max-width: 640px)
+            &__btn
+                width: 74px
+                height: 32px
+                font-size: 10px
+                line-height: 12px
+        @media (max-width: 450px)
+            &__btn
+                width: 66.6px
+                height: 28.8px
+                font-size: 8px
+                line-height: 10px
+    @media (max-width: 640px)
+        gap: 0
+    svg
+        width: 24px
+        height: 24px
