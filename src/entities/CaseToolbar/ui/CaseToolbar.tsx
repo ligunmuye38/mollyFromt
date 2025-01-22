@@ -22,12 +22,11 @@ export const CaseToolbar: FC<CaseToolbarProps> = ({ className, withContainer = t
 
 	const setCaseToolbarInView = useCommonStore(state => state.setCaseToolbarInView)
 
-
 	useEffect(() => {
 		if (inViewport !== undefined) {
 			setCaseToolbarInView(inViewport)
 		}
-	}, [inViewport])
+	}, [inViewport, setCaseToolbarInView])
 
 	return (
 		<div

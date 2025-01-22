@@ -1,0 +1,10 @@
+node_modules
+.next
+.husky
+.idea
+.vscode
+public
+.prettierignore
+.eslintignore
+next.config.mjs
+pnpm-lock.yaml

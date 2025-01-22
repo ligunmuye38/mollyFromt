@@ -1,10 +1,11 @@
-import { IMetadata } from '@/shared/types/metadata'
 import CaseContents from '@/widgets/OpenCase/ui/CaseContents'
 import CaseLiveFeed from '@/widgets/OpenCase/ui/CaseLiveFeed'
 import { OpenCase } from '@/widgets/OpenCase/ui/OpenCase'
 import OpenCaseBar from '@/widgets/OpenCase/ui/OpenCaseBar'
 
-export async function generateMetadata({ params: { locale } }: IMetadata) {
+import { IMetadata } from '@/shared/types/metadata'
+
+export async function generateMetadata({ params: { locale: _ } }: IMetadata) {
 	// const t = await getTranslations({ locale, namespace: 'Main' })
 
 	return {
@@ -15,7 +16,7 @@ export async function generateMetadata({ params: { locale } }: IMetadata) {
 	}
 }
 
-export default function Page({ params: { id } }: { params: { id: string } }) {
+export default function Page({ params: { id: _ } }: { params: { id: string } }) {
 	return (
 		<>
 			<div className='mt-4'>

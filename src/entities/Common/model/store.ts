@@ -128,7 +128,7 @@ export const useCommonStore = create<IState & IActions>()(
 								state.headerState = value
 							},
 							undefined,
-							'SET_HEADER_STATE' 
+							'SET_HEADER_STATE'
 						),
 					setMobileRightBarState: value =>
 						set(
@@ -136,7 +136,7 @@ export const useCommonStore = create<IState & IActions>()(
 								state.mobileRightBarState = value
 							},
 							undefined,
-							'SET_MOBILE_RIGHT_BAR_STATE' 
+							'SET_MOBILE_RIGHT_BAR_STATE'
 						),
 					setItemPosition: value =>
 						set(
@@ -144,7 +144,7 @@ export const useCommonStore = create<IState & IActions>()(
 								state.itemPosition = value
 							},
 							undefined,
-							'SET_ITEM_POSITION_STATE' 
+							'SET_ITEM_POSITION_STATE'
 						),
 					setCaseCount: value =>
 						set(
@@ -170,7 +170,7 @@ export const useCommonStore = create<IState & IActions>()(
 							undefined,
 							'SET_CURRENT_CASE_NUMBER'
 						),
-					setSelectedCaseItems: value => 
+					setSelectedCaseItems: value =>
 						set(
 							state => {
 								state.selectedCaseItems = value
@@ -193,7 +193,7 @@ export const useCommonStore = create<IState & IActions>()(
 							},
 							undefined,
 							'SET_SET_SCROLL_FUNCTION_STATE'
-						),
+						)
 				}),
 				{
 					name: 'common'

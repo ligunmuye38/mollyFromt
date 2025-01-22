@@ -9,9 +9,9 @@ import { HeaderBarFixed } from '@/widgets/Header/ui/HeaderBarFixed'
 import { CaseToolbarFixed } from '@/entities/CaseToolbar/ui/CaseToolbarFixed'
 import { useCommonStore } from '@/entities/Common/model/store'
 
-import { useAppResponsive } from '@/shared/lib/useResponsive'
 import { usePathname } from '@/shared/config/i18n/navigation'
 import { AppRoute } from '@/shared/const/pages'
+import { useAppResponsive } from '@/shared/lib/useResponsive'
 
 interface FixedTopBarProps {
 	className?: string
@@ -28,7 +28,7 @@ export const FixedTopBar: FC<FixedTopBarProps> = ({ className }) => {
 	const headerBarInView = useCommonStore(state => state.headerBarInView)
 	const fixedCaseToolbarInView = useCommonStore(state => state.fixedCaseToolbarInView)
 
-	const pathname = usePathname();
+	const pathname = usePathname()
 	const breakpoints = useAppResponsive()
 
 	useEffect(() => {
@@ -56,7 +56,7 @@ export const FixedTopBar: FC<FixedTopBarProps> = ({ className }) => {
 	return (
 		<div
 			ref={holderRef}
-			className='w-full h-0'
+			className='h-0 w-full'
 		>
 			<motion.div
 				initial='inactive'
@@ -67,15 +67,17 @@ export const FixedTopBar: FC<FixedTopBarProps> = ({ className }) => {
 					right: window.innerWidth - (holderRef.current?.getBoundingClientRect().right ?? holderWidth),
 					maxWidth: holderWidth
 				}}
-				className={clsx('fixed top-4 z-[100] flex items-start justify-end gap-4', className, (pathname == AppRoute.MAIN || pathname == AppRoute.CASES) ? "w-full" : "!w-auto", {
-					['top-[-200px] duration-500']: headerBarInView,
-					['w-full']: fixedCaseToolbarInView
-				})}
+				className={clsx(
+					'fixed top-4 z-[100] flex items-start justify-end gap-4',
+					className,
+					pathname == AppRoute.MAIN || pathname == AppRoute.CASES ? 'w-full' : '!w-auto',
+					{
+						['top-[-200px] duration-500']: headerBarInView,
+						['w-full']: fixedCaseToolbarInView
+					}
+				)}
 			>
-				{
-					(pathname == AppRoute.MAIN || pathname == AppRoute.CASES) &&
-					<CaseToolbarFixed className='grow' />
-				}
+				{(pathname == AppRoute.MAIN || pathname == AppRoute.CASES) && <CaseToolbarFixed className='grow' />}
 				<HeaderBarFixed />
 			</motion.div>
 		</div>

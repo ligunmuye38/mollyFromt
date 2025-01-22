@@ -15,5 +15,5 @@ export enum AppRoute {
 	CONTACTS = '/contacts',
 	PRIVACY_POLICY = '/privacy-policy',
 	TERM_OF_SERVICES = '/term-of-services',
-	TEMP = "#"
+	TEMP = '#'
 }

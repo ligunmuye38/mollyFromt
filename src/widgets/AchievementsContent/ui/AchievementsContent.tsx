@@ -37,25 +37,25 @@ export const AchievementsContent = () => {
 
 	return (
 		<>
-			<div className='flex justify-between rounded-[8px] bg-[#171D29] py-[13px] pl-[16px] pr-[22px] mb-3  sm:px-[10px] sm:py-[5px]'>
+			<div className='mb-3 flex justify-between rounded-[8px] bg-[#171D29] py-[13px] pl-[16px] pr-[22px] sm:px-[10px] sm:py-[5px]'>
 				<div className='flex justify-between'>
 					<div className='pr-[30px] 2sm:hidden'>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 md:text-[10px] sm:text-[8px]'>PLACE</span>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] md:text-[10px] sm:text-[8px]'>PLACE</span>
 					</div>
 					<div className='pr-[110px] 3md:pr-[75px] 3sm:pr-[40px]'>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 md:text-[10px] sm:text-[8px]'>PLAYER</span>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] md:text-[10px] sm:text-[8px]'>PLAYER</span>
 					</div>
 					<div className=''>
-						<span className='text-[#5A6786] text-xs font-bold leading-4 md:text-[10px] sm:text-[8px]'>
+						<span className='text-xs font-bold leading-4 text-[#5A6786] md:text-[10px] sm:text-[8px]'>
 							ACHIEVEMENTS
 						</span>
 					</div>
 				</div>
 				<div className=''>
-					<span className='text-[#5A6786] text-xs font-bold leading-4 pr-[90px] 3md:pr-[35px] md:text-[10px] 3sm:pr-[15px] sm:text-[8px]'>
+					<span className='pr-[90px] text-xs font-bold leading-4 text-[#5A6786] 3md:pr-[35px] md:text-[10px] 3sm:pr-[15px] sm:text-[8px]'>
 						ACHIEVE POINTS
 					</span>
-					<span className='text-[#5A6786] text-xs font-bold leading-4 md:text-[10px] sm:text-[8px]'>IN PROGRESS</span>
+					<span className='text-xs font-bold leading-4 text-[#5A6786] md:text-[10px] sm:text-[8px]'>IN PROGRESS</span>
 				</div>
 			</div>
 			<div className=''>

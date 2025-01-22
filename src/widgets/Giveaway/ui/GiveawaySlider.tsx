@@ -29,7 +29,7 @@ export const GiveawaySlider: FC<GiveawaySliderProps> = ({ className }) => {
 				theme={item.rarity}
 				type={item.type}
 				price={item.price}
-				className='max-w-[232px] w-full 3xl:max-w-full 3sm:mx-4'
+				className='w-full max-w-[232px] 3xl:max-w-full 3sm:mx-4'
 			/>
 		</SwiperSlide>
 	))

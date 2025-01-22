@@ -9,7 +9,7 @@
 	"editor.formatOnSave": true,
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"prettier.configPath": ".prettierrc",
-	"eslint.run": "onSave",
+	"eslint.run": "onType",
 	"eslint.lintTask.options": ".eslintrc",
 	"tailwindCSS.experimental.classRegex": [
 		[

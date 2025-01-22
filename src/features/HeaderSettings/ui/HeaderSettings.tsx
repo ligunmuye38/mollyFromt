@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { FC } from 'react'
 import React from 'react'
 
+import { useCommonStore } from '@/entities/Common/model/store'
 import LangSwitcher from '@/entities/LangSwitcher/ui/LangSwitcher'
 import { VolumeSlider } from '@/entities/Volume/ui/VolumeSlider'
 
@@ -17,7 +18,6 @@ import Button from '@/shared/ui/Button/Button'
 import { ButtonHexSquare } from '@/shared/ui/ButtonHexSquare/ButtonHexSquare'
 
 import cls from './HeaderSettings.module.sass'
-import { useCommonStore } from '@/entities/Common/model/store'
 
 interface HeaderSettingsProps {
 	className?: string
@@ -45,9 +45,9 @@ export const HeaderSettings: FC<HeaderSettingsProps> = ({ className }) => {
 			}}
 		>
 			<PopoverTrigger>
-				<ButtonHexSquare className={clsx('w-[34px] h-[38px] md:w-[22px] md:h-[24px]', cls.trigger, className)}>
+				<ButtonHexSquare className={clsx('h-[38px] w-[34px] md:h-[24px] md:w-[22px]', cls.trigger, className)}>
 					<IconSettings
-						className={clsx('w-[20px] h-[20px] md:w-[10px] md:h-[10px] text-[#64749B]', cls.trigger_icon)}
+						className={clsx('h-[20px] w-[20px] text-[#64749B] md:h-[10px] md:w-[10px]', cls.trigger_icon)}
 					/>
 				</ButtonHexSquare>
 			</PopoverTrigger>

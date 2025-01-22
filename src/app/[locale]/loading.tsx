@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 export default function Loading() {
 	return (
 		<motion.div
-			className='h-screen flex items-center justify-center'
+			className='flex h-screen items-center justify-center'
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}

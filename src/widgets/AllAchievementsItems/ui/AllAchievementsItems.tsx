@@ -11,13 +11,13 @@ export const AllAchievementsItems = () => {
 	return (
 		<>
 			<div className='mb-5'>
-				<div className='flex items-center justify-center mb-[15px]'>
+				<div className='mb-[15px] flex items-center justify-center'>
 					<Image
 						src='/images/achievement/achievement.png'
 						alt=''
 						className='max-w-[40px]'
 					/>
-					<h2 className='text-white text-lg font-black leading-5 tracking-[0.36px] uppercase pl-2'>balance</h2>
+					<h2 className='pl-2 text-lg font-black uppercase leading-5 tracking-[0.36px] text-white'>balance</h2>
 				</div>
 				{/* <div className='grid grid-cols-[repeat(8,2fr)] gap-3'> */}
 				<Swiper

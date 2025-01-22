@@ -1,20 +1,19 @@
-import { useTranslations } from "next-intl";
-import { investoryItems } from "../../model/items";
-import ProfileInventory from "../ProfileInventory";
+import { investoryItems } from '../../model/items'
+import ProfileInventory from '../ProfileInventory'
+import { useTranslations } from 'next-intl'
 
 const UserInvestory = () => {
+	// For translation
+	const t = useTranslations()
 
-    // For translation
-    const t = useTranslations()
-
-    return (
-        <div className="w-full justify-center flex flex-col">
-            <span className="text-[#D1D9EB] text-[18px] my-1 text-center">{t('user_profile.investory')}</span>
-            <div className="w-full flex flex-wrap justify-center gap-0.5">
-                <ProfileInventory items={investoryItems} />
-            </div>
-        </div>
-    )
+	return (
+		<div className='flex w-full flex-col justify-center'>
+			<span className='my-1 text-center text-[18px] text-[#D1D9EB]'>{t('user_profile.investory')}</span>
+			<div className='flex w-full flex-wrap justify-center gap-0.5'>
+				<ProfileInventory items={investoryItems} />
+			</div>
+		</div>
+	)
 }
 
-export default UserInvestory;
+export default UserInvestory

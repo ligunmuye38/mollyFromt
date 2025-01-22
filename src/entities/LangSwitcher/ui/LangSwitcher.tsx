@@ -17,7 +17,7 @@ interface LangSwitcherProps {
 	className?: string
 }
 
-const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+const LangSwitcher: FC<LangSwitcherProps> = ({ className: _ }) => {
 	const router = useRouter()
 	const pathname = usePathname()
 

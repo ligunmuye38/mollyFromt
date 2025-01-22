@@ -17,7 +17,7 @@ export const HeaderNav: FC<HeaderNavProps> = ({ className }) => {
 	const t = useTranslations()
 	const pathname = usePathname()
 	return (
-		<div className={clsx(className, cls.nav, 'py-3 flex flex-wrap items-center gap-x-[30px] xl:gap-x-4 gap-y-3')}>
+		<div className={clsx(className, cls.nav, 'flex flex-wrap items-center gap-x-[30px] gap-y-3 py-3 xl:gap-x-4')}>
 			{headerNavItems.map(item => (
 				<Link
 					title={t(item.label)}
@@ -27,7 +27,7 @@ export const HeaderNav: FC<HeaderNavProps> = ({ className }) => {
 						[cls.active]: pathname === item.src
 					})}
 				>
-					<div className={clsx(cls.item_icon, 'w-[18px] h-[18px]')}>
+					<div className={clsx(cls.item_icon, 'h-[18px] w-[18px]')}>
 						<item.icon />
 					</div>
 					<div className={cls.item_label}>{t(item.label)}</div>

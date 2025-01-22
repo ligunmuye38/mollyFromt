@@ -19,7 +19,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 	return (
 		<html lang={params.locale}>
 			<RootHead />
-			<body className='font-primary-med bg-bg text-text-primary app-scrollbar'>
+			<body className='app-scrollbar bg-bg font-primary-med text-text-primary'>
 				<Providers messages={messages}>{children}</Providers>
 			</body>
 		</html>

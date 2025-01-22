@@ -1,26 +1,26 @@
+import Main from '@/widgets/Profile/ui/Main/Main'
+
 import { IMetadata } from '@/shared/types/metadata'
 
-import Main from "@/widgets/Profile/ui/Main/Main";
+export async function generateMetadata({ params: { locale: _ } }: IMetadata) {
+	// const t = await getTranslations({ locale, namespace: 'Main' })
 
-export async function generateMetadata({ params: { locale } }: IMetadata) {
-    // const t = await getTranslations({ locale, namespace: 'Main' })
-
-    return {
-        title: {
-            default: 'Profile/Layout'
-        },
-        description: ''
-    }
+	return {
+		title: {
+			default: 'Profile/Layout'
+		},
+		description: ''
+	}
 }
 
 const ProfilePage = () => {
-    return (
-        <div className='w-full pr-4 lg:!p-0'>
-            <div className='w-full'>
-                <Main />
-            </div>
-        </div>
-    )
+	return (
+		<div className='w-full pr-4 lg:!p-0'>
+			<div className='w-full'>
+				<Main />
+			</div>
+		</div>
+	)
 }
 
-export default ProfilePage;
+export default ProfilePage

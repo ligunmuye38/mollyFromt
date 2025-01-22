@@ -22,7 +22,6 @@ export const CasesSection: FC<CasesSectionProps> = ({ className, categoryKey, ba
 	const barRef = useRef(null)
 	const barSize = useSize(barRef)
 
-
 	if (!categoryKey) {
 		return <div>The selected case category does not exist</div>
 	}
@@ -36,7 +35,7 @@ export const CasesSection: FC<CasesSectionProps> = ({ className, categoryKey, ba
 		>
 			<CaseCard
 				{...item}
-				className={'max-w-[200px] w-full 3sm:max-w-[175px]'}
+				className={'w-full max-w-[200px] 3sm:max-w-[175px]'}
 			/>
 		</div>
 	))

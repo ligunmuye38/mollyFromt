@@ -60,7 +60,7 @@ export const MainNewsCard: FC<MainNewsCardProps> = ({
 							</div>
 						)}
 						<div className={clsx(cls.item_title, 'title-primary')}>{title}</div>
-						<div className='mt-5 3xl:mt-3 flex items-start gap-1.5'>
+						<div className='mt-5 flex items-start gap-1.5 3xl:mt-3'>
 							<div className={cls.item_desc_icon_frame}>
 								<div className={cls.item_desc_icon_border}>
 									<div className={cls.item_desc_icon}>

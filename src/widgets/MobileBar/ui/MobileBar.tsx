@@ -30,7 +30,7 @@ export const MobileBar: FC<MobileBarProps> = ({ className }) => {
 		<Media lessThan='lg'>
 			<Portal className={clsx(cls.base, className)}>
 				<div className={cls.container}>
-					<div className='grow flex justify-center'>
+					<div className='flex grow justify-center'>
 						<div className={clsx(cls.nav)}>
 							{navItems.map(item => (
 								<Link

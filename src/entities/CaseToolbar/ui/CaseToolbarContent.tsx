@@ -1,5 +1,5 @@
 import { PriceRange, Type, initialState, useCasesToolbarStore } from '../model/store'
-import { Link, SliderValue } from '@nextui-org/react'
+import { SliderValue } from '@nextui-org/react'
 import { useDebounceFn } from 'ahooks'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
@@ -74,9 +74,8 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 	const [viewPriceRange, setViewPriceRange] = useState<PriceRange>(initialState.priceRange)
 	const [viewIsEnoughBalance, setViewIsEnoughBalance] = useState<boolean>(initialState.isEnoughBalance)
 
-	const { type, search, weaponType, mode, cases, priceRange, isEnoughBalance, clearFilter, setFilter } = useCasesToolbarStore(
-		state => state
-	)
+	const { type, search, weaponType, mode, cases, priceRange, isEnoughBalance, clearFilter, setFilter } =
+		useCasesToolbarStore(state => state)
 
 	useEffect(() => {
 		setViewType(type)
@@ -98,8 +97,8 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 	}
 
 	return (
-		<div className={clsx(cls.grid, 'flex !justify-between w-full flex-wrap 2lg:!justify-center', className)}>
-			<div className='flex gap-1 flex-wrap 3sm:justify-center'>
+		<div className={clsx(cls.grid, 'flex w-full flex-wrap !justify-between 2lg:!justify-center', className)}>
+			<div className='flex flex-wrap gap-1 3sm:justify-center'>
 				<div className='flex gap-1 3sm:w-full'>
 					<div className={cls.btn_group}>
 						<Button
@@ -133,7 +132,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 							</div>
 						</Button>
 					</div>
-					<div className='flex-1 flex w-full'>
+					<div className='flex w-full flex-1'>
 						<Input
 							value={viewSearch}
 							onChange={v => {
@@ -152,7 +151,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 						/>
 					</div>
 				</div>
-				<div className='flex gap-1 flex-wrap justify-center 3sm:w-full'>
+				<div className='flex flex-wrap justify-center gap-1 3sm:w-full'>
 					<div>
 						<Select
 							value={new Set([weaponType])}
@@ -212,8 +211,8 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 					</div>
 				</div>
 			</div>
-			
-			<div className='flex gap-0 justify-between'>
+
+			<div className='flex justify-between gap-0'>
 				<div className='w-[140px] px-2'>
 					<Slider
 						label={
@@ -263,7 +262,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 				<Button
 					theme='grey-3'
 					strokeSize='reg'
-					startContent={<IconClear className='shrink-0 w-4 h-4 ' />}
+					startContent={<IconClear className='h-4 w-4 shrink-0' />}
 					onClick={clearFilter}
 					classNames={{
 						base: [cls.box, ''],

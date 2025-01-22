@@ -1,10 +1,10 @@
 'use client'
 
+import clsx from 'clsx'
 import { FC } from 'react'
 
 import cls from './Header.module.sass'
 import { HeaderBarContent } from './HeaderBarContent'
-import clsx from 'clsx'
 
 export const HeaderBarFixed: FC = () => {
 	return (

@@ -14,9 +14,9 @@ export const WikiMiniItems = () => {
 			<div className='flex justify-between'>
 				<div className='flex items-center pb-5'>
 					<Knife />
-					<h3 className='pl-4 text-white text-2xl font-black tracking-[0.48px] uppercase'>Knives</h3>
+					<h3 className='pl-4 text-2xl font-black uppercase tracking-[0.48px] text-white'>Knives</h3>
 				</div>
-				<div className='w-[24px] h-[24px] bg-[#252C3D] rounded-[6px] flex justify-center items-center'>
+				<div className='flex h-[24px] w-[24px] items-center justify-center rounded-[6px] bg-[#252C3D]'>
 					<Arrow className='w-[18px] fill-[#7785B3]' />
 				</div>
 			</div>

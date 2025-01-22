@@ -1,36 +1,33 @@
-import { IBody, IListItem } from "./type"
+import { IBody, IListItem } from './type'
 
 export const listItems: IListItem[] = [
-    {
-        id: '1',
-        title: 'fair_list.review',
-    },
-    {
-        id: '2',
-        title: 'fair_list.implementation'
-    },
-    {
-        id: '3',
-        title: 'fair_list.conversion'
-    },
-    {
-        id: '4',
-        title: 'fair_list.game_events'
-    },
-    {
-        id: '5',
-        title: 'fair_list.decoding'
-    },
-    {
-        id: '6',
-        title: 'fair_list.calculation'
-    }
+	{
+		id: '1',
+		title: 'fair_list.review'
+	},
+	{
+		id: '2',
+		title: 'fair_list.implementation'
+	},
+	{
+		id: '3',
+		title: 'fair_list.conversion'
+	},
+	{
+		id: '4',
+		title: 'fair_list.game_events'
+	},
+	{
+		id: '5',
+		title: 'fair_list.decoding'
+	},
+	{
+		id: '6',
+		title: 'fair_list.calculation'
+	}
 ]
 
-export const listGames: string[] = [
-    "fair_footer_select.mine",
-    "fair_footer_select.game"
-]
+export const listGames: string[] = ['fair_footer_select.mine', 'fair_footer_select.game']
 
 export const code: string = `
 public generateServerSeed = (clientSeed: string | null = null): string => {
@@ -71,46 +68,34 @@ async retrieveRandomHashv2(n, gameHash) {
 
 // Body data
 export const bodyData: IBody[] = [
-    {
-        id: "review",
-        title: "Review",
-        contents: [
-            "This is for Review section"
-        ]
-    },
-    {
-        id: "implementation",
-        title: "Implementation",
-        contents: [
-            "This is for Implementation section"
-        ]
-    },
-    {
-        id: "conversion",
-        title: "Conversion",
-        contents: [
-            "This is for Conversion section"
-        ]
-    },
-    {
-        id: "game-events",
-        title: "Game events",
-        contents: [
-            "This is for Game events section"
-        ]
-    },
-    {
-        id: "decoding",
-        title: "Decoding",
-        contents: [
-            "This is for Decoding section"
-        ]
-    },
-    {
-        id: "calculation",
-        title: "Calculation",
-        contents: [
-            "This is for Calculation section"
-        ]
-    }
+	{
+		id: 'review',
+		title: 'Review',
+		contents: ['This is for Review section']
+	},
+	{
+		id: 'implementation',
+		title: 'Implementation',
+		contents: ['This is for Implementation section']
+	},
+	{
+		id: 'conversion',
+		title: 'Conversion',
+		contents: ['This is for Conversion section']
+	},
+	{
+		id: 'game-events',
+		title: 'Game events',
+		contents: ['This is for Game events section']
+	},
+	{
+		id: 'decoding',
+		title: 'Decoding',
+		contents: ['This is for Decoding section']
+	},
+	{
+		id: 'calculation',
+		title: 'Calculation',
+		contents: ['This is for Calculation section']
+	}
 ]

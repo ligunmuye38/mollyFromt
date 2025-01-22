@@ -72,10 +72,10 @@ export const MobileMenu: FC<MobileMenuProps> = ({ className }) => {
 					variants={animationVariants}
 					transition={{ duration: 0.2, ease: 'easeOut' }}
 					onAnimationStart={variant => {
-						variant === 'active' && setActive(true)
+						if (variant === 'active') setActive(true)
 					}}
 					onAnimationComplete={variant => {
-						variant === 'inactive' && setActive(false)
+						if (variant === 'inactive') setActive(false)
 					}}
 					className={clsx(cls.base, active && cls.active, 'app-scrollbar', className)}
 				>

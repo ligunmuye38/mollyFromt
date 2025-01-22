@@ -1,4 +1,3 @@
-
 import { CasesSection } from '@/widgets/CasesSection/ui/CasesSection'
 import { Giveaway } from '@/widgets/Giveaway/ui/Giveaway'
 import { LiveFeedWithToolbar } from '@/widgets/LiveFeedWithToolbar/ui/LiveFeedWithToolbar'
@@ -7,7 +6,7 @@ import { TopCases } from '@/widgets/TopCases/ui/TopCases'
 
 import { IMetadata } from '@/shared/types/metadata'
 
-export async function generateMetadata({ params: { locale } }: IMetadata) {
+export async function generateMetadata({ params: { locale: _ } }: IMetadata) {
 	// const t = await getTranslations({ locale, namespace: 'Main' })
 
 	return {
@@ -26,7 +25,7 @@ const Page = () => {
 				<MainNews />
 				<LiveFeedWithToolbar />
 			</div>
-			<div className=' container-common mt-4 grid grid-cols-[auto_1fr] gap-6 items-start 3xl:grid-cols-1 3xl:gap-4'>
+			<div className='container-common mt-4 grid grid-cols-[auto_1fr] items-start gap-6 3xl:grid-cols-1 3xl:gap-4'>
 				<Giveaway />
 				<TopCases />
 			</div>

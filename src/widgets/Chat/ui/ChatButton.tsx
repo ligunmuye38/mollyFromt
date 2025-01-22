@@ -41,10 +41,10 @@ export const ChatButton: FC = () => {
 				initial={'inactive'}
 				animate={chatViewHidden ? 'active' : 'inactive'}
 				onAnimationComplete={variant => {
-					variant === 'inactive' && setActive(false)
+					if (variant === 'inactive') setActive(false)
 				}}
 				onAnimationStart={variant => {
-					variant === 'active' && setActive(true)
+					if (variant === 'active') setActive(true)
 				}}
 				transition={{ duration: 0.2 }}
 				className={clsx(cls.btn_open_wrapper, active && cls.active, mobileRightBarState ? 'hidden' : 'flex')}
@@ -56,7 +56,9 @@ export const ChatButton: FC = () => {
 					hexagon
 					hexagonAxis={breakpoints?.lg ? 'x' : 'y'}
 					hexagonAngleOffset={breakpoints?.lg ? 10 : 13}
-					onClick={() => { setViewChatHidden(false) }}
+					onClick={() => {
+						setViewChatHidden(false)
+					}}
 					classNames={{
 						base: cls.btn_open_base,
 						content: cls.btn_open_content
