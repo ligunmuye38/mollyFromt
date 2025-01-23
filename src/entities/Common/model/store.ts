@@ -16,6 +16,8 @@ export interface IState {
 	mobileRightBarState: boolean
 	itemPosition: string
 	caseCount: number
+	gameHistoryType: string
+	transactionHistoryType: string
 	openFarm: boolean
 	openAcceptCase: boolean
 	currentCaseNumber: number
@@ -35,6 +37,8 @@ export interface IActions {
 	setMobileRightBarState: (value: boolean) => void
 	setItemPosition: (value: string) => void
 	setCaseCount: (value: number) => void
+	setGameHistoryType: (value: string) => void
+	setTransactionHistoryType: (value: string) => void
 	setOpenFarm: (value: boolean) => void
 	setOpenAcceptCase: (value: boolean) => void
 	setCurrentCaseNumber: (value: number) => void
@@ -55,6 +59,8 @@ export const initialState: IState = {
 	mobileRightBarState: false,
 	itemPosition: 'center',
 	caseCount: 0,
+	gameHistoryType: 'Case Battle',
+	transactionHistoryType: 'deposit',
 	openFarm: true,
 	openAcceptCase: true,
 	currentCaseNumber: 0,
@@ -156,6 +162,22 @@ export const useCommonStore = create<IState & IActions>()(
 							},
 							undefined,
 							'SET_CASE_COUNT'
+						),
+					setGameHistoryType: value =>
+						set(
+							state => {
+								state.gameHistoryType = value
+							},
+							undefined,
+							'SET_GAME_HISTORY_TYPE'
+						),
+					setTransactionHistoryType: value =>
+						set(
+							state => {
+								state.gameHistoryType = value
+							},
+							undefined,
+							'SET_GAME_HISTORY_TYPE'
 						),
 					setOpenFarm: value =>
 						set(

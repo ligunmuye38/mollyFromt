@@ -1,16 +1,14 @@
 'use client'
 
 import { gameHistoryTypes } from '../../model/items'
-import { Selection } from '@nextui-org/react'
-import { useLocale } from 'next-intl'
-import { useState } from 'react'
+
+import { useCommonStore } from '@/entities/Common/model/store'
 
 import { ISelectItem, Select } from '@/shared/ui/Select/Select'
 
 const GameHistoryTypeSwitcher = () => {
-	const locale = useLocale()
-
-	const [value, setValue] = useState<Selection>(new Set([locale]))
+	const gameHistoryType = useCommonStore(state => state.gameHistoryType)
+	const setGameHistoryType = useCommonStore(state => state.setGameHistoryType)
 
 	const items = gameHistoryTypes.map(
 		item =>
@@ -24,9 +22,9 @@ const GameHistoryTypeSwitcher = () => {
 	return (
 		<>
 			<Select
-				value={value}
+				value={new Set([gameHistoryType])}
 				onChangeValue={v => {
-					setValue(v)
+					setGameHistoryType(new Set(v).values().next().value?.toString() ?? '')
 				}}
 				theme='theme-2'
 				items={items}

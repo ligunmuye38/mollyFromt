@@ -14,7 +14,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 			<ProfileHeader />
 			<div className='flex lg:flex-col'>
 				{pathname != '/profile/user' && (
-					<div className='h-screen w-auto lg:h-auto'>
+					<div className='sticky top-4 h-screen w-auto lg:h-auto'>
 						<ProfileMain />
 					</div>
 				)}

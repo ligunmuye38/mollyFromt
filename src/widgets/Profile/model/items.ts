@@ -4,6 +4,7 @@ import IconCase from '@/shared/assets/icons/icon-case-battle.svg'
 import IconBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import IconOpenCase from '@/shared/assets/icons/icon-case-open.svg'
 import IconGames from '@/shared/assets/icons/icon-game-history.svg'
+import IconLotto2 from '@/shared/assets/icons/icon-lotto-2.svg'
 import IconLotto from '@/shared/assets/icons/icon-lotto.svg'
 import IconPromoCode from '@/shared/assets/icons/icon-promocode.svg'
 import IconSetting from '@/shared/assets/icons/icon-setting.svg'
@@ -12,7 +13,17 @@ import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
 import IconVerification from '@/shared/assets/icons/icon-verification.svg'
 
-import { IBestDropData, IGameType, IInvestoryItemType, IProfileItem, ImageBgType } from './types'
+import {
+	IBestDropData,
+	ICaseBattleItem,
+	IGameType,
+	IInvestoryItemType,
+	ILottoItem,
+	IOpeningCaseItem,
+	IProfileItem,
+	IUpgradeItem,
+	ImageBgType
+} from './types'
 
 export const profileList: IProfileItem[] = [
 	{
@@ -382,18 +393,2882 @@ export const userBestDropData: IBestDropData[] = [
 // Game history profile
 export const gameHistoryTypes: IGameType[] = [
 	{
-		value: 'Case Battle1',
+		value: 'Case Battle',
 		icon: IconBattle,
 		label: 'Case Battle'
 	},
 	{
-		value: 'Case Battle2',
+		value: 'Opening Case',
 		icon: IconOpenCase,
-		label: 'Case Battle'
+		label: 'Opening Case'
 	},
 	{
 		value: 'Upgrade',
 		icon: IconUpgrade,
 		label: 'Upgrade'
+	},
+	{
+		value: 'Lotto',
+		icon: IconLotto2,
+		label: 'Lotto'
 	}
 ]
+
+export const openingCaseHistory: IOpeningCaseItem[] = [
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		name: 'Magic Cases',
+		price: '500.34',
+		prizes: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		]
+	}
+]
+
+export const upgradeHistory: IUpgradeItem[] = [
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		items: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		price: '500.34',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		status: true
+	},
+	{
+		dateOfOpening: '20/06/2024 2:42',
+		price: '500.34',
+		status: false
+	}
+]
+
+export const lottoHistory: ILottoItem[] = [
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	},
+	{
+		date: '20/06/2024 2:42',
+		result: [
+			{
+				icon: '/images/livefeed/skin-5.png',
+				name: 'AK-47 | Fire Serpent',
+				price: '456,05'
+			}
+		],
+		bet: '500.34',
+		status: true
+	},
+	{
+		date: '20/06/2024 2:42',
+		bet: '500.34',
+		status: false
+	}
+]
+
+export const caseBattleHistory: ICaseBattleItem[] = [
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	},
+	{
+		allies: [
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/2.jpg',
+				id: ''
+			}
+		],
+		bet: '100.99',
+		enemies: [
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			},
+			{
+				icon: '/images/avatars/3.jpg',
+				id: ''
+			}
+		],
+		round: 1
+	}
+]
+
+export const casesIcons: string[] = [
+	'/images/case/case-full-1.png',
+	'/images/case/case-full-2.png',
+	'/images/case/case-full-3.png',
+	'/images/case/case-full-4.png',
+	'/images/case/case-full-5.png',
+	'/images/case/case-full-1.png',
+	'/images/case/case-full-2.png',
+	'/images/case/case-full-3.png',
+	'/images/case/case-full-4.png',
+	'/images/case/case-full-5.png'
+]
+
+// Transaction History Profile
+export type TransactionHistoryType = 'deposit' | 'withdraw'

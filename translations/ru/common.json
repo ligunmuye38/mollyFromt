@@ -324,11 +324,27 @@
 		"investory": "Инвесторы"
 	},
 	"game_history_profile": {
+		"bet": "Ставка",
+		"date": "Дата",
+		"rounds": "Раунды",
+		"items_amount": "Элементы/Сумма",
 		"history_games": "Исторические игры",
 		"case_battle": "Дело битвы",
 		"case_name": "Название дела",
 		"price": "Цена",
 		"date_of_opening": "Дата открытия",
-		"prizes": "Призы"
+		"prizes": "Призы",
+		"result": "Результат"
+	},
+	"transaction_history_profile": {
+		"transaction_history": "История транзакций",
+		"deposit": "Депозит",
+		"withdraw": "Отзывать",
+		"id": "ИД",
+		"method": "Метод",
+		"amount": "Сумма",
+		"bonus": "Бонус",
+		"date": "Дата",
+		"status": "Статус"
 	}
 }

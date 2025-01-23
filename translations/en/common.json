@@ -328,11 +328,27 @@
 		"investory": "Investory"
 	},
 	"game_history_profile": {
+		"bet": "Bet",
+		"date": "Date",
+		"rounds": "Rounds",
+		"items_amount": "Items/Amount",
 		"history_games": "History games",
 		"case_battle": "Case Battle",
 		"case_name": "Case name",
 		"price": "Price",
 		"date_of_opening": "Date of opening",
-		"prizes": "Prizes"
+		"prizes": "Prizes",
+		"result": "Result"
+	},
+	"transaction_history_profile": {
+		"transaction_history": "Transaction history",
+		"deposit": "Deposit",
+		"withdraw": "Withdraw",
+		"id": "Id",
+		"method": "Method",
+		"amount": "Amount",
+		"bonus": "Bonus",
+		"date": "Date",
+		"status": "Status"
 	}
 }

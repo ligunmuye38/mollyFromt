@@ -11,3 +11,266 @@
 
 .profile_logo
     fill: linear-gradient(0deg, #10AA7C, #10AA7C),linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+
+.price
+  align-self: center
+  clip-path: polygon( 8.863% 3.857%,8.863% 3.857%,8.909% 3.607%,8.964% 3.377%,9.027% 3.169%,9.097% 2.984%,9.173% 2.824%,9.255% 2.689%,9.343% 2.582%,9.434% 2.504%,9.529% 2.455%,9.626% 2.439%,90.719% 2.439%,90.719% 2.439%,90.816% 2.455%,90.91% 2.503%,91.001% 2.581%,91.088% 2.688%,91.171% 2.822%,91.247% 2.982%,91.317% 3.166%,91.38% 3.374%,91.434% 3.603%,91.48% 3.851%,99.238% 52.413%,100% 51.387%,99.238% 52.413%,99.238% 52.413%,99.267% 52.62%,99.29% 52.832%,99.305% 53.047%,99.314% 53.265%,99.316% 53.484%,99.311% 53.702%,99.3% 53.919%,99.282% 54.132%,99.257% 54.341%,99.225% 54.545%,91.509% 98.666%,91.509% 98.666%,91.462% 98.902%,91.406% 99.119%,91.344% 99.315%,91.275% 99.489%,91.199% 99.64%,91.119% 99.766%,91.034% 99.867%,90.946% 99.94%,90.854% 99.985%,90.76% 100%,9.626% 100%,9.626% 100%,9.529% 99.984%,9.434% 99.936%,9.343% 99.857%,9.255% 99.75%,9.173% 99.615%,9.097% 99.455%,9.027% 99.27%,8.964% 99.062%,8.909% 98.832%,8.863% 98.582%,1.507% 52.241%,1.507% 52.241%,1.479% 52.044%,1.457% 51.842%,1.442% 51.636%,1.433% 51.428%,1.429% 51.22%,1.433% 51.011%,1.442% 50.803%,1.457% 50.597%,1.479% 50.395%,1.507% 50.198%,8.863% 3.857% )
+  min-width: 120px
+  height: 42px
+  padding: 2px
+  background: linear-gradient(270deg, rgba(39, 49, 69, 0.65) 0%, rgba(39, 49, 69, 0.15) 50%, rgba(39, 49, 69, 0.65) 100%)
+  &_wrapper
+    position: relative
+    z-index: 1
+  &_inner
+    clip-path: polygon( 8.863% 3.857%,8.863% 3.857%,8.909% 3.607%,8.964% 3.377%,9.027% 3.169%,9.097% 2.984%,9.173% 2.824%,9.255% 2.689%,9.343% 2.582%,9.434% 2.504%,9.529% 2.455%,9.626% 2.439%,90.719% 2.439%,90.719% 2.439%,90.816% 2.455%,90.91% 2.503%,91.001% 2.581%,91.088% 2.688%,91.171% 2.822%,91.247% 2.982%,91.317% 3.166%,91.38% 3.374%,91.434% 3.603%,91.48% 3.851%,99.238% 52.413%,100% 51.387%,99.238% 52.413%,99.238% 52.413%,99.267% 52.62%,99.29% 52.832%,99.305% 53.047%,99.314% 53.265%,99.316% 53.484%,99.311% 53.702%,99.3% 53.919%,99.282% 54.132%,99.257% 54.341%,99.225% 54.545%,91.509% 98.666%,91.509% 98.666%,91.462% 98.902%,91.406% 99.119%,91.344% 99.315%,91.275% 99.489%,91.199% 99.64%,91.119% 99.766%,91.034% 99.867%,90.946% 99.94%,90.854% 99.985%,90.76% 100%,9.626% 100%,9.626% 100%,9.529% 99.984%,9.434% 99.936%,9.343% 99.857%,9.255% 99.75%,9.173% 99.615%,9.097% 99.455%,9.027% 99.27%,8.964% 99.062%,8.909% 98.832%,8.863% 98.582%,1.507% 52.241%,1.507% 52.241%,1.479% 52.044%,1.457% 51.842%,1.442% 51.636%,1.433% 51.428%,1.429% 51.22%,1.433% 51.011%,1.442% 50.803%,1.457% 50.597%,1.479% 50.395%,1.507% 50.198%,8.863% 3.857% )
+    width: 100%
+    height: 100%
+    padding: 0 16px
+    display: flex
+    align-items: center
+    justify-content: center
+    background: linear-gradient(90deg, #1E2536 0%, #1C2333 20%, #1C2333 80%, #1E2536 100%)
+    font-size: 15px
+    color: #fff
+    text-transform: uppercase
+    font-size: 14px
+    font-weight: 700
+    line-height: 16px
+
+    &_currency
+      color: #24FDBC
+
+.avatar
+  position: relative
+  z-index: 1
+  flex-shrink: 0
+  width: 32px
+  height: 36px
+  &_border
+    position: relative
+    width: 100%
+    height: 100%
+    &_inner
+      position: absolute
+      z-index: 2
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 26px
+      height: 32px
+  &_pic
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    clip-path: polygon( 43.269% 5.292%,43.269% 5.292%,44.546% 4.73%,45.869% 4.292%,47.227% 3.979%,48.607% 3.792%,50% 3.729%,51.393% 3.792%,52.773% 3.979%,54.131% 4.292%,55.454% 4.73%,56.731% 5.292%,91.309% 22.594%,91.309% 22.594%,92.51% 23.271%,93.609% 24.045%,94.6% 24.908%,95.478% 25.851%,96.236% 26.865%,96.87% 27.941%,97.373% 29.071%,97.74% 30.247%,97.964% 31.459%,98.04% 32.698%,98.04% 67.302%,98.04% 67.302%,97.964% 68.541%,97.74% 69.753%,97.373% 70.929%,96.87% 72.059%,96.236% 73.135%,95.478% 74.149%,94.6% 75.092%,93.609% 75.955%,92.51% 76.729%,91.309% 77.406%,56.731% 94.708%,56.731% 94.708%,55.454% 95.27%,54.131% 95.708%,52.773% 96.021%,51.393% 96.208%,50% 96.271%,48.607% 96.208%,47.227% 96.021%,45.869% 95.708%,44.546% 95.27%,43.269% 94.708%,8.691% 77.406%,8.691% 77.406%,7.49% 76.729%,6.391% 75.955%,5.4% 75.092%,4.522% 74.149%,3.764% 73.135%,3.13% 72.059%,2.627% 70.929%,2.26% 69.753%,2.036% 68.541%,1.96% 67.302%,1.96% 32.698%,1.96% 32.698%,2.036% 31.459%,2.26% 30.247%,2.627% 29.071%,3.13% 27.941%,3.764% 26.865%,4.522% 25.851%,5.4% 24.908%,6.391% 24.045%,7.49% 23.271%,8.691% 22.594%,43.269% 5.292% )
+
+.currency
+  color: rgba(23, 226, 165, 1)
+
+.hexagon
+  width: 50px
+  height: 50px
+  padding: 2px
+  background: linear-gradient(180deg, #425171 0%, #2E3952 100%)
+  clip-path: path('M48.4 21.9C49.5 23.7 49.5 26 48.4 27.8L39.6 43.1C38.5 45 36.5 46.1 34.4 46.1H16.7C14.6 46.1 12.6 45 11.5 43.1L2.7 27.8C1.6 26 1.6 23.7 2.7 21.9L11.5 6.5C12.6 4.7 14.6 3.6 16.7 3.6H34.4C36.5 3.6 38.5 4.7 39.6 6.5L48.4 21.9Z')
+
+  &_inner
+    width: 100%
+    height: 100%
+    font-size: 18px
+    line-height: 16px
+    color: #7689B6
+    font-weight: 700
+    display: flex
+    align-items: center
+    justify-content: center
+    clip-path: path('M44.0391 19.9375C45.0081 21.616 45.0081 23.684 44.0391 25.3625L35.9936 39.2976C35.0246 40.9761 33.2336 42.0101 31.2954 42.0101H15.2046C13.2664 42.0101 11.4754 40.9761 10.5064 39.2976L2.4609 25.3625C1.4919 23.684 1.4919 21.616 2.4609 19.9375L10.5064 6.0024C11.4754 4.3239 13.2664 3.2899 15.2046 3.2899H31.2954C33.2336 3.2899 35.0246 4.3239 35.9936 6.0024L44.0391 19.9375Z')
+    background: linear-gradient(0deg, #273146, #273146), linear-gradient(180deg, #3E4C6B 0%, rgba(39, 49, 70, 0) 100%)
+
+.game_history
+  background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
+  padding: 2px
+  border-radius: 12px
+
+  &_icon
+    display: flex
+    align-items: center
+    justify-content: center
+    background: black
+    border-radius: 12px
+    width: 42px
+    height: 42px
+    flex: 0 0 auto
+
+  &_inner
+    display: flex
+    align-items: center
+    background: linear-gradient(180deg, #1E2535 0%, #191F2D 100%)
+    border-radius: 12px
+    padding-top: 12px
+    padding-bottom: 12px
+    padding-left: 12px
+    padding-right: 12px
+
+  &_opening_case
+    &_name
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: white
+      width: 25%
+      display: flex
+      align-items: center
+      gap: 12px
+    
+    &_price
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: white
+      width: 25%
+    
+    &_date_of_opening
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: rgba(149, 170, 219, 1)
+      width: 25%
+    
+    &_prize
+      width: 25%
+      display: flex
+      justify-content: end
+      align-items: center
+      gap: 8px
+
+      &_name
+        font-weight: 500
+        font-size: 10px
+        line-height: 16px
+        color: white
+       
+      &_price
+        font-size: 12px
+        font-weight: 700
+        line-height: 16px
+  
+  &_upgrade
+    &_price
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: white
+      width: 25%
+    
+    &_date_of_opening
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: rgba(149, 170, 219, 1)
+      width: 25%
+    
+    &_item
+      width: 25%
+      display: flex
+      justify-content: start
+      align-items: center
+      gap: 8px
+
+      &_name
+        font-weight: 500
+        font-size: 10px
+        line-height: 16px
+        color: white
+       
+      &_price
+        font-size: 12px
+        font-weight: 700
+        line-height: 16px
+    
+    &_result
+      width: 25%
+      display: flex
+      justify-content: end
+      align-items: center
+      gap: 8px
+
+      &_name
+        font-weight: 500
+        font-size: 10px
+        line-height: 16px
+        color: white
+       
+      &_price
+        font-size: 12px
+        font-weight: 700
+        line-height: 16px
+  
+  &_lotto
+    &_price
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: white
+      width: 33%
+    
+    &_date
+      font-weight: 700
+      font-size: 14px
+      line-height: 16px
+      color: rgba(149, 170, 219, 1)
+      width: 33%
+    
+    &_result
+      width: 33%
+      display: flex
+      justify-content: end
+      align-items: center
+      gap: 8px
+
+      &_name
+        font-weight: 500
+        font-size: 10px
+        line-height: 16px
+        color: white
+       
+      &_price
+        font-size: 12px
+        font-weight: 700
+        line-height: 16px
+  
+  &_case_battle
+    &_round
+      font-size: 14px
+      font-weight: 500
+      line-height: 16px
+      color: #60719A
+    
+    &_icon
+      position: absolute
+      top: 50%
+      left: 50%
+      translate: -50% -50%
+      fill: #2F374A
+      width: 20px
+      height: 16.35px
+    
+    &_cases_icons
+      position: relative
+      background: #10151E
+      border-radius: 12px
+      padding: 8px
+      display: flex
+      gap: 8px
+      overflow: hidden
+    
+    &_case_icon_cursor
+      filter: drop-shadow(0px 0px 4px rgba(226, 182, 23, 1))
+      & svg
+        width: 12px
+        height: 14.75px
+      & path
+        fill: #E2B617

@@ -39,3 +39,43 @@ export interface IGameType extends ISelectItem {
 	value: string
 	icon: React.FC<React.SVGProps<SVGSVGElement>>
 }
+
+interface Item {
+	name: string
+	price: string
+	icon: string
+}
+
+interface User {
+	icon: string
+	id: string
+}
+
+export interface IOpeningCaseItem {
+	name: string
+	price: string
+	dateOfOpening: string
+	prizes: Item[]
+}
+
+export interface IUpgradeItem {
+	items?: Item[]
+	price: string
+	dateOfOpening: string
+	result?: Item[]
+	status: boolean // true for Success, false for Fail
+}
+
+export interface ILottoItem {
+	bet: string
+	date: string
+	result?: Item[]
+	status: boolean
+}
+
+export interface ICaseBattleItem {
+	round: number
+	allies: User[]
+	enemies: User[]
+	bet: string
+}

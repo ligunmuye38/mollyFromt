@@ -1,19 +1,21 @@
-import { useTranslations } from 'next-intl'
+'use client'
+
+import { useCommonStore } from '@/entities/Common/model/store'
+
+import CaseBattleHistoryList from './CaseBattleHistoryList'
+import LottoHistoryList from './LottoHistoryList'
+import OpeningCaseHistoryList from './OpeningCaseHistoryList'
+import UpgradeHistoryList from './UpgradHistoryList'
 
 const GameHistoryList = () => {
-	// For translation
-	const t = useTranslations()
+	const gameHistoryType = useCommonStore(state => state.gameHistoryType)
 
 	return (
 		<div className='flex flex-col gap-2'>
-			<div className='flex w-full rounded-lg bg-[#1F2536] px-[15px] py-[9px] font-primary-bold text-[10px] text-[#5A6786]'>
-				<span className='flex w-1/4 items-center justify-start uppercase'>{t('game_history_profile.case_name')}</span>
-				<span className='flex w-1/4 items-center justify-start uppercase'>{t('game_history_profile.price')}</span>
-				<span className='flex w-1/4 items-center justify-start uppercase'>
-					{t('game_history_profile.date_of_opening')}
-				</span>
-				<span className='flex w-1/4 items-center justify-end uppercase'>{t('game_history_profile.prizes')}</span>
-			</div>
+			{gameHistoryType === 'Opening Case' && <OpeningCaseHistoryList />}
+			{gameHistoryType === 'Upgrade' && <UpgradeHistoryList />}
+			{gameHistoryType === 'Lotto' && <LottoHistoryList />}
+			{gameHistoryType === 'Case Battle' && <CaseBattleHistoryList />}
 		</div>
 	)
 }
