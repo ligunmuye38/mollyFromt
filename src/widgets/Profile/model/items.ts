@@ -21,8 +21,10 @@ import {
 	ILottoItem,
 	IOpeningCaseItem,
 	IProfileItem,
+	ITransactionItem,
 	IUpgradeItem,
-	ImageBgType
+	ImageBgType,
+	TransactionStatus
 } from './types'
 
 export const profileList: IProfileItem[] = [
@@ -3271,4 +3273,508 @@ export const casesIcons: string[] = [
 ]
 
 // Transaction History Profile
-export type TransactionHistoryType = 'deposit' | 'withdraw'
+export const depositHistory: ITransactionItem[] = [
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED,
+		bonus: '$50.00'
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN,
+		bonus: '$50.00'
+	}
+]
+
+export const withdrawHistory: ITransactionItem[] = [
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'AK-47 | Fire Serpent'
+		},
+		status: TransactionStatus.RETURN
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'AK-47 | Fire Serpent'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'AK-47 | Fire Serpent'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'AK-47 | Fire Serpent'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.SUCCESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.ON_PROGRESS
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.FAILED
+	},
+	{
+		amount: '$500.00',
+		date: '06/06 01:07',
+		id: '28968951',
+		method: {
+			title: 'VISA / MC',
+			icon: '/images/payment/visa.png'
+		},
+		status: TransactionStatus.RETURN
+	}
+]

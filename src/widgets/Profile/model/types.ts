@@ -79,3 +79,27 @@ export interface ICaseBattleItem {
 	enemies: User[]
 	bet: string
 }
+
+export enum TransactionHistoryType {
+	DEPOSIT = 'deposit',
+	WITHDRAW = 'withdraw'
+}
+
+export enum TransactionStatus {
+	SUCCESS = 'success',
+	ON_PROGRESS = 'on_progress',
+	FAILED = 'failed',
+	RETURN = 'return'
+}
+
+export interface ITransactionItem {
+	id: string
+	method: {
+		title: string
+		icon?: string
+	}
+	amount: string
+	bonus?: string
+	date: string
+	status: TransactionStatus
+}

@@ -16,7 +16,7 @@ const PaginationBar = ({ page, setPage, total }: PaginationBarProps) => {
 			return (
 				<button
 					key={key}
-					className={clsx(className, 'h-8 w-8 min-w-8 bg-[#1C2332]')}
+					className={clsx(className, 'h-8 w-8 min-w-8 !bg-[#1C2332]')}
 					onClick={onNext}
 				>
 					<IconRightArrowRounded />
@@ -28,7 +28,7 @@ const PaginationBar = ({ page, setPage, total }: PaginationBarProps) => {
 			return (
 				<button
 					key={key}
-					className={clsx(className, 'h-8 w-8 min-w-8 bg-[#1C2332]')}
+					className={clsx(className, 'h-8 w-8 min-w-8 !bg-[#1C2332]')}
 					onClick={onPrevious}
 				>
 					<IconLeftArrowRounded />
@@ -40,7 +40,7 @@ const PaginationBar = ({ page, setPage, total }: PaginationBarProps) => {
 			return (
 				<button
 					key={key}
-					className={clsx(className, 'bg-[#1C2332] text-white')}
+					className={clsx(className, '!bg-[#1C2332] text-white')}
 				>
 					...
 				</button>
@@ -52,7 +52,7 @@ const PaginationBar = ({ page, setPage, total }: PaginationBarProps) => {
 			<button
 				key={key}
 				ref={ref}
-				className={clsx(className, 'bg-[#1C2332] text-white')}
+				className={clsx(className, '!bg-[#1C2332] text-white')}
 				onClick={() => setPage(value)}
 			>
 				{value}

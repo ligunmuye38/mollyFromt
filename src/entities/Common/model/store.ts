@@ -174,10 +174,10 @@ export const useCommonStore = create<IState & IActions>()(
 					setTransactionHistoryType: value =>
 						set(
 							state => {
-								state.gameHistoryType = value
+								state.transactionHistoryType = value
 							},
 							undefined,
-							'SET_GAME_HISTORY_TYPE'
+							'SET_TRANSACTION_HISTORY_TYPE'
 						),
 					setOpenFarm: value =>
 						set(

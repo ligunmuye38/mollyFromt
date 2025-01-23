@@ -1,11 +1,20 @@
 'use client'
 
+import { TransactionHistoryType } from '../../model/types'
+
 import { useCommonStore } from '@/entities/Common/model/store'
 
-const TransactionHistoryList = () => {
-	const _gameHistoryType = useCommonStore(state => state.gameHistoryType)
+import DepositHistoryList from './DepositHistoryList'
+import WithdrawHistoryList from './WithdrawHistoryList'
 
-	return <div className='flex flex-col gap-2'></div>
+const TransactionHistoryList = () => {
+	const transactionHistoryType = useCommonStore(state => state.transactionHistoryType)
+
+	return (
+		<div className='flex flex-col gap-2'>
+			{transactionHistoryType === TransactionHistoryType.DEPOSIT ? <DepositHistoryList /> : <WithdrawHistoryList />}
+		</div>
+	)
 }
 
 export default TransactionHistoryList
