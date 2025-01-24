@@ -67,3 +67,23 @@
   .input
     &::placeholder
       @apply text-text-primary/50
+
+.theme-4
+  --nextui-danger: 0 60% 52%
+  &[data-invalid="true"]
+    .input_wrapper
+      border-color: hsl(var(--nextui-danger))
+      background-color: #181E2C !important
+  &[data-hover="true"], &[data-focus="true"]
+    .input_wrapper
+      background-color: #181E2C
+  &[data-has-value="true"]
+    .input
+      color: #60719A
+      &_wrapper
+        color: #60719A
+  .label
+    color: #49526D
+  .input
+    &::placeholder
+      color: rgba(96, 113, 154, 0.5)

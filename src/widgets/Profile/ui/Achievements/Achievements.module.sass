@@ -1,0 +1,81 @@
+// Achievements content
+.user
+  &_main
+    background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
+    padding: 2px
+    border-radius: 12px
+
+    &_inner
+      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+      border-radius: 12px
+
+.profile_logo
+    fill: linear-gradient(0deg, #10AA7C, #10AA7C),linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+
+.active
+  background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+
+.achievement_card
+  &_level_progress
+    &_point
+      clip-path: path('M7.95.9526C8.5997.5775 9.4003.5775 10.05.9526L15.4442 4.067C16.094 4.4421 16.4942 5.1354 16.4942 5.8856V12.1144C16.4942 12.8646 16.094 13.5579 15.4442 13.933L10.05 17.0474C9.4003 17.4225 8.5997 17.4225 7.95 17.0474L2.5558 13.933C1.906 13.5579 1.5058 12.8646 1.5058 12.1144V5.8856C1.5058 5.1354 1.906 4.4421 2.5558 4.067L7.95.9526Z')
+      background: #242B3D
+
+      &.active
+        background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+
+.modal_content_leading
+  height: 100%
+  width: 123px
+  position: absolute
+  top: 0
+  left: 0
+  background: linear-gradient(180deg, #36415C 0%, #212A3D 100%)
+  clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    translate: -1px 0
+    background: linear-gradient(180deg, #2A334A 0%, #1A2132 100%)
+    clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%)
+
+.modal
+  display: flex
+  flex-direction: column
+
+  &_rank_icon
+    width: 48px
+    height: 48px
+    padding: 1px
+    background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+    border-radius: 8px
+
+    &_inner
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 100%
+      height: 100%
+      border-radius: 8px
+      background: linear-gradient(0deg, rgba(16, 170, 124, 0.15), rgba(16, 170, 124, 0.15)), linear-gradient(180deg, #17353A 0%, #184545 100%)
+
+  &_score_icon
+    width: 48px
+    height: 48px
+    padding: 1px
+    background: linear-gradient(0deg, #E1B514, #E1B514), linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
+    border-radius: 8px
+
+    &_inner
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 100%
+      height: 100%
+      border-radius: 8px
+      background: linear-gradient(0deg, rgba(226, 182, 23, 0.15), rgba(226, 182, 23, 0.15)), linear-gradient(180deg, #39362A 0%, #484228 100%)
+
+@media ( max-width: 768px )
+  .modal
+    width: calc(100vw  -  40px)

@@ -7,7 +7,7 @@ export async function generateMetadata({ params: { locale: _ } }: IMetadata) {
 
 	return {
 		title: {
-			default: 'Profile/History-game'
+			default: 'Profile/History-transaction'
 		},
 		description: ''
 	}

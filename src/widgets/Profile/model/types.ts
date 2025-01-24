@@ -103,3 +103,12 @@ export interface ITransactionItem {
 	date: string
 	status: TransactionStatus
 }
+
+export interface IAchievementItem {
+	title: string
+	icon: string
+	description: string
+	stars: number
+	level: number
+	upgradePercentage: number
+}

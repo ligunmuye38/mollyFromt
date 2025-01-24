@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 import { mobileProfileList, profileList } from '@/widgets/Profile/model/items'
 
-import ListItme from '@/entities/ListItem/ui/ListItem'
+import ListItem from '@/entities/ListItem/ui/ListItem'
 
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
@@ -77,7 +77,7 @@ const ProfileMain = () => {
 											className='h-full w-full'
 											key={item.title}
 										>
-											<ListItme
+											<ListItem
 												icon={item.icon}
 												onClick={() => clickListItem(item.id, item.link)}
 												isActived={item.id == selectedItem}
@@ -90,7 +90,7 @@ const ProfileMain = () => {
 											className='h-full w-full lg:w-1/5 lg:px-2 lg:pb-2 md:px-1 2sm:w-1/3'
 											key={item.title}
 										>
-											<ListItme
+											<ListItem
 												icon={item.icon}
 												onClick={() => clickListItem(item.id, item.link)}
 												isActived={item.id == selectedItem}

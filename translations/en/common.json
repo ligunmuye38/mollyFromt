@@ -350,5 +350,50 @@
 		"bonus": "Bonus",
 		"date": "Date",
 		"status": "Status"
+	},
+	"profile_achievements": {
+		"achievements": "Achievements",
+		"achievement_progress": "Achievement progress",
+		"get_all_skins": "Get all Asimov skins",
+		"you_rank": "You rank",
+		"score": "Score",
+		"balance": "Balance",
+		"sort_by": "Sort by",
+		"achievements_selection_description": "You can select ### to be shown to other users on your profile. You have selected ####.",
+		"get_daily_free_bonus": "Get the daily free bonus 5 – 30 – 10 – 500 – 1000 times",
+		"show_in_profile": "Show in my profile for other players",
+		"follow_on_twitter": "Follow on Twitter",
+		"follow_on_facebook": "Follow on Facebook",
+		"follow_on_discord": "Follow on Discord"
+	},
+	"promocode_profile": {
+		"promocode": "Promocode",
+		"description1": "Do you have a promo code?",
+		"description2": "Enter it soon and collect the bonuses!",
+		"enter_promocode": "Enter the promo code",
+		"bonus_activation": "Bonus activation",
+		"activate": "Activate"
+	},
+	"settings_profile": {
+		"settings": "Settings",
+		"nickname": "Nickname",
+		"language": "Language",
+		"volume": "Volume",
+		"private_settings": "Private settings",
+		"hide_profile": "Hide Profile",
+		"hide_steam": "Hide Steam",
+		"hide_accolades": "Hide Accolades",
+		"protect_description": "Protect your Molly account with an extra layer of security",
+		"disable_2fa": "Disable 2FA",
+		"enable_2fa": "Enable 2FA",
+		"connected_accounts": "Connected Accounts",
+		"you_can_connect": "You can connect",
+		"two_factor_verification": "Two Factor Verification",
+		"enter_six_digit_code": "Enter the six digit code from your app to continue.",
+		"secret_code": "Secret code",
+		"verify": "Verify",
+		"sign_out": "Sign Out",
+		"upload_cover": "Upload cover",
+		"upload_avatar": "Upload avatar"
 	}
 }

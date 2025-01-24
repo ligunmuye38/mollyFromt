@@ -65,6 +65,7 @@ interface SelectProps extends VariantProps<typeof selectVariants> {
 	placeholder?: string
 	isLoading?: boolean
 	classNames?: ClassNamesConfig
+	label?: string
 }
 
 export const Select: FC<SelectProps> = props => {
@@ -81,7 +82,8 @@ export const Select: FC<SelectProps> = props => {
 		placeholder,
 		theme = 'theme-1',
 		isLoading,
-		classNames
+		classNames,
+		label
 	} = props
 
 	return (
@@ -92,6 +94,7 @@ export const Select: FC<SelectProps> = props => {
 			selectedKeys={value}
 			selectionMode={selectionMode}
 			onSelectionChange={onChangeValue}
+			label={label}
 			placeholder={placeholder}
 			classNames={{
 				trigger: [cls.trigger, selectVariants(props), cls[theme], classNames?.trigger],

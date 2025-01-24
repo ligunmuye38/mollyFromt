@@ -346,5 +346,50 @@
 		"bonus": "Бонус",
 		"date": "Дата",
 		"status": "Статус"
+	},
+	"profile_achievements": {
+		"achievements": "Достижения",
+		"achievement_progress": "Прогресс достижения",
+		"get_all_skins": "Получить все скины Азимова",
+		"you_rank": "Ваш рейтинг",
+		"score": "Счет",
+		"balance": "Баланс",
+		"sort_by": "Сортировать по",
+		"achievements_selection_description": "Вы можете выбрать ###, чтобы его видели другие пользователи вашего профиля. Вы выбрали ####.",
+		"get_daily_free_bonus": "Получите ежедневный бесплатный бонус 5 – 30 – 10 – 500 – 1000 раз",
+		"show_in_profile": "Показывать в моем профиле для других игроков",
+		"follow_on_twitter": "Следите за нами в Twitter",
+		"follow_on_Facebook": "Подпишитесь на Facebook",
+		"follow_on_discord": "Подпишитесь на Discord"
+	},
+	"promocode_profile": {
+		"promocode": "Промо-код",
+		"description1": "У вас есть промокод?",
+		"description2": "Скорее регистрируйтесь и забирайте бонусы!",
+		"enter_promocode": "Введите промокод",
+		"bonus_activation": "Бонусная активация",
+		"activate": "Активировать"
+	},
+	"settings_profile": {
+		"settings": "Настройки",
+		"nickname": "Псевдоним",
+		"language": "Язык",
+		"volume": "Громкость",
+		"private_settings": "Приватные настройки",
+		"hide_profile": "Скрыть профиль",
+		"hide_steam": "Скрыть Steam",
+		"hide_accolades": "Скрыть награды",
+		"protect_description": "Защитите свой аккаунт Molly с помощью дополнительного уровня безопасности",
+		"disable_2fa": "Отключить 2FA",
+		"enable_2fa": "Включить 2FA",
+		"connected_accounts": "Подключенные аккаунты",
+		"you_can_connect": "Вы можете подключиться",
+		"two_factor_verification": "Двухфакторная верификация",
+		"enter_six_digit_code": "Введите шестизначный код из вашего приложения, чтобы продолжить",
+		"secret_code": "Секретный код",
+		"verify": "Проверить",
+		"sign_out": "Выйти",
+		"upload_cover": "Загрузить обложку",
+		"upload_avatar": "Загрузить аватар"
 	}
 }

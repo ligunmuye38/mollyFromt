@@ -1,3 +1,4 @@
+import IconFlagUK from '@/shared/assets/icons/flags/uk.svg'
 import IconArchievement from '@/shared/assets/icons/icon-archievements.svg'
 import IconBucket from '@/shared/assets/icons/icon-bucket.svg'
 import IconCase from '@/shared/assets/icons/icon-case-battle.svg'
@@ -11,9 +12,9 @@ import IconSetting from '@/shared/assets/icons/icon-setting.svg'
 import IconTransaction from '@/shared/assets/icons/icon-transaction-history.svg'
 import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
-import IconVerification from '@/shared/assets/icons/icon-verification.svg'
 
 import {
+	IAchievementItem,
 	IBestDropData,
 	ICaseBattleItem,
 	IGameType,
@@ -54,9 +55,9 @@ export const profileList: IProfileItem[] = [
 	},
 	{
 		id: 5,
-		icon: IconVerification,
-		title: 'profile_main.verification',
-		link: '/profile/verification'
+		icon: IconPromoCode,
+		title: 'profile_main.promocode',
+		link: '/profile/promocode'
 	},
 	{
 		id: 6,
@@ -95,7 +96,7 @@ export const mobileProfileList: IProfileItem[] = [
 		id: 5,
 		icon: IconPromoCode,
 		title: 'profile_main.promocode',
-		link: '/profile/verification'
+		link: '/profile/promocode'
 	}
 ]
 
@@ -3776,5 +3777,215 @@ export const withdrawHistory: ITransactionItem[] = [
 			icon: '/images/payment/visa.png'
 		},
 		status: TransactionStatus.RETURN
+	}
+]
+
+// Achievements profile
+export const achievementsList: IAchievementItem[] = [
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 3,
+		title: 'Arsenal',
+		upgradePercentage: 30
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 3,
+		icon: '/images/achievement/arsenal.png',
+		stars: 2,
+		title: 'Arsenal',
+		upgradePercentage: 50
+	},
+	{
+		description: 'You can select 5 achievements ...',
+		level: 2,
+		icon: '/images/achievement/arsenal.png',
+		stars: 4,
+		title: 'Arsenal',
+		upgradePercentage: 40
+	}
+]
+
+// Profile settings
+export const languages: IGameType[] = [
+	{
+		value: 'English',
+		icon: IconFlagUK,
+		label: 'English'
+	},
+	{
+		value: 'Russian',
+		icon: IconFlagUK,
+		label: 'Russian'
 	}
 ]

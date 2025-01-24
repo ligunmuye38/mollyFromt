@@ -63,9 +63,7 @@ export const Modal: React.FC<ModalProps> = ({
 						ref={modalRef}
 					>
 						<div className={clsx(cls.modal)}>
-							<div
-								className={clsx(cls.header, 'flex h-auto min-h-[30px] w-auto items-center justify-between gap-4 p-1')}
-							>
+							<div className={clsx(cls.header, 'flex h-auto min-h-[30px] w-auto items-center justify-between gap-4')}>
 								<div className={clsx('flex items-center gap-3')}>
 									<div className={clsx(cls.header_maxWidth)}>{headerIcon}</div>
 									<span>{headerTitle}</span>

@@ -85,6 +85,8 @@ export const AchievementsContent = () => {
 							<Image
 								key={Math.random()}
 								src={img}
+								width={30}
+								height={30}
 								alt=''
 							/>
 						))}
