@@ -37,8 +37,8 @@ const SettingsHeader = () => {
 			<div className={clsx('mb-10 h-auto w-full flex-wrap !p-0 lg:!p-1', !breakpoints.lg && cls.user_main)}>
 				<div className={clsx('h-full w-full !p-0 lg:!p-5 3sm:!p-1.5', !breakpoints.lg && cls.user_main_inner)}>
 					<div className='relative max-h-[500px] w-full'>
-						<div className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] bg-[#111620] 3sm:hidden')}></div>
-						<div className='h-full w-full overflow-hidden rounded-[14px]'>
+						<div className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] bg-[#111620]')}></div>
+						<div className={clsx('h-full w-full overflow-hidden rounded-[14px]', { 'mix-blend-color-burn': !cover })}>
 							{cover ? (
 								<Image
 									src={'/images/profile/user-bg.png'}
@@ -53,7 +53,7 @@ const SettingsHeader = () => {
 									alt='bg'
 									sizes='100%'
 									fill
-									className='!relative !h-[220px] !w-full object-cover opacity-10 3sm:hidden'
+									className='!relative !h-[220px] !w-full object-cover opacity-15 blur-0'
 								/>
 							)}
 						</div>
