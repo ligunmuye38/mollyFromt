@@ -70,7 +70,7 @@ const MainInventory = () => {
 						>
 							<span className='text-[14px] text-[#121722]'>
 								Sell
-								{sellingAmount?.amount && <span> (${sellingAmount.amount})</span>}
+								{sellingAmount?.amount ? <span> (${sellingAmount.amount})</span> : null}
 							</span>
 						</Button>
 					</div>
@@ -93,7 +93,7 @@ const MainInventory = () => {
 						}}
 					>
 						<span className='text-[14px] text-[#121722] xs:hidden'>
-							Sell{sellingAmount?.amount && <span> (${sellingAmount.amount})</span>}
+							Sell{sellingAmount?.amount ? <span> (${sellingAmount.amount})</span> : null}
 						</span>
 					</Button>
 				</div>
