@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 
 import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import IconTrader from '@/shared/assets/icons/icon-trader.svg'
@@ -28,14 +29,21 @@ const MainTrader = () => {
 						<span className='text-[12px] text-[#5A6786] md:text-[10px]'>{t('profile_page.trade_url_content')}</span>
 					</div>
 				</div>
-				<span className='border-b-[1px] border-[#F4AD5C] text-[10px] font-[700] text-[#F4AD5C] hover:cursor-pointer md:text-[8px] 2sm:hidden'>
-					{t('profile_page.trade_link')}
-				</span>
+				<Link
+					href='https://google.com'
+					target='_blank'
+				>
+					<span className='border-b-[1px] border-[#F4AD5C] text-[10px] font-[700] text-[#F4AD5C] hover:cursor-pointer md:text-[8px] 2sm:hidden'>
+						{t('profile_page.trade_link')}
+					</span>
+				</Link>
 			</div>
 			<Input
 				value=''
 				theme='theme-1'
-				onChange={() => {}}
+				onChange={() => {
+					return
+				}}
 				placeholder={t('profile_page.trade_url_placeholder')}
 				startContent={<IconSteam className={clsx(cls.box_icon, cls.input_icon, 'h-6 w-6')} />}
 				classNames={{

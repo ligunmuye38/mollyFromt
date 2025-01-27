@@ -33,7 +33,7 @@ export const profileList: IProfileItem[] = [
 		id: 1,
 		icon: IconUser,
 		title: 'profile_main.profile',
-		link: '/profile/user'
+		link: '/profile'
 	},
 	{
 		id: 2,
@@ -72,7 +72,7 @@ export const mobileProfileList: IProfileItem[] = [
 		id: 1,
 		icon: IconUser,
 		title: 'profile_main.profile',
-		link: '/profile/user'
+		link: '/profile'
 	},
 	{
 		id: 2,

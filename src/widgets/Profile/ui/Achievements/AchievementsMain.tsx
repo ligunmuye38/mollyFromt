@@ -103,7 +103,10 @@ const AchievementsMain = () => {
 						/>
 					</div>
 				</div>
-				<div className='mb-[15px] flex flex-wrap justify-between gap-[14px]'>
+				<div
+					className='mb-[15px] grid auto-rows-auto justify-between gap-[14px]'
+					style={{ gridTemplateColumns: 'repeat(auto-fill, 140px)' }}
+				>
 					{achievementsList.slice(18 * (page - 1), 18 * page).map((item, index) => (
 						<AchievementCard
 							data={item}

@@ -30,6 +30,9 @@ const ProfileMain = () => {
 	// To move the route
 	const navigation = useRouter()
 
+	// To hide balance
+	const [isBalanceHidden, toggleIsBalanceHidden] = useState<boolean>(false)
+
 	// The function for profile list
 	const clickListItem = (item: number, link: string) => {
 		setSelectedItem(item)
@@ -48,11 +51,20 @@ const ProfileMain = () => {
 										<IconWallet />
 									</div>
 									<span className='flex flex-col justify-between'>
-										<span>{t('profile_main.balance')}</span>
-										<span>$1740.00</span>
+										<span className='mb-[6px] text-[12px] leading-[14px] text-[#495470]'>
+											{t('profile_main.balance')}
+										</span>
+										<span className='text-[14px] leading-[14px] text-[#1CD9A1]'>
+											{isBalanceHidden ? '******' : '$1740.00'}
+										</span>
 									</span>
 								</div>
-								<IconEye className='h-6 w-6 fill-[#2C354A]' />
+								<Button
+									className='h-8 w-8 rounded-sm'
+									onPress={() => toggleIsBalanceHidden(v => !v)}
+								>
+									<IconEye className='h-6 w-6 fill-[#2C354A]' />
+								</Button>
 							</div>
 							<div className='min-h-[1px] w-full bg-[#1A202D]'></div>
 							<div className={clsx(cls.deposit_btn, 'h-auto w-full')}>
@@ -71,8 +83,9 @@ const ProfileMain = () => {
 							</div>
 						</div>
 						<div className='flex h-full flex-col gap-0.5 overflow-x-auto rounded-xl lg:flex-row lg:justify-center lg:gap-0 lg:rounded-none 2sm:justify-start'>
-							{breakpoints.lg
-								? profileList.map(item => (
+							{breakpoints.lg ? (
+								<>
+									{profileList.map(item => (
 										<div
 											className='h-full w-full'
 											key={item.title}
@@ -84,20 +97,23 @@ const ProfileMain = () => {
 												title={t(item.title)}
 											/>
 										</div>
-									))
-								: mobileProfileList.map(item => (
-										<div
-											className='h-full w-full lg:w-1/5 lg:px-2 lg:pb-2 md:px-1 2sm:w-1/3'
-											key={item.title}
-										>
-											<ListItem
-												icon={item.icon}
-												onClick={() => clickListItem(item.id, item.link)}
-												isActived={item.id == selectedItem}
-												title={t(item.title)}
-											/>
-										</div>
 									))}
+								</>
+							) : (
+								mobileProfileList.map(item => (
+									<div
+										className='h-full w-full lg:w-1/5 lg:px-2 lg:pb-2 md:px-1 2sm:w-1/3'
+										key={item.title}
+									>
+										<ListItem
+											icon={item.icon}
+											onClick={() => clickListItem(item.id, item.link)}
+											isActived={item.id == selectedItem}
+											title={t(item.title)}
+										/>
+									</div>
+								))
+							)}
 						</div>
 					</div>
 				</div>

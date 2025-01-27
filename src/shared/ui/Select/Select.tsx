@@ -138,6 +138,7 @@ export const Select: FC<SelectProps> = props => {
 					</div>
 				))
 			}}
+			disallowEmptySelection
 		>
 			{item => (
 				<SelectItem
@@ -146,7 +147,13 @@ export const Select: FC<SelectProps> = props => {
 					aria-label={item.label}
 					aria-labelledby={item.label}
 				>
-					<div className={clsx(cls.item_inner, classNames?.itemInner)}>
+					<div
+						className={clsx(cls.item_inner, classNames?.itemInner)}
+						onClick={ev => {
+							ev.preventDefault()
+							ev.stopPropagation()
+						}}
+					>
 						{item.startContent && <>{item.startContent}</>}
 						<div className={clsx(cls.item_label, classNames?.itemLabel)}>{item.label}</div>
 						{item.endContent && <>{item.endContent}</>}

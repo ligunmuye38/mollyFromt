@@ -3,6 +3,7 @@
 import { investoryItems } from '../../model/items'
 import ProfileInventory from '../ProfileInventory'
 import clsx from 'clsx'
+import { useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
@@ -17,6 +18,11 @@ import cls from './Main.module.sass'
 const MainInventory = () => {
 	// To get the chat hidden state(Desktop)
 	const chatViewHidden = useCommonStore(state => state.chatViewHidden)
+
+	const [sellingAmount, setSellingAmount] = useState<{
+		selected: number
+		amount: number
+	}>()
 
 	return (
 		<div className={clsx('w-full', cls.user_main)}>
@@ -44,7 +50,7 @@ const MainInventory = () => {
 						>
 							<span className='flex gap-1 text-[12px]'>
 								<span className='text-[#60719A]'>Selected:</span>
-								<span className='text-white'>{'3'}</span>
+								<span className='text-white'>{Number(sellingAmount?.selected ?? 0)}</span>
 							</span>
 						</Button>
 
@@ -62,7 +68,10 @@ const MainInventory = () => {
 								content: [cls.shopping_btn_inner, 'p-3']
 							}}
 						>
-							<span className='text-[14px] text-[#121722]'>Sell ($456.05)</span>
+							<span className='text-[14px] text-[#121722]'>
+								Sell
+								{sellingAmount?.amount && <span> (${sellingAmount.amount})</span>}
+							</span>
 						</Button>
 					</div>
 				</div>
@@ -83,11 +92,16 @@ const MainInventory = () => {
 							content: [cls.shopping_btn_inner, 'p-3 flex justify-center items-center']
 						}}
 					>
-						<span className='text-[14px] text-[#121722] xs:hidden'>Sell ($456.05)</span>
+						<span className='text-[14px] text-[#121722] xs:hidden'>
+							Sell{sellingAmount?.amount && <span> (${sellingAmount.amount})</span>}
+						</span>
 					</Button>
 				</div>
 				<div className='mt-2 flex w-full flex-wrap justify-between gap-0.5'>
-					<ProfileInventory items={investoryItems} />
+					<ProfileInventory
+						items={investoryItems}
+						onSelect={setSellingAmount}
+					/>
 				</div>
 			</div>
 		</div>

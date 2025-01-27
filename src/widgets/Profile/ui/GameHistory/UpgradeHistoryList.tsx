@@ -2,6 +2,7 @@
 
 import { upgradeHistory } from '../../model/items'
 import { IUpgradeItem } from '../../model/types'
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -16,7 +17,7 @@ interface UpgradeHistoryListItemProps {
 
 export const UpgradeHistoryListItem = ({ item }: UpgradeHistoryListItemProps) => {
 	return (
-		<div className={cls.game_history}>
+		<div className={clsx(cls.game_history, 'flex h-[66px] items-center')}>
 			<div className={cls.game_history_inner}>
 				{item.status ? (
 					<div className={cls.game_history_upgrade_item}>
@@ -85,7 +86,7 @@ const UpgradeHistoryList = () => {
 				<span className='flex w-1/4 items-center justify-start uppercase'>
 					{t('game_history_profile.items_amount')}
 				</span>
-				<span className='flex w-1/4 items-center justify-start uppercase'>{t('game_history_profile.price')}</span>
+				<span className='flex w-1/4 items-center justify-start uppercase'>{t('game_history_profile.total_price')}</span>
 				<span className='flex w-1/4 items-center justify-start uppercase'>
 					{t('game_history_profile.date_of_opening')}
 				</span>

@@ -5,7 +5,7 @@ import { useCommonStore } from '@/entities/Common/model/store'
 import CaseBattleHistoryList from './CaseBattleHistoryList'
 import LottoHistoryList from './LottoHistoryList'
 import OpeningCaseHistoryList from './OpeningCaseHistoryList'
-import UpgradeHistoryList from './UpgradHistoryList'
+import UpgradeHistoryList from './UpgradeHistoryList'
 
 const GameHistoryList = () => {
 	const gameHistoryType = useCommonStore(state => state.gameHistoryType)

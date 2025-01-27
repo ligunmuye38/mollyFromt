@@ -332,6 +332,7 @@
 		"case_battle": "Дело битвы",
 		"case_name": "Название дела",
 		"price": "Цена",
+		"total_price": "Общая цена",
 		"date_of_opening": "Дата открытия",
 		"prizes": "Призы",
 		"result": "Результат"

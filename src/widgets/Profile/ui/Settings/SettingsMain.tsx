@@ -31,7 +31,7 @@ const SettingsMain = () => {
 	const t = useTranslations()
 
 	const [nickname, setNickname] = useState<string>('')
-	const [language, setLanguage] = useState<Selection>(new Set(['']))
+	const [language, setLanguage] = useState<Selection>(new Set([languages[0].value]))
 	const [isProfileHidden, toggleIsProfileHidden] = useState<boolean>(false)
 	const [isSteamHidden, toggleIsSteamHidden] = useState<boolean>(false)
 	const [isAccoladesHidden, toggleIsAccoladesHidden] = useState<boolean>(false)

@@ -2,6 +2,7 @@
 
 import { lottoHistory } from '../../model/items'
 import { ILottoItem } from '../../model/types'
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -16,7 +17,7 @@ interface LottoHistoryListItemProps {
 
 export const LottoHistoryListItem = ({ item }: LottoHistoryListItemProps) => {
 	return (
-		<div className={cls.game_history}>
+		<div className={clsx(cls.game_history, 'flex h-[66px] items-center')}>
 			<div className={cls.game_history_inner}>
 				<p className={cls.game_history_lotto_price}>
 					<span className={cls.currency}>$</span>

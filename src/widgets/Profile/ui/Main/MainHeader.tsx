@@ -5,13 +5,12 @@ import { CircularProgress } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
-import IconEditPicture from '@/shared/assets/icons/icon-edit-picture.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
-import IconLogout from '@/shared/assets/icons/icon-logout.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
 import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import Iconverified from '@/shared/assets/icons/icon-verified-user.svg'
@@ -30,6 +29,8 @@ const MainHeader = () => {
 	// To get chatbar state
 	const chatViewHidden = useCommonStore(state => state.chatViewHidden)
 
+	const [popoverOpen, togglePopoverOpen] = useState<boolean>(false)
+
 	return (
 		<div className={clsx('h-auto w-full flex-wrap !p-0 lg:!p-1', !breakpoints.lg && cls.user_main)}>
 			<div className={clsx('h-full w-full !p-0 lg:!p-5 3sm:!p-1.5', !breakpoints.lg && cls.user_main_inner)}>
@@ -44,7 +45,7 @@ const MainHeader = () => {
 						/>
 					</div>
 
-					<div className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] 3sm:hidden', cls.image_over)}></div>
+					{/* <div className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] 3sm:hidden', cls.image_over)}></div>
 					<div className='absolute top-0 flex h-auto w-full justify-between p-4 3sm:relative 3sm:p-0'>
 						<div className='h-auto rounded-lg border-[1px] border-[#49547014] bg-[#4954700D] p-2 3sm:p-1'>
 							<IconEditPicture className='h-[22px] w-[22px] fill-[#495470] 3sm:h-[12px] 3sm:w-[12px]' />
@@ -52,11 +53,11 @@ const MainHeader = () => {
 						<div className='rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] p-2 3sm:hidden'>
 							<IconSteam className='h-[22px] w-[22px] fill-[#60719A]' />
 						</div>
-					</div>
+					</div> */}
 					<div
 						className={clsx(
 							'absolute -bottom-8 left-4 flex w-full flex-wrap items-center gap-3 overflow-hidden 3sm:relative 3sm:bottom-0 3sm:left-0 3sm:overflow-visible 2sm:flex-col 2sm:items-start',
-							chatViewHidden ? '' : '!bottom-0 !left-3 !gap-0'
+							chatViewHidden ? '' : '!bottom-0 !left-3 !gap-2'
 						)}
 					>
 						<div className='flex items-center gap-3'>
@@ -111,10 +112,10 @@ const MainHeader = () => {
 											<Iconverified className='absolute -left-4 -top-1/3' />
 											<span className='ml-2 text-[16px] text-[#D1D9EB]'>Aleksandr</span>
 										</div>
-										<div className='flex gap-2'>
+										{/* <div className='flex gap-2'>
 											<IconLogout className='h-4 w-4 fill-[#CB3434]' />
 											<span className='text-[12px] text-[#CB3434]'>{t('profile_page.leave_site')}</span>
-										</div>
+										</div> */}
 										<div className='mt-1 hidden w-auto 3sm:flex'>
 											<div className='h-auto rounded-lg border-[1px] border-[#49547014] bg-[#4954700D] p-2 3sm:p-1'>
 												<IconSteam className='h-[12px] w-[12px] fill-[#60719A]' />
@@ -131,10 +132,15 @@ const MainHeader = () => {
 								classNames={{
 									base: clsx(cls.base, cls['_with-arrow'], '-mt-3')
 								}}
+								isOpen={popoverOpen}
 								offset={0}
 							>
 								<PopoverTrigger>
-									<div className='relative h-auto w-auto'>
+									<div
+										className='relative h-auto w-auto'
+										onMouseEnter={() => togglePopoverOpen(true)}
+										onMouseLeave={() => togglePopoverOpen(false)}
+									>
 										<CircularProgress
 											color='success'
 											size='lg'

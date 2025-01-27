@@ -336,6 +336,7 @@
 		"case_battle": "Case Battle",
 		"case_name": "Case name",
 		"price": "Price",
+		"total_price": "Total Price",
 		"date_of_opening": "Date of opening",
 		"prizes": "Prizes",
 		"result": "Result"

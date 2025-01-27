@@ -1,7 +1,7 @@
 'use client'
 
 import { IInvestoryItemType } from '../model/types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import CaseItem from '@/entities/CaseItem/ui/CaseItem'
 
@@ -14,9 +14,10 @@ import cls from './Profile.module.sass'
 
 interface ProfileInventoryProps {
 	items: IInvestoryItemType[]
+	onSelect?: (value: { selected: number; amount: number }) => void
 }
 
-const ProfileInventory = ({ items }: ProfileInventoryProps) => {
+const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
 	// Selected item id
 	const [selectedId, setSelectedId] = useState<string[]>([])
 
@@ -32,6 +33,20 @@ const ProfileInventory = ({ items }: ProfileInventoryProps) => {
 			}
 		})
 	}
+
+	useEffect(() => {
+		const value = {
+			selected: 0,
+			amount: 0
+		}
+		items.forEach(item => {
+			if (selectedId.includes(item.id)) {
+				value.amount += Number(item.price.replace(',', '.'))
+				value.selected++
+			}
+		})
+		onSelect!(value)
+	}, [items, onSelect, selectedId])
 
 	// Build item list
 	const cases = items.map(item => (
@@ -77,7 +92,15 @@ const ProfileInventory = ({ items }: ProfileInventoryProps) => {
 		/>
 	))
 
-	return <div className='mt-2 flex w-full flex-wrap justify-between gap-0.5'>{cases}</div>
+	return (
+		<div
+			className='mt-2 grid w-full auto-rows-auto justify-between gap-0.5'
+			style={{ gridTemplateColumns: 'repeat(auto-fill, 131px)' }}
+		>
+			{' '}
+			{cases}
+		</div>
+	)
 }
 
 export default ProfileInventory
