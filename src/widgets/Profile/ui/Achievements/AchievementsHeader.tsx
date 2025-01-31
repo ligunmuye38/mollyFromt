@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl'
 import IconAchievements from '@/shared/assets/icons/icon-achievements.svg'
 import IconRanking from '@/shared/assets/icons/ranking.svg'
 
+import cls from './Achievements.module.sass'
+
 const AchievementsHeader = () => {
 	// For translation
 	const t = useTranslations()
@@ -16,21 +18,25 @@ const AchievementsHeader = () => {
 			</div>
 			<div className='mr-6 flex items-center gap-[30px]'>
 				<div className='flex gap-[10px]'>
-					<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg border-1 border-[#21293A] bg-[#181E2B]'>
-						<IconRanking className='fill-[#5A6786]' />
+					<div className={clsx(cls.modal_rank_icon, '!h-[38px] !w-[38px]')}>
+						<div className={cls.modal_rank_icon_inner}>
+							<IconRanking className='fill-[#10AA7C]' />
+						</div>
 					</div>
 					<div>
 						<p className='mb-1 text-[16px] font-bold leading-4 text-white'>483735</p>
-						<p className='text-[12px] font-medium leading-4 text-[#5A6786]'>{t('profile_achievements.you_rank')}</p>
+						<p className='text-[12px] font-medium leading-4 text-[#10AA7C]'>{t('profile_achievements.you_rank')}</p>
 					</div>
 				</div>
 				<div className='flex items-center gap-[10px]'>
-					<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg border-1 border-[#21293A] bg-[#181E2B]'>
-						<IconAchievements className='w-6 fill-[#5A6786]' />
+					<div className={clsx(cls.modal_score_icon, '!h-[38px] !w-[38px]')}>
+						<div className={cls.modal_score_icon_inner}>
+							<IconAchievements className='w-6 fill-[#E1B514]' />
+						</div>
 					</div>
 					<div>
 						<p className='mb-1 text-[16px] font-bold leading-4 text-white'>43/1000</p>
-						<p className='text-[12px] font-medium leading-4 text-[#5A6786]'>{t('profile_achievements.score')}</p>
+						<p className='text-[12px] font-medium leading-4 text-[#E1B514]'>{t('profile_achievements.score')}</p>
 					</div>
 				</div>
 			</div>

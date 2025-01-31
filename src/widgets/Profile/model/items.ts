@@ -1,3 +1,4 @@
+import IconFlagRU from '@/shared/assets/icons/flags/ru.svg'
 import IconFlagUK from '@/shared/assets/icons/flags/uk.svg'
 import IconArchievement from '@/shared/assets/icons/icon-archievements.svg'
 import IconBucket from '@/shared/assets/icons/icon-bucket.svg'
@@ -3985,7 +3986,7 @@ export const languages: IGameType[] = [
 	},
 	{
 		value: 'Russian',
-		icon: IconFlagUK,
+		icon: IconFlagRU,
 		label: 'Russian'
 	}
 ]

@@ -57,7 +57,7 @@ export const DepositHistoryListItem = ({ item }: DepositHistoryListItemProps) =>
 	}
 
 	return (
-		<div className='flex items-center rounded-lg bg-[#111620] p-3'>
+		<div className='flex items-center rounded-lg bg-[#111620] px-3 py-[10px]'>
 			<p className='w-1/6'>{item.id}</p>
 			<p className={'flex w-1/6 items-center gap-2'}>
 				{item.method.icon && (

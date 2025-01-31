@@ -5,8 +5,7 @@ import ProfileInventory from '../ProfileInventory'
 import clsx from 'clsx'
 import { useState } from 'react'
 
-import { useCommonStore } from '@/entities/Common/model/store'
-
+// import { useCommonStore } from '@/entities/Common/model/store'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
 import IconGun from '@/shared/assets/icons/icon-gun.svg'
 import IconShopping from '@/shared/assets/icons/icon-shopping.svg'
@@ -17,7 +16,7 @@ import cls from './Main.module.sass'
 
 const MainInventory = () => {
 	// To get the chat hidden state(Desktop)
-	const chatViewHidden = useCommonStore(state => state.chatViewHidden)
+	// const chatViewHidden = useCommonStore(state => state.chatViewHidden)
 
 	const [sellingAmount, setSellingAmount] = useState<{
 		selected: number
@@ -57,14 +56,16 @@ const MainInventory = () => {
 						<Button
 							startContent={<IconUpgrade className='h-5 w-5 fill-[#121722]' />}
 							classNames={{
-								base: [cls.upgrade_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
+								base: cls.upgrade_btn, // [cls.upgrade_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
 								content: [cls.upgrade_btn_inner, 'p-3']
 							}}
-						></Button>
+						>
+							<span className='text-[12px] font-bold text-[#121722]'>Upgrade</span>
+						</Button>
 						<Button
 							startContent={<IconShopping className='h-5 w-5 fill-[#121722]' />}
 							classNames={{
-								base: [cls.shopping_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
+								base: cls.shopping_btn, // [cls.shopping_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
 								content: [cls.shopping_btn_inner, 'p-3']
 							}}
 						>
@@ -75,7 +76,7 @@ const MainInventory = () => {
 						</Button>
 					</div>
 				</div>
-				<div className={clsx('w-full justify-between gap-2 md:flex', !chatViewHidden ? 'flex' : 'hidden')}>
+				{/* <div className={clsx('w-full justify-between gap-2 md:flex', !chatViewHidden ? 'flex' : 'hidden')}>
 					<Button
 						startContent={<IconUpgrade className='h-5 w-5 fill-[#121722]' />}
 						classNames={{
@@ -96,7 +97,7 @@ const MainInventory = () => {
 							Sell{sellingAmount?.amount ? <span> (${sellingAmount.amount})</span> : null}
 						</span>
 					</Button>
-				</div>
+				</div> */}
 				<div className='mt-2 flex w-full flex-wrap justify-between gap-0.5'>
 					<ProfileInventory
 						items={investoryItems}

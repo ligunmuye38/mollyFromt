@@ -35,6 +35,7 @@ const SettingsMain = () => {
 	const [isProfileHidden, toggleIsProfileHidden] = useState<boolean>(false)
 	const [isSteamHidden, toggleIsSteamHidden] = useState<boolean>(false)
 	const [isAccoladesHidden, toggleIsAccoladesHidden] = useState<boolean>(false)
+	const [is2FAenabled, toggleIs2FAenabled] = useState<boolean>(false)
 
 	const { openModal } = useModal()
 
@@ -50,6 +51,7 @@ const SettingsMain = () => {
 			},
 			true
 		)
+		toggleIs2FAenabled(true)
 	}
 
 	const items = languages.map(
@@ -154,33 +156,37 @@ const SettingsMain = () => {
 						{t('settings_profile.protect_description')}
 					</p>
 					<div className='flex flex-grow justify-end gap-[6px]'>
-						<div className={clsx(cls.disable_btn, 'h-auto w-32')}>
-							<div className={clsx(cls.disable_btn_inner, 'flex h-auto w-full items-center justify-center')}>
-								<Button
-									classNames={{
-										base: 'w-full h-full py-[10px] rounded-[18px]'
-									}}
-								>
-									<span className={clsx('text-[12px] text-white', cls.disable_btn_inner_font)}>
-										{t('settings_profile.disable_2fa')}
-									</span>
-								</Button>
+						{is2FAenabled ? (
+							<div className={clsx(cls.disable_btn, 'h-auto w-32')}>
+								<div className={clsx(cls.disable_btn_inner, 'flex h-auto w-full items-center justify-center')}>
+									<Button
+										onPress={() => toggleIs2FAenabled(false)}
+										classNames={{
+											base: 'w-full h-full py-[10px] rounded-[18px]'
+										}}
+									>
+										<span className={clsx('text-[12px] text-white', cls.disable_btn_inner_font)}>
+											{t('settings_profile.disable_2fa')}
+										</span>
+									</Button>
+								</div>
 							</div>
-						</div>
-						<div className={clsx(cls.enable_btn, 'h-auto w-32')}>
-							<div className={clsx(cls.enable_btn_inner, 'flex h-auto w-full items-center justify-center')}>
-								<Button
-									onPress={openVerificationModal}
-									classNames={{
-										base: 'w-full h-full py-[10px] rounded-[18px]'
-									}}
-								>
-									<span className={clsx('text-[12px] text-[#151A26]', cls.enable_btn_inner_font)}>
-										{t('settings_profile.enable_2fa')}
-									</span>
-								</Button>
+						) : (
+							<div className={clsx(cls.enable_btn, 'h-auto w-32')}>
+								<div className={clsx(cls.enable_btn_inner, 'flex h-auto w-full items-center justify-center')}>
+									<Button
+										onPress={openVerificationModal}
+										classNames={{
+											base: 'w-full h-full py-[10px] rounded-[18px]'
+										}}
+									>
+										<span className={clsx('text-[12px] text-[#151A26]', cls.enable_btn_inner_font)}>
+											{t('settings_profile.enable_2fa')}
+										</span>
+									</Button>
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 				</div>
 				<div className='flex gap-5'>

@@ -396,5 +396,25 @@
 		"sign_out": "Sign Out",
 		"upload_cover": "Upload cover",
 		"upload_avatar": "Upload avatar"
+	},
+	"case_battles": {
+		"case_battle": "Case Battle",
+		"active_battles": "Active Battles",
+		"top_battles": "Top Battles",
+		"create_battle": "Create battle",
+		"players": "Players",
+		"crazy_mode": "Crazy Mode",
+		"clear_all": "Clear all",
+		"rounds": "Rounds",
+		"watch": "Watch",
+		"join": "Join",
+		"value": "Value",
+		"cases": "Cases",
+		"actions": "Actions",
+		"bot_mode": "Bot Mode",
+		"private_mode": "Private Mode",
+		"create_new_battle": "Create new battle",
+		"add_case": "Add Case",
+		"view_drop": "View Drop"
 	}
 }

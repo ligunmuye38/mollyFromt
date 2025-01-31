@@ -57,7 +57,7 @@ export const WithdrawHistoryListItem = ({ item }: WithdrawHistoryListItemProps) 
 	}
 
 	return (
-		<div className='flex items-center rounded-lg bg-[#111620] p-3'>
+		<div className='flex h-12 items-center rounded-lg bg-[#111620] p-3'>
 			<p className='w-1/5'>{item.id}</p>
 			<p className={'flex w-1/5 items-center gap-2'}>
 				{item.method.icon && (

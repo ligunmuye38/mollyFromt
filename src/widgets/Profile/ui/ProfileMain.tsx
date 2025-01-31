@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 import { mobileProfileList, profileList } from '@/widgets/Profile/model/items'
@@ -18,11 +19,15 @@ import Button from '@/shared/ui/Button/Button'
 import cls from './Profile.module.sass'
 
 const ProfileMain = () => {
+	const pathName = usePathname()
+
 	// For translation
 	const t = useTranslations()
 
 	// Selected profile list item
-	const [selectedItem, setSelectedItem] = useState<number>(0)
+	const [selectedItem, setSelectedItem] = useState<number>(
+		profileList.find(item => item.link === pathName.slice(3))?.id ?? 0
+	)
 
 	// For responsive
 	const breakpoints = useAppResponsive()

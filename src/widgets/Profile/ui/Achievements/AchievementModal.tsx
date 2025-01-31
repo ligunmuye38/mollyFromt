@@ -171,39 +171,48 @@ const AchievementModal = () => {
 								{t('profile_achievements.get_all_skins')}
 							</p>
 						</div>
-						<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
-							<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#32A8EB]'>
-								<IconTwitter className='w-5 fill-white' />
-							</div>
-							<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
-								{t('profile_achievements.follow_on_twitter')}
-							</p>
-							<Link href='https://x.com'>
+						<Link
+							href='https://x.com'
+							target='_blank'
+						>
+							<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+								<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#32A8EB]'>
+									<IconTwitter className='w-5 fill-white' />
+								</div>
+								<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+									{t('profile_achievements.follow_on_twitter')}
+								</p>
 								<IconExport className='fill-[#4D5A79]' />
-							</Link>
-						</div>
-						<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
-							<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#134EC0]'>
-								<IconFacebook className='w-5 fill-white' />
 							</div>
-							<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
-								{t('profile_achievements.follow_on_facebook')}
-							</p>
-							<Link href='https://facebook.com'>
+						</Link>
+						<Link
+							href='https://facebook.com'
+							target='_blank'
+						>
+							<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+								<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#134EC0]'>
+									<IconFacebook className='w-5 fill-white' />
+								</div>
+								<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+									{t('profile_achievements.follow_on_facebook')}
+								</p>
 								<IconExport className='fill-[#4D5A79]' />
-							</Link>
-						</div>
-						<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
-							<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#7017E1]'>
-								<IconDiscord className='w-5 fill-white' />
 							</div>
-							<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
-								{t('profile_achievements.follow_on_discord')}
-							</p>
-							<Link href='https://discord.com'>
+						</Link>
+						<Link
+							href='https://discord.com'
+							target='_blank'
+						>
+							<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+								<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#7017E1]'>
+									<IconDiscord className='w-5 fill-white' />
+								</div>
+								<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+									{t('profile_achievements.follow_on_discord')}
+								</p>
 								<IconExport className='fill-[#4D5A79]' />
-							</Link>
-						</div>
+							</div>
+						</Link>
 					</div>
 				)}
 			</div>

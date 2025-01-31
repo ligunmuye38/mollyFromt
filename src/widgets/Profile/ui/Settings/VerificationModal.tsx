@@ -49,7 +49,7 @@ const VerificationModal = () => {
 						)}
 					/>
 				</div>
-				<div className={clsx(cls.enable_btn, 'mb-[10px] h-auto w-[308px]')}>
+				<div className={clsx(cls.enable_btn, 'h-auto w-[308px]')}>
 					<div className={clsx(cls.enable_btn_inner, 'flex h-auto w-full items-center justify-center')}>
 						<Button
 							classNames={{
@@ -62,7 +62,7 @@ const VerificationModal = () => {
 						</Button>
 					</div>
 				</div>
-				<div className={clsx(cls.default_btn, 'mb-[10px] h-auto w-[308px]')}>
+				{/* <div className={clsx(cls.default_btn, 'mb-[10px] h-auto w-[308px]')}>
 					<div className={clsx(cls.default_btn_inner, 'flex h-auto w-full items-center justify-center')}>
 						<Button
 							classNames={{
@@ -74,7 +74,7 @@ const VerificationModal = () => {
 							</span>
 						</Button>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	)
