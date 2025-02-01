@@ -5,15 +5,12 @@ import { useTranslations } from 'next-intl'
 import React, { FC } from 'react'
 
 import IconCaseBattles from '@/shared/assets/icons/icon-case-battle.svg'
-import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import HeaderBgTop2 from '@/shared/assets/section-header-bg-top-2.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
-import { useModal } from '@/shared/context/ModalContext'
 
 import cls from './CreateBattle.module.sass'
 import CreateBattleHeader from './CreateBattleHeader'
 import CreateBattleList from './CreateBattleList'
-import CreateBattleModal from './CreateBattleModal'
 
 interface CreateBattleProps {
 	className?: string
@@ -21,21 +18,6 @@ interface CreateBattleProps {
 
 export const CreateBattle: FC<CreateBattleProps> = ({ className }) => {
 	const t = useTranslations()
-	const { openModal } = useModal()
-
-	const onCreateBattle = () => {
-		openModal(
-			<CreateBattleModal />,
-			{},
-			<IconCaseBattle className='h-[22px] w-[22px] fill-[#19D099]' />,
-			t('case_battles.create_new_battle'),
-			{
-				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
-			},
-			true
-		)
-	}
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -56,7 +38,6 @@ export const CreateBattle: FC<CreateBattleProps> = ({ className }) => {
 			<div className='mb-5 px-[20px]'>
 				<CreateBattleHeader />
 			</div>
-			<button onClick={onCreateBattle}>Add case</button>
 			<div className='px-[20px]'>
 				<CreateBattleList />
 			</div>

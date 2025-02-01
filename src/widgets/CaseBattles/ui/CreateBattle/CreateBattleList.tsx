@@ -4,17 +4,20 @@ import { casesIcons } from '../../model/items'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 
 import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
+import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
+import IconCaseOpen from '@/shared/assets/icons/icon-case-open-green.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
-import IconPlus from '@/shared/assets/icons/icon-plus.svg'
-import IconSort from '@/shared/assets/icons/icon-sort.svg'
+import { useModal } from '@/shared/context/ModalContext'
+// import IconSort from '@/shared/assets/icons/icon-sort.svg'
 import Button from '@/shared/ui/Button/Button'
-import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
+// import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import cls from './CreateBattle.module.sass'
+import CreateBattleModal from './CreateBattleModal'
 
 interface MainListItemProps {
 	item: {
@@ -190,12 +193,47 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 
 const MainList = () => {
 	const t = useTranslations()
+	const { openModal } = useModal()
 
-	const [page, setPage] = useState<number>(1)
+	const onCreateBattle = () => {
+		openModal(
+			<CreateBattleModal />,
+			{},
+			<IconCaseBattle className='h-[22px] w-[22px] fill-[#19D099]' />,
+			t('case_battles.create_new_battle'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
+	// const [page, setPage] = useState<number>(1)
 
 	return (
 		<>
-			<div className={clsx(cls.hexagon_container, 'mb-4')}>
+			<div className={clsx(cls.create_battle_card_bg, 'h-[300px] w-full')}>
+				<div className={(cls.create_battle_card_bg_inner, 'flex h-full flex-col items-center justify-center gap-12')}>
+					<div className='relative'>
+						<div className={clsx(cls.hexagon, 'scale-[2] !bg-[#242C3E] !bg-none')}></div>
+						<IconCaseOpen className='fill-[rgba(36, 253, 188, 0.65)] absolute left-1/2 top-1/2 h-[42px] w-[42px] -translate-x-1/2 -translate-y-1/2' />
+					</div>
+					<Button
+						onPress={onCreateBattle}
+						classNames={{
+							base: clsx(cls.hexagon_btn, cls.sm, 'h-[42px] w-[200px]'),
+							content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
+						}}
+					>
+						<IconPlus className={clsx(cls.hexagon_btn_inner_icon, cls.sm, 'w-4 !fill-[#121722]')} />
+						<span className='text-[14px] font-[900] leading-4 text-[#121722] [text-shadow:_0_1px_0_rgb(37_255_189_/_0.45)]'>
+							{t('case_battles.add_case').toUpperCase()}
+						</span>
+					</Button>
+				</div>
+			</div>
+			{/* <div className={clsx(cls.hexagon_container, 'mb-4')}>
 				<div
 					className={clsx(
 						cls.hexagon_container_inner,
@@ -233,7 +271,7 @@ const MainList = () => {
 					setPage={setPage}
 					total={5}
 				/>
-			</div>
+			</div> */}
 		</>
 	)
 }

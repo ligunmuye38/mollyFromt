@@ -415,6 +415,10 @@
 		"private_mode": "Private Mode",
 		"create_new_battle": "Create new battle",
 		"add_case": "Add Case",
-		"view_drop": "View Drop"
+		"add_cases": "Add Cases",
+		"view_drop": "View Drop",
+		"total_case": "Total case",
+		"total_cost": "Total cost",
+		"user_balance": "User balance"
 	}
 }
