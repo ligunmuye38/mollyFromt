@@ -15,8 +15,8 @@ import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
 // import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
-import cls from './CreateBattle.module.sass'
-import CreateBattleModal from './CreateBattleModal'
+import cls from './CaseBattle.module.sass'
+import CaseBattleModal from './CaseBattleModal'
 
 const CaseCard = () => {
 	const [amount, setAmount] = useState<number>(0)
@@ -74,7 +74,7 @@ const MainList = () => {
 
 	const onCreateCases = () => {
 		openModal(
-			<CreateBattleModal
+			<CaseBattleModal
 				addCases={_items => {
 					setItems(_items)
 					closeModal()

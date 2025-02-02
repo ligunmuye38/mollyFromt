@@ -13,3 +13,9 @@ export interface INewBattleCase {
 	title: string
 	price: string
 }
+
+export interface CaseBattleMode {
+	bot?: boolean
+	crazy?: boolean
+	priviate?: boolean
+}

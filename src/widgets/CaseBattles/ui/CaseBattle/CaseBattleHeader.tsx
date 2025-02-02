@@ -5,13 +5,15 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import IconDown from '@/shared/assets/icons/icon-arrow-down.svg'
+import IconBotMode from '@/shared/assets/icons/icon-bot-mode.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import IconCrazyMode from '@/shared/assets/icons/icon-crazy-mode.svg'
+import IconPrivateMode from '@/shared/assets/icons/icon-private-mode.svg'
 import IconTrash from '@/shared/assets/icons/icon-trash.svg'
 import IconPlayer from '@/shared/assets/icons/icon-user-rounded.svg'
 import Button from '@/shared/ui/Button/Button'
 
-import cls from './Main.module.sass'
+import cls from './CaseBattle.module.sass'
 
 const MainHeader = () => {
 	const t = useTranslations()
@@ -93,6 +95,18 @@ const MainHeader = () => {
 				</div>
 				<div className='flex items-center gap-[6px]'>
 					<IconCrazyMode className='w-[14px]' />
+					<p>{t('case_battles.bot_mode')}</p>
+					<Switch
+						color='default'
+						classNames={{
+							base: 'rounded-sm w-[30px]',
+							wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+							thumb:
+								"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+						}}
+					/>
+					<span className='text-[20px] text-[#232A3C]'>|</span>
+					<IconBotMode />
 					<p>{t('case_battles.crazy_mode')}</p>
 					<Switch
 						color='default'
@@ -104,9 +118,20 @@ const MainHeader = () => {
 						}}
 					/>
 					<span className='text-[20px] text-[#232A3C]'>|</span>
+					<IconPrivateMode />
+					<p>{t('case_battles.private_mode')}</p>
+					<Switch
+						color='default'
+						classNames={{
+							base: 'rounded-sm w-[30px]',
+							wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+							thumb:
+								"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+						}}
+					/>
 					<Button
 						classNames={{
-							base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px]'),
+							base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px] ml-[10px]'),
 							content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
 						}}
 					>

@@ -16,10 +16,10 @@ import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
 import BattleCardNew from './BattleCardNew'
+import cls from './CaseBattle.module.sass'
 import CaseItem from './CaseItem'
-import cls from './CreateBattle.module.sass'
 
-const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
+const CaseBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 	const t = useTranslations()
 
 	const { closeInnerModal, openInnerModal } = useModal()
@@ -147,4 +147,4 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 	)
 }
 
-export default CreateBattleModal
+export default CaseBattleModal

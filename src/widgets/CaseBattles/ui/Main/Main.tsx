@@ -2,6 +2,7 @@
 
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 import React, { FC } from 'react'
 
 import IconPlusRounded from '@/shared/assets/icons/icon-black-plus.svg'
@@ -21,6 +22,7 @@ interface MainProps {
 
 export const Main: FC<MainProps> = ({ className }) => {
 	const t = useTranslations()
+	const router = useRouter()
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -41,6 +43,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 						style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C59)' }}
 					>
 						<Button
+							onPress={() => router.push('/case-battles/create')}
 							classNames={{
 								base: clsx(cls.hexagon_btn, 'h-[42px] w-[200px]'),
 								content: clsx(cls.hexagon_btn_inner, '!gap-0')

@@ -94,7 +94,7 @@ const MainHeader = () => {
 					</Dropdown>
 				</div>
 				<div className='flex items-center gap-[6px]'>
-					<IconCrazyMode />
+					<IconCrazyMode className='w-[14px]' />
 					<p>{t('case_battles.bot_mode')}</p>
 					<Switch
 						color='default'

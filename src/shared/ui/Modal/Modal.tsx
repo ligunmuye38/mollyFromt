@@ -22,6 +22,8 @@ interface ModalProps {
 	headerTitle: string
 	classNames: ClassNamesConfig
 	closeButton?: boolean
+	innerModalContent?: React.ReactNode
+	isInnerModalOpen?: boolean
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -32,7 +34,9 @@ export const Modal: React.FC<ModalProps> = ({
 	headerTitle,
 	autoClose,
 	classNames,
-	closeButton = true
+	closeButton = true,
+	innerModalContent,
+	isInnerModalOpen
 }) => {
 	// Optionally handle autoClose logic here
 	if (!isOpen) return null
@@ -77,6 +81,16 @@ export const Modal: React.FC<ModalProps> = ({
 								)}
 							</div>
 							<div className={clsx(cls.body)}>{children}</div>
+							{isInnerModalOpen && (
+								<div
+									className='absolute bottom-3 left-3 right-3 top-3 rounded-[15px]'
+									style={{
+										background: 'linear-gradient(180deg, rgba(27, 33, 49, 0.8) 0%, rgba(83, 103, 151, 0.8) 100%)'
+									}}
+								>
+									{innerModalContent}
+								</div>
+							)}
 						</div>
 					</div>
 				</div>

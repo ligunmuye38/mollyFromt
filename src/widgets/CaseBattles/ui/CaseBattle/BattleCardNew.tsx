@@ -11,7 +11,7 @@ import IconHexagonGreenSmallVertical from '@/shared/assets/icons/icon-hexagon-gr
 import IconHexagonGreenSmall from '@/shared/assets/icons/icon-hexagon-green-sm.svg'
 import Button from '@/shared/ui/Button/Button'
 
-import cls from './CreateBattle.module.sass'
+import cls from './CaseBattle.module.sass'
 
 interface BattleCardNewProps {
 	item: INewBattleCase

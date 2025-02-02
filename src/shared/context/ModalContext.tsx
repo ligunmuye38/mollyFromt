@@ -23,12 +23,16 @@ interface ModalContextType {
 	) => void
 	closeModal: () => void
 	isOpen: boolean
+	isInnerModalOpen: boolean
 	content: ReactNode
+	innerModalContent: ReactNode
 	options: ModalOptions
 	headerIcon: ReactNode | null
 	headerTitle: string
 	classNames: ClassNamesConfig
 	isCloseButton?: boolean
+	openInnerModal: (_: ReactNode) => void
+	closeInnerModal: () => void
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined)
@@ -36,11 +40,23 @@ const ModalContext = createContext<ModalContextType | undefined>(undefined)
 export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [content, setContent] = useState<ReactNode>(null)
+	const [innerModalContent, setInnerModalContent] = useState<ReactNode>(null)
+	const [isInnerModalOpen, toggleIsInnerModalOpen] = useState<boolean>(false)
 	const [options, setOptions] = useState<ModalOptions>({})
 	const [headerIcon, setHeaderIcon] = useState<ReactNode | null>(null)
 	const [headerTitle, setHeaderTitle] = useState<string>('')
 	const [classNames, setClassNames] = useState<ClassNamesConfig>({ body: '', modal: '' })
 	const [isCloseButton, setIsCloseButton] = useState<boolean>(true)
+
+	const openInnerModal = (content: ReactNode) => {
+		setInnerModalContent(content)
+		toggleIsInnerModalOpen(true)
+	}
+
+	const closeInnerModal = () => {
+		toggleIsInnerModalOpen(false)
+		setInnerModalContent(null)
+	}
 
 	const openModal = (
 		content: ReactNode,
@@ -71,7 +87,21 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
 	return (
 		<ModalContext.Provider
-			value={{ openModal, closeModal, isOpen, content, options, headerIcon, headerTitle, classNames, isCloseButton }}
+			value={{
+				openModal,
+				closeModal,
+				isOpen,
+				content,
+				options,
+				headerIcon,
+				headerTitle,
+				classNames,
+				isCloseButton,
+				openInnerModal,
+				closeInnerModal,
+				innerModalContent,
+				isInnerModalOpen
+			}}
 		>
 			{children}
 		</ModalContext.Provider>

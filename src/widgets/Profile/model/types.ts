@@ -107,7 +107,7 @@ export interface ITransactionItem {
 export interface IAchievementItem {
 	title: string
 	icon: string
-	description: string
+	description: Record<string, string>
 	stars: number
 	level: number
 	upgradePercentage: number

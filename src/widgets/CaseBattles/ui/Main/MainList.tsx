@@ -1,6 +1,7 @@
 'use client'
 
 import { casesIcons } from '../../model/items'
+import { CaseBattleMode } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -9,6 +10,7 @@ import { Fragment, useState } from 'react'
 import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
+import IconCrazyMode from '@/shared/assets/icons/icon-crazy-mode.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconSort from '@/shared/assets/icons/icon-sort.svg'
 import Button from '@/shared/ui/Button/Button'
@@ -21,11 +23,105 @@ interface MainListItemProps {
 		round: number
 		value: string
 		joined: boolean
+		joinedPlayers: number
+		isLive: boolean
+		mode?: CaseBattleMode
 	}
 }
 
 interface AvatarProps {
 	icon: string
+}
+
+const JoinPlayer = () => {
+	return (
+		<Button className='relative'>
+			<svg
+				width='34'
+				height='38'
+				viewBox='0 0 34 38'
+				fill='none'
+				xmlns='http://www.w3.org/2000/svg'
+			>
+				<path
+					d='M15.35 1.76092C16.371 1.17143 17.629 1.17143 18.65 1.76092L31.1045 8.95152C32.1255 9.54101 32.7545 10.6304 32.7545 11.8094V26.1906C32.7545 27.3696 32.1255 28.459 31.1045 29.0485L18.65 36.2391C17.629 36.8286 16.371 36.8286 15.35 36.2391L2.89552 29.0485C1.87449 28.459 1.24552 27.3696 1.24552 26.1906L1.24552 11.8094C1.24552 10.6304 1.87449 9.54101 2.89552 8.95152L15.35 1.76092Z'
+					fill='#10AA7C'
+				/>
+				<path
+					d='M15.35 1.76092C16.371 1.17143 17.629 1.17143 18.65 1.76092L31.1045 8.95152C32.1255 9.54101 32.7545 10.6304 32.7545 11.8094V26.1906C32.7545 27.3696 32.1255 28.459 31.1045 29.0485L18.65 36.2391C17.629 36.8286 16.371 36.8286 15.35 36.2391L2.89552 29.0485C1.87449 28.459 1.24552 27.3696 1.24552 26.1906L1.24552 11.8094C1.24552 10.6304 1.87449 9.54101 2.89552 8.95152L15.35 1.76092Z'
+					fill='url(#paint0_linear_4013_611)'
+				/>
+				<path
+					d='M15.35 1.76092C16.371 1.17143 17.629 1.17143 18.65 1.76092L31.1045 8.95152C32.1255 9.54101 32.7545 10.6304 32.7545 11.8094V26.1906C32.7545 27.3696 32.1255 28.459 31.1045 29.0485L18.65 36.2391C17.629 36.8286 16.371 36.8286 15.35 36.2391L2.89552 29.0485C1.87449 28.459 1.24552 27.3696 1.24552 26.1906L1.24552 11.8094C1.24552 10.6304 1.87449 9.54101 2.89552 8.95152L15.35 1.76092Z'
+					stroke='url(#paint1_linear_4013_611)'
+					stroke-width='1.4'
+				/>
+				<path
+					d='M15.35 1.76092C16.371 1.17143 17.629 1.17143 18.65 1.76092L31.1045 8.95152C32.1255 9.54101 32.7545 10.6304 32.7545 11.8094V26.1906C32.7545 27.3696 32.1255 28.459 31.1045 29.0485L18.65 36.2391C17.629 36.8286 16.371 36.8286 15.35 36.2391L2.89552 29.0485C1.87449 28.459 1.24552 27.3696 1.24552 26.1906L1.24552 11.8094C1.24552 10.6304 1.87449 9.54101 2.89552 8.95152L15.35 1.76092Z'
+					stroke='url(#paint2_linear_4013_611)'
+					stroke-width='1.4'
+				/>
+				<defs>
+					<linearGradient
+						id='paint0_linear_4013_611'
+						x1='23.9881'
+						y1='0'
+						x2='23.9881'
+						y2='38'
+						gradientUnits='userSpaceOnUse'
+					>
+						<stop
+							stop-color='#24FDBC'
+							stop-opacity='0'
+						/>
+						<stop
+							offset='1'
+							stop-color='#24FDBC'
+							stop-opacity='0.65'
+						/>
+					</linearGradient>
+					<linearGradient
+						id='paint1_linear_4013_611'
+						x1='24.9813'
+						y1='19'
+						x2='32.0163'
+						y2='19'
+						gradientUnits='userSpaceOnUse'
+					>
+						<stop
+							offset='0.347781'
+							stop-color='#24FDBC'
+							stop-opacity='0'
+						/>
+						<stop
+							offset='1'
+							stop-color='#24FDBC'
+						/>
+					</linearGradient>
+					<linearGradient
+						id='paint2_linear_4013_611'
+						x1='20.512'
+						y1='19'
+						x2='13.9736'
+						y2='19'
+						gradientUnits='userSpaceOnUse'
+					>
+						<stop
+							stop-color='#24FDBC'
+							stop-opacity='0.5'
+						/>
+						<stop
+							offset='1'
+							stop-color='#24FDBC'
+						/>
+					</linearGradient>
+				</defs>
+			</svg>
+			<div className='absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2'>
+				<IconPlus />
+			</div>
+		</Button>
+	)
 }
 
 const Avatar = ({ icon }: AvatarProps) => {
@@ -92,28 +188,105 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 	return (
 		<div className={cls.main_list}>
 			<div className={clsx(cls.main_list_inner)}>
-				<div className='flex flex-[0_0_54px] flex-col items-center'>
-					<div className={cls.hexagon}>
-						<div className={cls.hexagon_inner}>
-							<span>{item.round}</span>
+				<div className='relative flex flex-[0_0_54px] flex-col items-center'>
+					{item.isLive ? (
+						<div className='absolute right-0 top-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-md bg-[#10AA7C26] p-[3px]'>
+							<div className='h-[6px] w-[6px] rounded-md bg-[#10AA7C]'></div>
+						</div>
+					) : null}
+					{item.mode?.crazy ? (
+						<div className='absolute -right-[4px] top-[30px] z-10'>
+							<svg
+								width='22'
+								height='24'
+								viewBox='0 0 22 24'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M9.25 1.58771C10.3329 0.962498 11.6671 0.962498 12.75 1.58771L19.1423 5.27831C20.2252 5.90353 20.8923 7.05897 20.8923 8.3094V15.6906C20.8923 16.941 20.2252 18.0965 19.1423 18.7217L12.75 22.4123C11.6671 23.0375 10.3329 23.0375 9.25 22.4123L2.8577 18.7217C1.77479 18.0965 1.1077 16.941 1.1077 15.6906L1.1077 8.3094C1.1077 7.05897 1.77479 5.90353 2.8577 5.27831L9.25 1.58771Z'
+									fill='#273146'
+								/>
+								<path
+									d='M9.25 1.58771C10.3329 0.962498 11.6671 0.962498 12.75 1.58771L19.1423 5.27831C20.2252 5.90353 20.8923 7.05897 20.8923 8.3094V15.6906C20.8923 16.941 20.2252 18.0965 19.1423 18.7217L12.75 22.4123C11.6671 23.0375 10.3329 23.0375 9.25 22.4123L2.8577 18.7217C1.77479 18.0965 1.1077 16.941 1.1077 15.6906L1.1077 8.3094C1.1077 7.05897 1.77479 5.90353 2.8577 5.27831L9.25 1.58771Z'
+									fill='url(#paint0_linear_4129_2937)'
+								/>
+								<path
+									d='M9.25 1.58771C10.3329 0.962498 11.6671 0.962498 12.75 1.58771L19.1423 5.27831C20.2252 5.90353 20.8923 7.05897 20.8923 8.3094V15.6906C20.8923 16.941 20.2252 18.0965 19.1423 18.7217L12.75 22.4123C11.6671 23.0375 10.3329 23.0375 9.25 22.4123L2.8577 18.7217C1.77479 18.0965 1.1077 16.941 1.1077 15.6906L1.1077 8.3094C1.1077 7.05897 1.77479 5.90353 2.8577 5.27831L9.25 1.58771Z'
+									stroke='url(#paint1_linear_4129_2937)'
+								/>
+								<defs>
+									<linearGradient
+										id='paint0_linear_4129_2937'
+										x1='15.4135'
+										y1='0'
+										x2='15.4135'
+										y2='24'
+										gradientUnits='userSpaceOnUse'
+									>
+										<stop stop-color='#3E4C6B' />
+										<stop
+											offset='1'
+											stop-color='#273146'
+											stop-opacity='0'
+										/>
+									</linearGradient>
+									<linearGradient
+										id='paint1_linear_4129_2937'
+										x1='11'
+										y1='0'
+										x2='11'
+										y2='24'
+										gradientUnits='userSpaceOnUse'
+									>
+										<stop stop-color='#425171' />
+										<stop
+											offset='1'
+											stop-color='#2E3952'
+										/>
+									</linearGradient>
+								</defs>
+							</svg>
+							<IconCrazyMode className='absolute left-1/2 top-1/2 h-[14px] -translate-x-1/2 -translate-y-1/2' />
+						</div>
+					) : null}
+					<div className={clsx(cls.hexagon, { [cls.green]: item.isLive }, 'mb-1')}>
+						<div className={clsx(cls.hexagon_inner, { [cls.green]: item.isLive })}>
+							<span className={item.isLive ? 'text-[#121722]' : 'text-[#7689B6]'}>{item.round}</span>
 						</div>
 					</div>
 					<p className={cls.main_list_case_battle_round}>{t('case_battles.rounds')}</p>
 				</div>
 				<div className='relative ml-5 flex flex-[0_0_224px] items-center gap-2'>
-					<div className='mr-1 flex flex-col gap-4'>
-						<Avatar icon='/images/avatars/2.jpg' />
-					</div>
-					<div className='mr-4 flex flex-col gap-4'>
-						<Avatar icon='/images/avatars/3.jpg' />
-					</div>
+					{item.joinedPlayers > 0 ? (
+						<div className='mr-1 flex flex-col gap-4'>
+							<Avatar icon='/images/avatars/2.jpg' />
+						</div>
+					) : (
+						<JoinPlayer />
+					)}
+					{item.joinedPlayers > 1 ? (
+						<div className='mr-4 flex flex-col gap-4'>
+							<Avatar icon='/images/avatars/3.jpg' />
+						</div>
+					) : (
+						<JoinPlayer />
+					)}
 					<IconCaseBattle className='mr-4 h-6 w-6 fill-[#2F374A]' />
-					<div className='mr-1 flex flex-col gap-4'>
-						<Avatar icon='/images/avatars/4.jpg' />
-					</div>
-					<div className='flex flex-col gap-4'>
-						<Avatar icon='/images/avatars/5.jpg' />
-					</div>
+					{item.joinedPlayers > 2 ? (
+						<div className='mr-1 flex flex-col gap-4'>
+							<Avatar icon='/images/avatars/4.jpg' />
+						</div>
+					) : (
+						<JoinPlayer />
+					)}
+					{item.joinedPlayers > 3 ? (
+						<div className='flex flex-col gap-4'>
+							<Avatar icon='/images/avatars/5.jpg' />
+						</div>
+					) : (
+						<JoinPlayer />
+					)}
 				</div>
 				<div
 					className={clsx(
@@ -218,14 +391,25 @@ const MainList = () => {
 				</div>
 			</div>
 			<div className='flex flex-col gap-2'>
-				<MainListItem item={{ round: 3, value: '100 000.99', joined: true }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false }} />
+				<MainListItem
+					item={{
+						round: 3,
+						value: '100 000.99',
+						joined: true,
+						joinedPlayers: 4,
+						isLive: true,
+						mode: {
+							crazy: true
+						}
+					}}
+				/>
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 4, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
 			</div>
 			<div className='mt-2 flex justify-center'>
 				<PaginationBar

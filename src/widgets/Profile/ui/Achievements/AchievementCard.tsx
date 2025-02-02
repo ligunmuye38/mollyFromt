@@ -1,5 +1,6 @@
 import { IAchievementItem } from '../../model/types'
 import clsx from 'clsx'
+import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { FC } from 'react'
 
@@ -11,6 +12,8 @@ interface IAchievementCardProps {
 }
 
 const AchievementCard: FC<IAchievementCardProps> = ({ data, onClick }) => {
+	const locale = useLocale()
+
 	return (
 		<div
 			className='flex w-[140px] cursor-pointer flex-col items-center rounded-xl border-1 border-[#161C28] bg-[#141925] p-[15px]'
@@ -26,7 +29,9 @@ const AchievementCard: FC<IAchievementCardProps> = ({ data, onClick }) => {
 			<div className='mb-[11px] flex flex-col justify-center gap-1'>
 				<p className='text-center text-[12px] font-bold leading-4 text-[#D1D9EB]'>{data.title}</p>
 				<p className='text-center text-[10px] font-normal leading-4 text-[#4D5A79]'>
-					{data.description.length > 18 ? `${data.description.slice(0, 16)}...` : data.description}
+					{data.description[locale].length > 18
+						? `${data.description[locale].slice(0, 16)}...`
+						: data.description[locale]}
 				</p>
 			</div>
 			<div className='mb-[6px] flex h-7 w-[110px] items-center justify-between rounded-md bg-[#0F131D] px-[6px] text-[18px] leading-[18px]'>

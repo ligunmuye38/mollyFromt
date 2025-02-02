@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -25,6 +25,8 @@ const AchievementModal = () => {
 	const t = useTranslations()
 	const [canShowInProfile, toggleCanShowInProfile] = useState<boolean>(false)
 	const [canShowDetails, toggleCanShowDetails] = useState<boolean>(false)
+
+	const locale = useLocale()
 
 	return (
 		<div
@@ -131,13 +133,15 @@ const AchievementModal = () => {
 								className='flex items-center justify-between gap-2 rounded-[10px] border-1 border-[#262E42] bg-[#191F2D40] p-[9px] text-[12px] font-bold leading-4 text-[#5A6786]'
 							>
 								<span className={`ml-2 mr-1 text-xl text-[${color}]`}>★</span>
-								<span className='mr-3 flex-grow-0'>Level {index + 1}</span>
-								<span className='flex-grow'>Daily free bonuses...</span>
+								<span className='mr-3 flex-grow-0'>{`${t('profile_achievements.level')} ${index + 1}`}</span>
+								<span className='flex-grow'>
+									{locale === 'ru' ? 'Ежедневные бесплатные бонусы...' : 'Daily free bonuses...'}
+								</span>
 								<span className='flex-grow'>
 									<span className='text-white'>0</span> / 5
 								</span>
 								<p className='w-max rounded-md bg-[#191F2D] p-[11px]'>
-									<span>In progress</span>
+									<span>{t('profile_achievements.in_progress')}</span>
 								</p>
 							</div>
 						))}
@@ -158,7 +162,7 @@ const AchievementModal = () => {
 							content: 'text-[14px] leading-[18px] text-[#5A6786] font-bold w-[280px] h-[48px]'
 						}}
 					>
-						About this achievement
+						{t('profile_achievements.about_this_achievement')}
 					</Button>
 				</div>
 				{canShowDetails && (

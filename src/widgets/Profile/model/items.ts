@@ -3784,7 +3784,10 @@ export const withdrawHistory: ITransactionItem[] = [
 // Achievements profile
 export const achievementsList: IAchievementItem[] = [
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3792,7 +3795,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3800,7 +3806,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3808,7 +3817,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3816,7 +3828,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3824,7 +3839,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3832,7 +3850,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3840,7 +3861,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3848,7 +3872,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3856,7 +3883,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3864,7 +3894,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3872,7 +3905,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3880,7 +3916,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3888,7 +3927,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3896,7 +3938,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3904,7 +3949,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3912,7 +3960,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3920,7 +3971,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3928,7 +3982,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3936,7 +3993,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3944,7 +4004,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,
@@ -3952,7 +4015,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 40
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 3,
@@ -3960,7 +4026,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 30
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 3,
 		icon: '/images/achievement/arsenal.png',
 		stars: 2,
@@ -3968,7 +4037,10 @@ export const achievementsList: IAchievementItem[] = [
 		upgradePercentage: 50
 	},
 	{
-		description: 'You can select 5 achievements ...',
+		description: {
+			en: 'You can select 5 achievements ...',
+			ru: 'Вы можете выбрать 5 достижений...'
+		},
 		level: 2,
 		icon: '/images/achievement/arsenal.png',
 		stars: 4,

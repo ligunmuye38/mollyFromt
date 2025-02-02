@@ -365,7 +365,10 @@
 		"show_in_profile": "Show in my profile for other players",
 		"follow_on_twitter": "Follow on Twitter",
 		"follow_on_facebook": "Follow on Facebook",
-		"follow_on_discord": "Follow on Discord"
+		"follow_on_discord": "Follow on Discord",
+		"in_progress": "In progress",
+		"level": "Level",
+		"about_this_achievement": "About this achievement"
 	},
 	"promocode_profile": {
 		"promocode": "Promocode",
@@ -419,6 +422,7 @@
 		"view_drop": "View Drop",
 		"total_case": "Total case",
 		"total_cost": "Total cost",
-		"user_balance": "User balance"
+		"user_balance": "User balance",
+		"create_for": "Create for"
 	}
 }

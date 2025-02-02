@@ -13,7 +13,7 @@
 <stop offset="1" stop-color="#24FDBC"/>
 </linearGradient>
 <linearGradient id="paint2_linear_4013_7914" x1="15.7726" y1="15" x2="10.6107" y2="15" gradientUnits="userSpaceOnUse">
-<stop stop-color="#24FDBC" stop-opacity="0"/>
+<stop stop-color="#24FDBC" stop-opacity="0.5"/>
 <stop offset="1" stop-color="#24FDBC"/>
 </linearGradient>
 </defs>

@@ -2,7 +2,7 @@
 
 import { achievementsList } from '../../model/items'
 import clsx from 'clsx'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import IconFilter from '@/shared/assets/icons/icon-filter-2.svg'
@@ -24,6 +24,7 @@ const sortOptions = [
 
 const AchievementsMain = () => {
 	const t = useTranslations()
+	const locale = useLocale()
 
 	const { openModal } = useModal()
 
@@ -49,11 +50,17 @@ const AchievementsMain = () => {
 			<div className={clsx(cls.user_main_inner, 'p-5')}>
 				<AchievementsHeader />
 				<div className='mb-[15px] flex items-center justify-between gap-5 rounded-[10px] bg-[#1D2434] py-2 pl-3 pr-2'>
-					<p className='text-[10px] font-medium leading-4 text-[#95AADB]'>
-						You can select <span className='font-bold text-white'>5 achievements</span> to be shown to other
-						<br />
-						users on your profile. You have selected <span className='font-bold text-white'>5/5</span>.
-					</p>
+					{locale === 'ru' ? (
+						<p className='max-w-[350px] text-[10px] font-medium leading-4 text-[#95AADB]'>
+							Вы можете выбрать <span className='font-bold text-white'>5 achievements</span> , которые будут показаны
+							другим пользователям в вашем профиле. Вы выбрали <span className='font-bold text-white'>5/5</span>.
+						</p>
+					) : (
+						<p className='max-w-[265px] text-[10px] font-medium leading-4 text-[#95AADB]'>
+							You can select <span className='font-bold text-white'>5 achievements</span> to be shown to other users on
+							your profile. You have selected <span className='font-bold text-white'>5/5</span>.
+						</p>
+					)}
 					<div className='flex translate-y-[2px] gap-[10px]'>
 						{/* <Select
 							value={new Set(selectedBalanceFilters)}
