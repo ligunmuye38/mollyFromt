@@ -2,7 +2,9 @@ import { BattleVariants } from '../../model/types'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Selection, Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import { useCommonStore } from '@/entities/Common/model/store'
 
 import IconDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconBotMode from '@/shared/assets/icons/icon-bot-mode.svg'
@@ -18,12 +20,40 @@ import cls from './CreateBattle.module.sass'
 const MainHeader = () => {
 	const t = useTranslations()
 	const [selectedOption, setSelectedOption] = useState<Selection>(new Set(['one-vs-one']))
+	const { setCurrentBattleVariant } = useCommonStore()
 
-	const battleVariants = () => {
-		switch (new Set(selectedOption).values().next().value) {
+	useEffect(() => {
+		setCurrentBattleVariant(String(new Set(selectedOption).values().next().value ?? ''))
+	}, [selectedOption, setCurrentBattleVariant])
+
+	const battleVariants = (value: string) => {
+		console.log('rabi', value)
+		switch (value) {
 			case BattleVariants.ONE_VS_ONE:
 				return (
 					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+					</div>
+				)
+			case BattleVariants.ONE_VS_ONE_VS_ONE:
+				return (
+					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+					</div>
+				)
+			case BattleVariants.ONE_VS_ONE_VS_ONE_VS_ONE:
+				return (
+					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
 						<IconPlayer />
 						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
 						<IconPlayer />
@@ -47,7 +77,7 @@ const MainHeader = () => {
 			<div className={cls.main_header_inner}>
 				<div className='flex items-center gap-[6px]'>
 					<p>{t('case_battles.players')}</p>
-					{battleVariants()}
+					{battleVariants(String(new Set(selectedOption).values().next().value))}
 					<Dropdown
 						placement='bottom-end'
 						className='bg-[#1A2130] dark'
@@ -68,28 +98,14 @@ const MainHeader = () => {
 							selectionMode='single'
 							onSelectionChange={setSelectedOption}
 						>
-							<DropdownItem
-								key={BattleVariants.ONE_VS_ONE}
-								className='hover:!bg-[#313845] focus:!bg-[#313845]'
-							>
-								<div className='flex justify-center gap-2'>
-									<IconPlayer />
-									<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-									<IconPlayer />
-								</div>
-							</DropdownItem>
-							<DropdownItem
-								key={BattleVariants.TWO_VS_TWO}
-								className='hover:!bg-[#313845] focus:!bg-[#313845]'
-							>
-								<div className='flex justify-center gap-2'>
-									<IconPlayer />
-									<IconPlayer />
-									<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-									<IconPlayer />
-									<IconPlayer />
-								</div>
-							</DropdownItem>
+							{Object.values(BattleVariants).map(value => (
+								<DropdownItem
+									key={value}
+									className='hover:!bg-[#313845] focus:!bg-[#313845]'
+								>
+									{battleVariants(value)}
+								</DropdownItem>
+							))}
 						</DropdownMenu>
 					</Dropdown>
 				</div>

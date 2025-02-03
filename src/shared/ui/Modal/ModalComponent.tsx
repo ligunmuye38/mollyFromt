@@ -14,11 +14,13 @@ const ModalComponent: React.FC = () => {
 		headerIcon,
 		headerTitle,
 		classNames,
+		noHeader,
 		isCloseButton
 	} = useModal()
 
 	return (
 		<Modal
+			noHeader={noHeader}
 			onClose={closeModal}
 			autoClose={options.autoClose}
 			isOpen={isOpen}

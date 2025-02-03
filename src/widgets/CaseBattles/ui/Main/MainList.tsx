@@ -1,7 +1,7 @@
 'use client'
 
 import { casesIcons } from '../../model/items'
-import { CaseBattleMode } from '../../model/types'
+import { CaseBattleMode, CaseBattleTypes } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -13,9 +13,12 @@ import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import IconCrazyMode from '@/shared/assets/icons/icon-crazy-mode.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconSort from '@/shared/assets/icons/icon-sort.svg'
+import IconVerification from '@/shared/assets/icons/icon-verification-profile.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
+import FairnessModal from './FairnessModal'
 import cls from './Main.module.sass'
 
 interface MainListItemProps {
@@ -185,6 +188,22 @@ const Avatar = ({ icon }: AvatarProps) => {
 export const MainListItem = ({ item }: MainListItemProps) => {
 	const t = useTranslations()
 
+	const { openModal } = useModal()
+
+	const onClickWatch = () => {
+		openModal(
+			<FairnessModal />,
+			{},
+			<IconVerification className='h-[19px] w-[19px] fill-[#19D099]' />,
+			t('case_battles.fairness'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
 	return (
 		<div className={cls.main_list}>
 			<div className={clsx(cls.main_list_inner)}>
@@ -330,6 +349,7 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 					</div>
 				</div>
 				<Button
+					onPress={onClickWatch}
 					classNames={{
 						base: clsx(
 							cls.hexagon_btn,
@@ -361,56 +381,226 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 	)
 }
 
-const MainList = () => {
+interface ITopBattleItemProps {
+	item: {
+		rank: number
+		value: {
+			usd: string
+			times: string
+		}
+		price: string
+	}
+}
+
+export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
+	const t = useTranslations()
+
+	const { openModal } = useModal()
+
+	const onClickWatch = () => {
+		openModal(
+			<FairnessModal />,
+			{},
+			<IconVerification className='h-[19px] w-[19px] fill-[#19D099]' />,
+			t('case_battles.fairness'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
+	return (
+		<div
+			className={clsx(
+				cls.top_list,
+				{ [cls.rank_first]: item.rank === 1 },
+				{ [cls.rank_second]: item.rank === 2 },
+				{ [cls.rank_third]: item.rank === 3 }
+			)}
+		>
+			<div className='relative mr-5 flex flex-[0_0_110px] flex-col items-start'>
+				<div
+					className={clsx(
+						cls.hexagon_vertical,
+						{ [cls.rank_first]: item.rank === 1 },
+						{ [cls.rank_second]: item.rank === 2 },
+						{ [cls.rank_third]: item.rank === 3 }
+					)}
+				>
+					<div
+						className={clsx(
+							cls.hexagon_vertical_inner,
+							{ [cls.rank_first]: item.rank === 1 },
+							{ [cls.rank_second]: item.rank === 2 },
+							{ [cls.rank_third]: item.rank === 3 }
+						)}
+					>
+						<span className={item.rank > 3 ? 'text-white' : 'text-[#141925]'}>{item.rank}</span>
+					</div>
+				</div>
+			</div>
+			<div className='flex-[0_0_240px]'>
+				<div
+					className={clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[38px] w-full max-w-[174px] flex-grow px-[13px]')}
+				>
+					<div
+						className={clsx(
+							cls.hexagon_btn_inner,
+							cls.default,
+							cls.sm,
+							'!justify-end !gap-[6px] !bg-[#121722] !bg-none'
+						)}
+					>
+						<span className='text-[14px] font-bold leading-4 text-white'>
+							<span className='text-[#24FDBC]'>$</span>
+							{item.value.usd}
+						</span>
+						<div
+							className='ml-1 mr-[6px] flex h-[24px] w-[46px] items-center justify-center bg-[#EDBF1C] text-[10px] font-bold leading-4 text-[#121722]'
+							style={{
+								clipPath: 'polygon(5px 0px, calc(100% - 5px) 0px, 100% 50%, calc(100% - 5px) 100%, 5px 100%, 0px 50%)'
+							}}
+						>
+							{item.value.times}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='flex-grow'>
+				<div
+					className={clsx(cls.hexagon_btn, cls.default, cls.sm, 'mx-[10px] h-[38px] w-full max-w-[120px] px-[13px]')}
+				>
+					<div className={clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')}>
+						<span className='text-[14px] font-bold leading-4 text-white'>
+							<span className='text-[#24FDBC]'>$</span>
+							{item.price}
+						</span>
+					</div>
+				</div>
+			</div>
+			<div className='relative flex flex-[0_0_224px] items-center gap-2'>
+				<div className='mr-1 flex flex-col gap-4'>
+					<Avatar icon='/images/avatars/2.jpg' />
+				</div>
+				<div className='mr-4 flex flex-col gap-4'>
+					<Avatar icon='/images/avatars/3.jpg' />
+				</div>
+				<IconCaseBattle className='mr-4 h-6 w-6 fill-[#2F374A]' />
+				<div className='mr-1 flex flex-col gap-4'>
+					<Avatar icon='/images/avatars/4.jpg' />
+				</div>
+				<div className='flex flex-col gap-4'>
+					<Avatar icon='/images/avatars/5.jpg' />
+				</div>
+			</div>
+			<Button
+				onPress={onClickWatch}
+				classNames={{
+					base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[38px] w-[140px] flex-[0_0_140px] ml-6'),
+					content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
+				}}
+			>
+				<IconEye className={clsx(cls.hexagon_btn_inner_icon, cls.sm, '!fill-[#60719A]')} />
+				<span className='text-[12px] font-[900] leading-4 text-[#60719A]'>{t('case_battles.watch').toUpperCase()}</span>
+			</Button>
+		</div>
+	)
+}
+
+interface IMainListProps {
+	type: CaseBattleTypes
+}
+
+const MainList = ({ type }: IMainListProps) => {
 	const t = useTranslations()
 
 	const [page, setPage] = useState<number>(1)
 
 	return (
 		<>
-			<div className={clsx(cls.hexagon_container, 'mb-4')}>
-				<div
-					className={clsx(
-						cls.hexagon_container_inner,
-						'flex !h-[34px] w-full items-center px-6 text-[12px] font-[500] leading-[16px] text-[#60719A]'
-					)}
-				>
-					<div className='mr-5 flex flex-[0_0_54px] items-center gap-[6px]'>
-						{t('case_battles.rounds')} <IconSort />
+			{type === CaseBattleTypes.ACTIVE_BATTLES ? (
+				<div className={clsx(cls.hexagon_container, 'mb-4')}>
+					<div
+						className={clsx(
+							cls.hexagon_container_inner,
+							'flex !h-[34px] w-full items-center px-6 text-[12px] font-[500] leading-[16px] text-[#60719A]'
+						)}
+					>
+						<div className='mr-5 flex flex-[0_0_54px] items-center gap-[6px]'>
+							{t('case_battles.rounds')} <IconSort />
+						</div>
+						<div className='mr-[10px] flex flex-[0_0_224px] items-center gap-[6px]'>
+							{t('case_battles.players')}
+							<IconSort />
+						</div>
+						<div className='mr-[10px] flex flex-[0_0_120px] items-center gap-[6px]'>
+							{t('case_battles.value')}
+							<IconSort />
+						</div>
+						<span className='flex-grow'>{t('case_battles.cases')}</span>
+						<span className='ml-6 flex-[0_0_140px]'>{t('case_battles.actions')}</span>
 					</div>
-					<div className='mr-[10px] flex flex-[0_0_224px] items-center gap-[6px]'>
-						{t('case_battles.players')}
-						<IconSort />
-					</div>
-					<div className='mr-[10px] flex flex-[0_0_120px] items-center gap-[6px]'>
-						{t('case_battles.value')}
-						<IconSort />
-					</div>
-					<span className='flex-grow'>{t('case_battles.cases')}</span>
-					<span className='ml-6 flex-[0_0_140px]'>{t('case_battles.actions')}</span>
 				</div>
-			</div>
-			<div className='flex flex-col gap-2'>
-				<MainListItem
-					item={{
-						round: 3,
-						value: '100 000.99',
-						joined: true,
-						joinedPlayers: 4,
-						isLive: true,
-						mode: {
-							crazy: true
-						}
-					}}
-				/>
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 4, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-				<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-			</div>
+			) : (
+				<div className={clsx(cls.hexagon_container, 'mb-4')}>
+					<div
+						className={clsx(
+							cls.hexagon_container_inner,
+							'flex !h-[34px] w-full items-center px-6 text-[12px] font-[500] leading-[16px] text-[#60719A]'
+						)}
+					>
+						<div className='mr-5 flex flex-[0_0_110px] items-center gap-[6px]'>
+							{t('case_battles.rating')} <IconSort />
+						</div>
+						<div className='mr-[10px] flex flex-[0_0_240px] items-center gap-[6px]'>
+							{t('case_battles.profit')}
+							<IconSort />
+						</div>
+						<div className='mr-[10px] flex flex-grow items-center gap-[6px]'>
+							{t('case_battles.game_price')}
+							<IconSort />
+						</div>
+						<span className='flex-[0_0_224px]'>{t('case_battles.players')}</span>
+						<span className='ml-6 flex-[0_0_140px] text-end'>{t('case_battles.actions')}</span>
+					</div>
+				</div>
+			)}
+			{type === CaseBattleTypes.ACTIVE_BATTLES ? (
+				<div className='flex flex-col gap-2'>
+					<MainListItem
+						item={{
+							round: 3,
+							value: '100 000.99',
+							joined: true,
+							joinedPlayers: 4,
+							isLive: true,
+							mode: {
+								crazy: true
+							}
+						}}
+					/>
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 4, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+				</div>
+			) : (
+				<div className='flex flex-col gap-2'>
+					<TopBattleItem item={{ price: '100 000.99', rank: 1, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 2, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 3, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 4, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 5, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 6, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 7, value: { times: '6.11x', usd: '100 000.99' } }} />
+					<TopBattleItem item={{ price: '100 000.99', rank: 8, value: { times: '6.11x', usd: '100 000.99' } }} />
+				</div>
+			)}
 			<div className='mt-2 flex justify-center'>
 				<PaginationBar
 					page={page}

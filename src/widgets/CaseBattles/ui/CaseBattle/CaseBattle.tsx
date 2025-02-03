@@ -2,15 +2,15 @@
 
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import React, { FC } from 'react'
+import { FC, useState } from 'react'
 
 import IconCaseBattles from '@/shared/assets/icons/icon-case-battle.svg'
-import HeaderBgTop2 from '@/shared/assets/section-header-bg-top-2.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 
+import BattleDetails from './BattleDetails'
 import cls from './CaseBattle.module.sass'
 import CaseBattleHeader from './CaseBattleHeader'
-import CaseBattleList from './CaseBattleList'
+import PlayersList from './PlayersList'
 
 interface CaseBattleProps {
 	className?: string
@@ -18,6 +18,8 @@ interface CaseBattleProps {
 
 export const CaseBattle: FC<CaseBattleProps> = ({ className }) => {
 	const t = useTranslations()
+
+	const [battleStarted, toggleBattleStarted] = useState<boolean>(false)
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -28,18 +30,15 @@ export const CaseBattle: FC<CaseBattleProps> = ({ className }) => {
 						<IconCaseBattles />
 					</div>
 				</div>
-				<div className={clsx(cls.h_inner, 'mb-[35px]')}>
+				<div className={clsx(cls.h_inner, 'mb-[15px]')}>
 					<div className={cls.title}>{t('case_battles.case_battle').toUpperCase()}</div>
-				</div>
-				<div className='absolute bottom-0 flex h-[84px] w-full justify-center'>
-					<HeaderBgTop2 className='flex-shrink-0' />
 				</div>
 			</div>
 			<div className='mb-5 px-[20px]'>
 				<CaseBattleHeader />
 			</div>
 			<div className='px-[20px]'>
-				<CaseBattleList />
+				{battleStarted ? <BattleDetails /> : <PlayersList onStartBattle={() => toggleBattleStarted(true)} />}
 			</div>
 		</div>
 	)

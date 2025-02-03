@@ -5,6 +5,8 @@ export enum CaseBattleTypes {
 
 export enum BattleVariants {
 	ONE_VS_ONE = 'one-vs-one',
+	ONE_VS_ONE_VS_ONE = 'one-vs-one-vs-one',
+	ONE_VS_ONE_VS_ONE_VS_ONE = 'one-vs-one-vs-one-vs-one',
 	TWO_VS_TWO = 'two-vs-two'
 }
 
@@ -18,4 +20,11 @@ export interface CaseBattleMode {
 	bot?: boolean
 	crazy?: boolean
 	priviate?: boolean
+}
+
+export interface IPlayer {
+	isCreator: boolean
+	isReady: boolean
+	botOffer: boolean
+	name: string
 }

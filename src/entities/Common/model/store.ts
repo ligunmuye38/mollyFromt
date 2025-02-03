@@ -24,6 +24,7 @@ export interface IState {
 	selectedCaseItems: any[]
 	isScrollTop: boolean
 	onScroll: () => void
+	currentBattleVariant: string
 }
 export interface IActions {
 	setChatHidden: (value: boolean) => void
@@ -45,6 +46,7 @@ export interface IActions {
 	setSelectedCaseItems: (value: any[]) => void
 	setIsScrollTop: (value: boolean) => void
 	setOnScroll: (value: () => void) => void
+	setCurrentBattleVariant: (value: string) => void
 }
 
 export const initialState: IState = {
@@ -66,7 +68,8 @@ export const initialState: IState = {
 	currentCaseNumber: 0,
 	selectedCaseItems: [],
 	isScrollTop: false,
-	onScroll: () => {}
+	onScroll: () => {},
+	currentBattleVariant: 'one-vs-one'
 }
 
 export const useCommonStore = create<IState & IActions>()(
@@ -226,6 +229,14 @@ export const useCommonStore = create<IState & IActions>()(
 							},
 							undefined,
 							'SET_SET_SCROLL_FUNCTION_STATE'
+						),
+					setCurrentBattleVariant: value =>
+						set(
+							state => {
+								state.currentBattleVariant = value
+							},
+							undefined,
+							'SET_CURRENT_BATTLE_VARIANT'
 						)
 				}),
 				{

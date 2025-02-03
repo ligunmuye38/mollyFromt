@@ -55,126 +55,9 @@
   leading: 20px
   font-weight: 900
   letter-spacing: 0.02em
-  background-image: linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)
+  background-image: linear-gradient(0deg, #D1D9EB, #D1D9EB70), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)
   color: transparent
   background-clip: text
-
-.switcher
-  height: 42px
-  width: 311px
-  clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%)
-  background: #232B3B
-  padding: 3px
-  font-size: 12px
-  line-height: 16px
-  font-weight: 900
-
-  &_wrapper
-    width: max-content
-    position: relative
-
-  &_inner
-    display: flex
-    align-items: center
-    justify-content: space-between
-    width: 100%
-    height: 100%
-    background: #121722
-    clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%)
-    padding: 1px
-    transition-duration: 250ms
-    cursor: pointer
-
-    &:hover
-      background: linear-gradient(90deg, #232B3B50 0%, #121722 40%, #121722 60%, #232B3B50 100%)
-  
-  &_content
-    width: 150px
-    height: 100%
-    display: flex
-    align-items: center
-    justify-content: center
-    color: #60719A
-
-    &_icon
-      width: 16px
-      height: 16px
-      fill: #60719A
-      margin-right: 4px
-
-  &_track
-    font-size: 12px
-    line-height: 16px
-    font-weight: 900
-    width: 150px
-    height: 34px
-    padding: 2px
-    clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%)
-    background: linear-gradient(90deg, rgba(253, 205, 36, 0) 122.17%, #FDCD24 141.22%), linear-gradient(270deg, #E2B617 6.54%, #FDCD24 33.68%)
-
-    &_wrapper
-      z-index: 10
-      position: absolute
-      top: 4px
-      transition-duration: 250ms
-
-      &_inner
-        filter: drop-shadow(0px 0px 12px #FD3E2459) drop-shadow(0px 0px 12px #FD3E2440)
-
-    &_icon
-      width: 16px
-      height: 16px
-      fill: #121722
-      margin-right: 4px
-
-    &_inner
-      clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%)
-      width: 100%
-      height: 100%
-      display: flex
-      align-items: center
-      justify-content: center
-      color: #121722
-      text-shadow: 0px 1px 0px #FFD53F
-      background: linear-gradient(0deg, #E2B617, #E2B617), linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
-
-  &_news
-    clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0% 50%)
-    padding: 1px
-    background: #1A202F
-    width: 44px
-    height: 21px
-
-    &_wrapper
-      position: absolute
-      top: 0
-      right: 17px
-      translate: 0 -70%
-      filter: drop-shadow(0px 0px 12px #121722)
-
-    &_inner
-      display: flex
-      align-items: center
-      justify-content: center
-      width: 100%
-      height: 100%
-      clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0% 50%)
-      background: linear-gradient(180deg, #121722 0%, #252E3D 100%)
-      font-size: 10px
-      line-height: 16px
-      color: #E8BB1A
-       
-
-.hexagon_container
-  padding: 1px
-  background: linear-gradient(90deg, #283146 0%, rgba(40, 49, 70, 0.25) 50%, #283146 100%)
-  clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
-
-  &_inner
-    width: 100%
-    height: 100%
-    background: #181E2A73
-    clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
 
 .hexagon
   width: 50px
@@ -182,6 +65,9 @@
   padding: 1.4px
   background: linear-gradient(180deg, #425171 0%, #2E3952 100%)
   clip-path: path('M48.4 21.9C49.5 23.7 49.5 26 48.4 27.8L39.6 43.1C38.5 45 36.5 46.1 34.4 46.1H16.7C14.6 46.1 12.6 45 11.5 43.1L2.7 27.8C1.6 26 1.6 23.7 2.7 21.9L11.5 6.5C12.6 4.7 14.6 3.6 16.7 3.6H34.4C36.5 3.6 38.5 4.7 39.6 6.5L48.4 21.9Z')
+
+  &.green
+    background: linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%), linear-gradient(270deg, rgba(36, 253, 188, 0.65) 40.76%, #24FDBC 57.96%)
 
   &_inner
     width: 100%
@@ -195,6 +81,9 @@
     justify-content: center
     clip-path: path('M45.0781 20.4079C46.07 22.126 46.07 24.2428 45.0781 25.9609L36.8428 40.2247C35.8509 41.9428 34.0177 43.0012 32.0337 43.0012H15.5633C13.5794 43.0012 11.7461 41.9428 10.7543 40.2247L2.519 25.9609C1.5271 24.2428 1.5271 22.126 2.519 20.4079L10.7543 6.144C11.7461 4.4259 13.5794 3.3675 15.5633 3.3675H32.0337C34.0177 3.3675 35.8509 4.4259 36.8428 6.144L45.0781 20.4079Z')
     background: linear-gradient(0deg, #273146, #273146), linear-gradient(180deg, #3E4C6B 0%, rgba(39, 49, 70, 0) 100%)
+
+    &.green
+      background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
 
 .hexagon_btn
   padding: 2px
@@ -244,28 +133,6 @@
     padding: 1px
     clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0% 50%)
 
-.main_header
-  width: 100%
-  height: 48px
-  padding: 2px
-  background: linear-gradient(90deg, rgba(86, 105, 149, 0.25) 0%, rgba(61, 75, 107, 0) 6.1%, rgba(86, 105, 149, 0.25) 12.2%)
-  clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%)
-
-  &_inner
-    width: 100%
-    height: 100%
-    padding-left: 20px
-    padding-right: 20px
-    display: flex
-    align-items: center
-    justify-content: space-between
-    background: linear-gradient(90deg, #181E2A 0%, rgba(58, 68, 93, 0) 6.1%, #171E2B 12.2%)
-    clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%)
-    font-size: 12px
-    leading: 16px
-    color: #60719A
-    font-weight: 500
-
 .avatar
   position: relative
   z-index: 1
@@ -292,8 +159,34 @@
     transform: translate(-50%, -50%)
     clip-path: polygon( 43.269% 5.292%,43.269% 5.292%,44.546% 4.73%,45.869% 4.292%,47.227% 3.979%,48.607% 3.792%,50% 3.729%,51.393% 3.792%,52.773% 3.979%,54.131% 4.292%,55.454% 4.73%,56.731% 5.292%,91.309% 22.594%,91.309% 22.594%,92.51% 23.271%,93.609% 24.045%,94.6% 24.908%,95.478% 25.851%,96.236% 26.865%,96.87% 27.941%,97.373% 29.071%,97.74% 30.247%,97.964% 31.459%,98.04% 32.698%,98.04% 67.302%,98.04% 67.302%,97.964% 68.541%,97.74% 69.753%,97.373% 70.929%,96.87% 72.059%,96.236% 73.135%,95.478% 74.149%,94.6% 75.092%,93.609% 75.955%,92.51% 76.729%,91.309% 77.406%,56.731% 94.708%,56.731% 94.708%,55.454% 95.27%,54.131% 95.708%,52.773% 96.021%,51.393% 96.208%,50% 96.271%,48.607% 96.208%,47.227% 96.021%,45.869% 95.708%,44.546% 95.27%,43.269% 94.708%,8.691% 77.406%,8.691% 77.406%,7.49% 76.729%,6.391% 75.955%,5.4% 75.092%,4.522% 74.149%,3.764% 73.135%,3.13% 72.059%,2.627% 70.929%,2.26% 69.753%,2.036% 68.541%,1.96% 67.302%,1.96% 32.698%,1.96% 32.698%,2.036% 31.459%,2.26% 30.247%,2.627% 29.071%,3.13% 27.941%,3.764% 26.865%,4.522% 25.851%,5.4% 24.908%,6.391% 24.045%,7.49% 23.271%,8.691% 22.594%,43.269% 5.292% )
 
+.card_avatar
+  position: relative
+  z-index: 1
+  flex-shrink: 0
+  width: 48px
+  height: 48px
+  &_border
+    position: relative
+    width: 100%
+    height: 100%
+    &_inner
+      position: absolute
+      z-index: 2
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 26px
+      height: 32px
+  &_pic
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    clip-path: polygon( 43.269% 5.292%,43.269% 5.292%,44.546% 4.73%,45.869% 4.292%,47.227% 3.979%,48.607% 3.792%,50% 3.729%,51.393% 3.792%,52.773% 3.979%,54.131% 4.292%,55.454% 4.73%,56.731% 5.292%,91.309% 22.594%,91.309% 22.594%,92.51% 23.271%,93.609% 24.045%,94.6% 24.908%,95.478% 25.851%,96.236% 26.865%,96.87% 27.941%,97.373% 29.071%,97.74% 30.247%,97.964% 31.459%,98.04% 32.698%,98.04% 67.302%,98.04% 67.302%,97.964% 68.541%,97.74% 69.753%,97.373% 70.929%,96.87% 72.059%,96.236% 73.135%,95.478% 74.149%,94.6% 75.092%,93.609% 75.955%,92.51% 76.729%,91.309% 77.406%,56.731% 94.708%,56.731% 94.708%,55.454% 95.27%,54.131% 95.708%,52.773% 96.021%,51.393% 96.208%,50% 96.271%,48.607% 96.208%,47.227% 96.021%,45.869% 95.708%,44.546% 95.27%,43.269% 94.708%,8.691% 77.406%,8.691% 77.406%,7.49% 76.729%,6.391% 75.955%,5.4% 75.092%,4.522% 74.149%,3.764% 73.135%,3.13% 72.059%,2.627% 70.929%,2.26% 69.753%,2.036% 68.541%,1.96% 67.302%,1.96% 32.698%,1.96% 32.698%,2.036% 31.459%,2.26% 30.247%,2.627% 29.071%,3.13% 27.941%,3.764% 26.865%,4.522% 25.851%,5.4% 24.908%,6.391% 24.045%,7.49% 23.271%,8.691% 22.594%,43.269% 5.292% )
+
 .main_list
-  background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
+  background: linear-gradient(180deg, #1F2534 0%, #161C28 100%)
   padding: 2px
   border-radius: 12px
 
@@ -310,7 +203,7 @@
   &_inner
     display: flex
     align-items: center
-    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+    background: linear-gradient(180deg, #191F2D 0%, #141925 100%)
     border-radius: 12px
     padding-top: 12px
     padding-bottom: 12px
@@ -343,77 +236,122 @@
       & path
         fill: #E2B617
 
-.battle_card_new
-  width: 240px
-  border-radius: 12px
-  padding: 1px
-  position: relative
-
-  &.selected
-    background: linear-gradient(180deg, #1A202E 0%, #1AD39C 100%)
-
-  &_inner
-    position: relative
-    background: #1A202E
-    border-radius: 12px
-    padding: 15px
-    padding-top: 0px
-    display: flex
-    flex-direction: column
-    align-items: center
-    gap: 16px
-    
-    & .title
-      font-size: 15px
-      font-weight: 500
-      line-height: 16px
-      text-align: center
-      color: white
-
-    & .price
-      width: 90px
-      height: 42px
-      padding: 2px
-      background: linear-gradient(90deg, rgba(253, 205, 36, 0) 90.31%, #FDCD24 121.11%), linear-gradient(270deg, #E2B617 56.11%, #FDCD24 100%)
-      clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
-
-      &_wrapper
-        filter: drop-shadow(0 0 12px #FD3E2459)
-
-      &_inner
-        width: 100%
-        height: 100%
-        background: #E2B617
-        clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
-        display: flex
-        align-items: center
-        justify-content: center
-        font-size: 14px
-        line-height: 16px
-        font-weight: 900
-        color: #121722
-        text-shadow: 0 1px 0 #FFD53F
-
-.spin
-  padding: 6px
-  width: 110px
-  height: 42px
-  background: #141925
-  display: flex
-  align-items: center
-  justify-content: space-between
-  clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
-
-.create_battle_card_bg
-  border-radius: 12px
+.winning
+  clip-path: polygon(50% 0px, 100% 10%, 100% 90%, 50% 100%, 0% 90%, 0% 10%)
   padding: 2px
-  background: linear-gradient(180deg, #1F2534 0%, #161B29 100%)
+  background: linear-gradient(180deg, #16755F 0%, #163A3C 50%, #16755F 100%)
+  backdrop-filter: blur(45px)
 
   &_inner
-    border-radius: 12px
     width: 100%
     height: 100%
-    background: linear-gradient(180deg, #191F2D 0%, #141925 100%)
+    clip-path: polygon(50% 0px, 100% 10%, 100% 90%, 50% 100%, 0% 90%, 0% 10%)
+    background: linear-gradient(180deg, #15584D 0%, #174744 25%, #173438 50%, #174744 75%, #15584D 100%)
+  
+  &_price
+    width: 132px
+    height: 36px
+    clip-path: polygon(0px 50%, 12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%)
+    padding: 1px
+    background: linear-gradient(90deg, rgba(19, 181, 133, 0.65) 5.3%, rgba(21, 191, 140, 0.25) 59.85%, rgba(23, 199, 146, 0.65) 114.39%)
+
+    &_inner
+      width: 100%
+      height: 100%
+      color: #17C792
+      font-size: 16px
+      line-height: 16px
+      font-weight: 700
+      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45) 100%)
+      clip-path: polygon(0px 50%, 12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%)
+      display: flex
+      align-items: center
+      justify-content: center
+
+.lossed
+  width: 132px
+  height: 36px
+  clip-path: polygon(0px 50%, 12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%)
+  padding: 1px
+  background: linear-gradient(90deg, rgba(251, 73, 73, 0.65) 5.3%, rgba(251, 73, 73, 0.25) 59.85%, rgba(251, 73, 73, 0.65) 114.39%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    color: #FB4949
+    font-size: 16px
+    line-height: 16px
+    font-weight: 700
+    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45) 100%)
+    clip-path: polygon(0px 50%, 12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%)
+    display: flex
+    align-items: center
+    justify-content: center
+
+.skeleton
+  background-repeat: no-repeat
+  animation: loading 1.5s infinite
+  
+
+.player
+  &_card_bg
+    border-radius: 12px
+    padding: 2px
+    background: linear-gradient(180deg, #1F2534 0%, #161B29 100%)
+    width: 272px
+    height: 240px
+
+    &_inner
+      border-radius: 12px
+      width: 100%
+      height: 100%
+      background: linear-gradient(180deg, #191F2D 0%, #141925 100%)
+
+      &.has_offer
+        background: linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)
+  
+  &_title
+    border-radius: 12px
+    padding: 2px
+    background: linear-gradient(265.7deg, #141924 0%, #191F2D 100%)
+
+    &.ready
+      background: linear-gradient(265.7deg, rgba(25, 31, 45, 0.25) 0%, #16C591 100%)
+    
+    &.warning
+      background: linear-gradient(265.7deg, rgba(25, 31, 45, 0.25) 0%, #FB4949 100%)
+
+    &_inner
+      border-radius: 12px
+      width: 100%
+      height: 100%
+      background: linear-gradient(265.7deg, #121722 0%, #161B27 100%)
+  
+  &_item
+    height: 240px
+    border-radius: 12px
+    padding: 1px
+    background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
+
+    &_inner
+      width: 100%
+      height: 100%
+      border-radius: 12px
+      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+
+.team_drop_items
+  padding: 1.5px
+  border-radius: 12px
+
+  &.green
+    background: linear-gradient(265.13deg, rgba(23, 226, 165, 0.15) 42.54%, #17E2A5 100%)
+  
+  &.red
+    background: linear-gradient(265.13deg, rgba(234, 70, 71, 0.15) 42.54%, #EA4647 100%)
+  
+  &_inner
+    background: #121722
+    border-radius: 12px
 
 .modal
   width: 1020px
@@ -594,3 +532,174 @@
         height: 100%
         background: #171D2A
         clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 99% 50%, calc(100% - 12px) 100%, 12px 100%, 1% 50%)
+
+.result_card
+  width: 270px
+
+.result_winner
+  padding: 2px
+  height: 413px
+  background: linear-gradient(180deg, rgba(20, 186, 137, 0.25) -9.44%, rgba(20, 187, 137, 0.05) 38.01%, rgba(21, 188, 138, 0.25) 85.47%)
+  clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 50% 100%, 0% 85%)
+
+  &_inner
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: start
+    position: relative
+    width: 100%
+    height: 100%
+    background: linear-gradient(180deg, rgba(18, 178, 131, 0.45) -9.44%, rgba(24, 203, 150, 0.15) 14.29%, rgba(28, 220, 163, 0.1) 38.01%, rgba(24, 204, 150, 0.15) 61.74%, rgba(18, 177, 129, 0.45) 85.47%)
+    clip-path: polygon(0px 0px, 100% 0px, 100% 85%, 50% 100%, 0% 85%)
+  
+  &_price
+    padding: 1px
+    width: 132px
+    height: 36px
+    background: linear-gradient(90deg, rgba(19, 181, 133, 0.65) 5.3%, rgba(21, 191, 140, 0.25) 59.85%, rgba(23, 199, 146, 0.65) 114.39%)
+    clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+    &_inner
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 100%
+      height: 100%
+      clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+      background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+
+.result_loss
+  padding: 2px
+  height: 363px
+  background: linear-gradient(180deg, rgba(234, 82, 82, 0.25) -10.74%, rgba(234, 82, 82, 0.05) 43.25%, rgba(234, 82, 82, 0.25) 97.25%)
+  clip-path: polygon(0px 0px, 100% 0px, 100% 83%, 50% 100%, 0% 83%)
+
+  &_inner
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: start
+    position: relative
+    width: 100%
+    height: 100%
+    background: linear-gradient(180deg, rgba(234, 82, 82, 0.45) -10.74%, rgba(234, 82, 82, 0.15) 16.25%, rgba(234, 82, 82, 0.1) 43.25%, rgba(234, 82, 82, 0.15) 70.25%, rgba(234, 82, 82, 0.45) 97.25%)
+    clip-path: polygon(0px 0px, 100% 0px, 100% 83%, 50% 100%, 0% 83%)
+
+.result_avatar
+  top: 81px
+  left: 54px
+  position: absolute
+  width: 157.89px
+  height: 157.89px
+  padding: 1px
+  clip-path: polygon(6.7% 25%, 50% 0px, calc(100% - 6.7%) 25%, calc(100% - 6.7%) 75%, 50% 100%, 6.7% 75%)
+  background: #D1D9EB26
+
+  &.winner
+    background: #24FDBC
+
+  &_inner
+    width: 100%
+    height: 100%
+    clip-path: polygon(6.7% 25%, 50% 0px, calc(100% - 6.7%) 25%, calc(100% - 6.7%) 75%, 50% 100%, 6.7% 75%)
+
+    & img
+      max-width: none
+      position: absolute
+      top: -45px
+      left: -15px
+
+.rematch_btn
+  width: 140px
+  height: 48px
+  padding: 2px
+  background: linear-gradient(90deg, rgba(253, 205, 36, 0) 122.17%, #FDCD24 141.22%), linear-gradient(270deg, #E1B514 6.54%, #FEDB61 33.68%)
+  clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    background: linear-gradient(0deg, #E1B514, #E1B514), linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
+    clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+    font-size: 14px
+    line-height: 16px
+    color: #121722
+    font-weight: 900
+    text-shadow: 0px 1px 0px #25FEBD73
+
+.create_btn
+  width: 220px
+  height: 48px
+  padding: 2px
+  background: linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%), linear-gradient(270deg, #10AA7C 40.76%, #24FDBC 57.96%)
+  clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+    clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+    font-size: 14px
+    line-height: 16px
+    color: #121722
+    font-weight: 900
+    text-shadow: 0px 1px 0px #25FEBD73
+
+  &_wrapper
+    filter: drop-shadow(0px 0px 12px #10AA7C59)
+
+.browse_btn
+  width: 200px
+  height: 48px
+  padding: 2px
+  background: linear-gradient(90deg, rgba(209, 217, 235, 0) 68.3%, #D1D9EB 91.6%), linear-gradient(270deg, rgba(209, 217, 235, 0) 66.81%, #D1D9EB 100%)
+  clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, rgba(209, 217, 235, 0) 78.88%, #2B2C36 97.06%), linear-gradient(270deg, #0E1119 81.09%, #2B2C36 111.34%)
+    clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+    font-size: 14px
+    line-height: 16px
+    color: #D1D9EB
+    font-weight: 900
+
+.draw_avatar
+  position: absolute
+  top: 6px
+  left: 0px
+  width: 78px
+  height: 78px
+  padding: 1px
+  clip-path: polygon(6.7% 25%, 50% 0px, calc(100% - 6.7%) 25%, calc(100% - 6.7%) 75%, 50% 100%, 6.7% 75%)
+  background: #D1D9EB26
+
+.select_team
+  width: 170px
+  height: 141px
+  padding: 2px
+  clip-path: polygon(0px 0px, 100% 0px, 100% 77%, 50% 100%, 0% 77%)
+
+  &.green_team
+    background: #10AA7C
+
+  &.red_team
+    background: #FB4949
+
+  &_inner
+    width: 100%
+    height: 100%
+    clip-path: polygon(0px 0px, 100% 0px, 100% 77%, 50% 100%, 0% 77%)
+    font-size: 24px
+    line-height: 25px
+    font-weight: 700
+
+    &.green_team
+      background: linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, #1CDEA4 100%)
+      color: #07523C
+
+    &.red_team
+      background: linear-gradient(180deg, rgba(251, 73, 73, 0) 0%, #BA2828 100%)
+      color: #881717

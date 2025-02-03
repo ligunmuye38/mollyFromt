@@ -1,21 +1,20 @@
 import { CaseBattleTypes } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
 
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import IconCup from '@/shared/assets/icons/icon-cup.svg'
 
 import cls from './Main.module.sass'
 
-interface BattlesTypeSwitcherProps {
+interface IBattlesTypeSwitcherProps {
 	className?: string
+	type: CaseBattleTypes
+	setType: (_: CaseBattleTypes) => void
 }
 
-const BattlesTypeSwitcher = ({ className }: BattlesTypeSwitcherProps) => {
+const BattlesTypeSwitcher = ({ className, type, setType }: IBattlesTypeSwitcherProps) => {
 	const t = useTranslations()
-
-	const [type, setType] = useState<CaseBattleTypes>(CaseBattleTypes.ACTIVE_BATTLES)
 
 	return (
 		<div className={clsx(cls.switcher_wrapper, className)}>
@@ -43,7 +42,13 @@ const BattlesTypeSwitcher = ({ className }: BattlesTypeSwitcherProps) => {
 						</div>
 					</div>
 				</div>
-				<div className={cls.switcher_news_wrapper}>
+				<div
+					className={clsx(
+						cls.switcher_news_wrapper,
+						type === CaseBattleTypes.ACTIVE_BATTLES ? 'opacity-100' : 'opacity-0',
+						'duration-300'
+					)}
+				>
 					<div className={cls.switcher_news}>
 						<div className={cls.switcher_news_inner}>348</div>
 					</div>

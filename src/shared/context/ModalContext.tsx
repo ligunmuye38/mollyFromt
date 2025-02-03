@@ -19,7 +19,8 @@ interface ModalContextType {
 		headerIcon?: ReactNode,
 		headerTitle?: string,
 		classNames?: ClassNamesConfig,
-		closeButton?: boolean
+		closeButton?: boolean,
+		noHeader?: boolean
 	) => void
 	closeModal: () => void
 	isOpen: boolean
@@ -33,6 +34,7 @@ interface ModalContextType {
 	isCloseButton?: boolean
 	openInnerModal: (_: ReactNode) => void
 	closeInnerModal: () => void
+	noHeader: boolean
 }
 
 const ModalContext = createContext<ModalContextType | undefined>(undefined)
@@ -47,6 +49,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 	const [headerTitle, setHeaderTitle] = useState<string>('')
 	const [classNames, setClassNames] = useState<ClassNamesConfig>({ body: '', modal: '' })
 	const [isCloseButton, setIsCloseButton] = useState<boolean>(true)
+	const [noHeader, setNoHeader] = useState<boolean>(false)
 
 	const openInnerModal = (content: ReactNode) => {
 		setInnerModalContent(content)
@@ -64,7 +67,8 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 		headerIcon: ReactNode | null = null,
 		headerTitle: string = '',
 		classNames: ClassNamesConfig = { body: '', modal: '' },
-		closeButton?: boolean
+		closeButton?: boolean,
+		noHeader?: boolean
 	) => {
 		setContent(content)
 		setOptions(options)
@@ -72,6 +76,7 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 		setHeaderTitle(headerTitle)
 		setIsOpen(true)
 		setClassNames(classNames)
+		setNoHeader(Boolean(noHeader))
 		if (closeButton == true || closeButton == false) {
 			setIsCloseButton(closeButton)
 		}
@@ -100,7 +105,8 @@ export const ModalProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 				openInnerModal,
 				closeInnerModal,
 				innerModalContent,
-				isInnerModalOpen
+				isInnerModalOpen,
+				noHeader
 			}}
 		>
 			{children}

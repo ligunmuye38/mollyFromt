@@ -1,9 +1,10 @@
 'use client'
 
+import { CaseBattleTypes } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 
 import IconPlusRounded from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseBattles from '@/shared/assets/icons/icon-case-battle.svg'
@@ -23,6 +24,7 @@ interface MainProps {
 export const Main: FC<MainProps> = ({ className }) => {
 	const t = useTranslations()
 	const router = useRouter()
+	const [type, setType] = useState<CaseBattleTypes>(CaseBattleTypes.ACTIVE_BATTLES)
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -37,7 +39,11 @@ export const Main: FC<MainProps> = ({ className }) => {
 					<div className={cls.title}>{t('case_battles.case_battle').toUpperCase()}</div>
 				</div>
 				<div className='relative z-20 mx-auto mb-[40px] w-full'>
-					<BattlesTypeSwitcher className='mx-auto' />
+					<BattlesTypeSwitcher
+						type={type}
+						setType={setType}
+						className='mx-auto'
+					/>
 					<div
 						className='absolute right-5 top-0'
 						style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C59)' }}
@@ -58,11 +64,11 @@ export const Main: FC<MainProps> = ({ className }) => {
 					<HeaderBgTop2 className='flex-shrink-0' />
 				</div>
 			</div>
-			<div className='mb-5 px-[20px]'>
-				<MainHeader />
+			<div className='mb-5 flex justify-center px-[20px]'>
+				<MainHeader type={type} />
 			</div>
 			<div className='px-[20px]'>
-				<MainList />
+				<MainList type={type} />
 			</div>
 		</div>
 	)
