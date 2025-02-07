@@ -55,7 +55,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 								content: clsx(cls.hexagon_btn_inner, '!gap-0')
 							}}
 						>
-							<IconPlusRounded className={cls.hexagon_btn_inner_icon} />
+							<IconPlusRounded className={clsx(cls.hexagon_btn_inner_icon, 'fill-[#121722]')} />
 							{t('case_battles.create_battle')}
 						</Button>
 					</div>

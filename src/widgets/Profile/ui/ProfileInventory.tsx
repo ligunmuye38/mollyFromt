@@ -93,10 +93,7 @@ const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
 	))
 
 	return (
-		<div
-			className='mt-2 grid w-full auto-rows-auto justify-between gap-0.5'
-			style={{ gridTemplateColumns: 'repeat(auto-fill, 131px)' }}
-		>
+		<div className='mt-2 grid w-full auto-rows-auto grid-cols-[repeat(auto-fill,131px)] justify-between gap-0.5 2sm:grid-cols-3'>
 			{' '}
 			{cases}
 		</div>

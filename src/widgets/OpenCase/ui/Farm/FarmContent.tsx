@@ -61,7 +61,9 @@ const FarmContents = () => {
 		openFarm == true && (
 			<div className='flex w-full flex-col items-center justify-center gap-5 px-3 py-3'>
 				<span className='text-[18px] font-[500] text-[#D1D9EB]'>{t('open_case.case_content')}</span>
-				<div className='flex flex-wrap justify-center gap-3'>{cases}</div>
+				<div className='grid w-full auto-rows-auto grid-cols-[repeat(auto-fill,131px)] justify-between gap-2 2sm:grid-cols-3'>
+					{cases}
+				</div>
 			</div>
 		)
 	)

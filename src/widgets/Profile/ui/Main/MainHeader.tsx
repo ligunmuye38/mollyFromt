@@ -210,7 +210,7 @@ const MainHeader = () => {
 									)}
 								>
 									<Button
-										startContent={<IconPlus className='h-[10px] w-[10px]' />}
+										startContent={<IconPlus className='h-[10px] w-[10px] fill-[#121722]' />}
 										classNames={{
 											base: 'w-full h-full py-[6px] hover:!bg-[#1d9c76]'
 										}}

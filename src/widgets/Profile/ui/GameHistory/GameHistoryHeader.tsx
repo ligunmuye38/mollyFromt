@@ -10,8 +10,8 @@ const GameHistoryHeader = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='mb-[15px] flex items-center justify-between rounded-xl border-[1px] border-[#232B3E] bg-[#111620] p-[14px]'>
-			<div className='flex items-center gap-2'>
+		<div className='mb-[15px] flex items-center justify-between gap-1 rounded-xl border-[1px] border-[#232B3E] bg-[#111620] p-[14px] 2sm:flex-col'>
+			<div className='flex items-center gap-2 2sm:flex-col 2sm:gap-1'>
 				<IconHistoryGame className={clsx('h-7 w-7')} />
 				<span>{t('game_history_profile.history_games')}</span>
 			</div>

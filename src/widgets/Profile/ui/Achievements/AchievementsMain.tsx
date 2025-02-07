@@ -49,19 +49,21 @@ const AchievementsMain = () => {
 		<div className={cls.user_main}>
 			<div className={clsx(cls.user_main_inner, 'p-5')}>
 				<AchievementsHeader />
-				<div className='mb-[15px] flex items-center justify-between gap-5 rounded-[10px] bg-[#1D2434] py-2 pl-3 pr-2'>
-					{locale === 'ru' ? (
-						<p className='max-w-[350px] text-[10px] font-medium leading-4 text-[#95AADB]'>
-							Вы можете выбрать <span className='font-bold text-white'>5 achievements</span> , которые будут показаны
-							другим пользователям в вашем профиле. Вы выбрали <span className='font-bold text-white'>5/5</span>.
-						</p>
-					) : (
-						<p className='max-w-[265px] text-[10px] font-medium leading-4 text-[#95AADB]'>
-							You can select <span className='font-bold text-white'>5 achievements</span> to be shown to other users on
-							your profile. You have selected <span className='font-bold text-white'>5/5</span>.
-						</p>
-					)}
-					<div className='flex translate-y-[2px] gap-[10px]'>
+				<div className='mb-[15px] flex items-center justify-between gap-5 rounded-[10px] bg-[#1D2434] py-2 pl-3 pr-2 2sm:flex-col 2sm:pt-5'>
+					<p className='max-w-[350px] text-[10px] font-medium leading-4 text-[#95AADB] 2sm:text-center'>
+						{locale === 'ru' ? (
+							<>
+								Вы можете выбрать <span className='font-bold text-white'>5 achievements</span> , которые будут показаны
+								другим пользователям в вашем профиле. Вы выбрали <span className='font-bold text-white'>5/5</span>.
+							</>
+						) : (
+							<>
+								You can select <span className='font-bold text-white'>5 achievements</span> to be shown to other users
+								on your profile. You have selected <span className='font-bold text-white'>5/5</span>.
+							</>
+						)}
+					</p>
+					<div className='flex translate-y-[2px] gap-[10px] 2sm:w-full'>
 						{/* <Select
 							value={new Set(selectedBalanceFilters)}
 							onChangeValue={v => setSelectedBalanceFilters(Array.from(new Set(v)).map(value => value.toString()))}
@@ -83,17 +85,14 @@ const AchievementsMain = () => {
 							placeholder={t('profile_achievements.sort_by')}
 							startContent={<IconFilter className='w-3' />}
 							classNames={{
-								base: 'w-[150px] h-[36px]',
-								trigger: 'rounded-lg',
+								base: 'w-[150px] h-[36px] 2sm:w-full',
+								trigger: 'rounded-lg 2sm:w-full',
 								innerWrapper: '[&>*:first-child]:w-[26px]'
 							}}
 						/>
 					</div>
 				</div>
-				<div
-					className='mb-[15px] grid auto-rows-auto justify-between gap-[14px]'
-					style={{ gridTemplateColumns: 'repeat(auto-fill, 140px)' }}
-				>
+				<div className='mb-[15px] grid auto-rows-auto grid-cols-[repeat(auto-fill,140px)] justify-between gap-[14px] 2sm:grid-cols-2'>
 					{achievementsList.map((item, index) => (
 						<AchievementCard
 							data={item}

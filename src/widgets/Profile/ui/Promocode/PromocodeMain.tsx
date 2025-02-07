@@ -21,7 +21,7 @@ const PromocodeMain = () => {
 		<div className={cls.user_main}>
 			<div className={clsx(cls.user_main_inner, 'p-5')}>
 				<PromocodeHeader />
-				<div className='flex flex-row gap-[18px] md:flex-col-reverse'>
+				<div className='flex flex-row gap-[18px] md:flex-col'>
 					<div className='w-full'>
 						<Input
 							onChange={setPromocode}
@@ -51,6 +51,7 @@ const PromocodeMain = () => {
 							</div>
 						</div>
 					</div>
+					<hr className='border-2 border-[#1F2534]' />
 					<div className='w-full'>
 						<p className='mb-[6px] text-[10px] font-bold leading-[16px] text-[#49516D]'>
 							{t('promocode_profile.bonus_activation')}:

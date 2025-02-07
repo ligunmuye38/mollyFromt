@@ -16,6 +16,8 @@ export const WikiWeaponItem: React.FC<WikiWeaponItemProps> = ({ num }) => {
 			<div className='img mb-[10px] flex justify-center'>
 				<Image
 					src='/images/skinsWiki/skins-wiki-example.png'
+					width={184}
+					height={138}
 					alt=''
 					className='max-w-[185px]'
 				/>

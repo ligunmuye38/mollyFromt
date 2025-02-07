@@ -54,7 +54,7 @@ const CreateCaseModal = () => {
 				</div>
 				<div className='relative flex h-[700px] flex-1 py-5'>
 					<div className={clsx(cls.modal_body, 'h-full w-full')}>
-						<div className={clsx(cls.modal_body_inner, 'flex h-full w-full flex-col p-5 2sm:px-1')}>
+						<div className={clsx(cls.modal_body_inner, 'flex h-full w-full flex-col p-5 2sm:px-[13px]')}>
 							<ModalBar />
 							<div className='app-scrollbar relative my-3 flex-1 overflow-auto'>
 								<CaseItems />

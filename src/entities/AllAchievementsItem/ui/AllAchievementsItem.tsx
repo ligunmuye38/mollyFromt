@@ -7,11 +7,13 @@ export const AllAchievementsItem = () => {
 		<div className='flex flex-col items-center justify-center rounded-xl border border-solid border-[#161C28] bg-[#141925] px-[18px] py-[20px] shadow-[0px_4px_69px_0px_rgba(0,0,0,0.25)_inset]'>
 			<Image
 				src='/images/achievement/achievement.png'
+				width={60}
+				height={60}
 				alt=''
 				className='mb-[7px] max-w-[60px]'
 			/>
 			<h4 className='pb-2 text-xs font-bold leading-4 text-[#D1D9EB]'>All in</h4>
-			<span className='pb-2 text-center text-[10px] font-medium leading-3 text-[#5A6786]'>Refill witg one payment</span>
+			<span className='pb-2 text-center text-[10px] font-medium leading-3 text-[#5A6786]'>Refill with one payment</span>
 			<span className='pb-2 text-[10px] font-medium leading-3 text-white'>0.07% of users</span>
 			<Button
 				theme='grey-4'

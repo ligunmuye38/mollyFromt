@@ -28,8 +28,8 @@ const SettingsHeader = () => {
 
 	return (
 		<>
-			<div className='mb-[15px] flex items-center justify-between rounded-xl border-[1px] border-[#232B3E] bg-[#111620] p-[14px]'>
-				<div className='flex items-center gap-2'>
+			<div className='mb-[15px] flex items-center justify-between rounded-xl border-[1px] border-[#232B3E] bg-[#111620] p-[14px] 2sm:justify-center'>
+				<div className='flex items-center gap-2 2sm:flex-col 2sm:gap-0'>
 					<IconSetting className={clsx('h-7 w-7 fill-[#10AA7C]')} />
 					<span>{t('settings_profile.settings')}</span>
 				</div>

@@ -19,7 +19,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 					</div>
 				)}
 
-				<div className='flex-1'>{children}</div>
+				<div className='flex-1 px-0 lg:px-5'>{children}</div>
 			</div>
 		</div>
 	)

@@ -62,7 +62,7 @@ const CasesHeader = () => {
 							base: clsx('h-10', cls.header_btn),
 							content: clsx('px-6 text-xs', cls.header_btn_inner)
 						}}
-						startContent={<IconPlus className='h-[20px] w-[20px]' />}
+						startContent={<IconPlus className='h-[20px] w-[20px] fill-[#121722]' />}
 						onClick={createCase}
 					>
 						<span className={clsx('text-[14px] font-[900] uppercase text-[#121722]', cls.header_btn_font)}>

@@ -1,8 +1,8 @@
 import IconBonus from '@/shared/assets/icons/icon-bonuses.svg'
 import IconCase from '@/shared/assets/icons/icon-case-open.svg'
-import IconItem from '@/shared/assets/icons/icon-item-battle.svg'
 import IconReplenishment from '@/shared/assets/icons/icon-replenishment.svg'
 import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
+import IconItem from '@/shared/assets/icons/icon-weapon.svg'
 
 import { FaqBarItemType, FaqDataType } from './type'
 

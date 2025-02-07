@@ -84,7 +84,7 @@ export const CaseBattleHistoryListItem = ({ item }: CaseBattleHistoryListItemPro
 
 	return (
 		<div className={cls.game_history}>
-			<div className={clsx(cls.game_history_inner, 'justify-between gap-5')}>
+			<div className={clsx(cls.game_history_inner, 'justify-between gap-5 md:gap-2')}>
 				<div className='flex flex-col items-center'>
 					<div className={cls.hexagon}>
 						<div className={cls.hexagon_inner}>
@@ -93,37 +93,40 @@ export const CaseBattleHistoryListItem = ({ item }: CaseBattleHistoryListItemPro
 					</div>
 					<p className={cls.game_history_case_battle_round}>{t('game_history_profile.rounds')}</p>
 				</div>
-				<div className='relative flex gap-2'>
-					<div className='flex flex-col gap-4'>
-						{item.allies.map((ally, index) => (
-							<Avatar
-								icon={ally.icon}
-								key={`ally-avatar-${index}:${Date.now()}`}
-							/>
-						))}
-					</div>
-					<div className='flex flex-col gap-4'>
-						{item.enemies.map((enemy, index) => (
-							<Avatar
-								icon={enemy.icon}
-								key={`enemy-avatar-${index}:${Date.now()}`}
-							/>
-						))}
-					</div>
-					<div className={cls.game_history_case_battle_icon}>
-						<IconCaseBattle />
-					</div>
+				{/* md:hidden */}
+				<div className='md:hidden'>
+					<p className='text-center text-[9px] font-medium text-[#444F69]'>{t('cost').toUpperCase()}</p>
+					<p className='text-center text-[12px] font-bold text-white'>$100.99</p>
 				</div>
-				<div className={cls.price_wrapper}>
-					<div className={cls.price}>
+				<div className='h-[58px] w-[1px] flex-[0_0_1px] bg-[linear-gradient(180deg,_#2C364A_0%,_#1A202E_100%)] md:hidden'></div>
+				<div className='relative flex flex-[0_0_180px] flex-col md:flex-[0_0_160px]'>
+					<div className={clsx(cls.price, 'mb-2 hidden h-6 md:block')}>
 						<div className={cls.price_inner}>
-							<span className={cls.price_inner_currency}>$</span>
-							{item.bet}
+							<p className='text-[12px] text-[#7689B6]'>
+								$10 {'>'} <span className='text-[#24FDBC]'>$</span>
+								<span className='text-white'>100.99</span>
+							</p>
+						</div>
+					</div>
+					<div className='flex w-full items-center justify-center gap-2 md:justify-start'>
+						<div className='flex gap-2'>
+							<Avatar icon={item.allies[0].icon} />
+						</div>
+						<div className={cls.game_history_case_battle_icon}>
+							<IconCaseBattle />
+						</div>
+						<div className='flex gap-2'>
+							<Avatar icon={item.enemies[0].icon} />
 						</div>
 					</div>
 				</div>
+				<div className='h-[58px] w-[1px] flex-[0_0_1px] bg-[linear-gradient(180deg,_#2C364A_0%,_#1A202E_100%)] md:hidden'></div>
+				<div className='md:hidden'>
+					<p className='text-center text-[9px] font-medium text-[#444F69]'>{t('win').toUpperCase()}</p>
+					<p className='text-center text-[12px] font-bold text-[#24FDBC]'>$500.97</p>
+				</div>
 				<div className='relative'>
-					<div className={cls.game_history_case_battle_cases_icons}>
+					<div className={clsx(cls.game_history_case_battle_cases_icons, 'md:h-[81px] md:flex-col')}>
 						{casesIcons.map((icon, index) => (
 							<Fragment key={`case-icon-${index}:${Date.now()}`}>
 								<Image

@@ -17,6 +17,8 @@ export const BlogBigCard: React.FC<BlogBigCardProps> = () => {
 			<div className={cls.img}>
 				<Image
 					src='/images/blog/blogBig.png'
+					width={534}
+					height={300}
 					alt=''
 				/>
 			</div>

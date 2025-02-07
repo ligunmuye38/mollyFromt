@@ -1,0 +1,456 @@
+.h
+  overflow: hidden
+  min-height: calc(74px + 8px + 10px)
+  padding-top: 10px
+  &_inner
+    position: relative
+    z-index: 2
+    padding-top: 10px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 12px
+
+.bg
+  position: relative
+  display: flex
+  justify-content: center
+  &_pic
+    position: absolute
+    z-index: 1
+    top: 8px
+    left: 50%
+    transform: translateX(-50%)
+    width: auto
+  &_icon
+    position: relative
+    z-index: 1
+    flex-shrink: 0
+    width: 24px
+    height: 24px
+    fill: #17E2A5
+    stroke: #24FDBC
+    &::after
+      content: ''
+      position: absolute
+      z-index: 1
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      border-radius: 50%
+      width: 60%
+      height: 60%
+      filter: blur(9px)
+      background-color: #009A63A6
+    svg
+      position: relative
+      z-index: 2
+      width: 100%
+      height: 100%
+
+.title
+  flex-grow: 1
+  text-align: center
+  font-size: 32px
+  leading: 20px
+  font-weight: 900
+  letter-spacing: 0.02em
+  background-image: linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)
+  color: transparent
+  background-clip: text
+
+.switcher
+  height: 42px
+  width: 311px
+  clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%)
+  background: #232B3B
+  padding: 3px
+  font-size: 12px
+  line-height: 16px
+  font-weight: 900
+
+  &_wrapper
+    width: max-content
+    position: relative
+
+  &_inner
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    height: 100%
+    background: #121722
+    clip-path: polygon(3% 0%, 97% 0%, 100% 50%, 97% 100%, 3% 100%, 0% 50%)
+    padding: 1px
+    transition-duration: 250ms
+    cursor: pointer
+
+    &:hover
+      background: linear-gradient(90deg, #232B3B50 0%, #121722 40%, #121722 60%, #232B3B50 100%)
+  
+  &_content
+    width: 150px
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    color: #60719A
+
+    &_icon
+      width: 16px
+      height: 16px
+      fill: #60719A
+      margin-right: 4px
+
+  &_track
+    font-size: 12px
+    line-height: 16px
+    font-weight: 900
+    width: 150px
+    height: 34px
+    padding: 2px
+    clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%)
+    background: linear-gradient(90deg, rgba(253, 205, 36, 0) 122.17%, #FDCD24 141.22%), linear-gradient(270deg, #E2B617 6.54%, #FDCD24 33.68%)
+
+    &_wrapper
+      z-index: 10
+      position: absolute
+      top: 4px
+      transition-duration: 250ms
+
+      &_inner
+        filter: drop-shadow(0px 0px 12px #FD3E2459) drop-shadow(0px 0px 12px #FD3E2440)
+
+    &_icon
+      width: 16px
+      height: 16px
+      fill: #121722
+      margin-right: 4px
+
+    &_inner
+      clip-path: polygon(6% 0%, 94% 0%, 100% 50%, 94% 100%, 6% 100%, 0% 50%)
+      width: 100%
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #121722
+      text-shadow: 0px 1px 0px #FFD53F
+      background: linear-gradient(0deg, #E2B617, #E2B617), linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
+
+  &_news
+    clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0% 50%)
+    padding: 1px
+    background: #1A202F
+    width: 44px
+    height: 21px
+
+    &_wrapper
+      position: absolute
+      top: 0
+      right: 17px
+      translate: 0 -70%
+      filter: drop-shadow(0px 0px 12px #121722)
+
+    &_inner
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 100%
+      height: 100%
+      clip-path: polygon(6px 0%, calc(100% - 6px) 0%, 100% 50%, calc(100% - 6px) 100%, 6px 100%, 0% 50%)
+      background: linear-gradient(180deg, #121722 0%, #252E3D 100%)
+      font-size: 10px
+      line-height: 16px
+      color: #E8BB1A
+       
+
+.hexagon_container
+  padding: 1px
+  background: linear-gradient(90deg, #283146 0%, rgba(40, 49, 70, 0.25) 50%, #283146 100%)
+  clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    background: #181E2A73
+    clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
+
+.hexagon
+  width: 50px
+  height: 50px
+  padding: 1.4px
+  background: linear-gradient(180deg, #425171 0%, #2E3952 100%)
+  clip-path: path('M48.4 21.9C49.5 23.7 49.5 26 48.4 27.8L39.6 43.1C38.5 45 36.5 46.1 34.4 46.1H16.7C14.6 46.1 12.6 45 11.5 43.1L2.7 27.8C1.6 26 1.6 23.7 2.7 21.9L11.5 6.5C12.6 4.7 14.6 3.6 16.7 3.6H34.4C36.5 3.6 38.5 4.7 39.6 6.5L48.4 21.9Z')
+
+  &.green
+    background: linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%), linear-gradient(270deg, rgba(36, 253, 188, 0.65) 40.76%, #24FDBC 57.96%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    font-size: 18px
+    line-height: 16px
+    color: #7689B6
+    font-weight: 700
+    display: flex
+    align-items: center
+    justify-content: center
+    clip-path: path('M45.0781 20.4079C46.07 22.126 46.07 24.2428 45.0781 25.9609L36.8428 40.2247C35.8509 41.9428 34.0177 43.0012 32.0337 43.0012H15.5633C13.5794 43.0012 11.7461 41.9428 10.7543 40.2247L2.519 25.9609C1.5271 24.2428 1.5271 22.126 2.519 20.4079L10.7543 6.144C11.7461 4.4259 13.5794 3.3675 15.5633 3.3675H32.0337C34.0177 3.3675 35.8509 4.4259 36.8428 6.144L45.0781 20.4079Z')
+    background: linear-gradient(0deg, #273146, #273146), linear-gradient(180deg, #3E4C6B 0%, rgba(39, 49, 70, 0) 100%)
+    
+    &.green
+      background: linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+
+.hexagon_btn
+  padding: 2px
+  cursor: pointer
+  background: linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%),linear-gradient(270deg, rgba(36, 253, 188, 0.445) 40.76%, #24FDBC 57.96%)
+  clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
+
+  &_inner
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    background: linear-gradient(0deg, #24FDBC, #10AA7C),linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)
+    clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0% 50%)
+    leading: 16px
+    font-size: 14px
+    font-weight: 900
+    text-shadow: 0px 1px 0px #25FEBD73
+    color: #121722
+    transition-duration: 250ms
+
+    &.default
+      background: linear-gradient(270deg, #1C2231 21.28%, rgba(39, 49, 69, 0) 59.46%, #1C2231 100%)
+      leading: 16px
+      font-size: 12px
+      font-weight: 500
+      color: #60719A
+      text-shadow: none
+
+    &.sm
+      clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%)
+
+    &_icon
+      width: 16px
+      height: 16px
+      fill: #121722
+      margin-right: 8px
+
+      &.sm
+        margin-right: 0px
+  
+  &.default
+    background: linear-gradient(270deg, rgba(39, 49, 69, 0.65) 21.28%, rgba(39, 49, 69, 0.15) 60.64%, rgba(39, 49, 69, 0.65) 100%)
+  
+  &.sm
+    padding: 1px
+    clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0% 50%)
+
+.main_header
+  width: 100%
+  height: 48px
+  padding: 2px
+  background: linear-gradient(90deg, rgba(86, 105, 149, 0.25) 0%, rgba(61, 75, 107, 0) 6.1%, rgba(86, 105, 149, 0.25) 12.2%)
+  clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%)
+
+  &_inner
+    width: 100%
+    height: 100%
+    padding-left: 20px
+    padding-right: 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: linear-gradient(90deg, #181E2A 0%, rgba(58, 68, 93, 0) 6.1%, #171E2B 12.2%)
+    clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%)
+    font-size: 12px
+    leading: 16px
+    color: #60719A
+    font-weight: 500
+
+.avatar
+  position: relative
+  z-index: 1
+  flex-shrink: 0
+  width: 32px
+  height: 36px
+  &_border
+    position: relative
+    width: 100%
+    height: 100%
+    &_inner
+      position: absolute
+      z-index: 2
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      width: 26px
+      height: 32px
+  &_pic
+    position: absolute
+    z-index: 1
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    clip-path: polygon( 43.269% 5.292%,43.269% 5.292%,44.546% 4.73%,45.869% 4.292%,47.227% 3.979%,48.607% 3.792%,50% 3.729%,51.393% 3.792%,52.773% 3.979%,54.131% 4.292%,55.454% 4.73%,56.731% 5.292%,91.309% 22.594%,91.309% 22.594%,92.51% 23.271%,93.609% 24.045%,94.6% 24.908%,95.478% 25.851%,96.236% 26.865%,96.87% 27.941%,97.373% 29.071%,97.74% 30.247%,97.964% 31.459%,98.04% 32.698%,98.04% 67.302%,98.04% 67.302%,97.964% 68.541%,97.74% 69.753%,97.373% 70.929%,96.87% 72.059%,96.236% 73.135%,95.478% 74.149%,94.6% 75.092%,93.609% 75.955%,92.51% 76.729%,91.309% 77.406%,56.731% 94.708%,56.731% 94.708%,55.454% 95.27%,54.131% 95.708%,52.773% 96.021%,51.393% 96.208%,50% 96.271%,48.607% 96.208%,47.227% 96.021%,45.869% 95.708%,44.546% 95.27%,43.269% 94.708%,8.691% 77.406%,8.691% 77.406%,7.49% 76.729%,6.391% 75.955%,5.4% 75.092%,4.522% 74.149%,3.764% 73.135%,3.13% 72.059%,2.627% 70.929%,2.26% 69.753%,2.036% 68.541%,1.96% 67.302%,1.96% 32.698%,1.96% 32.698%,2.036% 31.459%,2.26% 30.247%,2.627% 29.071%,3.13% 27.941%,3.764% 26.865%,4.522% 25.851%,5.4% 24.908%,6.391% 24.045%,7.49% 23.271%,8.691% 22.594%,43.269% 5.292% )
+
+.top_list
+  display: flex
+  align-items: center
+  border-radius: 12px
+  padding-top: 12px
+  padding-bottom: 12px
+  padding-left: 22px
+  padding-right: 24px
+  background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+
+  &.rank_first
+    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%), linear-gradient(270deg, rgba(21, 26, 38, 0) 69.47%, rgba(238, 180, 117, 0.25) 100%)
+  
+  &.rank_second
+    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%), linear-gradient(270deg, rgba(21, 26, 38, 0) 69.47%, rgba(172, 172, 172, 0.25) 100%)
+  
+  &.rank_third
+    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%), linear-gradient(270deg, rgba(21, 26, 38, 0) 69.47%, rgba(241, 183, 104, 0.25) 100%)
+
+.main_list
+  background: linear-gradient(180deg, #1F2534 0%, rgba(31, 37, 52, 0.25) 100%)
+  padding: 2px
+  border-radius: 12px
+
+  &_icon
+    display: flex
+    align-items: center
+    justify-content: center
+    background: black
+    border-radius: 12px
+    width: 42px
+    height: 42px
+    flex: 0 0 auto
+
+  &_inner
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background: linear-gradient(180deg, #191F2D 0%, rgba(25, 31, 45, 0.25) 100%)
+    border-radius: 12px
+    padding: 12px 30px 12px 12px
+    width: 100%
+    height: 100%
+
+  &_case_battle
+    &_round
+      font-size: 14px
+      font-weight: 500
+      line-height: 16px
+      color: #60719A
+    
+    &_cases_icons
+      position: relative
+      background: #10151E
+      border-radius: 12px
+      padding: 8px
+      display: flex
+      gap: 8px
+      overflow: hidden
+    
+    &_case_icon_cursor
+      filter: drop-shadow(0px 0px 4px rgba(226, 182, 23, 1))
+      & svg
+        width: 12px
+        height: 14.75px
+      & path
+        fill: #E2B617
+
+.switch
+  padding: 2px
+  width: 220px
+  height: 42px
+  background: linear-gradient(90deg, #464C5A 0%, #141925 20%, #141925 80%, #464C5A 100%)
+  clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+  &_inner
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    background: linear-gradient(90deg, #191E2A 0%, #141925 20%, #141925 80%, #191E2A 100%)
+    clip-path: polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)
+
+  &_track
+    width: 100%
+    height: 100%
+    padding: 2px
+    background: linear-gradient(90deg, rgba(253, 205, 36, 0) 122.17%, #FDCD24 141.22%), linear-gradient(270deg, #E2B617 6.54%, #FDCD24 33.68%)
+    clip-path: polygon(9px 0px, calc(100% - 9px) 0px, 100% 50%, calc(100% - 9px) 100%, 9px 100%, 0px 50%)
+
+    &_inner
+      display: flex
+      align-items: center
+      justify-content: center
+      font-size: 12px
+      line-height: 16px
+      font-weight: 900
+      width: 100%
+      height: 100%
+      background: linear-gradient(0deg, #E2B617, #E2B617), linear-gradient(180deg, rgba(253, 205, 36, 0) 0%, rgba(253, 205, 36, 0.65) 100%)
+      clip-path: polygon(9px 0px, calc(100% - 9px) 0px, 100% 50%, calc(100% - 9px) 100%, 9px 100%, 0px 50%)
+      color: #121722
+      text-shadow: 0px 1px 0px #FFD53F
+    
+    &_wrapper
+      z-index: 10
+      position: absolute
+      filter: drop-shadow(0px 0px 24px #FD3E2459)
+      width: 106px
+      height: 34px
+      transition-duration: 350ms
+
+.hexagon_vertical
+  padding: 1px
+  width: 64px
+  height: 70px
+  clip-path: path('M26.6089 68.0551L26.3589 68.4881L26.6089 68.0551L6.07337 56.1973C2.73721 54.2709 0.681997 50.7107 0.681997 46.8578L0.681998 23.1421C0.681998 19.2893 2.73721 15.7291 6.07338 13.8027L26.6089 1.94481C29.9451 0.0183977 34.0553 0.0183926 37.3916 1.94481L57.927 13.8027L58.177 13.3697L57.927 13.8027C61.2632 15.7291 63.3184 19.2893 63.3184 23.1421L63.3184 46.8578C63.3184 50.7107 61.2632 54.2709 57.927 56.1973L37.3916 68.0551C34.0553 69.9816 29.9451 69.9816 26.6089 68.0551Z')
+  background: linear-gradient(90deg, #2D374F 0%, rgba(45, 55, 79, 0.45) 50%, #2D374F 100%)
+
+  &_inner
+    font-weight: 700
+    font-size: 24px
+    line-height: 16px
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    clip-path: path('M26.3428 67.3745 26.0953 67.8032 26.3428 67.3745 6.0126 55.6353C2.7098 53.7282.6752 50.2036.6752 46.3892L.6752 22.9107C.6752 19.0964 2.7098 15.5718 6.0126 13.6647L26.3428 1.9254C29.6456.0182 33.7147.0182 37.0177 1.9254L57.3477 13.6647 57.5952 13.236 57.3477 13.6647C60.6506 15.5718 62.6852 19.0964 62.6852 22.9107L62.6852 46.3892C62.6852 50.2036 60.6506 53.7282 57.3477 55.6353L37.0177 67.3745C33.7147 69.2818 29.6456 69.2818 26.3428 67.3745Z')
+    background: linear-gradient(0deg, #232B3E 0%, #1A1F2E 50%, #232B3E 100%)
+
+    &.rank_first
+      background: linear-gradient(180deg, #FEF0AE 0%, #E79C5F 100%)
+    
+    &.rank_second
+      background: linear-gradient(180deg, #E5E5E5 0%, #555454 100%)
+    
+    &.rank_third
+      background: linear-gradient(180deg, #C58C50 -4.07%, #7F412A 104.07%)
+
+  &.rank_first
+    background: linear-gradient(180deg, #E0CA86 0%, #BE7B3C 100%)
+  
+  &.rank_second
+    background: linear-gradient(180deg, #B4AFAF 0%, #3C3C3C 100%)
+
+  &.rank_third
+    background: linear-gradient(180deg, #FAC36D -4.07%, #A1513B 104.07%)
+
+.modal
+  width: 460px
+
+@media ( max-width: 768px )
+  .modal
+    width: calc(100vw  -  80px)

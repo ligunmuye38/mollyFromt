@@ -23,7 +23,7 @@ export const AchievementsFilters = () => {
 		>
 			<div className='flex items-center'>
 				<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg border border-solid border-[#21293A] bg-[#181E2B]'>
-					<Ranking className='fill-[#5A6786]' />
+					<Ranking className='h-6 w-6 fill-[#5A6786]' />
 				</div>
 				<div className='pl-[10px]'>
 					<p className='block text-base font-bold leading-4 text-white'>483735</p>

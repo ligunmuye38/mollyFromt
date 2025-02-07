@@ -47,7 +47,7 @@ const SupportHeader = () => {
 			icon={<IconQuestion />}
 			content={'support_datas.title'}
 			buttons={
-				<div className='flex h-full flex-row items-center gap-3 3sm:flex-col'>
+				<div className='flex h-full flex-row items-center gap-3'>
 					<Button
 						onPress={createNewTicket}
 						disableAnimation
@@ -72,8 +72,9 @@ const SupportHeader = () => {
 						backdrop
 						hexagon
 						hexagonAxis='x'
+						className='3sm:!hidden'
 						classNames={{
-							base: clsx('h-10 2sm:hidden flex', cls.fnav_item),
+							base: clsx('h-10 flex', cls.fnav_item),
 							content: 'px-6 text-xs'
 						}}
 						startContent={

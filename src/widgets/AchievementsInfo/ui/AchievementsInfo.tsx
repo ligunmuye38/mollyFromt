@@ -13,6 +13,8 @@ export const AchievementsInfo = () => {
 				<div className='flex items-center md:mb-[15px] md:w-1/2 3sm:w-[60%]'>
 					<Image
 						src='/images/achievement/achievement.png'
+						width={60}
+						height={60}
 						alt=''
 					/>
 					<div className='pl-5 3sm:pl-2'>

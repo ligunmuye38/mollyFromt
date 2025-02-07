@@ -23,10 +23,14 @@ const FaqBar = () => {
 	// Next button state for Swiper
 	const [isNext, setIsNext] = useState<boolean>(true)
 
+	const [activeSlide, setActiveSlide] = useState<number>(0)
+
 	// Generate swiper elements
 	const slides = faqBarItems.map((item, index) => (
 		<SwiperSlide key={index}>
 			<FaqBarItem
+				active={activeSlide === index}
+				onClick={() => setActiveSlide(index)}
 				content={item.content}
 				icon={item.icon}
 				key={item.content}
@@ -67,7 +71,7 @@ const FaqBar = () => {
 		<div className='relative flex px-5 md:px-1'>
 			<Swiper
 				spaceBetween={12}
-				slidesPerView={breakpoints?.['3xl'] ? 5 : breakpoints?.md ? 3 : breakpoints?.['sm'] ? 2 : 1}
+				slidesPerView={breakpoints?.['3xl'] ? 5 : breakpoints?.md ? 3 : 2}
 				loop={false}
 				tabIndex={swiperIndex}
 				ref={swiperRef}
@@ -79,13 +83,18 @@ const FaqBar = () => {
 				{slides}
 			</Swiper>
 			{isNext && (
-				<div className={clsx(cls.item, '!absolute right-3 z-[10] flex h-full items-center justify-center')}>
+				<div
+					className={clsx(
+						cls.item,
+						'!absolute right-0 z-[10] flex h-full w-[100px] items-center justify-end bg-[linear-gradient(90deg,_#12172200_0%,_#121722_80%)]'
+					)}
+				>
 					<div
 						className={clsx(
 							cls.swiper_button_next,
 							cls.item_icon,
 							swiperIndex == faqBarItems.length - 1 ? cls.item_disable : '',
-							'relative'
+							'relative -translate-x-3'
 						)}
 						onClick={nextSwiper}
 					>
@@ -94,9 +103,14 @@ const FaqBar = () => {
 				</div>
 			)}
 			{swiperIndex > 0 && (
-				<div className={clsx(cls.item, '!absolute left-3 z-[10] flex h-full items-center justify-center')}>
+				<div
+					className={clsx(
+						cls.item,
+						'!absolute left-0 z-[10] flex h-full w-[100px] items-center justify-start bg-[linear-gradient(270deg,_#12172200_0%,_#121722_80%)]'
+					)}
+				>
 					<div
-						className={clsx(cls.swiper_button_next, cls.item_icon, 'rotate-180')}
+						className={clsx(cls.swiper_button_next, cls.item_icon, 'translate-x-3 rotate-180')}
 						onClick={prevSwiper}
 					>
 						<IconSwiper />

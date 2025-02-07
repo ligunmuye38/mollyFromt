@@ -7,6 +7,8 @@ export const BlogItemContent = () => {
 		<div className={cls.content}>
 			<Image
 				src='/images/blog/blogBig.png'
+				width={767}
+				height={431}
 				alt=''
 			/>
 			<div className={cls.text__content}>

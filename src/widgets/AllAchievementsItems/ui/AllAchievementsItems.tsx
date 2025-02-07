@@ -14,6 +14,8 @@ export const AllAchievementsItems = () => {
 				<div className='mb-[15px] flex items-center justify-center'>
 					<Image
 						src='/images/achievement/achievement.png'
+						width={60}
+						height={60}
 						alt=''
 						className='max-w-[40px]'
 					/>

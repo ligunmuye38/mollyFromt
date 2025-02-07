@@ -11,6 +11,8 @@ const WikiSidebar = () => {
 				<div className={`${cls.img} + img flex justify-center`}>
 					<Image
 						src='/images/skinsWiki/skins-wiki-example.png'
+						width={184}
+						height={138}
 						alt=''
 					/>
 				</div>

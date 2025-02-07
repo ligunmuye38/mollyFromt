@@ -25,7 +25,7 @@ const CreateCaseFooter = () => {
 					</div>
 					<div className={clsx(cls.footer_body_btn, 'md:order-2')}>
 						<div className={clsx(cls.footer_body_btn_inner, 'flex items-center gap-2 px-3 py-[10px]')}>
-							<IconBagTick className='h-6 w-6' />
+							<IconBagTick className='h-6 w-6 fill-[#60719A]' />
 							<div className='flex gap-1'>
 								<span className='text-[14px] font-[700] text-[#60719A]'>{t('create_case.total_cost')}:</span>
 								<span className='flex items-center'>
@@ -46,7 +46,7 @@ const CreateCaseFooter = () => {
 								base: clsx('h-10 !z-[1]', cls.header_btn),
 								content: clsx('px-6 text-xs', cls.header_btn_inner)
 							}}
-							startContent={<IconPlus className='h-[20px] w-[20px]' />}
+							startContent={<IconPlus className='h-[20px] w-[20px] fill-[#121722]' />}
 						>
 							<span className={clsx('text-[14px] font-[900] uppercase text-[#121722]', cls.header_btn_font)}>
 								{t('cases_header.create_case')}

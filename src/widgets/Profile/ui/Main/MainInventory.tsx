@@ -52,9 +52,9 @@ const MainInventory = () => {
 								<span className='text-white'>{Number(sellingAmount?.selected ?? 0)}</span>
 							</span>
 						</Button>
-
 						<Button
 							startContent={<IconUpgrade className='h-5 w-5 fill-[#121722]' />}
+							className='md:hidden'
 							classNames={{
 								base: cls.upgrade_btn, // [cls.upgrade_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
 								content: [cls.upgrade_btn_inner, 'p-3']
@@ -64,6 +64,7 @@ const MainInventory = () => {
 						</Button>
 						<Button
 							startContent={<IconShopping className='h-5 w-5 fill-[#121722]' />}
+							className='md:hidden'
 							classNames={{
 								base: cls.shopping_btn, // [cls.shopping_btn, !chatViewHidden ? '!hidden' : 'md:hidden'],
 								content: [cls.shopping_btn_inner, 'p-3']
@@ -76,7 +77,7 @@ const MainInventory = () => {
 						</Button>
 					</div>
 				</div>
-				{/* <div className={clsx('w-full justify-between gap-2 md:flex', !chatViewHidden ? 'flex' : 'hidden')}>
+				<div className={clsx('hidden w-full justify-between gap-2 md:flex')}>
 					<Button
 						startContent={<IconUpgrade className='h-5 w-5 fill-[#121722]' />}
 						classNames={{
@@ -97,7 +98,7 @@ const MainInventory = () => {
 							Sell{sellingAmount?.amount ? <span> (${sellingAmount.amount})</span> : null}
 						</span>
 					</Button>
-				</div> */}
+				</div>
 				<div className='mt-2 flex w-full flex-wrap justify-between gap-0.5'>
 					<ProfileInventory
 						items={investoryItems}

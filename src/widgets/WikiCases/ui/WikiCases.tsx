@@ -11,6 +11,8 @@ export const WikiCases = () => {
 					<div className='flex flex-col items-center rounded-[14px] border border-solid border-[#21293B] bg-[#21293B] p-5 pt-[10px]'>
 						<Image
 							src='/images/skinsWiki/skins-wki-exmaple-item.png'
+							width={128}
+							height={128}
 							alt=''
 							className='pb-[14px]'
 						/>
@@ -22,6 +24,8 @@ export const WikiCases = () => {
 					<div className='flex flex-col items-center rounded-[14px] border border-solid border-[#21293B] bg-[#21293B] p-5 pt-[10px]'>
 						<Image
 							src='/images/skinsWiki/skins-wki-exmaple-item.png'
+							width={128}
+							height={128}
 							alt=''
 							className='pb-[14px]'
 						/>
@@ -33,6 +37,8 @@ export const WikiCases = () => {
 					<div className='flex flex-col items-center rounded-[14px] border border-solid border-[#21293B] bg-[#21293B] p-5 pt-[10px]'>
 						<Image
 							src='/images/skinsWiki/skins-wki-exmaple-item.png'
+							width={128}
+							height={128}
 							alt=''
 							className='pb-[14px]'
 						/>
@@ -44,6 +50,8 @@ export const WikiCases = () => {
 					<div className='flex flex-col items-center rounded-[14px] border border-solid border-[#21293B] bg-[#21293B] p-5 pt-[10px]'>
 						<Image
 							src='/images/skinsWiki/skins-wki-exmaple-item.png'
+							width={128}
+							height={128}
 							alt=''
 							className='pb-[14px]'
 						/>

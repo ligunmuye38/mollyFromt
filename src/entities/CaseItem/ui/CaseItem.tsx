@@ -150,7 +150,7 @@ const CaseItem = ({
 						{isOpened == true && (
 							<div
 								className={clsx(
-									'relative h-[153px] w-[133px] overflow-hidden rounded-[12px] p-[1px]',
+									'relative h-[153px] w-[133px] overflow-hidden rounded-[12px] p-[1px] 2sm:w-auto',
 									isActive ? 'bg-[#10AA7C]' : 'bg-[#161C28]'
 								)}
 							>
@@ -172,7 +172,7 @@ const CaseItem = ({
 											<div className={clsx('mt-1 h-[8px] w-[8px] rounded-[2px]', getMarkBackground(type))}></div>
 										</div>
 									</div>
-									<div className='absolute left-[13px] top-[29px] h-[76px] w-[107px]'>
+									<div className='absolute left-1/2 top-[29px] h-[76px] w-[107px] -translate-x-1/2'>
 										<div
 											className={clsx('relative flex h-full w-full items-center justify-center', getBackground(type))}
 										>

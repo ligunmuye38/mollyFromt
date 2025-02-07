@@ -75,7 +75,7 @@ const ProfileMain = () => {
 							<div className={clsx(cls.deposit_btn, 'h-auto w-full')}>
 								<div className={clsx(cls.deposit_btn_inner, 'flex h-auto w-full items-center justify-center')}>
 									<Button
-										startContent={<IconPlus className='h-5 w-5' />}
+										startContent={<IconPlus className='h-5 w-5 fill-[#121722]' />}
 										classNames={{
 											base: 'w-full h-full py-[11px] hover:!bg-[#1d9c76]'
 										}}
@@ -87,7 +87,7 @@ const ProfileMain = () => {
 								</div>
 							</div>
 						</div>
-						<div className='flex h-full flex-col gap-0.5 overflow-x-auto rounded-xl lg:flex-row lg:justify-center lg:gap-0 lg:rounded-none 2sm:justify-start'>
+						<div className='app-scrollbar flex h-full flex-col gap-0.5 overflow-x-auto rounded-xl lg:flex-row lg:justify-center lg:gap-0 lg:rounded-none 2sm:justify-start'>
 							{breakpoints.lg ? (
 								<>
 									{profileList.map(item => (

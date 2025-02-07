@@ -36,7 +36,7 @@ const AchievementModal = () => {
 				canShowDetails ? 'w-[780px]' : 'w-[560px]'
 			)}
 		>
-			<div className='flex flex-row gap-[15px] md:flex-col'>
+			<div className='flex flex-row gap-[15px] md:flex-col md:gap-6'>
 				<div className='flex w-full flex-col gap-[15px]'>
 					<div className='relative flex items-center justify-between gap-11 overflow-hidden rounded-[14px] p-[20px]'>
 						<div className='absolute left-0 top-0 h-full w-full rounded-[14px] bg-[url(/images/achievement/achievement-detail.png)] bg-cover bg-center opacity-25'></div>
@@ -100,26 +100,26 @@ const AchievementModal = () => {
 					</div>
 					<div className='flex gap-5'>
 						<div className='flex w-full items-center gap-4 rounded-[10px] border-1 border-[#262E4240] bg-[#191F2D] p-[11px]'>
-							<div className={cls.modal_rank_icon}>
+							<div className={clsx(cls.modal_rank_icon, '2sm:!h-8 2sm:!w-8')}>
 								<div className={cls.modal_rank_icon_inner}>
-									<IconRanking className='fill-[#10AA7C]' />
+									<IconRanking className='h-6 w-6 fill-[#10AA7C] 2sm:!h-5 2sm:!w-5' />
 								</div>
 							</div>
 							<div className='flex flex-col gap-1'>
-								<span className='text-[16px] font-bold leading-[16px] text-white'>483735</span>
+								<span className='text-[16px] font-bold leading-[16px] text-white 2sm:text-[14px]'>483735</span>
 								<span className='text-[12px] font-medium leading-[16px] text-[#5A6786]'>
 									{t('profile_achievements.you_rank')}
 								</span>
 							</div>
 						</div>
 						<div className='flex w-full items-center gap-4 rounded-[10px] border-1 border-[#262E4240] bg-[#191F2D] p-[11px]'>
-							<div className={cls.modal_score_icon}>
+							<div className={clsx(cls.modal_score_icon, '2sm:!h-8 2sm:!w-8')}>
 								<div className={cls.modal_score_icon_inner}>
-									<IconAchievement className='w-6 fill-[#E1B514]' />
+									<IconAchievement className='h-6 w-6 fill-[#E1B514] 2sm:!h-5 2sm:!w-5' />
 								</div>
 							</div>
 							<div className='flex flex-col gap-1'>
-								<span className='text-[16px] font-bold leading-[16px] text-white'>43/100</span>
+								<span className='text-[16px] font-bold leading-[16px] text-white 2sm:text-[14px]'>43/100</span>
 								<span className='text-[12px] font-medium leading-[16px] text-[#5A6786]'>
 									{t('profile_achievements.score')}
 								</span>
@@ -133,10 +133,12 @@ const AchievementModal = () => {
 								className='flex items-center justify-between gap-2 rounded-[10px] border-1 border-[#262E42] bg-[#191F2D40] p-[9px] text-[12px] font-bold leading-4 text-[#5A6786]'
 							>
 								<span className={`ml-2 mr-1 text-xl text-[${color}]`}>★</span>
-								<span className='mr-3 flex-grow-0'>{`${t('profile_achievements.level')} ${index + 1}`}</span>
-								<span className='flex-grow'>
-									{locale === 'ru' ? 'Ежедневные бесплатные бонусы...' : 'Daily free bonuses...'}
-								</span>
+								<div className='flex flex-grow items-start gap-2 sm:flex-col'>
+									<span className='mr-3 flex-grow-0'>{`${t('profile_achievements.level')} ${index + 1}`}</span>
+									<span className='flex-grow'>
+										{locale === 'ru' ? 'Ежедневные бесплатные бонусы...' : 'Daily free bonuses...'}
+									</span>
+								</div>
 								<span className='flex-grow'>
 									<span className='text-white'>0</span> / 5
 								</span>
@@ -145,6 +147,60 @@ const AchievementModal = () => {
 								</p>
 							</div>
 						))}
+					{canShowDetails && (
+						<div className='mt-6 hidden min-w-[320px] flex-col gap-[15px] md:flex md:min-w-0'>
+							<div>
+								<p className='mb-2 text-[16px] font-bold leading-4 text-white md:text-center'>
+									{t('profile_achievements.achievement_progress')}
+								</p>
+								<p className='text-[12px] font-bold leading-4 text-[#4D5A79] md:text-center'>
+									{t('profile_achievements.get_all_skins')}
+								</p>
+							</div>
+							<Link
+								href='https://x.com'
+								target='_blank'
+							>
+								<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+									<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#32A8EB]'>
+										<IconTwitter className='w-5 fill-white' />
+									</div>
+									<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+										{t('profile_achievements.follow_on_twitter')}
+									</p>
+									<IconExport className='fill-[#4D5A79]' />
+								</div>
+							</Link>
+							<Link
+								href='https://facebook.com'
+								target='_blank'
+							>
+								<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+									<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#134EC0]'>
+										<IconFacebook className='w-5 fill-white' />
+									</div>
+									<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+										{t('profile_achievements.follow_on_facebook')}
+									</p>
+									<IconExport className='fill-[#4D5A79]' />
+								</div>
+							</Link>
+							<Link
+								href='https://discord.com'
+								target='_blank'
+							>
+								<div className='flex items-center justify-between gap-2 rounded-[12px] bg-[#191F2D] p-[11px]'>
+									<div className='flex h-[38px] w-[38px] items-center justify-center rounded-lg bg-[#7017E1]'>
+										<IconDiscord className='w-5 fill-white' />
+									</div>
+									<p className='flex-grow text-[12px] font-bold leading-4 text-white'>
+										{t('profile_achievements.follow_on_discord')}
+									</p>
+									<IconExport className='fill-[#4D5A79]' />
+								</div>
+							</Link>
+						</div>
+					)}
 					<div className='mt-2 flex items-center justify-center gap-2'>
 						<ToggleButton
 							value={canShowInProfile}
@@ -166,12 +222,12 @@ const AchievementModal = () => {
 					</Button>
 				</div>
 				{canShowDetails && (
-					<div className='flex min-w-[320px] flex-col gap-[15px] md:min-w-0'>
+					<div className='flex min-w-[320px] flex-col gap-[15px] md:!hidden md:min-w-0'>
 						<div>
-							<p className='mb-2 text-[16px] font-bold leading-4 text-white'>
+							<p className='mb-2 text-[16px] font-bold leading-4 text-white md:text-center'>
 								{t('profile_achievements.achievement_progress')}
 							</p>
-							<p className='text-[12px] font-bold leading-4 text-[#4D5A79]'>
+							<p className='text-[12px] font-bold leading-4 text-[#4D5A79] md:text-center'>
 								{t('profile_achievements.get_all_skins')}
 							</p>
 						</div>

@@ -121,7 +121,7 @@ const JoinPlayer = () => {
 				</defs>
 			</svg>
 			<div className='absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2'>
-				<IconPlus />
+				<IconPlus className='fill-[#121722]' />
 			</div>
 		</Button>
 	)

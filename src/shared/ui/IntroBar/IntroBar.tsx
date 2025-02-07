@@ -17,7 +17,7 @@ const IntroBar = ({ icon, title, content, buttons }: IntroBarProps) => {
 
 	return (
 		<div
-			className={clsx('flex h-auto w-full items-center justify-between px-5 py-[14px] 2sm:px-0', cls.header_gradient)}
+			className={clsx('flex h-auto w-full items-center justify-between px-5 py-[14px] 2sm:px-2', cls.header_gradient)}
 		>
 			<div className='flex items-center gap-7 md:gap-3 2sm:gap-1'>
 				<div className='flex items-center gap-5 2sm:gap-1'>

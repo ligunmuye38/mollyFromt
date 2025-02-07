@@ -9,6 +9,8 @@ export const WikiMiniCard = () => {
 		>
 			<Image
 				src='/images/skinsWiki/karambit.png'
+				width={88}
+				height={65}
 				alt=''
 				className='mx-auto mb-[11px] mt-0 max-w-[88px]'
 			/>

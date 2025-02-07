@@ -39,7 +39,7 @@ const SelectCaseType = ({ className }: SelectCaseTypeProps) => {
 				items={items}
 				classNames={{
 					itemLabel: 'text-white',
-					trigger: '!rounded-md !h-[48px]',
+					trigger: '!rounded-md !h-[48px] md:!h-8',
 					selectorIcon: 'fill-[#404B65]',
 					itemInner: 'hover:!text-black'
 				}}

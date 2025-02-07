@@ -16,7 +16,7 @@ const AchievementCard: FC<IAchievementCardProps> = ({ data, onClick }) => {
 
 	return (
 		<div
-			className='flex w-[140px] cursor-pointer flex-col items-center rounded-xl border-1 border-[#161C28] bg-[#141925] p-[15px]'
+			className='flex w-[140px] cursor-pointer flex-col items-center rounded-xl border-1 border-[#161C28] bg-[#141925] p-[15px] 2sm:w-full'
 			onClick={onClick}
 		>
 			<Image
