@@ -73,7 +73,7 @@ export const OpenCase: FC<OpenCaseProps> = ({ className }) => {
 							</div>
 							<CaseBadge
 								label='2455 / 10000'
-								icon={IconLightning}
+								icon={<IconLightning />}
 								iconTheme='yellow'
 								className={clsx(cls.desc_badge, '!relative !left-0 !transform-none')}
 							/>

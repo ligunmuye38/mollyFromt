@@ -276,14 +276,14 @@ const ListItem = ({ item: { rank } }: IListItemProps) => {
 				{ [cls.rank_third]: rank === 3 }
 			)}
 		>
-			<div className='relative'>
+			<div className='relative gap-4'>
 				<RankBg rank={rank} />
 				<p
 					className={clsx(
 						{ 'text-[#724719]': rank === 1 },
 						{ 'text-[#383333]': rank === 2 },
 						{ 'text-[#121722]': rank === 3 },
-						{ 'text-[#121722]': rank > 3 },
+						{ 'text-[#60719A]': rank > 3 },
 						'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'
 					)}
 				>
