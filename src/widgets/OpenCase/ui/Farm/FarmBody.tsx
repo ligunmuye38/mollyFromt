@@ -1,5 +1,6 @@
 'use client'
 
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -23,7 +24,29 @@ export const FarmBody = () => {
 	const openFarm = useCommonStore(state => state.openFarm)
 
 	return (
-		<div className={clsx(cls.base)}>
+		<div className={clsx(cls.base, 'relative')}>
+			<Popover
+				placement='bottom'
+				offset={15}
+			>
+				<PopoverTrigger>
+					<p className='absolute left-3 top-3 hidden w-max md:block'>
+						<IconHint className='h-[34px] w-[34px] fill-[#FFA3A3]' />
+					</p>
+				</PopoverTrigger>
+				<PopoverContent className='w-max p-0'>
+					<div className='w-full max-w-[350px] rounded-[12px] bg-[linear-gradient(90deg,_#FAAA65_0%,_#161E37_100%)] p-[1px]'>
+						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(270deg,_#151E39_0%,_#714825_100%)] p-[15px]'>
+							<p className='mb-[6px] text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_farm.hint_title')}</p>
+							<span className='flex flex-col text-[12px] text-[#FFA3A3]'>
+								<span>
+									{t('case_farm.hint_content1')} {t('case_farm.hint_content2')}
+								</span>
+							</span>
+						</div>
+					</div>
+				</PopoverContent>
+			</Popover>
 			<div className={clsx(cls.container, openFarm == false ? '!pt-0' : 'md:!pt-9')}>
 				<div className={clsx(cls.type, openFarm == false ? 'hidden' : 'flex justify-center', 'flex md:hidden')}>
 					{t('open_case.selected_top')}
@@ -42,7 +65,7 @@ export const FarmBody = () => {
 								height={320}
 							/>
 						</div>
-						<div className={clsx(cls.grid, 'flex w-full flex-row justify-end md:ml-3 md:justify-start')}>
+						<div className={clsx(cls.grid, 'flex w-full flex-row justify-end md:ml-3 md:hidden md:justify-start')}>
 							<div className={clsx(cls.farm_hint, 'mr-5 max-w-[374px] md:mx-1 md:mr-0')}>
 								<div className={clsx(cls.farm_hint_inner, 'flex gap-2 p-4')}>
 									<IconHint className='absolute h-[34px] w-[34px] fill-[#FFA3A3] md:-top-9' />

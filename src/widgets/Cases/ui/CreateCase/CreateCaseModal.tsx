@@ -30,7 +30,7 @@ const CreateCaseModal = () => {
 			<div className='relative flex w-full md:flex-col'>
 				<div
 					className={clsx(
-						'relative flex min-w-[300px] max-w-[410px] flex-col gap-[15px] p-5 md:w-full md:max-w-[700px] 3sm:max-w-[500px] 2sm:max-w-[350px] sm:max-w-[300px]'
+						'relative flex min-w-[300px] max-w-[410px] flex-col gap-[15px] md:w-full md:max-w-[700px] 3sm:max-w-[500px] 2sm:max-w-[350px] sm:max-w-[300px]'
 					)}
 				>
 					<Input

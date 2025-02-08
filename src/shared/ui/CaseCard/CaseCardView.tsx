@@ -10,7 +10,7 @@ export interface CaseConfigProps {
 	theme?: string
 	badgeTheme?: string
 	badgeMode?: string
-	icon?: React.FC<React.SVGProps<SVGSVGElement>>
+	icon?: React.ReactNode
 	iconTheme?: string
 	iconShadow?: boolean
 }

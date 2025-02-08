@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
 
-import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
+// import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
@@ -139,7 +139,7 @@ export const CaseBattleHistoryListItem = ({ item }: CaseBattleHistoryListItemPro
 							</Fragment>
 						))}
 					</div>
-					<div className={clsx(cls.game_history_case_battle_case_icon_cursor, 'absolute -top-[6px] left-[182px]')}>
+					{/* <div className={clsx(cls.game_history_case_battle_case_icon_cursor, 'absolute -top-[6px] left-[182px]')}>
 						<IconArrowTop />
 					</div>
 					<div
@@ -149,7 +149,7 @@ export const CaseBattleHistoryListItem = ({ item }: CaseBattleHistoryListItemPro
 						)}
 					>
 						<IconArrowTop />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

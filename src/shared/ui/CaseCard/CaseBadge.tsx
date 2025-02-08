@@ -5,7 +5,7 @@ import cls from './CaseCardView.module.sass'
 
 interface CaseBadgeProps {
 	label: React.ReactNode
-	icon?: React.FC<React.SVGProps<SVGSVGElement>>
+	icon?: React.ReactNode
 	badgeMode?: string
 	badgeTheme?: string
 	iconTheme?: string
@@ -15,7 +15,7 @@ interface CaseBadgeProps {
 
 export const CaseBadge: FC<CaseBadgeProps> = ({
 	label,
-	icon: Icon,
+	icon,
 	badgeMode,
 	iconTheme,
 	iconShadow,
@@ -25,13 +25,13 @@ export const CaseBadge: FC<CaseBadgeProps> = ({
 	return (
 		<div className={clsx(cls.badge, cls[badgeTheme || 'default'], cls[badgeMode || ''], className)}>
 			<div className={cls.badge_inner}>
-				{Icon && (
+				{icon && (
 					<div
 						className={clsx(cls.badge_icon, cls[iconTheme || 'default'], {
 							[cls.badge_icon_shadow]: iconShadow
 						})}
 					>
-						<Icon />
+						{icon}
 					</div>
 				)}
 				<div className={cls.badge_label}>{label}</div>

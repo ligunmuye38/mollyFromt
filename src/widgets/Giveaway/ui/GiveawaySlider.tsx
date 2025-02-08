@@ -39,7 +39,7 @@ export const GiveawaySlider: FC<GiveawaySliderProps> = ({ className }) => {
 			<Swiper
 				modules={[Autoplay, Pagination]}
 				loop
-				// autoplay={{ delay: 3000 }}
+				autoplay={{ delay: 3000 }}
 				pagination={{
 					clickable: true,
 					dynamicBullets: true,

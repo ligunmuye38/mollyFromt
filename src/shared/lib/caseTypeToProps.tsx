@@ -1,5 +1,6 @@
 import { CaseType } from '../types/case'
 import { CaseConfigProps } from '../ui/CaseCard/CaseCardView'
+import { ReactNode } from 'react'
 
 import IconSuccess from '@/shared/assets/icons/icon-check-rounded-2.svg'
 import IconDiscount from '@/shared/assets/icons/icon-discount.svg'
@@ -10,7 +11,7 @@ import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
 
 interface Props extends CaseConfigProps {
 	badgeMode?: string
-	icon?: any
+	icon?: ReactNode
 	iconTheme?: string
 	iconShadow?: boolean
 	theme?: string
@@ -21,24 +22,24 @@ export const caseTypeToProps: Record<CaseType, Props> = {
 	[CaseType.AVAILABLE]: {
 		badgeMode: 'wide',
 		badgeTheme: 'green',
-		icon: IconSuccess,
+		icon: <IconSuccess />,
 		iconTheme: 'green',
 		iconShadow: true
 	},
 	[CaseType.AVAILABELED_IN]: {
 		badgeMode: 'wide',
-		icon: IconLock,
+		icon: <IconLock />,
 		iconTheme: 'yellow',
 		iconShadow: true
 	},
 	[CaseType.DISCOUNTED]: {
-		icon: IconDiscount,
+		icon: <IconDiscount />,
 		badgeTheme: 'gradient-green',
 		iconTheme: 'outline-green',
 		iconShadow: true
 	},
 	[CaseType.UNIQUE]: {
-		icon: IconUser,
+		icon: <IconUser />,
 		badgeTheme: 'gradient-yellow',
 		iconTheme: 'outline-yellow',
 		iconShadow: true
@@ -46,16 +47,16 @@ export const caseTypeToProps: Record<CaseType, Props> = {
 	[CaseType.EXPIRED_AT]: {
 		theme: 'gradient-yellow',
 		badgeMode: 'wide',
-		icon: IconTimer,
+		icon: <IconTimer />,
 		iconTheme: 'grey',
 		iconShadow: true
 	},
 	[CaseType.LIMITED]: {
-		icon: IconLightning,
+		icon: <IconLightning />,
 		iconTheme: 'outline-yellow',
 		iconShadow: true
 	},
 	[CaseType.LOCKED]: {
-		icon: IconLock
+		icon: <IconLock />
 	}
 }
