@@ -1,3 +1,5 @@
+import { upgradeItems } from '../../model/items'
+import { IUpgradeItem } from '../../model/types'
 import clsx from 'clsx'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -7,10 +9,7 @@ import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import cls from './Main.module.sass'
 
 interface IListItemProps {
-	item: {
-		rank: number
-		steps: number
-	}
+	item: IUpgradeItem
 }
 
 const RankBg = ({ rank }: { rank: number }) => {
@@ -291,6 +290,11 @@ const ListItem = ({ item: { rank } }: IListItemProps) => {
 				</p>
 			</div>
 			<Avatar />
+			<div className='h-12 rounded-lg border-1 border-[#212838]'>
+				<div className='rounded-lg bg-[#121722]'>
+					<div className='rounded- h-[30px] w-[2px]'></div>
+				</div>
+			</div>
 		</div>
 	)
 }
@@ -301,16 +305,12 @@ const UpgradeStreaks = () => {
 	return (
 		<div>
 			<div className='flex flex-col gap-2'>
-				<ListItem item={{ rank: 1, steps: 3 }} />
-				<ListItem item={{ rank: 2, steps: 3 }} />
-				<ListItem item={{ rank: 3, steps: 3 }} />
-				<ListItem item={{ rank: 4, steps: 3 }} />
-				<ListItem item={{ rank: 5, steps: 3 }} />
-				<ListItem item={{ rank: 6, steps: 3 }} />
-				<ListItem item={{ rank: 7, steps: 3 }} />
-				<ListItem item={{ rank: 8, steps: 3 }} />
-				<ListItem item={{ rank: 9, steps: 3 }} />
-				<ListItem item={{ rank: 10, steps: 3 }} />
+				{upgradeItems.map((item, index) => (
+					<ListItem
+						item={item}
+						key={index}
+					/>
+				))}
 			</div>
 			<div className='mt-2 flex justify-center'>
 				<PaginationBar
