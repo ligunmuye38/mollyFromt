@@ -12,5 +12,6 @@ export interface IUpgradeItem {
 			totalPrice: number
 		}
 		nextProbability?: number
+		isTruncate?: boolean
 	}[]
 }

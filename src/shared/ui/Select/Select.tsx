@@ -127,6 +127,7 @@ export const Select: FC<SelectProps> = props => {
 			renderValue={items => {
 				return items.map(item => (
 					<div
+						onClick={() => alert()}
 						key={item.key}
 						className={cls.item}
 					>

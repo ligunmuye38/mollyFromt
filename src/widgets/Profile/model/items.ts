@@ -98,6 +98,12 @@ export const mobileProfileList: IProfileItem[] = [
 		icon: IconPromoCode,
 		title: 'profile_main.promocode',
 		link: '/profile/promocode'
+	},
+	{
+		id: 6,
+		icon: IconSetting,
+		title: 'profile_main.settings',
+		link: '/profile/settings'
 	}
 ]
 

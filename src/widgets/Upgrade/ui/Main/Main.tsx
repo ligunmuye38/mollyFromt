@@ -1,16 +1,21 @@
 'use client'
 
 import { UpgradeTypes } from '../../model/types'
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
 
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
+import IconFilter from '@/shared/assets/icons/icon-filter-3.svg'
+import IconSearch from '@/shared/assets/icons/icon-search.svg'
 import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconGun from '@/shared/assets/icons/icon-weapon.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 import Button from '@/shared/ui/Button/Button'
+import { Checkbox } from '@/shared/ui/Checkbox/Checkbox'
+import { Input } from '@/shared/ui/Input/Input'
 import { Select } from '@/shared/ui/Select/Select'
 import { Slider } from '@/shared/ui/Slider/Slider'
 
@@ -158,7 +163,7 @@ const MyItems = () => {
 	return (
 		<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 			<div className='flex max-h-[390px] w-full flex-col gap-5 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5'>
-				<div className='flex w-full items-center gap-4'>
+				<div className='flex w-full items-center gap-3'>
 					<div className='h-[42px] w-[42px] rounded-[8px] bg-[#202839] p-[10.5px]'>
 						<IconGun className='h-[21px] w-[21px] fill-[#5A6786]' />
 					</div>
@@ -200,8 +205,8 @@ const UpgradeItems = ({ selected, onSelect }: { selected?: number; onSelect: (v?
 	return (
 		<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 			<div className='flex max-h-[390px] w-full flex-col gap-5 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5'>
-				<div className='flex w-full items-center gap-4'>
-					<div className='h-[42px] w-[42px] rounded-[8px] bg-[#202839] p-[10.5px]'>
+				<div className='flex w-full items-center'>
+					<div className='mr-3 h-[42px] w-[42px] rounded-[8px] bg-[#202839] p-[10.5px]'>
 						<IconUpgrade className='h-[21px] w-[21px] fill-[#5A6786]' />
 					</div>
 					<p className='flex-grow text-[14px] font-bold text-[#FFFFFF]'>{t('upgrade').toUpperCase()}</p>
@@ -219,6 +224,134 @@ const UpgradeItems = ({ selected, onSelect }: { selected?: number; onSelect: (v?
 							selectorIcon: 'w-5 h-5'
 						}}
 					/>
+					<div className='flex items-center gap-[5px]'>
+						<Popover placement='bottom'>
+							<PopoverTrigger>
+								<div className='h-10 w-10 rounded-[10px] border-1 border-[#232B3E] bg-[#181E2C] p-[10px]'>
+									<IconSearch className='h-5 w-5 fill-[#60719A]' />
+								</div>
+							</PopoverTrigger>
+							<PopoverContent className='p-0'>
+								<Input
+									onChange={() => {
+										return
+									}}
+									value='Butterfly Knife'
+									startContent={<IconSearch className='h-5 w-5 fill-[#60719A]' />}
+								/>
+							</PopoverContent>
+						</Popover>
+						<Input
+							onChange={() => {
+								return
+							}}
+							value='0.00'
+							startContent={<p className='text-[12px] font-medium leading-3 text-[#17E2A5]'>$</p>}
+							type='number'
+							classNames={{
+								base: 'bg-[#181E2C] w-[95px] hide-spin flex-[0_0_95px]',
+								inputWrapper: 'rounded-[10px]'
+							}}
+						/>
+						<Popover
+							showArrow
+							classNames={{
+								base: 'before:!bg-[#121722] before:!left-auto before:right-10 before:z-10 before:shadow-none before:border-t-1 before:border-l-1 before:border-t-[#202738] before:border-l-[#202738]'
+							}}
+						>
+							<PopoverTrigger>
+								<Button className='flex-[0_0_42px]'>
+									<div className='h-[42px] w-[42px] rounded-[10px] bg-[#232B3E] p-[11px]'>
+										<IconFilter className='h-5 w-5 fill-[#60719A]' />
+									</div>
+								</Button>
+							</PopoverTrigger>
+							<PopoverContent className='border-1 border-[#202738] bg-[#121722] p-[10px]'>
+								<div className='flex gap-[5px]'>
+									<div className='flex max-h-[248px] w-[135px] flex-col rounded-lg bg-[#191F2D] p-[10px]'>
+										<p className='mb-[10px] text-[14px] font-bold leading-4 text-white'>Weapon</p>
+										<div className='app-scrollbar overflow-auto'>
+											<div className='flex flex-col gap-[5px]'>
+												{Array.from(new Array(16)).map((_, index) => (
+													<div
+														key={index}
+														className='flex items-center'
+													>
+														<Checkbox
+															theme='theme-2'
+															name={`Butterfly Knife ${index}`}
+															value={`butterfly_knife_${index}`}
+														/>
+														<p className='text-[10px] leading-4 text-[#5A6786]'>Butterfly Knife</p>
+													</div>
+												))}
+											</div>
+										</div>
+									</div>
+									<div className='flex max-h-[248px] w-[135px] flex-col rounded-lg bg-[#191F2D] p-[10px]'>
+										<p className='mb-[10px] text-[14px] font-bold leading-4 text-white'>Rarity</p>
+										<div className='app-scrollbar overflow-auto'>
+											<div className='flex flex-col gap-[5px]'>
+												{Array.from(new Array(16)).map((_, index) => (
+													<div
+														key={index}
+														className='flex items-center'
+													>
+														<Checkbox
+															theme='theme-2'
+															name={`Butterfly Knife ${index}`}
+															value={`butterfly_knife_${index}`}
+														/>
+														<p className='text-[10px] leading-4 text-[#5A6786]'>Butterfly Knife</p>
+													</div>
+												))}
+											</div>
+										</div>
+									</div>
+									<div className='flex max-h-[248px] w-[135px] flex-col rounded-lg bg-[#191F2D] p-[10px]'>
+										<p className='mb-[10px] text-[14px] font-bold leading-4 text-white'>Exterior</p>
+										<div className='app-scrollbar overflow-auto'>
+											<div className='flex flex-col gap-[5px]'>
+												{Array.from(new Array(16)).map((_, index) => (
+													<div
+														key={index}
+														className='flex items-center'
+													>
+														<Checkbox
+															theme='theme-2'
+															name={`Butterfly Knife ${index}`}
+															value={`butterfly_knife_${index}`}
+														/>
+														<p className='text-[10px] leading-4 text-[#5A6786]'>Butterfly Knife</p>
+													</div>
+												))}
+											</div>
+										</div>
+									</div>
+									<div className='flex max-h-[248px] w-[135px] flex-col rounded-lg bg-[#191F2D] p-[10px]'>
+										<p className='mb-[10px] text-[14px] font-bold leading-4 text-white'>StatTrak™</p>
+										<div className='app-scrollbar overflow-auto'>
+											<div className='flex flex-col gap-[5px]'>
+												{Array.from(new Array(16)).map((_, index) => (
+													<div
+														key={index}
+														className='flex items-center'
+													>
+														<Checkbox
+															theme='theme-2'
+															name={`Butterfly Knife ${index}`}
+															value={`butterfly_knife_${index}`}
+														/>
+														<p className='text-[10px] leading-4 text-[#5A6786]'>Butterfly Knife</p>
+													</div>
+												))}
+											</div>
+										</div>
+									</div>
+								</div>
+							</PopoverContent>
+						</Popover>
+					</div>
 				</div>
 				<div className='app-scrollbar overflow-auto px-1'>
 					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,125px)] justify-between gap-2'>

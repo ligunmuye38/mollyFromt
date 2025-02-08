@@ -6,10 +6,13 @@ import { useState } from 'react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
+import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconShoppingCart from '@/shared/assets/icons/icon-shopping-cart.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
+import HelpModal from './HelpModal'
 import cls from './Main.module.sass'
 
 const Hexagon = () => {
@@ -123,6 +126,22 @@ const MyItem = () => {
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
 
+	const { openModal } = useModal()
+
+	const onClick = () => {
+		openModal(
+			<HelpModal />,
+			{},
+			<IconInfo />,
+			t('upgrade_how_does_it_work.title'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
 	if (isSuccess) {
 		return (
 			<div className='relative h-[200px] w-full bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(31,_37,_52,_0)_81.03%)] p-[3px] backdrop-blur-md [clip-path:polygon(36px_0px,_100%_0px,_100%_100%,_36px_100%,_0px_50%)]'>
@@ -133,6 +152,7 @@ const MyItem = () => {
 						}}
 					>
 						<Button
+							onPress={onClick}
 							classNames={{
 								base: clsx(cls.hexagon_btn, 'h-[42px] w-[216px]'),
 								content: clsx(cls.hexagon_btn_inner, '!gap-0')
@@ -223,7 +243,7 @@ const MyItem = () => {
 							<Button>
 								<div className='relative'>
 									<Hexagon />
-									<IconWalletAdd className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+									<IconWalletAdd className='absolute left-1/2 top-1/2 h-[21px] w-[21px] -translate-x-1/2 -translate-y-1/2' />
 								</div>
 							</Button>
 						</div>

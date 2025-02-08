@@ -10,7 +10,7 @@ import { useState } from 'react'
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
-import IconEye from '@/shared/assets/icons/icon-eye.svg'
+// import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
 import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import Iconverified from '@/shared/assets/icons/icon-verified-user.svg'
@@ -199,7 +199,7 @@ const MainHeader = () => {
 										<span className='text-[10px] text-[#1CD9A1]'>$1740.00</span>
 									</span>
 								</div>
-								<IconEye className='h-6 w-6 fill-[#2C354A] xs:hidden' />
+								{/* <IconEye className='h-6 w-6 fill-[#2C354A] xs:hidden' /> */}
 							</div>
 							<div className='min-h-[1px] w-full bg-[#1A202D]'></div>
 							<div className={clsx(cls.deposit_btn, 'h-auto w-full xs:!p-0')}>

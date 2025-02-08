@@ -36,8 +36,7 @@ export const upgradeItems: IUpgradeItem[] = [
 				items: {
 					count: 31,
 					totalPrice: 789.33
-				},
-				nextProbability: 4.61
+				}
 			}
 		]
 	},
@@ -76,8 +75,7 @@ export const upgradeItems: IUpgradeItem[] = [
 				items: {
 					count: 31,
 					totalPrice: 789.33
-				},
-				nextProbability: 4.61
+				}
 			}
 		]
 	},
@@ -116,8 +114,7 @@ export const upgradeItems: IUpgradeItem[] = [
 				items: {
 					count: 31,
 					totalPrice: 789.33
-				},
-				nextProbability: 4.61
+				}
 			}
 		]
 	},
@@ -156,8 +153,7 @@ export const upgradeItems: IUpgradeItem[] = [
 				items: {
 					count: 31,
 					totalPrice: 789.33
-				},
-				nextProbability: 4.61
+				}
 			}
 		]
 	},
@@ -189,8 +185,7 @@ export const upgradeItems: IUpgradeItem[] = [
 				nextProbability: 4.61
 			},
 			{
-				balance: 789.33,
-				nextProbability: 4.61
+				balance: 789.33
 			}
 		]
 	}

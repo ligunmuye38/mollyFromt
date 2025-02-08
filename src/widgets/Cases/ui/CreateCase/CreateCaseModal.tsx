@@ -27,7 +27,7 @@ const CreateCaseModal = () => {
 				'app-scrollbar flex max-h-[calc(100vh-130px)] min-h-[calc(100vh-130px)] w-[1183px] flex-col overflow-auto lg:w-full'
 			)}
 		>
-			<div className='relative flex w-full md:flex-col'>
+			<div className='relative flex w-full gap-5 md:flex-col'>
 				<div
 					className={clsx(
 						'relative flex min-w-[300px] max-w-[410px] flex-col gap-[15px] md:w-full md:max-w-[700px] 3sm:max-w-[500px] 2sm:max-w-[350px] sm:max-w-[300px]'

@@ -10,7 +10,7 @@ import { mobileProfileList, profileList } from '@/widgets/Profile/model/items'
 import ListItem from '@/entities/ListItem/ui/ListItem'
 
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
-import IconEye from '@/shared/assets/icons/icon-eye.svg'
+// import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
 import { useRouter } from '@/shared/config/i18n/navigation'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
@@ -36,7 +36,7 @@ const ProfileMain = () => {
 	const navigation = useRouter()
 
 	// To hide balance
-	const [isBalanceHidden, toggleIsBalanceHidden] = useState<boolean>(false)
+	const [isBalanceHidden, _toggleIsBalanceHidden] = useState<boolean>(false)
 
 	// The function for profile list
 	const clickListItem = (item: number, link: string) => {
@@ -64,12 +64,12 @@ const ProfileMain = () => {
 										</span>
 									</span>
 								</div>
-								<Button
+								{/* <Button
 									className='h-8 w-8 rounded-sm'
 									onPress={() => toggleIsBalanceHidden(v => !v)}
 								>
 									<IconEye className='h-6 w-6 fill-[#2C354A]' />
-								</Button>
+								</Button> */}
 							</div>
 							<div className='min-h-[1px] w-full bg-[#1A202D]'></div>
 							<div className={clsx(cls.deposit_btn, 'h-auto w-full')}>
