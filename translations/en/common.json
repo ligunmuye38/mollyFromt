@@ -9,6 +9,29 @@
 		"faq": "FAQ",
 		"support": "Support"
 	},
+	"week_days": {
+		"0": "Sun",
+		"1": "Mon",
+		"2": "Tue",
+		"3": "Wed",
+		"4": "Thu",
+		"5": "Fri",
+		"6": "Sat"
+	},
+	"months": {
+		"0": "Jan",
+		"1": "Feb",
+		"2": "Mar",
+		"3": "Apr",
+		"4": "May",
+		"5": "Jun",
+		"6": "Jul",
+		"7": "Aug",
+		"8": "Sep",
+		"9": "Oct",
+		"10": "Nov",
+		"11": "Dec"
+	},
 	"header": {
 		"vip": "VIP Club",
 		"bonuses": "Bonuses",
@@ -528,7 +551,9 @@
 		"buy_case": "Buy case",
 		"select_case": "Select case",
 		"new_begin": "New begin",
-		"add_case": "Add Case"
+		"add_case": "Add Case",
+		"community_cases": "Community cases",
+		"official_cases": "Official cases"
 	},
 	"lotto": {
 		"lotto": "Lotto",
@@ -613,5 +638,26 @@
 	"referral_balance": "Referral balance",
 	"withdrawal": "Withdrawal",
 	"what_is_it": "What is it?",
-	"invited_users": "Invited users"
+	"invited_users": "Invited users",
+	"all_users": "All users",
+	"total_profit": "Total Profit",
+	"your_link": "Your link",
+	"your_code": "Your code",
+	"enter_your_code": "Enter your code",
+	"generate_code": "Generate code",
+	"all_opened": "All opened",
+	"total_earn": "Total earn",
+	"cases_stats": "Cases stats",
+	"create_new_case": "Create new case",
+	"register": "Register",
+	"payments": "Payments",
+	"all_referrals": "All referrals",
+	"player": "Player",
+	"registration_date": "Registration Date",
+	"income": "Income",
+	"advertising_materials": "Advertising Materials",
+	"case_open": "Case open",
+	"case_income": "Case income",
+	"date": "Date",
+	"time": "Time"
 }

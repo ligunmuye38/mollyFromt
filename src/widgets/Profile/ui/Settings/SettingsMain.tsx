@@ -207,27 +207,27 @@ const SettingsMain = () => {
 						</p>
 						<div className='flex gap-[10px] md:justify-center'>
 							<Link href='https://facebook.com/'>
-								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] 3sm:hidden'>
+								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B]'>
 									<IconFacebook className='max-w-[24px] fill-[#60719A]' />
 								</div>
 							</Link>
 							<Link href='https://yandex.com/'>
-								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] 3sm:hidden'>
+								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B]'>
 									<IconYandex className='max-w-[24px] fill-[#60719A]' />
 								</div>
 							</Link>
 							<Link href='https://google.com'>
-								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] 3sm:hidden'>
+								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B]'>
 									<IconGoogle className='max-w-[24px] fill-[#60719A]' />
 								</div>
 							</Link>
 							<Link href='https://ok.ru/'>
-								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] 3sm:hidden'>
+								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B]'>
 									<IconOK className='max-w-[24px] fill-[#60719A]' />
 								</div>
 							</Link>
 							<Link href='https://store.steampowered.com/'>
-								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B] 3sm:hidden'>
+								<div className='flex h-[42px] w-[42px] items-center justify-center rounded-lg border-[1px] border-[#49547014] bg-[#181D2B]'>
 									<IconSteam className='max-w-[24px] fill-[#60719A]' />
 								</div>
 							</Link>

@@ -1,21 +1,24 @@
 'use client'
 
 import { caseItems } from '../model/items'
-import { Switch } from '@nextui-org/react'
+import { Popover, PopoverContent, PopoverTrigger, Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { FC, ReactNode, useState } from 'react'
 
+import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconBucket from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconCaseOpen from '@/shared/assets/icons/icon-case-open.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
+import IconClose from '@/shared/assets/icons/icon-close-black.svg'
 import IconFacebook from '@/shared/assets/icons/icon-facebook-2.svg'
 import IconGun from '@/shared/assets/icons/icon-gun.svg'
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
 import IconLink from '@/shared/assets/icons/icon-link-3.svg'
 import IconLock from '@/shared/assets/icons/icon-lock.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
+import IconSearch from '@/shared/assets/icons/icon-search.svg'
 import IconTelegram from '@/shared/assets/icons/icon-telegram.svg'
 import IconTrash from '@/shared/assets/icons/icon-trash.svg'
 import IconTwitch from '@/shared/assets/icons/icon-twitch-2.svg'
@@ -340,6 +343,9 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 	const t = useTranslations()
 
 	const [name, setName] = useState<string>('')
+	const [isActive, toggleIsActive] = useState<boolean>(false)
+	const [isOpen, toggleIsOpen] = useState<boolean>(false)
+	const [casesCount, setCasesCount] = useState<number>(1)
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -464,7 +470,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						</div>
 					</div>
 				</div>
-				<div className='w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+				<div className='mb-5 w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 					<div className='flex w-full items-center justify-between gap-3 rounded-t-[12px] bg-[#141925] p-[11px]'>
 						<div className='flex items-center gap-[10px]'>
 							<HexagonIcon
@@ -518,7 +524,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 							))}
 						</div>
 						<div className='mx-auto flex w-max items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#1A202E] px-3 py-[10px]'>
-							<IconBucket className='h-6 w-6' />
+							<IconBucket className='h-6 w-6 fill-[#60719A]' />
 							<p className='text-[14px] text-[#60719A]'>
 								{t('giveaways.total_cost')} <span className='text-[#17E2A5]'>$</span>
 								<span className='text-white'>15.50</span>.
@@ -581,7 +587,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						</div>
 						<hr className='my-4 border-[#222A3D]' />
 						<div className='grid grid-cols-5 gap-[10px]'>
-							<div className='relative col-span-2 rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4'>
+							<div className='relative col-span-2 h-max rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4'>
 								<div className='flex items-center gap-2'>
 									<RequirementIcon
 										icon={<IconWallet />}
@@ -622,18 +628,104 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									</div>
 								</Button>
 								<p className='mb-2 mt-4 text-[12px] text-[#768BBD]'>{t('giveaways.select_case')}</p>
-								<Input
-									value='5.00'
-									onChange={() => {
-										return
-									}}
-									startContent={<p className='text-[12px] text-[#18CC96]'>$</p>}
-									classNames={{
-										inputWrapper: '!border-none !bg-[#1B2233] !rounded-[8px]',
-										mainWrapper: 'w-full',
-										input: '!text-white'
-									}}
-								/>
+								<div className='flex gap-2'>
+									<Popover
+										isOpen={isOpen}
+										onOpenChange={v => toggleIsOpen(v)}
+									>
+										<PopoverTrigger>
+											<div className='flex w-full items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
+												<Image
+													src='/images/case/case-full-2.png'
+													width={24}
+													height={24}
+													alt='option'
+												/>
+												<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+												<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+												<Button classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4' }}>
+													<IconClose className='h-2 w-2 fill-[#1B2233]' />
+												</Button>
+												<div className='flex h-7 w-7 items-center justify-center rounded-lg bg-[#252C3F]'>
+													<IconArrowDown
+														className={clsx('w-[18px] fill-[#60719A] duration-150', isOpen ? 'rotate-180' : 'rotate-0')}
+													/>
+												</div>
+											</div>
+										</PopoverTrigger>
+										<PopoverContent className='p-0 text-[12px] font-medium leading-4'>
+											<div className='flex flex-col gap-2 rounded-lg bg-[#1B2233] p-2'>
+												<div className='flex items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#141925] px-4 py-[10px]'>
+													<p className={!isActive ? 'text-white' : 'text-[#60719A]'}>
+														{t('giveaways.community_cases')}
+													</p>
+													<Switch
+														isSelected={isActive}
+														onValueChange={v => toggleIsActive(v)}
+														color='default'
+														classNames={{
+															base: 'rounded-sm w-[30px]',
+															wrapper:
+																'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+															thumb:
+																"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+														}}
+													/>
+													<p className={isActive ? 'text-white' : 'text-[#60719A]'}>{t('giveaways.official_cases')}</p>
+												</div>
+												<Input
+													onChange={() => {
+														return
+													}}
+													value=''
+													placeholder='Search'
+													startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
+													classNames={{
+														base: 'w-full max-w-none',
+														mainWrapper: 'w-full',
+														inputWrapper: 'rounded-lg'
+													}}
+												/>
+												<div className='app-scrollbar max-h-[300px] overflow-auto'>
+													<div className='flex flex-col gap-2'>
+														{Array.from(new Array(12)).map((_, index) => (
+															<Button
+																key={index}
+																classNames={{
+																	base: 'border-1 border-[#2D364B] py-[9px] pl-[7px] pr-[15px] rounded-lg flex items-center gap-2'
+																}}
+															>
+																<Image
+																	src='/images/case/case-full-2.png'
+																	width={24}
+																	height={24}
+																	alt='option'
+																/>
+																<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+																<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+															</Button>
+														))}
+													</div>
+												</div>
+											</div>
+										</PopoverContent>
+									</Popover>
+									<div className='flex flex-[0_0_100px] items-center justify-between rounded-lg bg-[#1B2233] p-[5px]'>
+										<Button
+											onPress={() => setCasesCount(v => (v > 1 ? v - 1 : 1))}
+											classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+										>
+											-
+										</Button>
+										<p className='text-[14px] text-white'>{casesCount}</p>
+										<Button
+											onPress={() => setCasesCount(v => v + 1)}
+											classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+										>
+											+
+										</Button>
+									</div>
+								</div>
 								<div className='mt-[10px] flex items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>
 									<div className='mr-2 flex h-4 w-4 items-center justify-center rounded-[4px] bg-[#60719A] text-[12px] leading-[0px] text-[#141925]'>
 										+

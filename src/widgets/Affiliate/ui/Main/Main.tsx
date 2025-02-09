@@ -7,8 +7,10 @@ import React, { FC, useState } from 'react'
 
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 
+import CasesStats from './CasesStats'
 import cls from './Main.module.sass'
 import MainHeader from './MainHeader'
+import MainStats from './MainStats'
 import PartnershipTypeSwitcher from './PartnershipTypeSwitcher'
 
 interface MainProps {
@@ -37,9 +39,10 @@ export const Main: FC<MainProps> = ({ className }) => {
 					/>
 				</div>
 			</div>
-			<div className='px-5'>
-				<MainHeader />
+			<div className='mb-5 px-5'>
+				<MainHeader type={type} />
 			</div>
+			<div className='px-5'>{type === PartnershipTypes.PARTNERSHIP ? <MainStats /> : <CasesStats />}</div>
 		</div>
 	)
 }
