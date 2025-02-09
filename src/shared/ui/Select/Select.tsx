@@ -1,7 +1,7 @@
 import { Selection, SelectionMode } from '@nextui-org/react'
 import { Select as NextSelect, SelectItem } from '@nextui-org/select'
 import clsx from 'clsx'
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useState } from 'react'
 import { VariantProps, tv } from 'tailwind-variants'
 
 import IconSelector2 from '@/shared/assets/icons/icon-arrow-down-2.svg'
@@ -69,6 +69,9 @@ interface SelectProps extends VariantProps<typeof selectVariants> {
 }
 
 export const Select: FC<SelectProps> = props => {
+	const [isOpen, toggleIsOpen] = useState<boolean>(false)
+	const [isJustChanged, toggleIsJustChanged] = useState<boolean>(false)
+
 	const {
 		items,
 		value,
@@ -89,6 +92,16 @@ export const Select: FC<SelectProps> = props => {
 	return (
 		<NextSelect
 			aria-label='select'
+			isOpen={isOpen}
+			onOpenChange={open => {
+				if (open !== isOpen) {
+					if (isJustChanged) {
+						toggleIsJustChanged(false)
+						return
+					}
+					toggleIsOpen(open)
+				}
+			}}
 			items={items}
 			isLoading={isLoading}
 			selectedKeys={value}
@@ -124,10 +137,13 @@ export const Select: FC<SelectProps> = props => {
 			selectorIcon={<div>{selectorIcon ? selectorIconByType[selectorIcon] : <IconSelector1 />}</div>}
 			startContent={startContent}
 			endContent={endContent}
+			onTouchStart={() => {
+				toggleIsOpen(v => !v)
+				toggleIsJustChanged(true)
+			}}
 			renderValue={items => {
 				return items.map(item => (
 					<div
-						onClick={() => alert()}
 						key={item.key}
 						className={cls.item}
 					>
