@@ -147,12 +147,12 @@ const SettingsMain = () => {
 					</div>
 				</div>
 				<div className='relative mb-[15px] flex items-center gap-[13px] rounded-xl border-1 border-[#21293B] bg-[#181E2C] p-[15px] 2sm:flex-col'>
-					<div className={clsx(cls.icon_wrapper, 'md:absolute md:-top-2')}>
+					<div className={clsx(cls.icon_wrapper, '2sm:absolute 2sm:-top-2')}>
 						<div className={cls.icon_wrapper_inner}>
 							<IconLock />
 						</div>
 					</div>
-					<p className='max-w-[193px] text-[12px] font-medium leading-[14.4px] text-[#606EA1] md:mt-6 md:text-center'>
+					<p className='max-w-[193px] text-[12px] font-medium leading-[14.4px] text-[#606EA1] md:text-center 2sm:mt-6'>
 						{t('settings_profile.protect_description')}
 					</p>
 					<div className='flex flex-grow justify-end gap-[6px]'>
