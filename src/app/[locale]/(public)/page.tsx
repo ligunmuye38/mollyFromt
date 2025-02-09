@@ -5,7 +5,6 @@ import { MainNews } from '@/widgets/MainNews/ui/MainNews'
 import { TopCases } from '@/widgets/TopCases/ui/TopCases'
 
 import { IMetadata } from '@/shared/types/metadata'
-import DateTimePicker from '@/shared/ui/DateTimePicker/DateTimePicker'
 
 export async function generateMetadata({ params: { locale: _ } }: IMetadata) {
 	// const t = await getTranslations({ locale, namespace: 'Main' })
@@ -22,7 +21,6 @@ const Page = () => {
 	// const t = useTranslations()
 	return (
 		<>
-			<DateTimePicker />
 			<div className='container-common'>
 				<MainNews />
 				<LiveFeedWithToolbar />
