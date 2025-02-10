@@ -298,7 +298,7 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 	}, [params, pathname])
 
 	return (
-		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-center gap-5 3sm:grid-cols-1'>
+		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-between gap-5 3sm:grid-cols-1'>
 			{pathname.includes('/finish') ? (
 				<>
 					{/* Winner */}
@@ -445,6 +445,7 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 				</>
 			) : pathname.includes('/round') ? (
 				<>
+					<div></div>
 					{/* Winner */}
 					<div>
 						<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
@@ -830,6 +831,7 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 							</div>
 						</div>
 					</div>
+					<div></div>
 				</>
 			) : (
 				<>

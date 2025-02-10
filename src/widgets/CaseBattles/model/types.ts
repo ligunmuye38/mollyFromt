@@ -28,3 +28,11 @@ export interface IPlayer {
 	botOffer: boolean
 	name: string
 }
+
+export enum Periods {
+	DAY = 'day',
+	WEEK = 'week',
+	MONTH = 'month',
+	YEAR = 'year',
+	ALL_TIMES = 'all_times'
+}

@@ -271,19 +271,28 @@ const MainList = ({ type }: IMainListProps) => {
 						)}
 					>
 						<div className='flex flex-grow items-center gap-[6px] md:col-span-3'>
-							{t('lotto.player')} <IconSort />
+							{t('lotto.player')}
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px] md:hidden'>
 							{t('lotto.winning_amount')}
-							<IconSort />
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px] md:hidden'>
 							{t('lotto.date')}
-							<IconSort />
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='hidden flex-[0_0_20%] items-center justify-center gap-[6px] md:flex'>
 							{t('bet')}
-							<IconSort />
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<span className='flex-[0_0_250px] text-right md:col-span-3'>{t('lotto.winning')}</span>
 					</div>

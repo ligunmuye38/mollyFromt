@@ -1,11 +1,11 @@
 'use client'
 
-import { casesIcons } from '../../model/items'
+import { caseBattles, casesIcons, topBattleItems } from '../../model/items'
 import { CaseBattleMode, CaseBattleTypes } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { Fragment, useState } from 'react'
+import { Fragment, useMemo, useState } from 'react'
 
 // import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
@@ -16,8 +16,8 @@ import IconSort from '@/shared/assets/icons/icon-sort.svg'
 import IconVerification from '@/shared/assets/icons/icon-verification-profile.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
-import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
+// import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import FairnessModal from './FairnessModal'
 import cls from './Main.module.sass'
 
@@ -532,7 +532,46 @@ interface IMainListProps {
 const MainList = ({ type }: IMainListProps) => {
 	const t = useTranslations()
 
-	const [page, setPage] = useState<number>(1)
+	// const [page, setPage] = useState<number>(1)
+	const [sortBy, setSortBy] = useState<string>('rounds_asc')
+
+	const sortedCaseBattles = useMemo(() => {
+		switch (sortBy) {
+			case 'rounds_asc':
+				return caseBattles.sort((a, b) => b.round - a.round)
+			case 'rounds_desc':
+				return caseBattles.sort((a, b) => a.round - b.round)
+			case 'players_asc':
+				return caseBattles.sort((a, b) => b.joinedPlayers - a.joinedPlayers)
+			case 'players_desc':
+				return caseBattles.sort((a, b) => a.joinedPlayers - b.joinedPlayers)
+			case 'value_asc':
+				return caseBattles.sort((a, b) => Number(b.value.slice(1)) - Number(a.value.slice(1)))
+			case 'value_desc':
+				return caseBattles.sort((a, b) => Number(a.value.slice(1)) - Number(b.value.slice(1)))
+			default:
+				return caseBattles
+		}
+	}, [sortBy])
+
+	const sortedTopBattles = useMemo(() => {
+		switch (sortBy) {
+			case 'rating_asc':
+				return topBattleItems.sort((a, b) => b.rank - a.rank)
+			case 'rating_desc':
+				return topBattleItems.sort((a, b) => a.rank - b.rank)
+			case 'profit_asc':
+				return topBattleItems.sort((a, b) => Number(b.value.usd) - Number(a.value.usd))
+			case 'profit_desc':
+				return topBattleItems.sort((a, b) => Number(a.value.usd) - Number(b.value.usd))
+			case 'game_price_asc':
+				return topBattleItems.sort((a, b) => Number(b.price) - Number(a.price))
+			case 'game_price_desc':
+				return topBattleItems.sort((a, b) => Number(a.price) - Number(b.price))
+			default:
+				return topBattleItems
+		}
+	}, [sortBy])
 
 	return (
 		<>
@@ -545,15 +584,22 @@ const MainList = ({ type }: IMainListProps) => {
 						)}
 					>
 						<div className='mr-5 flex flex-[0_0_54px] items-center gap-[6px]'>
-							{t('case_battles.rounds')} <IconSort />
+							{t('case_battles.rounds')}
+							<Button onPress={() => setSortBy(v => (v === 'rounds_asc' ? 'rounds_desc' : 'rounds_asc'))}>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='mr-[10px] flex flex-[0_0_224px] items-center gap-[6px]'>
 							{t('case_battles.players')}
-							<IconSort />
+							<Button onPress={() => setSortBy(v => (v === 'players_asc' ? 'players_desc' : 'players_asc'))}>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='mr-[10px] flex flex-[0_0_120px] items-center gap-[6px]'>
 							{t('case_battles.value')}
-							<IconSort />
+							<Button onPress={() => setSortBy(v => (v === 'value_asc' ? 'value_desc' : 'value_asc'))}>
+								<IconSort />
+							</Button>
 						</div>
 						<span className='flex-grow'>{t('case_battles.cases')}</span>
 						<span className='ml-6 flex-[0_0_140px]'>{t('case_battles.actions')}</span>
@@ -568,15 +614,22 @@ const MainList = ({ type }: IMainListProps) => {
 						)}
 					>
 						<div className='mr-5 flex flex-[0_0_110px] items-center gap-[6px]'>
-							{t('case_battles.rating')} <IconSort />
+							{t('case_battles.rating')}{' '}
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='mr-[10px] flex flex-[0_0_240px] items-center gap-[6px]'>
 							{t('case_battles.profit')}
-							<IconSort />
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<div className='mr-[10px] flex flex-grow items-center gap-[6px]'>
 							{t('case_battles.game_price')}
-							<IconSort />
+							<Button>
+								<IconSort />
+							</Button>
 						</div>
 						<span className='flex-[0_0_224px]'>{t('case_battles.players')}</span>
 						<span className='ml-6 flex-[0_0_140px] text-end'>{t('case_battles.actions')}</span>
@@ -585,45 +638,30 @@ const MainList = ({ type }: IMainListProps) => {
 			)}
 			{type === CaseBattleTypes.ACTIVE_BATTLES ? (
 				<div className='flex flex-col gap-2'>
-					<MainListItem
-						item={{
-							round: 3,
-							value: '100 000.99',
-							joined: true,
-							joinedPlayers: 4,
-							isLive: true,
-							mode: {
-								crazy: true
-							}
-						}}
-					/>
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 4, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
-					<MainListItem item={{ round: 1, value: '100.99', joined: false, joinedPlayers: 2, isLive: false }} />
+					{sortedCaseBattles.map((battle, index) => (
+						<MainListItem
+							key={index}
+							item={battle}
+						/>
+					))}
 				</div>
 			) : (
 				<div className='flex flex-col gap-2'>
-					<TopBattleItem item={{ price: '100 000.99', rank: 1, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 2, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 3, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 4, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 5, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 6, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 7, value: { times: '6.11x', usd: '100 000.99' } }} />
-					<TopBattleItem item={{ price: '100 000.99', rank: 8, value: { times: '6.11x', usd: '100 000.99' } }} />
+					{sortedTopBattles.map((battle, index) => (
+						<TopBattleItem
+							key={index}
+							item={battle}
+						/>
+					))}
 				</div>
 			)}
-			<div className='mt-2 flex justify-center'>
+			{/* <div className='mt-2 flex justify-center'>
 				<PaginationBar
 					page={page}
 					setPage={setPage}
 					total={5}
 				/>
-			</div>
+			</div> */}
 		</>
 	)
 }

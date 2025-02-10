@@ -2,8 +2,8 @@
 export enum AppRoute {
 	MAIN = '/',
 	CASES = '/cases',
-	BATTLE_CASES = '/battlecase',
-	UPGRADES = '/upgrades',
+	BATTLE_CASES = '/case-battles',
+	UPGRADES = '/upgrade',
 	CONTRACTS = '/contracts',
 	FAQ = '/faq',
 	SUPPORT = '/support',

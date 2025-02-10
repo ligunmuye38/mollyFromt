@@ -1,5 +1,6 @@
 import { newBattleItems } from '../../model/items'
 import { INewBattleCase } from '../../model/types'
+import { Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -29,6 +30,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 
 	const [selectedItems, setSelectedItems] = useState<number[]>([])
 	const [amounts, setAmounts] = useState<Record<number, number>>({})
+	const [selectedCase, toggleSelectedCase] = useState<boolean>(false)
 
 	const InnerModal = ({ item }: { item: INewBattleCase }) => {
 		return (
@@ -78,7 +80,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 
 	return (
 		<div className={clsx(cls.modal, 'relative')}>
-			<div className='mb-5 flex gap-5 3sm:flex-col'>
+			<div className='mb-5 flex gap-5 2md:flex-col'>
 				<Input
 					value=''
 					onChange={() => {
@@ -90,46 +92,69 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 						mainWrapper: 'rounded-lg w-full'
 					}}
 				/>
-				<div className='flex flex-col'>
-					<div className='flex justify-between gap-2'>
-						<p className='text-[14px]'>{t('game_history_profile.price').toUpperCase()}</p>
-						<p className='text-[12px] text-[#60719A]'>$48.34 - $50 00.00</p>
+				<div className='flex gap-5'>
+					<div className='flex w-max flex-shrink-0 items-center gap-2 rounded-xl bg-[#181E2C] px-4 3sm:hidden'>
+						<p className={clsx('flex-shrink-0 text-[14px]', selectedCase ? 'text-[#60719A]' : 'text-white')}>
+							{t('giveaways.community_cases')}
+						</p>
+						<Switch
+							isSelected={selectedCase}
+							onValueChange={v => toggleSelectedCase(v)}
+							color='default'
+							classNames={{
+								base: 'rounded-sm w-[30px]',
+								wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+								thumb:
+									"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+							}}
+						/>
+						<p className={clsx('flex-shrink-0 text-[14px]', !selectedCase ? 'text-[#60719A]' : 'text-white')}>
+							{t('giveaways.official_cases')}
+						</p>
 					</div>
-					<Slider
-						maxValue={100}
-						minValue={0}
-						value={[20, 60]}
-						classNames={{
-							base: 'w-[200px] 3sm:w-full',
-							track: 'h-2',
-							thumb: 'w-5 h-5'
-						}}
-					/>
+					<div className='flex w-full flex-col'>
+						<div className='flex justify-between gap-2'>
+							<p className='text-[14px]'>{t('game_history_profile.price').toUpperCase()}</p>
+							<p className='text-[12px] text-[#60719A]'>$48.34 - $50 00.00</p>
+						</div>
+						<Slider
+							maxValue={100}
+							minValue={0}
+							value={[20, 60]}
+							classNames={{
+								base: 'w-[200px] 2md:w-full',
+								track: 'h-2',
+								thumb: 'w-5 h-5'
+							}}
+						/>
+					</div>
 				</div>
 			</div>
-			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,240px)] justify-between gap-5 lg:justify-center 3sm:grid-cols-2'>
-				{newBattleItems.map((item, index) => (
-					<BattleCardNew
-						amount={amounts[index] ?? 0}
-						item={item}
-						onSelect={(value: boolean) => {
-							if (value) setSelectedItems(items => [...items, index])
-							else setSelectedItems(items => items.filter(item => item !== index))
-						}}
-						onViewDrop={() => {
-							openViewDrop(item)
-						}}
-						selected={selectedItems.includes(index)}
-						setAmount={value => {
-							amounts[index] = value
-							setAmounts({ ...amounts })
-							if (value === 0) {
-								setSelectedItems(items => items.filter(item => item !== index))
-							}
-						}}
-						key={`New-Case-Type-${index}:${Date.now()}`}
-					/>
-				))}
+			<div className='app-scrollbar mb-5 h-[calc(100vh_-_300px)] max-h-[560px] overflow-auto'>
+				<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,240px)] justify-between gap-5 lg:justify-center 3sm:grid-cols-2'>
+					{newBattleItems.map((item, index) => (
+						<BattleCardNew
+							amount={amounts[index] ?? 0}
+							item={item}
+							onSelect={(value: boolean) => {
+								if (value) setSelectedItems(items => [...items, index])
+								else setSelectedItems(items => items.filter(item => item !== index))
+							}}
+							onViewDrop={() => {
+								openViewDrop(item)
+							}}
+							selected={selectedItems.includes(index)}
+							setAmount={value => {
+								amounts[index] = value
+								setAmounts({ ...amounts })
+								if (value === 0) {
+									setSelectedItems(items => items.filter(item => item !== index))
+								}
+							}}
+							key={`New-Case-Type-${index}:${Date.now()}`}
+						/>
+					))}
+				</div>
 			</div>
 			<div className='flex items-center gap-4 rounded-[12px] border border-[#1A202E] px-5 py-[18px] 2md:justify-center md:flex-wrap 2sm:gap-2 2sm:px-2 2sm:py-2'>
 				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-5'>

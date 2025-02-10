@@ -1,4 +1,4 @@
-import { BattleVariants, CaseBattleTypes } from '../../model/types'
+import { BattleVariants, CaseBattleTypes, Periods } from '../../model/types'
 import { Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Selection, Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
@@ -17,24 +17,38 @@ interface IMainHeaderProps {
 	type?: CaseBattleTypes
 }
 
-enum Periods {
-	DAY = 'day',
-	WEEK = 'week',
-	MONTH = 'month',
-	YEAR = 'year',
-	ALL_TIMES = 'all_times'
-}
-
 const MainHeader = ({ type = CaseBattleTypes.ACTIVE_BATTLES }: IMainHeaderProps) => {
 	const t = useTranslations()
 	const [selectedOption, setSelectedOption] = useState<Selection>(new Set(['one-vs-one']))
 	const [selectedPeriod, setSelectedPeriod] = useState<Periods>(Periods.DAY)
 
-	const battleVariants = () => {
-		switch (new Set(selectedOption).values().next().value) {
+	const battleVariants = (value: string) => {
+		switch (value) {
 			case BattleVariants.ONE_VS_ONE:
 				return (
 					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+					</div>
+				)
+			case BattleVariants.ONE_VS_ONE_VS_ONE:
+				return (
+					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+					</div>
+				)
+			case BattleVariants.ONE_VS_ONE_VS_ONE_VS_ONE:
+				return (
+					<div className='flex justify-center gap-2'>
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+						<IconPlayer />
+						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
 						<IconPlayer />
 						<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
 						<IconPlayer />
@@ -61,7 +75,7 @@ const MainHeader = ({ type = CaseBattleTypes.ACTIVE_BATTLES }: IMainHeaderProps)
 						<div className={cls.main_header_inner}>
 							<div className='flex items-center gap-[6px]'>
 								<p>{t('case_battles.players')}</p>
-								{battleVariants()}
+								{battleVariants(String(new Set(selectedOption).values().next().value))}
 								<Dropdown
 									placement='bottom-end'
 									className='bg-[#1A2130] dark'
@@ -82,28 +96,14 @@ const MainHeader = ({ type = CaseBattleTypes.ACTIVE_BATTLES }: IMainHeaderProps)
 										selectionMode='single'
 										onSelectionChange={setSelectedOption}
 									>
-										<DropdownItem
-											key={BattleVariants.ONE_VS_ONE}
-											className='hover:!bg-[#313845] focus:!bg-[#313845]'
-										>
-											<div className='flex justify-center gap-2'>
-												<IconPlayer />
-												<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-												<IconPlayer />
-											</div>
-										</DropdownItem>
-										<DropdownItem
-											key={BattleVariants.TWO_VS_TWO}
-											className='hover:!bg-[#313845] focus:!bg-[#313845]'
-										>
-											<div className='flex justify-center gap-2'>
-												<IconPlayer />
-												<IconPlayer />
-												<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-												<IconPlayer />
-												<IconPlayer />
-											</div>
-										</DropdownItem>
+										{Object.values(BattleVariants).map(value => (
+											<DropdownItem
+												key={value}
+												className='hover:!bg-[#313845] focus:!bg-[#313845]'
+											>
+												{battleVariants(value)}
+											</DropdownItem>
+										))}
 									</DropdownMenu>
 								</Dropdown>
 							</div>
@@ -150,44 +150,41 @@ const MainHeader = ({ type = CaseBattleTypes.ACTIVE_BATTLES }: IMainHeaderProps)
 					}}
 				>
 					<div
-						className='flex h-full w-full items-center justify-start gap-[60px] bg-[#171E2B] px-2'
+						className='flex h-full w-full items-center justify-between gap-2 bg-[#171E2B] px-2'
 						style={{
 							clipPath:
 								'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
 						}}
 					>
 						{Object.values(Periods).map((value, index) => {
-							if (selectedPeriod === value) {
-								return (
+							return (
+								<div
+									onClick={() => setSelectedPeriod(value)}
+									key={index}
+									className={clsx(
+										'cursor-pointer p-[1px] text-[12px] font-medium leading-4 text-white duration-200 hover:bg-[#222B3D]',
+										selectedPeriod === value ? 'bg-[#222B3D]' : 'bg-transparent'
+									)}
+									style={{
+										clipPath:
+											'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
+									}}
+								>
 									<div
-										key={index}
-										className='bg-[#222B3D] p-[1px] text-[12px] font-medium leading-4 text-white'
+										className={clsx(
+											'flex h-full justify-center py-[8px] hover:bg-[linear-gradient(270deg,_#1C2331_21.28%,_#191F2C_59.46%,_#1C2331_100%)]',
+											selectedPeriod === value
+												? 'w-[120px] bg-[linear-gradient(270deg,_#1C2331_21.28%,_#191F2C_59.46%,_#1C2331_100%)]'
+												: 'w-[80px] bg-transparent'
+										)}
 										style={{
 											clipPath:
 												'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
 										}}
 									>
-										<div
-											className='h-full w-full px-[44px] py-[8px]'
-											style={{
-												background: 'linear-gradient(270deg, #1C2331 21.28%, #191F2C 59.46%, #1C2331 100%)',
-												clipPath:
-													'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
-											}}
-										>
-											{t(`case_battles.${value}`)}
-										</div>
+										{t(`case_battles.${value}`)}
 									</div>
-								)
-							}
-							return (
-								<p
-									className='text-[12px] font-medium leading-4 text-[#60719A]'
-									onClick={() => setSelectedPeriod(value)}
-									key={index}
-								>
-									{t(`case_battles.${value}`)}
-								</p>
+								</div>
 							)
 						})}
 					</div>
