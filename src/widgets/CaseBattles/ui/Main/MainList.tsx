@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { Fragment, useState } from 'react'
 
-import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
+// import IconArrowTop from '@/shared/assets/icons/icon-arrow-top.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
 import IconCrazyMode from '@/shared/assets/icons/icon-crazy-mode.svg'
@@ -206,8 +206,8 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 
 	return (
 		<div className={cls.main_list}>
-			<div className={clsx(cls.main_list_inner)}>
-				<div className='relative flex flex-[0_0_54px] flex-col items-center'>
+			<div className={clsx(cls.main_list_inner, 'md:flex-wrap md:justify-between md:gap-4 md:!px-0 md:!pb-0')}>
+				<div className='relative flex flex-[0_0_54px] flex-col items-center md:order-1 md:ml-2'>
 					{item.isLive ? (
 						<div className='absolute right-0 top-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-md bg-[#10AA7C26] p-[3px]'>
 							<div className='h-[6px] w-[6px] rounded-md bg-[#10AA7C]'></div>
@@ -276,24 +276,24 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 					</div>
 					<p className={cls.main_list_case_battle_round}>{t('case_battles.rounds')}</p>
 				</div>
-				<div className='relative ml-5 flex flex-[0_0_224px] items-center gap-2'>
+				<div className='elative ml-5 flex flex-[0_0_224px] items-center gap-3 md:order-3 md:ml-0 md:ml-2 md:flex-[0_0_200px] md:gap-1'>
 					{item.joinedPlayers > 0 ? (
-						<div className='mr-1 flex flex-col gap-4'>
+						<div className='flex flex-col gap-4'>
 							<Avatar icon='/images/avatars/2.jpg' />
 						</div>
 					) : (
 						<JoinPlayer />
 					)}
 					{item.joinedPlayers > 1 ? (
-						<div className='mr-4 flex flex-col gap-4'>
+						<div className='flex flex-col gap-4'>
 							<Avatar icon='/images/avatars/3.jpg' />
 						</div>
 					) : (
 						<JoinPlayer />
 					)}
-					<IconCaseBattle className='mr-4 h-6 w-6 fill-[#2F374A]' />
+					<IconCaseBattle className='mx-3 h-6 w-6 fill-[#2F374A]' />
 					{item.joinedPlayers > 2 ? (
-						<div className='mr-1 flex flex-col gap-4'>
+						<div className='flex flex-col gap-4'>
 							<Avatar icon='/images/avatars/4.jpg' />
 						</div>
 					) : (
@@ -312,7 +312,7 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 						cls.hexagon_btn,
 						cls.default,
 						cls.sm,
-						'mx-[10px] h-[38px] w-full max-w-[120px] flex-[0_0_120px] px-[13px]'
+						'mx-[10px] h-[38px] w-full max-w-[120px] flex-[0_0_120px] px-[13px] md:order-2 md:mx-0 md:mr-2'
 					)}
 				>
 					<div className={clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')}>
@@ -322,7 +322,7 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 						</span>
 					</div>
 				</div>
-				<div className='relative flex-grow'>
+				<div className='relative flex-grow md:order-5'>
 					<div className={cls.main_list_case_battle_cases_icons}>
 						{casesIcons.map((icon, index) => (
 							<Fragment key={`case-icon-${index}:${Date.now()}`}>
@@ -336,17 +336,17 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 							</Fragment>
 						))}
 					</div>
-					<div className={clsx(cls.main_list_case_battle_case_icon_cursor, 'absolute -top-[6px] left-[167px]')}>
+					{/* <div className={clsx(cls.main_list_case_battle_case_icon_cursor, 'absolute -top-[6px] left-[167px]')}>
 						<IconArrowTop />
-					</div>
-					<div
+					</div> */}
+					{/* <div
 						className={clsx(
 							cls.main_list_case_battle_case_icon_cursor,
 							'absolute -bottom-[6px] left-[167px] rotate-180'
 						)}
 					>
 						<IconArrowTop />
-					</div>
+					</div> */}
 				</div>
 				<Button
 					onPress={onClickWatch}
@@ -355,7 +355,7 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 							cls.hexagon_btn,
 							{ [cls.default]: item.joined },
 							cls.sm,
-							'h-[38px] w-[140px] ml-6 flex-[0_0_140px]'
+							'h-[38px] ml-6 flex-[0_0_140px] md:order-4 md:flex-[0_0_110px] md:mr-2 md:ml-0'
 						),
 						content: clsx(cls.hexagon_btn_inner, { [cls.default]: item.joined }, cls.sm, '!gap-[6px]')
 					}}
@@ -417,10 +417,11 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 				cls.top_list,
 				{ [cls.rank_first]: item.rank === 1 },
 				{ [cls.rank_second]: item.rank === 2 },
-				{ [cls.rank_third]: item.rank === 3 }
+				{ [cls.rank_third]: item.rank === 3 },
+				'2md:!grid 2md:grid-cols-[70px_auto_auto] 2md:gap-3 2md:!px-2'
 			)}
 		>
-			<div className='relative mr-5 flex flex-[0_0_110px] flex-col items-start'>
+			<div className='relative mr-5 flex flex-[0_0_110px] flex-col items-start 2md:row-span-2 2md:ml-2 2md:mr-0'>
 				<div
 					className={clsx(
 						cls.hexagon_vertical,
@@ -441,9 +442,14 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='flex-[0_0_240px]'>
+			<div className='flex-[0_0_240px] 2md:order-1 2md:flex-[0_0_172px]'>
 				<div
-					className={clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[38px] w-full max-w-[174px] flex-grow px-[13px]')}
+					className={clsx(
+						cls.hexagon_btn,
+						cls.default,
+						cls.sm,
+						'h-[38px] w-full max-w-[174px] flex-grow px-[13px] 2md:ml-auto'
+					)}
 				>
 					<div
 						className={clsx(
@@ -468,9 +474,14 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='flex-grow'>
+			<div className='flex-grow 2md:order-2 2md:flex-[0_0_120px]'>
 				<div
-					className={clsx(cls.hexagon_btn, cls.default, cls.sm, 'mx-[10px] h-[38px] w-full max-w-[120px] px-[13px]')}
+					className={clsx(
+						cls.hexagon_btn,
+						cls.default,
+						cls.sm,
+						'mx-[10px] h-[38px] w-full max-w-[120px] px-[13px] 2md:mx-0 2md:ml-auto'
+					)}
 				>
 					<div className={clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')}>
 						<span className='text-[14px] font-bold leading-4 text-white'>
@@ -480,15 +491,15 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='relative flex flex-[0_0_224px] items-center gap-2'>
-				<div className='mr-1 flex flex-col gap-4'>
+			<div className='relative flex flex-[0_0_224px] items-center gap-2 2md:order-3 2md:col-span-2 2md:flex-[0_0_180px] 2md:justify-end 2md:gap-[2px]'>
+				<div className='flex flex-col gap-4'>
 					<Avatar icon='/images/avatars/2.jpg' />
 				</div>
-				<div className='mr-4 flex flex-col gap-4'>
+				<div className='flex flex-col gap-4'>
 					<Avatar icon='/images/avatars/3.jpg' />
 				</div>
-				<IconCaseBattle className='mr-4 h-6 w-6 fill-[#2F374A]' />
-				<div className='mr-1 flex flex-col gap-4'>
+				<IconCaseBattle className='mx-2 h-6 w-6 fill-[#2F374A] 2md:mx-1' />
+				<div className='flex flex-col gap-4'>
 					<Avatar icon='/images/avatars/4.jpg' />
 				</div>
 				<div className='flex flex-col gap-4'>
@@ -498,7 +509,12 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 			<Button
 				onPress={onClickWatch}
 				classNames={{
-					base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[38px] w-[140px] flex-[0_0_140px] ml-6'),
+					base: clsx(
+						cls.hexagon_btn,
+						cls.default,
+						cls.sm,
+						'h-[38px] max-w-[140px] ml-6 2md:order-4 2md:col-span-3 2md:w-full 2md:ml-auto flex-[0_0_140px]'
+					),
 					content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
 				}}
 			>
@@ -521,7 +537,7 @@ const MainList = ({ type }: IMainListProps) => {
 	return (
 		<>
 			{type === CaseBattleTypes.ACTIVE_BATTLES ? (
-				<div className={clsx(cls.hexagon_container, 'mb-4')}>
+				<div className={clsx(cls.hexagon_container, 'mb-4 md:hidden')}>
 					<div
 						className={clsx(
 							cls.hexagon_container_inner,
@@ -544,7 +560,7 @@ const MainList = ({ type }: IMainListProps) => {
 					</div>
 				</div>
 			) : (
-				<div className={clsx(cls.hexagon_container, 'mb-4')}>
+				<div className={clsx(cls.hexagon_container, 'mb-4 2md:hidden')}>
 					<div
 						className={clsx(
 							cls.hexagon_container_inner,

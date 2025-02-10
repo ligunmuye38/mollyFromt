@@ -48,7 +48,7 @@ const SignUpModal: FC<SignUpModalProps> = ({ onClickSignIn }) => {
 								base: clsx(clickSide == 'signin' && cls.btn_auth_group_signin, 'h-full'),
 								content: clsx(
 									clickSide == 'signin' && cls.btn_auth_group_signin_inner,
-									'w-full h-full py-[9px] px-[43px]'
+									'w-full h-full py-[9px] px-[43px] 2sm:px-[36px]'
 								)
 							}}
 							onClick={() => {
@@ -73,7 +73,7 @@ const SignUpModal: FC<SignUpModalProps> = ({ onClickSignIn }) => {
 								base: clsx(clickSide == 'signup' && cls.btn_auth_group_signin, 'h-full'),
 								content: clsx(
 									clickSide == 'signup' && cls.btn_auth_group_signin_inner,
-									'w-full h-full py-[9px] px-[43px]'
+									'w-full h-full py-[9px] px-[43px] 2sm:px-[36px]'
 								)
 							}}
 						>

@@ -5,7 +5,7 @@ import cls from '../CaseBattle.module.sass'
 
 const WinnerAvatar = () => {
 	return (
-		<div>
+		<div className='relative'>
 			<div className={clsx(cls.result_avatar, cls.winner)}>
 				<div className={cls.result_avatar_inner}>
 					<Image

@@ -11,9 +11,12 @@ import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseOpen from '@/shared/assets/icons/icon-case-open.svg'
 import IconClose from '@/shared/assets/icons/icon-modal-close.svg'
+import IconSearch from '@/shared/assets/icons/icon-search.svg'
 import IconWallet from '@/shared/assets/icons/icon-wallet.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
+import { Input } from '@/shared/ui/Input/Input'
+import { Slider } from '@/shared/ui/Slider/Slider'
 
 import BattleCardNew from './BattleCardNew'
 import CaseItem from './CaseItem'
@@ -49,7 +52,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 					/>
 				</div>
 				<div className={clsx(cls.drop_list, 'max-h-[440px] overflow-y-auto')}>
-					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px]'>
+					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] 3sm:grid-cols-2'>
 						{caseItems.map((item, index) => (
 							<CaseItem
 								key={index}
@@ -75,7 +78,36 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 
 	return (
 		<div className={clsx(cls.modal, 'relative')}>
-			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,240px)] justify-between gap-5 lg:justify-center'>
+			<div className='mb-5 flex gap-5 3sm:flex-col'>
+				<Input
+					value=''
+					onChange={() => {
+						return
+					}}
+					placeholder={t('create_case.search')}
+					startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
+					classNames={{
+						mainWrapper: 'rounded-lg w-full'
+					}}
+				/>
+				<div className='flex flex-col'>
+					<div className='flex justify-between gap-2'>
+						<p className='text-[14px]'>{t('game_history_profile.price').toUpperCase()}</p>
+						<p className='text-[12px] text-[#60719A]'>$48.34 - $50 00.00</p>
+					</div>
+					<Slider
+						maxValue={100}
+						minValue={0}
+						value={[20, 60]}
+						classNames={{
+							base: 'w-[200px] 3sm:w-full',
+							track: 'h-2',
+							thumb: 'w-5 h-5'
+						}}
+					/>
+				</div>
+			</div>
+			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,240px)] justify-between gap-5 lg:justify-center 3sm:grid-cols-2'>
 				{newBattleItems.map((item, index) => (
 					<BattleCardNew
 						amount={amounts[index] ?? 0}
@@ -99,32 +131,32 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 					/>
 				))}
 			</div>
-			<div className='flex items-center gap-4 rounded-[12px] border border-[#1A202E] px-5 py-[18px]'>
+			<div className='flex items-center gap-4 rounded-[12px] border border-[#1A202E] px-5 py-[18px] 2md:justify-center md:flex-wrap 2sm:gap-2 2sm:px-2 2sm:py-2'>
 				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-5'>
 					<IconCaseOpen className='mr-2 w-6 fill-[#60719A]' />
-					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
+					<span className='text-[14px] font-medium leading-4 text-[#60719A] 2sm:text-[12px]'>
 						{t('case_battles.total_case')}: <span className='font-bold text-white'>1</span>
 					</span>
 				</div>
-				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px]'>
+				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:flex-grow md:pr-2'>
 					<IconBagTick className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
 						{t('case_battles.total_cost')}:{' '}
-						<span className='font-bold text-white'>
+						<span className='font-bold text-white 2sm:text-[12px]'>
 							<span className='text-[#17E2A5]'>$</span>15.50
 						</span>
 					</span>
 				</div>
-				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[15px]'>
+				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[15px] md:w-full'>
 					<IconWallet className='mr-2 w-6 fill-[#60719A]' />
-					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
+					<span className='text-[14px] font-medium leading-4 text-[#60719A] 2sm:text-[12px]'>
 						{t('case_battles.user_balance')}:{' '}
 						<span className='font-bold text-white'>
 							<span className='text-[#17E2A5]'>$</span>1740.00
 						</span>
 					</span>
 				</div>
-				<div className='flex flex-grow justify-end'>
+				<div className='flex flex-grow justify-end 2md:hidden'>
 					<div style={{ filter: 'drop-shadow(0 0 12px #10AA7C59)' }}>
 						<Button
 							onPress={() => {
@@ -142,6 +174,25 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 						</Button>
 					</div>
 				</div>
+			</div>
+			<div
+				style={{ filter: 'drop-shadow(0 0 12px #10AA7C59)' }}
+				className='mt-5 hidden justify-center 2md:flex'
+			>
+				<Button
+					onPress={() => {
+						addCases(selectedItems.length)
+					}}
+					classNames={{
+						base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
+						content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
+					}}
+				>
+					<IconPlus className={clsx(cls.hexagon_btn_inner_icon, cls.sm, 'w-4 !fill-[#121722]')} />
+					<span className='text-[14px] font-[900] leading-4 text-[#121722] [text-shadow:_0_1px_0_rgb(37_255_189_/_0.45)]'>
+						{t('case_battles.add_cases').toUpperCase()}
+					</span>
+				</Button>
 			</div>
 		</div>
 	)

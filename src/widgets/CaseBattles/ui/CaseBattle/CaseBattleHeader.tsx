@@ -181,7 +181,7 @@ const MainHeader = () => {
 		switch (currentBattleVariant) {
 			case BattleVariants.ONE_VS_ONE:
 				return (
-					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center'>
+					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center 2md:mr-0'>
 						{joinedPlayers > 0 ? (
 							<div className='mr-4 flex flex-col gap-4'>
 								<Avatar icon='/images/avatars/3.jpg' />
@@ -201,7 +201,7 @@ const MainHeader = () => {
 				)
 			case BattleVariants.ONE_VS_ONE_VS_ONE:
 				return (
-					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center'>
+					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center 2md:mr-0'>
 						{joinedPlayers > 0 ? (
 							<div className='mr-4 flex flex-col gap-4'>
 								<Avatar icon='/images/avatars/3.jpg' />
@@ -229,7 +229,7 @@ const MainHeader = () => {
 				)
 			case BattleVariants.ONE_VS_ONE_VS_ONE_VS_ONE:
 				return (
-					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center'>
+					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center 2md:mr-0'>
 						{joinedPlayers > 0 ? (
 							<div className='mr-2 flex flex-col gap-4'>
 								<Avatar icon='/images/avatars/3.jpg' />
@@ -265,7 +265,7 @@ const MainHeader = () => {
 				)
 			case BattleVariants.TWO_VS_TWO:
 				return (
-					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center'>
+					<div className='relative mr-4 flex flex-[0_0_216px] items-center justify-center 2md:mr-0'>
 						{joinedPlayers > 0 ? (
 							<div className='mr-1 flex flex-col gap-4'>
 								<Avatar icon='/images/avatars/2.jpg' />
@@ -302,8 +302,8 @@ const MainHeader = () => {
 
 	return (
 		<div className={clsx(cls.main_list, 'mb-[20px]')}>
-			<div className={clsx(cls.main_list_inner)}>
-				<div className='relative flex flex-[0_0_54px] flex-col items-center'>
+			<div className={clsx(cls.main_list_inner, '2md:!grid 2md:!grid-cols-4 2md:!gap-2 2md:!px-1 2md:!pb-1')}>
+				<div className='relative flex flex-[0_0_54px] flex-col items-center 2md:!row-span-2 2md:ml-3'>
 					{isLive ? (
 						<div className='absolute right-0 top-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-md bg-[#10AA7C26] p-[3px]'>
 							<div className='h-[6px] w-[6px] rounded-md bg-[#10AA7C]'></div>
@@ -321,7 +321,7 @@ const MainHeader = () => {
 						cls.hexagon_btn,
 						cls.default,
 						cls.sm,
-						'mx-[30px] h-[38px] w-full max-w-[120px] flex-[0_0_120px] px-[13px]'
+						'mx-[30px] h-[38px] w-full max-w-[120px] flex-[0_0_120px] px-[13px] 2md:col-span-3 2md:mx-0 2md:mr-3 2md:justify-self-end'
 					)}
 				>
 					<div className={clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')}>
@@ -331,8 +331,8 @@ const MainHeader = () => {
 						</span>
 					</div>
 				</div>
-				<div className='relative flex-grow'>
-					<div className={clsx(cls.main_list_case_battle_cases_icons, 'max-w-[500px]')}>
+				<div className='relative flex-grow 2md:order-1 2md:col-span-4'>
+					<div className={clsx(cls.main_list_case_battle_cases_icons, 'max-w-[500px] 2md:max-w-full')}>
 						{casesIcons.map((icon, index) => (
 							<Fragment key={`case-icon-${index}:${Date.now()}`}>
 								<Image
@@ -358,7 +358,7 @@ const MainHeader = () => {
 					</div>
 				</div>
 				{isCrazyMode ? (
-					<div className='mr-2'>
+					<div className='mx-2 2md:hidden'>
 						<svg
 							width='35'
 							height='39'
@@ -412,7 +412,7 @@ const MainHeader = () => {
 						</svg>
 					</div>
 				) : null}
-				{battleVariants()}
+				<div className='2md:col-span-3 2md:mr-3 2md:justify-self-end'>{battleVariants()}</div>
 				<Button>
 					<svg
 						width='34'
@@ -420,6 +420,7 @@ const MainHeader = () => {
 						viewBox='0 0 34 38'
 						fill='none'
 						xmlns='http://www.w3.org/2000/svg'
+						className='2md:hidden'
 					>
 						<g clip-path='url(#clip0_4135_3694)'>
 							<path

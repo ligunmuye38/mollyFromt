@@ -27,7 +27,6 @@ const MainHeader = () => {
 	}, [selectedOption, setCurrentBattleVariant])
 
 	const battleVariants = (value: string) => {
-		console.log('rabi', value)
 		switch (value) {
 			case BattleVariants.ONE_VS_ONE:
 				return (
@@ -73,78 +72,127 @@ const MainHeader = () => {
 	}
 
 	return (
-		<div className={cls.main_header}>
-			<div className={cls.main_header_inner}>
-				<div className='flex items-center gap-[6px]'>
-					<p>{t('case_battles.players')}</p>
-					{battleVariants(String(new Set(selectedOption).values().next().value))}
-					<Dropdown
-						placement='bottom-end'
-						className='bg-[#1A2130] dark'
-					>
-						<DropdownTrigger>
-							<Button
-								isIconOnly
-								className='h-[20px] w-[20px] rounded-md bg-[#252C3F]'
-							>
-								<IconDown className='h-[20px] w-[20px] fill-[#404B65]' />
-							</Button>
-						</DropdownTrigger>
-						<DropdownMenu
-							disallowEmptySelection
-							aria-label='Battle types'
-							className='max-w-[300px] bg-[#1A2130] dark'
-							selectedKeys={selectedOption}
-							selectionMode='single'
-							onSelectionChange={setSelectedOption}
+		<>
+			<div className={clsx(cls.main_header)}>
+				<div className={cls.main_header_inner}>
+					<div className='flex items-center gap-[6px] 2md:hidden'>
+						<p>{t('case_battles.players')}</p>
+						{battleVariants(String(new Set(selectedOption).values().next().value))}
+						<Dropdown
+							placement='bottom-end'
+							className='bg-[#1A2130] dark'
 						>
-							{Object.values(BattleVariants).map(value => (
-								<DropdownItem
-									key={value}
-									className='hover:!bg-[#313845] focus:!bg-[#313845]'
+							<DropdownTrigger>
+								<Button
+									isIconOnly
+									className='h-[20px] w-[20px] rounded-md bg-[#252C3F]'
 								>
-									{battleVariants(value)}
-								</DropdownItem>
-							))}
-						</DropdownMenu>
-					</Dropdown>
+									<IconDown className='h-[20px] w-[20px] fill-[#404B65]' />
+								</Button>
+							</DropdownTrigger>
+							<DropdownMenu
+								disallowEmptySelection
+								aria-label='Battle types'
+								className='max-w-[300px] bg-[#1A2130] dark'
+								selectedKeys={selectedOption}
+								selectionMode='single'
+								onSelectionChange={setSelectedOption}
+							>
+								{Object.values(BattleVariants).map(value => (
+									<DropdownItem
+										key={value}
+										className='hover:!bg-[#313845] focus:!bg-[#313845]'
+									>
+										{battleVariants(value)}
+									</DropdownItem>
+								))}
+							</DropdownMenu>
+						</Dropdown>
+					</div>
+					<div className='flex items-center gap-[6px] 2md:w-full 2md:justify-center'>
+						<IconCrazyMode className='w-[14px] flex-[0_0_14px]' />
+						<p>{t('case_battles.bot_mode')}</p>
+						<Switch
+							color='default'
+							classNames={{
+								base: 'rounded-sm w-[30px]',
+								wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+								thumb:
+									"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+							}}
+						/>
+						<span className='text-[20px] text-[#232A3C]'>|</span>
+						<IconBotMode className='w-[16px] flex-[0_0_16px]' />
+						<p>{t('case_battles.crazy_mode')}</p>
+						<Switch
+							color='default'
+							classNames={{
+								base: 'rounded-sm w-[30px]',
+								wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+								thumb:
+									"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+							}}
+						/>
+						<span className='text-[20px] text-[#232A3C]'>|</span>
+						<IconPrivateMode className='w-[20px] flex-[0_0_20px]' />
+						<p>{t('case_battles.private_mode')}</p>
+						<Switch
+							color='default'
+							classNames={{
+								base: 'rounded-sm w-[30px]',
+								wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+								thumb:
+									"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+							}}
+						/>
+						<Button
+							classNames={{
+								base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px] ml-[10px] 2md:hidden'),
+								content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
+							}}
+						>
+							<IconTrash className={clsx(cls.hexagon_btn_inner_icon, cls.sm)} />
+							{t('case_battles.clear_all')}
+						</Button>
+					</div>
 				</div>
-				<div className='flex items-center gap-[6px]'>
-					<IconCrazyMode className='w-[14px]' />
-					<p>{t('case_battles.bot_mode')}</p>
-					<Switch
-						color='default'
-						classNames={{
-							base: 'rounded-sm w-[30px]',
-							wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-							thumb:
-								"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-						}}
-					/>
-					<span className='text-[20px] text-[#232A3C]'>|</span>
-					<IconBotMode />
-					<p>{t('case_battles.crazy_mode')}</p>
-					<Switch
-						color='default'
-						classNames={{
-							base: 'rounded-sm w-[30px]',
-							wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-							thumb:
-								"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-						}}
-					/>
-					<span className='text-[20px] text-[#232A3C]'>|</span>
-					<IconPrivateMode />
-					<p>{t('case_battles.private_mode')}</p>
-					<Switch
-						color='default'
-						classNames={{
-							base: 'rounded-sm w-[30px]',
-							wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-							thumb:
-								"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-						}}
-					/>
+			</div>
+			<div className={clsx(cls.main_header, 'hidden 2md:block')}>
+				<div className={cls.main_header_inner}>
+					<div className='flex items-center gap-[6px]'>
+						<p>{t('case_battles.players')}</p>
+						{battleVariants(String(new Set(selectedOption).values().next().value))}
+						<Dropdown
+							placement='bottom-end'
+							className='bg-[#1A2130] dark'
+						>
+							<DropdownTrigger>
+								<Button
+									isIconOnly
+									className='h-[20px] w-[20px] rounded-md bg-[#252C3F]'
+								>
+									<IconDown className='h-[20px] w-[20px] fill-[#404B65]' />
+								</Button>
+							</DropdownTrigger>
+							<DropdownMenu
+								disallowEmptySelection
+								aria-label='Battle types'
+								className='max-w-[300px] bg-[#1A2130] dark'
+								selectedKeys={selectedOption}
+								selectionMode='single'
+								onSelectionChange={setSelectedOption}
+							>
+								{Object.values(BattleVariants).map(value => (
+									<DropdownItem
+										key={value}
+										className='hover:!bg-[#313845] focus:!bg-[#313845]'
+									>
+										{battleVariants(value)}
+									</DropdownItem>
+								))}
+							</DropdownMenu>
+						</Dropdown>
+					</div>
 					<Button
 						classNames={{
 							base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px] ml-[10px]'),
@@ -156,7 +204,7 @@ const MainHeader = () => {
 					</Button>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

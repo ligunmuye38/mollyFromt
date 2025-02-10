@@ -33,13 +33,13 @@ const CaseItem = ({ item }: { item: ICaseItemType }) => {
 		<div
 			onClick={() => setSelected(v => !v)}
 			className={clsx(
-				'h-[215px] w-[194px] cursor-pointer rounded-[12px] p-[2px]',
+				'h-[215px] w-[194px] cursor-pointer rounded-[12px] p-[2px] 2sm:w-auto',
 				selected
 					? 'bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 					: 'bg-[#161C28]'
 			)}
 		>
-			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#121722] p-5'>
+			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#121722] p-5 md:p-3'>
 				<div className='flex w-full justify-between'>
 					<p className='text-[13px] font-medium leading-[10px] text-[#2F374A]'>FT</p>
 					<div
@@ -63,9 +63,11 @@ const CaseItem = ({ item }: { item: ICaseItemType }) => {
 						alt='gun'
 					/>
 				</div>
-				<div>
-					<p className='w-full text-left text-[14px] font-medium text-[#2F374A]'>AK-47 | Fire Serpent</p>
-					<p className='w-full text-left text-[16px] font-bold text-[#D1D9EB]'>$ 456,05</p>
+				<div className='w-full'>
+					<p className='w-full text-left text-[14px] font-medium text-[#2F374A] 2sm:text-[12px]'>
+						AK-47 | Fire Serpent
+					</p>
+					<p className='w-full text-left text-[16px] font-bold text-[#D1D9EB] 2sm:text-[14px]'>$ 456,05</p>
 				</div>
 			</div>
 		</div>
@@ -77,7 +79,7 @@ const CreateLottoModal = () => {
 
 	return (
 		<div className={cls.modal}>
-			<div className='mb-5 flex gap-4'>
+			<div className='mb-5 flex gap-4 3sm:flex-col'>
 				<Input
 					value=''
 					onChange={() => {
@@ -90,7 +92,7 @@ const CreateLottoModal = () => {
 						mainWrapper: 'w-full'
 					}}
 				/>
-				<div className='flex h-[48px] w-full max-w-[355px]'>
+				<div className='flex h-[48px] w-full max-w-[355px] 3sm:max-w-full'>
 					<div className='flex w-full items-center gap-2 rounded-l-[12px] border-1 border-[#232B3E] p-3'>
 						<div className='w-max rounded-[100%] bg-[#353D51] p-1'>
 							<IconDollarCircle />
@@ -105,7 +107,7 @@ const CreateLottoModal = () => {
 					</div>
 				</div>
 			</div>
-			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px]'>
+			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] md:grid-cols-2'>
 				{caseItems.slice(0, 10).map((item, index) => (
 					<CaseItem
 						key={index}
@@ -118,8 +120,8 @@ const CreateLottoModal = () => {
 					'flex items-center justify-between gap-4 rounded-xl border-1 border-[#1A202E] py-[18px] pl-5 pr-[14px]'
 				)}
 			>
-				<div className='flex items-center gap-4'>
-					<div className='flex w-max items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] px-3 py-[9px]'>
+				<div className='flex items-center gap-4 lg:w-full lg:justify-center md:flex-col'>
+					<div className='flex w-max items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] px-3 py-[9px] md:w-full'>
 						<IconBagTick className='mr-2 w-6 fill-[#60719A]' />
 						<span className='text-[12px] font-medium leading-4 text-[#60719A]'>
 							{t('lotto.cost_of_participation')}:{' '}
@@ -128,14 +130,14 @@ const CreateLottoModal = () => {
 							</span>
 						</span>
 					</div>
-					<div className='relative flex h-[44px] w-[170px] items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[12px] py-[10px]'>
-						<p className='absolute -top-2 left-1/2 w-max -translate-x-1/2 bg-[#141925] px-1 text-[11px] font-medium text-[#60719A]'>
+					<div className='relative flex h-[44px] w-[170px] items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[12px] py-[10px] md:w-full'>
+						<p className='absolute -top-2 left-1/2 w-max -translate-x-1/2 bg-[#141925] px-1 text-[11px] font-medium text-[#60719A] md:left-6 md:translate-x-0'>
 							{t('lotto.number_of_participants')}:
 						</p>
 						<IconPeople className='h-6 w-6 fill-[#60719A]' />
 						<p className='text-[16px] text-white'>2</p>
 					</div>
-					<div className='flex h-[44px] items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[12px] py-[10px]'>
+					<div className='flex h-[44px] items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[12px] py-[10px] md:w-full'>
 						<IconUnprotected className='h-6 w-6 fill-[#60719A]' />
 						<p className='text-[14px] text-[#60719A]'>{t('lotto.lottery_privacy')}</p>
 						<ToggleButton
@@ -146,7 +148,10 @@ const CreateLottoModal = () => {
 						/>
 					</div>
 				</div>
-				<div style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C40)' }}>
+				<div
+					className='lg:hidden'
+					style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C40)' }}
+				>
 					<Button
 						classNames={{
 							base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
@@ -157,6 +162,20 @@ const CreateLottoModal = () => {
 						<span className='text-[14px] font-[900] leading-4 text-[#121722]'>{t('lotto.create').toUpperCase()}</span>
 					</Button>
 				</div>
+			</div>
+			<div
+				className='mt-4 flex justify-center'
+				style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C40)' }}
+			>
+				<Button
+					classNames={{
+						base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
+						content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
+					}}
+				>
+					<IconPlus className={clsx(cls.hexagon_btn_inner_icon, cls.sm, 'w-4 !fill-[#121722]')} />
+					<span className='text-[14px] font-[900] leading-4 text-[#121722]'>{t('lotto.create').toUpperCase()}</span>
+				</Button>
 			</div>
 		</div>
 	)

@@ -45,7 +45,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 						className='mx-auto'
 					/>
 					<div
-						className='absolute right-5 top-0'
+						className='absolute right-5 top-0 md:hidden'
 						style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C59)' }}
 					>
 						<Button
@@ -69,6 +69,18 @@ export const Main: FC<MainProps> = ({ className }) => {
 			</div>
 			<div className='px-[20px]'>
 				<MainList type={type} />
+			</div>
+			<div className='sticky bottom-[69px] z-20 hidden h-[76px] w-full items-center justify-center bg-[linear-gradient(180deg,_#12172200_0%,_#121722_60%)] md:flex'>
+				<Button
+					onPress={() => router.push('/case-battles/create')}
+					classNames={{
+						base: clsx(cls.hexagon_btn, 'h-[42px] w-[200px]'),
+						content: clsx(cls.hexagon_btn_inner, '!gap-0')
+					}}
+				>
+					<IconPlusRounded className={clsx(cls.hexagon_btn_inner_icon, 'fill-[#121722]')} />
+					{t('case_battles.create_battle')}
+				</Button>
 			</div>
 		</div>
 	)

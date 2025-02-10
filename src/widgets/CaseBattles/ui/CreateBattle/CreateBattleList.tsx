@@ -22,7 +22,7 @@ const CaseCard = () => {
 	const [amount, setAmount] = useState<number>(0)
 
 	return (
-		<div className={clsx(cls.create_battle_card_bg, 'w-[220px]')}>
+		<div className={clsx(cls.create_battle_card_bg, 'w-[220px] 2sm:w-full')}>
 			<div
 				className={clsx(cls.create_battle_card_bg_inner, 'flex h-full flex-col items-center justify-center pb-[30px]')}
 			>
@@ -33,12 +33,14 @@ const CaseCard = () => {
 					alt='image'
 				/>
 				<p className='my-[15px] text-[15px] font-medium leading-4 text-white'>Cases Magic</p>
-				<div className={cls.case_card_price}>
+				<div className={clsx(cls.case_card_price, '2sm:!w-[140px]')}>
 					<div className={clsx(cls.case_card_price_inner, 'flex items-center px-4')}>
 						<p className='text-[14px] font-[900] leading-4 text-white'>$15.50</p>
 					</div>
-					<div className={cls.case_card_price_btc}>
-						<div className={clsx(cls.case_card_price_btc_inner, 'flex items-center gap-[6px] px-[14px]')}>
+					<div className={clsx(cls.case_card_price_btc, '2sm:!w-[70px]')}>
+						<div
+							className={clsx(cls.case_card_price_btc_inner, 'flex items-center justify-center gap-[6px] 2sm:gap-1')}
+						>
 							<p className='h-4 w-4 rounded-[4px] border-1 border-[#FDCD24] bg-[#E2B617] text-center text-[12px] font-[900] leading-4 text-[#10151E]'>
 								B
 							</p>
@@ -48,7 +50,7 @@ const CaseCard = () => {
 				</div>
 				<div className={clsx(cls.spin, 'mt-[7px] !bg-[#242C3E]')}>
 					<Button onPress={() => setAmount(amount == 0 ? amount : amount - 1)}>
-						<IconHexagonGreenSmall />
+						<IconHexagonGreenSmall className='h-[36px] w-[32px]' />
 						<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>-</span>
 					</Button>
 					<span>{amount}</span>
@@ -57,7 +59,7 @@ const CaseCard = () => {
 							setAmount(amount + 1)
 						}}
 					>
-						<IconHexagonGreenSmall />
+						<IconHexagonGreenSmall className='h-[36px] w-[32px]' />
 						<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>+</span>
 					</Button>
 				</div>
@@ -122,11 +124,11 @@ const MainList = () => {
 				</div>
 			) : (
 				<div className='flex w-full flex-col items-center gap-6'>
-					<div className='grid w-full auto-rows-auto grid-cols-[repeat(auto-fill,220px)] gap-3'>
+					<div className='grid w-full auto-rows-auto grid-cols-[repeat(auto-fill,220px)] justify-between gap-3 2sm:grid-cols-2'>
 						{Array.from(new Array(items)).map((_, index) => (
 							<CaseCard key={index} />
 						))}
-						<div className={clsx(cls.create_battle_card_bg, 'h-full w-[220px]')}>
+						<div className={clsx(cls.create_battle_card_bg, 'h-full w-[220px] 2sm:w-full')}>
 							<div
 								className={clsx(
 									cls.create_battle_card_bg_inner,
@@ -141,7 +143,7 @@ const MainList = () => {
 									<Button
 										onPress={onCreateCases}
 										classNames={{
-											base: clsx(cls.hexagon_btn, cls.sm, 'h-[42px] w-[180px]'),
+											base: clsx(cls.hexagon_btn, cls.sm, 'h-[42px] w-[180px] 2sm:w-[140px]'),
 											content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
 										}}
 									>

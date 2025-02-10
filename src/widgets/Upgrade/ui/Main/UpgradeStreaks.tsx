@@ -553,8 +553,6 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 	useEffect(() => {
 		if (itemRef.current) {
 			const resizeObserver = new ResizeObserver(() => {
-				console.log('rabi')
-
 				const calcWidth = (step: any) => {
 					if (step.balance && step.items) return 268.22
 					if (step.balance) return 122.11
@@ -575,7 +573,6 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 				let index = 1
 				while (index < stepsList.length - 1) {
 					tempWidth += calcWidth(stepsList[index]) + 102.84
-					console.log('rabi', realWidth, tempWidth, index)
 					if (tempWidth > realWidth) break
 
 					steps.push(stepsList[index])

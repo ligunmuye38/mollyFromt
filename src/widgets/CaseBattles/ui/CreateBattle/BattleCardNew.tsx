@@ -28,7 +28,7 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 
 	return (
 		<div
-			className={clsx(cls.battle_card_new, { [cls.selected]: selected }, 'overflow-hidden')}
+			className={clsx(cls.battle_card_new, { [cls.selected]: selected }, 'overflow-hidden 3sm:!w-full')}
 			onClick={() => toggleIsHover(true)}
 			onMouseLeave={() => setTimeout(() => toggleIsHover(false), 100)}
 		>
@@ -44,21 +44,22 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 					)}
 				</div>
 				<Image
+					className='3sm:h-[100px] 3sm:w-[100px]'
 					src={item.image}
 					width={160}
 					height={160}
 					alt='Case Image'
 				/>
 				<p className={cls.title}>{item.title}</p>
-				<div className='flex w-full justify-between'>
+				<div className='flex w-full justify-between 3sm:flex-col-reverse 3sm:items-center 3sm:gap-2'>
 					<div className={cls.price_wrapper}>
-						<div className={cls.price}>
+						<div className={clsx(cls.price, '3sm:!h-[36px] 3sm:!w-[110px]')}>
 							<div className={cls.price_inner}>${item.price}</div>
 						</div>
 					</div>
-					<div className={cls.spin}>
+					<div className={clsx(cls.spin, '3sm:!h-[36px] 3sm:!w-[90px]')}>
 						<Button onPress={() => setAmount(amount == 0 ? amount : amount - 1)}>
-							<IconHexagonGreenSmall />
+							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
 							<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>-</span>
 						</Button>
 						<span>{amount}</span>
@@ -68,7 +69,7 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 								else setAmount(amount + 1)
 							}}
 						>
-							<IconHexagonGreenSmall />
+							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
 							<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>+</span>
 						</Button>
 					</div>

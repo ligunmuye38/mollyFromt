@@ -20,6 +20,7 @@ import IconLock from '@/shared/assets/icons/icon-lock.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
 import IconTelegram from '@/shared/assets/icons/icon-telegram.svg'
+import IconTimer from '@/shared/assets/icons/icon-timer.svg'
 import IconTrash from '@/shared/assets/icons/icon-trash.svg'
 import IconTwitch from '@/shared/assets/icons/icon-twitch-2.svg'
 import IconTwitter from '@/shared/assets/icons/icon-twitter-2.svg'
@@ -29,6 +30,7 @@ import IconWallet from '@/shared/assets/icons/icon-wallet.svg'
 import IconYoutube from '@/shared/assets/icons/icon-youtube.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 import Button from '@/shared/ui/Button/Button'
+import DateTimePicker from '@/shared/ui/DateTimePicker/DateTimePicker'
 import { Input } from '@/shared/ui/Input/Input'
 
 import CaseItem from './CaseItem'
@@ -359,7 +361,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 			</div>
 			<div className='px-5'>
 				<div className='mb-5 w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
-					<div className='grid h-full w-full grid-cols-3 gap-4 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5'>
+					<div className='grid h-full w-full grid-cols-3 gap-4 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5 md:grid-cols-1'>
 						<div className='flex items-center gap-[10px] rounded-lg border-1 border-[#1E2536] bg-[#141925] py-2 pl-2 pr-4'>
 							<Avatar />
 							<p className='bg-[linear-gradient(0deg,_#D1D9EB,_#D1D9EB),_linear-gradient(0deg,_rgba(28,_34,_48,_0)_-0.71%,_rgba(28,_34,_48,_0.35)_100.71%) flex-grow bg-clip-text'>
@@ -387,7 +389,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								</div>
 							</div>
 						</div>
-						<div className='col-span-2'></div>
+						<div className='col-span-2 md:hidden'></div>
 						<div>
 							<p className='mb-2 text-[14px] font-medium leading-4 text-white'>{t('giveaways.name_giveaway')}</p>
 							<Input
@@ -416,7 +418,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								}}
 							/>
 						</div>
-						<div className='col-span-1'></div>
+						<div className='col-span-1 md:hidden'></div>
 						<div>
 							<p className='mb-2 text-[14px] font-medium leading-4 text-white'>{t('giveaways.custom_giveaway_link')}</p>
 							<Input
@@ -431,24 +433,31 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								}}
 							/>
 						</div>
-						<div>
-							<p className='mb-2 flex justify-between text-[14px] font-medium leading-4 text-white'>
-								{t('giveaways.ends')}
-								<span className='text-[12px] font-medium text-[#404B65]'>({t('giveaways.max_duration')})</span>
-							</p>
-							<Input
-								value={name}
-								onChange={setName}
-								startContent={<IconPeople className='h-5 w-5 fill-[#60719A]' />}
-								placeholder={t('giveaways.users_limit_placeholder')}
-								classNames={{
-									inputWrapper: '!border-[#1E2536] !bg-[#141925] rounded-[8px]',
-									input: 'text-[14px]',
-									mainWrapper: 'w-full'
-								}}
-							/>
-						</div>
-						<div className='col-span-1'></div>
+						<Popover>
+							<PopoverTrigger>
+								<div>
+									<p className='mb-2 flex justify-between text-[14px] font-medium leading-4 text-white'>
+										{t('giveaways.ends')}
+										<span className='text-[12px] font-medium text-[#404B65]'>({t('giveaways.max_duration')})</span>
+									</p>
+									<Input
+										value={name}
+										onChange={setName}
+										startContent={<IconTimer className='h-5 w-5 fill-[#60719A]' />}
+										placeholder={t('giveaways.users_limit_placeholder')}
+										classNames={{
+											inputWrapper: '!border-[#1E2536] !bg-[#141925] rounded-[8px]',
+											input: 'text-[14px]',
+											mainWrapper: 'w-full'
+										}}
+									/>
+								</div>
+							</PopoverTrigger>
+							<PopoverContent className='p-0'>
+								<DateTimePicker />
+							</PopoverContent>
+						</Popover>
+						<div className='col-span-1 md:hidden'></div>
 						<div className='mt-2'>
 							<p className='mb-2 text-[14px] font-medium leading-4 text-white'>
 								{t('giveaways.make_this_giveaway_private')}
@@ -471,30 +480,32 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 					</div>
 				</div>
 				<div className='mb-5 w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
-					<div className='flex w-full items-center justify-between gap-3 rounded-t-[12px] bg-[#141925] p-[11px]'>
-						<div className='flex items-center gap-[10px]'>
-							<HexagonIcon
-								icon={<IconGun className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2' />}
-							/>
-							<div>
-								<p className='text-[14px] font-medium'>3 {t('giveaways.skins')}</p>
-								<p className='text-[12px] font-medium'>
-									<span className='text-[#17E2A5]'>$</span> 131.00
-								</p>
+					<div className='flex w-full items-center justify-between gap-3 rounded-t-[12px] bg-[#141925] p-[11px] md:flex-wrap'>
+						<div className='flex flex-shrink-0 gap-3 md:w-full md:justify-between'>
+							<div className='flex items-center gap-[10px]'>
+								<HexagonIcon
+									icon={<IconGun className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2' />}
+								/>
+								<div>
+									<p className='text-[14px] font-medium'>3 {t('giveaways.skins')}</p>
+									<p className='text-[12px] font-medium'>
+										<span className='text-[#17E2A5]'>$</span> 131.00
+									</p>
+								</div>
 							</div>
-						</div>
-						<div className='flex items-center gap-[10px]'>
-							<HexagonIcon
-								icon={
-									<IconWallet className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 fill-[#10AA7C]' />
-								}
-							/>
-							<div>
-								<p className='text-[14px] text-white'>
-									<span className='text-[#17E2A5]'>$</span> 11.00 <span className='text-[#60719A]'>/</span>{' '}
-									<span className='text-[#17E2A5]'>$</span> 17.34
-								</p>
-								<p className='text-[12px] text-[#60719A]'>{t('giveaways.account_balance_used')}</p>
+							<div className='flex items-center gap-[10px]'>
+								<HexagonIcon
+									icon={
+										<IconWallet className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 fill-[#10AA7C]' />
+									}
+								/>
+								<div>
+									<p className='text-[14px] text-white'>
+										<span className='text-[#17E2A5]'>$</span> 11.00 <span className='text-[#60719A]'>/</span>{' '}
+										<span className='text-[#17E2A5]'>$</span> 17.34
+									</p>
+									<p className='text-[12px] text-[#60719A]'>{t('giveaways.account_balance_used')}</p>
+								</div>
 							</div>
 						</div>
 						<div>
@@ -505,7 +516,9 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									<span className='text-white'>3.00+</span>.
 								</p>
 							</div>
-							<p className='text-right text-[12px] text-[#CE3C3C]'>{t('giveaways.minimum_prize_sum')}</p>
+							<p className='text-right text-[12px] text-[#CE3C3C] md:pl-4 md:text-left'>
+								{t('giveaways.minimum_prize_sum')}
+							</p>
 						</div>
 					</div>
 					<div className='w-full gap-[7px] rounded-b-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-4'>
@@ -533,7 +546,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 					</div>
 				</div>
 				<div className='w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
-					<div className='flex w-full items-center justify-between gap-3 rounded-t-[12px] bg-[#141925] p-[11px]'>
+					<div className='flex w-full items-center justify-start gap-3 rounded-t-[12px] bg-[#141925] p-[11px]'>
 						<HexagonIcon
 							icon={
 								<IconVerification className='absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2' />
@@ -542,7 +555,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						<p className='ml-[10px] text-[14px] font-medium text-white'>{t('giveaways.entry_requirements')}</p>
 					</div>
 					<div className='w-full gap-[7px] rounded-b-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-4'>
-						<div className='grid grid-cols-5 gap-[10px]'>
+						<div className='grid grid-cols-5 gap-[10px] 2md:grid-cols-3 md:grid-cols-2'>
 							<RequirementCard
 								icon={<IconWallet />}
 								active
@@ -586,8 +599,8 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 							/>
 						</div>
 						<hr className='my-4 border-[#222A3D]' />
-						<div className='grid grid-cols-5 gap-[10px]'>
-							<div className='relative col-span-2 h-max rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4'>
+						<div className='grid grid-cols-5 gap-[10px] 2md:grid-cols-1'>
+							<div className='relative col-span-2 h-max rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4 2md:col-span-1'>
 								<div className='flex items-center gap-2'>
 									<RequirementIcon
 										icon={<IconWallet />}
@@ -614,13 +627,13 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									}}
 								/>
 							</div>
-							<div className='relative col-span-2 rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4'>
+							<div className='relative col-span-2 rounded-[12px] border-1 border-[#1A2130] bg-[#141925] p-4 2md:col-span-1'>
 								<div className='flex items-center gap-2'>
 									<RequirementIcon
 										icon={<IconCaseOpen />}
 										active
 									/>
-									<p className='text-[12px] font-medium text-white'>{t('giveaways.use_special_code')}</p>
+									<p className='text-[12px] font-medium text-white'>{t('giveaways.buy_case')}</p>
 								</div>
 								<Button className='!absolute !right-4 !top-4'>
 									<div className='h-7 w-7 rounded-md bg-[#1A202F] p-[6px]'>
@@ -641,12 +654,14 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 													height={24}
 													alt='option'
 												/>
-												<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-												<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-												<Button classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4' }}>
+												<div className='flex w-full justify-between 2sm:flex-col'>
+													<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+													<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+												</div>
+												<Button classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}>
 													<IconClose className='h-2 w-2 fill-[#1B2233]' />
 												</Button>
-												<div className='flex h-7 w-7 items-center justify-center rounded-lg bg-[#252C3F]'>
+												<div className='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#252C3F]'>
 													<IconArrowDown
 														className={clsx('w-[18px] fill-[#60719A] duration-150', isOpen ? 'rotate-180' : 'rotate-0')}
 													/>

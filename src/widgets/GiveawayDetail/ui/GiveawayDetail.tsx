@@ -117,7 +117,7 @@ const Avatar = () => {
 
 const PrizeCard = () => {
 	return (
-		<GreenCard className='h-[243px] w-[213px]'>
+		<GreenCard className='h-[243px] w-[213px] 2sm:w-full'>
 			<div className='relative z-10 flex h-full flex-col items-center justify-end py-5'>
 				<div className='flex translate-y-1 items-center gap-2'>
 					<Avatar />
@@ -139,7 +139,7 @@ const PrizeCard = () => {
 
 const ParticipantCard = () => {
 	return (
-		<div className='h-[268px] w-[213px] rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[2px]'>
+		<div className='h-[268px] w-[213px] rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[2px] 2sm:w-full'>
 			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[linear-gradient(180deg,_#191F2C_0%,_#141A25_100%)] pb-5'>
 				<Image
 					className='mb-2'
@@ -169,7 +169,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 		<div>
 			<div className='mb-7'>{isCompleted && <ParticipantsList />}</div>
 			{!mode ? (
-				<div className='mb-5 grid grid-cols-3 gap-5'>
+				<div className='mb-5 grid grid-cols-3 gap-5 2md:grid-cols-1'>
 					<div className='h-[170px] w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[3px]'>
 						<div className='flex h-full w-full flex-col items-center justify-center rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#141925_100%)]'>
 							<div className='relative mb-5'>
@@ -389,7 +389,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 					)}
 				</div>
 			) : (
-				<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,213px)] justify-between gap-5'>
+				<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,213px)] justify-between gap-5 2sm:grid-cols-2'>
 					{Array.from(new Array(4)).map((_, index) => (
 						<ParticipantCard key={index} />
 					))}
@@ -415,7 +415,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 						))}
 					</div>
 				) : (
-					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,213px)] justify-between gap-5'>
+					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,213px)] justify-between gap-5 2sm:grid-cols-2'>
 						{caseItems.map((_, index) => (
 							<PrizeCard key={index} />
 						))}

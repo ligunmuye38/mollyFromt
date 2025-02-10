@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -17,8 +18,8 @@ const GiveawaysHeader = () => {
 	const [selectedBalanceFilters, setSelectedBalanceFilters] = useState<string[]>([])
 
 	return (
-		<div className={cls.giveaways_header}>
-			<div className={cls.giveaways_header_inner}>
+		<div className={clsx(cls.giveaways_header)}>
+			<div className={clsx(cls.giveaways_header_inner, 'lg:!px-2')}>
 				<div className='flex items-center'>
 					<div className='mr-2 h-3 w-3 rounded-xl bg-[#1EC69373] p-[3px]'>
 						<div className='h-[6px] w-[6px] rounded-md bg-[#1EC693]'></div>
@@ -36,7 +37,7 @@ const GiveawaysHeader = () => {
 						theme='theme-2'
 						placeholder={t('profile_achievements.sort_by')}
 						classNames={{
-							base: 'w-[210px]',
+							base: 'w-[100px]',
 							trigger: 'rounded-lg !border-0 !bg-transparent',
 							selectorIcon: 'w-5 h-5',
 							value: '!text-[12px] !text-[#60719A] font-medium text-right'

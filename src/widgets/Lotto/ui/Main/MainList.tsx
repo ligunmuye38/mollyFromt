@@ -128,8 +128,10 @@ export const MainListItem = () => {
 
 	return (
 		<div className={cls.main_list}>
-			<div className={clsx(cls.main_list_inner)}>
-				<div className='flex items-center'>
+			<div
+				className={clsx(cls.main_list_inner, 'md:!grid md:!grid-cols-7 md:!items-start md:!gap-3 md:!px-3 md:!py-4')}
+			>
+				<div className='flex items-center gap-4 md:order-2 md:!col-span-3 md:flex-col md:gap-2'>
 					<div className='relative flex h-[76px] w-[120px] items-center justify-center rounded-[12px] bg-[#10151E]'>
 						<div className='absolute left-1/2 top-0 h-[2px] w-[80px] -translate-x-1/2 -translate-y-1/2 rounded-b-[14px] bg-[#C84646]'></div>
 						<div className='h-[50px] w-[80px] bg-[radial-gradient(50%_50%_at_50%_50%,_#C8464680_0%,_rgba(200,_70,_70,_0)_100%)] backdrop-blur-md'>
@@ -141,38 +143,48 @@ export const MainListItem = () => {
 							/>
 						</div>
 					</div>
-					<div className='ml-4'>
-						<p className='text-[12px] leading-[14px] text-[#3B455C]'>Souvenir AWP</p>
-						<p className='text-[14px] leading-[14px] text-white'>Dragon Lore</p>
-						<p className='mb-1 text-[12px] uppercase leading-[14px] text-[#C94646]'>COVERT</p>
-						<p className='text-[12px] font-bold text-[#17E2A5]'>$ 456,05</p>
+					<div>
+						<p className='text-[12px] leading-[14px] text-[#3B455C] md:mb-[2px] md:text-center'>Souvenir AWP</p>
+						<p className='text-[14px] leading-[14px] text-white md:mb-[2px] md:text-center'>Dragon Lore</p>
+						<p className='mb-1 text-[12px] uppercase leading-[14px] text-[#C94646] md:mb-[2px] md:text-center'>
+							COVERT
+						</p>
+						<p className='text-[12px] font-bold text-[#17E2A5] md:mb-[2px] md:text-center'>$ 456,05</p>
 					</div>
 				</div>
-				<div className='flex items-center gap-3'>
+				<div className='flex items-center gap-3 md:order-1 md:!col-span-2 md:flex-col md:gap-2'>
 					<div className='relative'>
 						<HexagonWrapper />
 						<IconPeople className='absolute left-1/2 top-1/2 h-[18px] w-[18px] -translate-x-1/2 -translate-y-1/2 fill-[#60719A]' />
 					</div>
 					<div>
-						<p className='text-[12px] font-bold text-[#3B455C]'>{t('lotto.players').toUpperCase()}</p>
-						<p className='text-[14px] font-bold text-white'>14/50</p>
+						<p className='text-[12px] font-bold text-[#3B455C] md:text-center md:text-[10px]'>
+							{t('lotto.players').toUpperCase()}
+						</p>
+						<p className='text-[14px] font-bold text-white md:text-center'>14/50</p>
 					</div>
 				</div>
-				<div className='flex items-center gap-3'>
+				<div className='flex items-center gap-3 md:order-3 md:!col-span-2 md:flex-col md:gap-2'>
 					<div className='relative'>
 						<HexagonWrapper />
 						<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-125 fill-[#60719A]' />
 					</div>
 					<div>
-						<p className='text-[12px] font-bold text-[#3B455C]'>{t('lotto.for_a_raffle').toUpperCase()}</p>
-						<p className='text-[14px] font-bold text-white'>
+						<p className='text-[12px] font-bold text-[#3B455C] md:text-center md:text-[10px]'>
+							{t('lotto.for_a_raffle').toUpperCase()}
+						</p>
+						<p className='text-[14px] font-bold text-white md:text-center'>
 							<span className='text-[#17E2A5]'>$</span> 500.34
 						</p>
 					</div>
 				</div>
 				<Button
 					classNames={{
-						base: clsx(cls.hexagon_btn, cls.sm, 'h-[38px] w-[177px] ml-6 flex-[0_0_140px]'),
+						base: clsx(
+							cls.hexagon_btn,
+							cls.sm,
+							'h-[38px] w-[177px] ml-6 flex-[0_0_140px] md:order-4 md:col-span-7 md:mx-auto'
+						),
 						content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
 					}}
 				>
@@ -188,12 +200,12 @@ export const MainListItem = () => {
 
 export const TopBattleItem = () => {
 	return (
-		<div className={cls.top_list}>
-			<div className='relative mr-5 flex flex-grow items-center gap-[10px]'>
+		<div className={clsx(cls.top_list, 'md:!grid md:!grid-cols-7 md:!px-[15px]')}>
+			<div className='relative mr-5 flex flex-grow items-center gap-[10px] md:col-span-3'>
 				<Avatar />
 				<p className='text-[14px] font-bold text-white'>Aleksandr</p>
 			</div>
-			<div className='flex flex-[0_0_20%] justify-center'>
+			<div className='flex flex-[0_0_20%] justify-center md:hidden'>
 				<div
 					className={clsx(cls.hexagon_btn, cls.default, cls.sm, 'mx-[10px] h-[38px] w-full max-w-[100px] px-[13px]')}
 				>
@@ -205,9 +217,13 @@ export const TopBattleItem = () => {
 					</div>
 				</div>
 			</div>
-			<p className='flex-[0_0_20%] text-center text-[14px] font-bold text-[#95AADB]'>20/06/2024 2:42</p>
-			<div className='flex h-[48px] w-[249px] flex-[0_0_250px] items-center gap-[10px] rounded-lg border-1 border-[#212838]'>
-				<div className='relative flex h-[48px] w-[80px] translate-x-[-1px] items-center justify-center rounded-[8px] bg-[#10151E]'>
+			<span className='hidden text-center text-[14px] font-bold leading-4 text-white md:block'>
+				<span className='text-[#24FDBC]'>$</span>
+				100.99
+			</span>
+			<p className='flex-[0_0_20%] text-center text-[14px] font-bold text-[#95AADB] md:hidden'>20/06/2024 2:42</p>
+			<div className='ml-auto flex h-[48px] w-[249px] flex-[0_0_250px] items-center gap-[10px] rounded-lg border-1 border-[#212838] md:col-span-3 md:w-full md:justify-end md:border-0'>
+				<div className='relative flex h-[48px] w-[80px] translate-x-[-1px] items-center justify-center rounded-[8px] bg-[#10151E] md:hidden'>
 					<div className='absolute left-0 top-1/2 h-[30px] w-[2px] -translate-y-1/2 rounded-r-[14px] bg-[#C12BC9]'></div>
 					<div className='h-[38px] w-[60px] bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md'>
 						<Image
@@ -218,9 +234,17 @@ export const TopBattleItem = () => {
 						/>
 					</div>
 				</div>
+				<div className='hidden h-9 w-9 items-center justify-center rounded-lg bg-[#111620] md:flex'>
+					<Image
+						src='/images/case/skin-2.png'
+						width={30}
+						height={30}
+						alt='gun'
+					/>
+				</div>
 				<div>
-					<p className='text-[14px] leading-3 text-[#60719A]'>AK-47 | Fire Serpent</p>
-					<p className='text-[14px] font-bold leading-3 text-[#24FDBC]'>$789.33</p>
+					<p className='mb-[2px] text-[14px] leading-[16px] text-[#60719A] md:text-[8px]'>AK-47 | Fire Serpent</p>
+					<p className='text-[14px] font-bold leading-3 text-[#24FDBC] md:text-[8px]'>$789.33</p>
 				</div>
 			</div>
 		</div>
@@ -243,21 +267,25 @@ const MainList = ({ type }: IMainListProps) => {
 					<div
 						className={clsx(
 							cls.hexagon_container_inner,
-							'flex !h-[34px] w-full items-center px-6 text-[12px] font-[500] leading-[16px] text-[#60719A]'
+							'flex !h-[34px] w-full items-center px-6 text-[12px] font-[500] leading-[16px] text-[#60719A] md:grid md:grid-cols-7'
 						)}
 					>
-						<div className='flex flex-grow items-center gap-[6px]'>
+						<div className='flex flex-grow items-center gap-[6px] md:col-span-3'>
 							{t('lotto.player')} <IconSort />
 						</div>
-						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px]'>
+						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px] md:hidden'>
 							{t('lotto.winning_amount')}
 							<IconSort />
 						</div>
-						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px]'>
+						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px] md:hidden'>
 							{t('lotto.date')}
 							<IconSort />
 						</div>
-						<span className='flex-[0_0_250px] text-right'>{t('lotto.winning')}</span>
+						<div className='hidden flex-[0_0_20%] items-center justify-center gap-[6px] md:flex'>
+							{t('bet')}
+							<IconSort />
+						</div>
+						<span className='flex-[0_0_250px] text-right md:col-span-3'>{t('lotto.winning')}</span>
 					</div>
 				</div>
 			)}

@@ -43,7 +43,7 @@ interface IPlayerItem {
 
 const PlayerItem = ({ theme = 'theme-1', team = 'default', noLeftCursor, noRightCursor }: IPlayerItem) => {
 	return (
-		<div className='w-full'>
+		<div className='w-full min-w-0'>
 			<div className={clsx('relative mb-5 h-[240px] rounded-[12px]', cls.player_item)}>
 				{!noLeftCursor && (
 					<div
@@ -83,14 +83,19 @@ const PlayerItem = ({ theme = 'theme-1', team = 'default', noLeftCursor, noRight
 			<div
 				className={clsx(
 					cls.player_title,
-					'mt-5 h-[66px] w-full',
+					'mt-5 h-[66px] w-full md:h-auto',
 					{ [cls.ready]: team === 'green' },
 					{ [cls.warning]: team === 'red' }
 				)}
 			>
-				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
+				<div
+					className={clsx(
+						cls.player_title_inner,
+						'relative flex items-center gap-4 overflow-hidden px-3 py-[9px] md:!h-max md:flex-col md:justify-center md:gap-1'
+					)}
+				>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
-					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+					<span className='text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
 				</div>
 			</div>
 		</div>
@@ -99,7 +104,7 @@ const PlayerItem = ({ theme = 'theme-1', team = 'default', noLeftCursor, noRight
 
 const DropItem = () => {
 	return (
-		<div className='flex h-[160px] w-full flex-col justify-between rounded-[12px] border-2 border-[#161C28] bg-[#141925] p-[15px]'>
+		<div className='flex h-[160px] w-full flex-col justify-between rounded-[12px] border-2 border-[#161C28] bg-[#141925] p-[15px] md:p-2'>
 			<div className='flex justify-between'>
 				<p className='text-[10px] font-medium leading-4 text-[#2F374A]'>FT</p>
 				<div className='h-2 w-2 rounded-sm bg-[#FDCD24] shadow-[0_4px_17px_0_#FDCD244D]'></div>
@@ -134,10 +139,10 @@ const BattleDetails = () => {
 		<div>
 			<div>
 				{currentBattleVariant === BattleVariants.ONE_VS_ONE && (
-					<div className='flex gap-5'>
+					<div className='flex gap-5 md:gap-2'>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-4 gap-2'>
+							<div className='mt-5 grid grid-cols-4 gap-2 3md:grid-cols-3 md:grid-cols-2'>
 								{Array.from(new Array(8)).map((_, index) => (
 									<DropItem key={index} />
 								))}
@@ -145,7 +150,7 @@ const BattleDetails = () => {
 						</div>
 						<div className='w-full'>
 							<PlayerItem theme='theme-2' />
-							<div className='mt-5 grid grid-cols-4 gap-2'>
+							<div className='mt-5 grid grid-cols-4 gap-2 3md:grid-cols-3 md:grid-cols-2'>
 								{Array.from(new Array(8)).map((_, index) => (
 									<DropItem key={index} />
 								))}
@@ -165,12 +170,12 @@ const BattleDetails = () => {
 							</div>
 							<div className={clsx(cls.team_drop_items, cls.green, 'mt-5')}>
 								<div className={clsx(cls.team_drop_items_inner, 'flex w-full gap-5')}>
-									<div className='grid w-full grid-cols-2 gap-2'>
+									<div className='grid w-full grid-cols-2 gap-2 2md:grid-cols-1'>
 										{Array.from(new Array(4)).map((_, index) => (
 											<DropItem key={index} />
 										))}
 									</div>
-									<div className='grid w-full grid-cols-2 gap-2'>
+									<div className='grid w-full grid-cols-2 gap-2 2md:grid-cols-1'>
 										{Array.from(new Array(4)).map((_, index) => (
 											<DropItem key={index} />
 										))}
@@ -191,12 +196,12 @@ const BattleDetails = () => {
 							</div>
 							<div className={clsx(cls.team_drop_items, cls.red, 'mt-5')}>
 								<div className={clsx(cls.team_drop_items_inner, 'flex w-full gap-5')}>
-									<div className='grid w-full grid-cols-2 gap-2'>
+									<div className='grid w-full grid-cols-2 gap-2 2md:grid-cols-1'>
 										{Array.from(new Array(4)).map((_, index) => (
 											<DropItem key={index} />
 										))}
 									</div>
-									<div className='grid w-full grid-cols-2 gap-2'>
+									<div className='grid w-full grid-cols-2 gap-2 2md:grid-cols-1'>
 										{Array.from(new Array(4)).map((_, index) => (
 											<DropItem key={index} />
 										))}
@@ -207,21 +212,21 @@ const BattleDetails = () => {
 					</div>
 				)}
 				{currentBattleVariant === BattleVariants.ONE_VS_ONE_VS_ONE_VS_ONE && (
-					<div className='relative flex gap-5'>
+					<div className='relative flex gap-5 md:gap-2'>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 2md:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
 							</div>
 						</div>
-						<div className='absolute left-[25%] top-[40px] z-10 -translate-x-[65%]'>
+						<div className='absolute left-[25%] top-[40px] z-10 -translate-x-[65%] md:-translate-x-[55%]'>
 							<IconBattle className='h-[40px] w-[35.5px]' />
 						</div>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 2md:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
@@ -232,18 +237,18 @@ const BattleDetails = () => {
 						</div>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 2md:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
 							</div>
 						</div>
-						<div className='absolute left-[75%] top-[40px] z-10 -translate-x-[35%]'>
+						<div className='absolute left-[75%] top-[40px] z-10 -translate-x-[35%] md:-translate-x-[40%]'>
 							<IconBattle className='h-[40px] w-[35.5px]' />
 						</div>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 2md:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
@@ -252,10 +257,10 @@ const BattleDetails = () => {
 					</div>
 				)}
 				{currentBattleVariant === BattleVariants.ONE_VS_ONE_VS_ONE && (
-					<div className='relative flex gap-5'>
+					<div className='relative flex gap-5 md:gap-2'>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 3sm:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
@@ -266,18 +271,18 @@ const BattleDetails = () => {
 						</div>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 3sm:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}
 							</div>
 						</div>
-						<div className='absolute left-[66%] top-[40px] z-10 -translate-x-[20%]'>
+						<div className='absolute left-[66%] top-[40px] z-10 -translate-x-[6.25px] md:-translate-x-[12.5px]'>
 							<IconBattle className='h-[40px] w-[35.5px]' />
 						</div>
 						<div className='w-full'>
 							<PlayerItem />
-							<div className='mt-5 grid grid-cols-2 gap-2'>
+							<div className='mt-5 grid grid-cols-2 gap-2 3sm:grid-cols-1'>
 								{Array.from(new Array(4)).map((_, index) => (
 									<DropItem key={index} />
 								))}

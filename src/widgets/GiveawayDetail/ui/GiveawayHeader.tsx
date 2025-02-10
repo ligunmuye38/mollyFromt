@@ -222,7 +222,7 @@ const GiveawaysHeader = () => {
 					}}
 				></div>
 			</div>
-			<div className='relative z-10 flex items-center justify-between gap-1'>
+			<div className='relative z-10 flex items-center justify-between gap-1 lg:flex-col lg:gap-3'>
 				<div className='flex items-center gap-5'>
 					<Avatar />
 					<div>
@@ -251,7 +251,7 @@ const GiveawaysHeader = () => {
 					</div>
 				</div>
 				<div>
-					<p className='mb-2 text-[18px] font-medium text-[#D1D9EB]'>The argonaut N48</p>
+					<p className='mb-2 text-[18px] font-medium text-[#D1D9EB] lg:text-center'>The argonaut N48</p>
 					<div className='relative z-10 rounded-[8px] border-1 border-[#202F38] p-[9px]'>
 						<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#121E28F0] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
 							{isCompleted ? t('giveaways.players').toUpperCase() : t('giveaways.end_by').toUpperCase()}
@@ -312,7 +312,7 @@ const GiveawaysHeader = () => {
 						)}
 					</div>
 				</div>
-				<div className='flex gap-[10px] pt-4'>
+				<div className='flex gap-[10px] pt-4 md:grid md:grid-cols-2 md:gap-6'>
 					<div
 						className='relative z-10 h-[60px] w-[154px] rounded-[8px] p-[1px]'
 						style={{
@@ -358,7 +358,10 @@ const GiveawaysHeader = () => {
 						</div>
 					</div>
 					<div
-						className='relative z-10 h-[60px] w-[154px] rounded-[8px] p-[1px]'
+						className={clsx(
+							'relative z-10 h-[60px] w-[154px] rounded-[8px] p-[1px]',
+							isCompleted ? 'mx-auto md:col-span-2' : ''
+						)}
 						style={{
 							background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 						}}

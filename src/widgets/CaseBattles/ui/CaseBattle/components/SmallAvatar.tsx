@@ -5,11 +5,12 @@ import cls from '../CaseBattle.module.sass'
 
 interface ISmallAvatarProps {
 	icon: string
+	className?: string
 }
 
-const SmallAvatar = ({ icon }: ISmallAvatarProps) => {
+const SmallAvatar = ({ icon, className }: ISmallAvatarProps) => {
 	return (
-		<div className={clsx(cls.card_avatar, '!z-20')}>
+		<div className={clsx(cls.card_avatar, '!z-20', className)}>
 			<Image
 				width={32}
 				height={32}

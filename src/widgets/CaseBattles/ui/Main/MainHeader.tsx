@@ -56,84 +56,95 @@ const MainHeader = ({ type = CaseBattleTypes.ACTIVE_BATTLES }: IMainHeaderProps)
 	return (
 		<>
 			{type === CaseBattleTypes.ACTIVE_BATTLES ? (
-				<div className={cls.main_header}>
-					<div className={cls.main_header_inner}>
-						<div className='flex items-center gap-[6px]'>
-							<p>{t('case_battles.players')}</p>
-							{battleVariants()}
-							<Dropdown
-								placement='bottom-end'
-								className='bg-[#1A2130] dark'
-							>
-								<DropdownTrigger>
-									<Button
-										isIconOnly
-										className='h-[20px] w-[20px] rounded-md bg-[#252C3F]'
-									>
-										<IconDown className='h-[20px] w-[20px] fill-[#404B65]' />
-									</Button>
-								</DropdownTrigger>
-								<DropdownMenu
-									disallowEmptySelection
-									aria-label='Battle types'
-									className='max-w-[300px] bg-[#1A2130] dark'
-									selectedKeys={selectedOption}
-									selectionMode='single'
-									onSelectionChange={setSelectedOption}
+				<div className='flex w-full flex-col items-center gap-4'>
+					<div className={cls.main_header}>
+						<div className={cls.main_header_inner}>
+							<div className='flex items-center gap-[6px]'>
+								<p>{t('case_battles.players')}</p>
+								{battleVariants()}
+								<Dropdown
+									placement='bottom-end'
+									className='bg-[#1A2130] dark'
 								>
-									<DropdownItem
-										key={BattleVariants.ONE_VS_ONE}
-										className='hover:!bg-[#313845] focus:!bg-[#313845]'
+									<DropdownTrigger>
+										<Button
+											isIconOnly
+											className='h-[20px] w-[20px] rounded-md bg-[#252C3F]'
+										>
+											<IconDown className='h-[20px] w-[20px] fill-[#404B65]' />
+										</Button>
+									</DropdownTrigger>
+									<DropdownMenu
+										disallowEmptySelection
+										aria-label='Battle types'
+										className='max-w-[300px] bg-[#1A2130] dark'
+										selectedKeys={selectedOption}
+										selectionMode='single'
+										onSelectionChange={setSelectedOption}
 									>
-										<div className='flex justify-center gap-2'>
-											<IconPlayer />
-											<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-											<IconPlayer />
-										</div>
-									</DropdownItem>
-									<DropdownItem
-										key={BattleVariants.TWO_VS_TWO}
-										className='hover:!bg-[#313845] focus:!bg-[#313845]'
-									>
-										<div className='flex justify-center gap-2'>
-											<IconPlayer />
-											<IconPlayer />
-											<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
-											<IconPlayer />
-											<IconPlayer />
-										</div>
-									</DropdownItem>
-								</DropdownMenu>
-							</Dropdown>
-						</div>
-						<div className='flex items-center gap-[6px]'>
-							<IconCrazyMode className='w-[14px]' />
-							<p>{t('case_battles.crazy_mode')}</p>
-							<Switch
-								color='default'
-								classNames={{
-									base: 'rounded-sm w-[30px]',
-									wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-									thumb:
-										"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-								}}
-							/>
-							<span className='text-[20px] text-[#232A3C]'>|</span>
-							<Button
-								classNames={{
-									base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px]'),
-									content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
-								}}
-							>
-								<IconTrash className={clsx(cls.hexagon_btn_inner_icon, cls.sm)} />
-								{t('case_battles.clear_all')}
-							</Button>
+										<DropdownItem
+											key={BattleVariants.ONE_VS_ONE}
+											className='hover:!bg-[#313845] focus:!bg-[#313845]'
+										>
+											<div className='flex justify-center gap-2'>
+												<IconPlayer />
+												<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+												<IconPlayer />
+											</div>
+										</DropdownItem>
+										<DropdownItem
+											key={BattleVariants.TWO_VS_TWO}
+											className='hover:!bg-[#313845] focus:!bg-[#313845]'
+										>
+											<div className='flex justify-center gap-2'>
+												<IconPlayer />
+												<IconPlayer />
+												<IconCaseBattle className='h-[20px] w-[20px] fill-[#3A445D]' />
+												<IconPlayer />
+												<IconPlayer />
+											</div>
+										</DropdownItem>
+									</DropdownMenu>
+								</Dropdown>
+							</div>
+							<div className='flex items-center gap-[6px]'>
+								<IconCrazyMode className='w-[14px]' />
+								<p>{t('case_battles.crazy_mode')}</p>
+								<Switch
+									color='default'
+									classNames={{
+										base: 'rounded-sm w-[30px]',
+										wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+										thumb:
+											"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+									}}
+								/>
+								<span className='text-[20px] text-[#232A3C] 2sm:hidden'>|</span>
+								<Button
+									classNames={{
+										base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px] 2sm:hidden'),
+										content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
+									}}
+								>
+									<IconTrash className={clsx(cls.hexagon_btn_inner_icon, cls.sm)} />
+									{t('case_battles.clear_all')}
+								</Button>
+							</div>
 						</div>
 					</div>
+					<Button
+						classNames={{
+							base: clsx(cls.hexagon_btn, cls.default, cls.sm, 'h-[32px] w-[108px] hidden 2sm:block'),
+							content: clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')
+						}}
+					>
+						<IconTrash className={clsx(cls.hexagon_btn_inner_icon, cls.sm)} />
+						{t('case_battles.clear_all')}
+					</Button>
 				</div>
 			) : (
 				<div
-					className='h-[48px] w-[538px] bg-[#283046] p-[2px]'
+					className='h-[48px] w-[538px] bg-[#283046] p-[2px] md:hidden'
 					style={{
 						clipPath: 'polygon(12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0px 50%)'
 					}}

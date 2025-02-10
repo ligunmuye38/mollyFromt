@@ -200,7 +200,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 	}
 
 	return (
-		<div className={clsx(cls.giveaway_card)}>
+		<div className={clsx(cls.giveaway_card, 'md:!grid md:!w-full md:grid-cols-[235px_auto] md:gap-2 md:!px-2')}>
 			<div
 				className='absolute left-0 top-0 h-full w-full rounded-[12px] p-[3px]'
 				style={{
@@ -230,226 +230,232 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 					}}
 				></div>
 			</div>
-			<div
-				className='relative z-10 mb-4 h-[120px] w-full rounded-[12px] p-[1px]'
-				style={{
-					background: 'linear-gradient(104.98deg, #24B7AC 0%, rgba(21, 103, 97, 0.13) 50%)'
-				}}
-			>
-				<div
-					className='absolute left-0 top-0 h-full w-full rounded-[12px]'
-					style={{
-						background:
-							'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
-					}}
-				></div>
-				<div
-					className='absolute left-0 top-0 h-full w-full rotate-180 rounded-[12px]'
-					style={{
-						background:
-							'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
-					}}
-				></div>
-				<div className='absolute left-0 top-0'>
-					<GiveawayCardBrand />
-				</div>
-				<div className='absolute bottom-[6px] left-[16px]'>
-					<GiveawayCardEffect />
-				</div>
-				<div className='absolute right-[16px] top-[6px] rotate-180'>
-					<GiveawayCardEffect />
-				</div>
-				<div
-					className='absolute left-0 top-0 h-full w-full'
-					style={{
-						background: 'linear-gradient(180deg, rgba(45, 225, 214, 0.15) 0%, rgba(25, 123, 117, 0) 67.92%)',
-						clipPath: 'polygon(56px 0px, calc(100% - 56px) 0px, 100% 100%, 0px 100%)'
-					}}
-				></div>
-				<div className='absolute left-[56px] right-[56px] top-0 h-[2px] rounded-bl-[12px] rounded-br-[12px] bg-[#2DE1D6]'></div>
-				<div
-					className='h-full w-full rounded-[12px]'
-					style={{
-						background: 'linear-gradient(180deg, #151C27 0%, #0E121A 100%)'
-					}}
-				>
-					<div className={cls.slider}>
-						<Swiper
-							id='swiper-icon'
-							className={cls.icon_swiper}
-							navigation
-							modules={[Pagination, Navigation]}
-							loop
-							pagination={{
-								clickable: true,
-								dynamicBullets: true,
-								dynamicMainBullets: 3
-							}}
-							spaceBetween={50}
-							slidesPerView={1}
-						>
-							{giveaway.items.map((item, index) => (
-								<SwiperSlide key={`${index}-${Date.now()}`}>
-									<Image
-										className='mx-auto'
-										src={item.icon}
-										width={142}
-										height={104}
-										alt='giveaway'
-									/>
-								</SwiperSlide>
-							))}
-						</Swiper>
-					</div>
-				</div>
-			</div>
-			<div className='relative z-10 mb-[7px] flex justify-between'>
-				<div>
-					<p className='text-[10px] font-medium leading-4 text-[#FFFFFF]'>{giveaway.items[0].name}</p>
-					<p className='text-[12px] leading-4 text-[#18CC97]'>{giveaway.items[0].price}</p>
-				</div>
-				<p className='text-[10px] font-medium leading-4 text-[#4A6070]'>{giveaway.items[0].title}</p>
-			</div>
 			{filter === GiveawaysFilters.ACTIVE_GIVEAWAYS || filter === GiveawaysFilters.MY_PARTICIPATION ? (
 				<>
-					<div className='relative z-10 mb-[10px] rounded-[8px] border-1 border-[#202F38] p-[9px]'>
-						{giveaway.status === GiveawayStatus.COMPLETED ? (
-							<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
-								{t('giveaways.players').toUpperCase()}
-							</p>
-						) : (
-							<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
-								{t('giveaways.end_by').toUpperCase()}
-							</p>
-						)}
-						{giveaway.status === GiveawayStatus.COMPLETED ? (
-							<div className='flex items-center justify-center gap-1 text-[#4A6070]'>
-								{Array.from(new Array(giveaway.players.participants.toString().length)).map((_, index) => (
-									<div
-										key={index}
-										className={cls.card_number}
+					{/* Content */}
+					<div className='relative w-[235px]'>
+						<div
+							className='relative z-10 mb-4 h-[120px] w-full overflow-hidden rounded-[12px] p-[1px]'
+							style={{
+								background: 'linear-gradient(104.98deg, #24B7AC 0%, rgba(21, 103, 97, 0.13) 50%)'
+							}}
+						>
+							<div
+								className='absolute left-0 top-0 h-full w-full rounded-[12px]'
+								style={{
+									background:
+										'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
+								}}
+							></div>
+							<div
+								className='absolute left-0 top-0 h-full w-full rotate-180 rounded-[12px]'
+								style={{
+									background:
+										'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
+								}}
+							></div>
+							<div className='absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2'>
+								<GiveawayCardBrand className='h-full w-full' />
+							</div>
+							<div className='absolute bottom-[6px] left-[16px]'>
+								<GiveawayCardEffect />
+							</div>
+							<div className='absolute right-[16px] top-[6px] rotate-180'>
+								<GiveawayCardEffect />
+							</div>
+							<div
+								className='absolute left-0 top-0 h-full w-full'
+								style={{
+									background: 'linear-gradient(180deg, rgba(45, 225, 214, 0.15) 0%, rgba(25, 123, 117, 0) 67.92%)',
+									clipPath: 'polygon(56px 0px, calc(100% - 56px) 0px, 100% 100%, 0px 100%)'
+								}}
+							></div>
+							<div className='absolute left-[56px] right-[56px] top-0 h-[2px] rounded-bl-[12px] rounded-br-[12px] bg-[#2DE1D6]'></div>
+							<div
+								className='h-full w-full rounded-[12px]'
+								style={{
+									background: 'linear-gradient(180deg, #151C27 0%, #0E121A 100%)'
+								}}
+							>
+								<div className={cls.slider}>
+									<Swiper
+										id='swiper-icon'
+										className={cls.icon_swiper}
+										navigation
+										modules={[Pagination, Navigation]}
+										loop
+										pagination={{
+											clickable: true,
+											dynamicBullets: true,
+											dynamicMainBullets: 3
+										}}
+										spaceBetween={50}
+										slidesPerView={1}
 									>
-										{giveaway.players.participants.toString()[index]}
-									</div>
-								))}{' '}
-								<p className='mx-[2px]'>/</p>
-								{Array.from(new Array(giveaway.players.total.toString().length)).map((_, index) => (
-									<div
-										key={index}
-										className={clsx(cls.card_number, cls.disabled)}
-									>
-										{giveaway.players.total.toString()[index]}
-									</div>
-								))}
+										{giveaway.items.map((item, index) => (
+											<SwiperSlide key={`${index}-${Date.now()}`}>
+												<Image
+													className='mx-auto'
+													src={item.icon}
+													width={142}
+													height={104}
+													alt='giveaway'
+												/>
+											</SwiperSlide>
+										))}
+									</Swiper>
+								</div>
 							</div>
-						) : (
-							<div className='flex items-center gap-1 text-[#4A6070]'>
-								{Array.from(new Array(giveaway.endBy?.length)).map((_, index) => (
-									<>
-										{index % 3 === 2 ? (
-											<p className='mx-[2px]'>:</p>
-										) : (
-											<div
-												key={index}
-												className={clsx(cls.card_number, cls.disabled)}
-											>
-												{giveaway.endBy?.toString()[index]}
-											</div>
-										)}
-									</>
-								))}
+						</div>
+						<div className='relative z-10 mb-[7px] flex justify-between'>
+							<div>
+								<p className='text-[10px] font-medium leading-4 text-[#FFFFFF]'>{giveaway.items[0].name}</p>
+								<p className='text-[12px] leading-4 text-[#18CC97]'>{giveaway.items[0].price}</p>
 							</div>
-						)}
-						{giveaway.status === GiveawayStatus.ON_PROGRESS && (
-							<div className='flex justify-between'>
-								<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
-									{t('giveaways.days').toUpperCase()}
+							<p className='text-[10px] font-medium leading-4 text-[#4A6070]'>{giveaway.items[0].title}</p>
+						</div>
+						<div className='relative z-10 mb-[10px] rounded-[8px] border-1 border-[#202F38] p-[9px]'>
+							{giveaway.status === GiveawayStatus.COMPLETED ? (
+								<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
+									{t('giveaways.players').toUpperCase()}
 								</p>
-								<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
-									{t('giveaways.hours').toUpperCase()}
+							) : (
+								<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
+									{t('giveaways.end_by').toUpperCase()}
 								</p>
-								<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
-									{t('giveaways.minutes').toUpperCase()}
-								</p>
-								<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
-									{t('giveaways.seconds').toUpperCase()}
-								</p>
-							</div>
-						)}
+							)}
+							{giveaway.status === GiveawayStatus.COMPLETED ? (
+								<div className='flex items-center justify-center gap-1 text-[#4A6070]'>
+									{Array.from(new Array(giveaway.players.participants.toString().length)).map((_, index) => (
+										<div
+											key={index}
+											className={cls.card_number}
+										>
+											{giveaway.players.participants.toString()[index]}
+										</div>
+									))}{' '}
+									<p className='mx-[2px]'>/</p>
+									{Array.from(new Array(giveaway.players.total.toString().length)).map((_, index) => (
+										<div
+											key={index}
+											className={clsx(cls.card_number, cls.disabled)}
+										>
+											{giveaway.players.total.toString()[index]}
+										</div>
+									))}
+								</div>
+							) : (
+								<div className='flex items-center gap-1 text-[#4A6070]'>
+									{Array.from(new Array(giveaway.endBy?.length)).map((_, index) => (
+										<>
+											{index % 3 === 2 ? (
+												<p className='mx-[2px]'>:</p>
+											) : (
+												<div
+													key={index}
+													className={clsx(cls.card_number, cls.disabled)}
+												>
+													{giveaway.endBy?.toString()[index]}
+												</div>
+											)}
+										</>
+									))}
+								</div>
+							)}
+							{giveaway.status === GiveawayStatus.ON_PROGRESS && (
+								<div className='flex justify-between'>
+									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+										{t('giveaways.days').toUpperCase()}
+									</p>
+									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+										{t('giveaways.hours').toUpperCase()}
+									</p>
+									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+										{t('giveaways.minutes').toUpperCase()}
+									</p>
+									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+										{t('giveaways.seconds').toUpperCase()}
+									</p>
+								</div>
+							)}
+						</div>
 					</div>
-					<div className='relative z-10 mb-4 flex items-center justify-between'>
-						<div className='flex items-center gap-[12px]'>
-							<Avatar />
-							<p className='text-[12px] font-bold leading-4 text-white'>{giveaway.creator.name}</p>
-						</div>
-						<div
-							className='h-7 w-16 p-[1px]'
-							style={{
-								background:
-									'linear-gradient(270deg, rgba(27, 50, 61, 0.45) 0%, rgba(27, 50, 61, 0.25) 50%, rgba(60, 70, 27, 0.196078) 100%)',
-								clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
-							}}
-						>
-							<div
-								className='flex h-full w-full items-center justify-center'
-								style={{
-									background: 'linear-gradient(270deg, #1B323D 0%, rgba(18, 36, 44, 0.45) 50%, #1B323D 100%)',
-									clipPath:
-										'polygon(8px 0px, calc(100% - 8px) 0px, calc(100% - 1px) 50%, calc(100% - 8px) 100%, 8px 100%, 1px 50%)'
-								}}
-							>
-								<IconPeople />
-								<p className='ml-1 text-[12px] font-bold leading-4'>{giveaway.participants}</p>
-							</div>
-						</div>
-					</div>
-					<div className='mb-[10px] flex items-center gap-[10px]'>
-						<div
-							className='relative z-10 h-[45px] w-full rounded-[8px] p-[1px]'
-							style={{
-								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
-							}}
-						>
-							<div className='absolute -top-[14px] left-1/2 -translate-x-1/2'>
-								<HexagonBg />
-								<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+					<div className='flex flex-col md:py-4'>
+						<div className='relative z-10 mb-4 flex items-center justify-between md:order-1 2sm:flex-col 2sm:gap-3'>
+							<div className='flex items-center gap-[12px] 2sm:gap-2'>
+								<Avatar />
+								<p className='text-[12px] font-bold leading-4 text-white 2sm:text-[10px]'>{giveaway.creator.name}</p>
 							</div>
 							<div
-								className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
+								className='h-7 w-16 p-[1px]'
 								style={{
-									background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+									background:
+										'linear-gradient(270deg, rgba(27, 50, 61, 0.45) 0%, rgba(27, 50, 61, 0.25) 50%, rgba(60, 70, 27, 0.196078) 100%)',
+									clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
 								}}
 							>
-								<p className='mb-1 text-[12px] font-medium leading-[8px] text-[#1BD69E]'>{giveaway.prizes}</p>
-								<p className='mb-[6px] text-[8px] font-medium leading-[8px] text-[#4A6070]'>
-									{t('giveaways.prizes').toUpperCase()}
-								</p>
+								<div
+									className='flex h-full w-full items-center justify-center'
+									style={{
+										background: 'linear-gradient(270deg, #1B323D 0%, rgba(18, 36, 44, 0.45) 50%, #1B323D 100%)',
+										clipPath:
+											'polygon(8px 0px, calc(100% - 8px) 0px, calc(100% - 1px) 50%, calc(100% - 8px) 100%, 8px 100%, 1px 50%)'
+									}}
+								>
+									<IconPeople />
+									<p className='ml-1 text-[12px] font-bold leading-4'>{giveaway.participants}</p>
+								</div>
 							</div>
 						</div>
-						<div
-							className='relative z-10 h-[45px] w-full rounded-[8px] p-[1px]'
-							style={{
-								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
-							}}
-						>
-							<div className='absolute -top-[14px] left-1/2 -translate-x-1/2'>
-								<HexagonBg />
-								<IconDollarCircle className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
-							</div>
+						<div className='mb-[10px] flex items-center gap-[10px] 3sm:flex-col 3sm:gap-4'>
 							<div
-								className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
+								className='relative z-10 h-[45px] w-full rounded-[8px] p-[1px]'
 								style={{
-									background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+									background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 								}}
 							>
-								<p className='mb-1 text-[12px] font-medium leading-[8px] text-[#1BD69E]'>{giveaway.total}</p>
-								<p className='mb-[6px] text-[8px] font-medium leading-[8px] text-[#4A6070]'>
-									{t('giveaways.total').toUpperCase()}
-								</p>
+								<div className='absolute -top-[14px] left-1/2 -translate-x-1/2'>
+									<HexagonBg />
+									<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+								</div>
+								<div
+									className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
+									style={{
+										background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+									}}
+								>
+									<p className='mb-1 text-[12px] font-medium leading-[8px] text-[#1BD69E]'>{giveaway.prizes}</p>
+									<p className='mb-[6px] text-[8px] font-medium leading-[8px] text-[#4A6070]'>
+										{t('giveaways.prizes').toUpperCase()}
+									</p>
+								</div>
+							</div>
+							<div
+								className='relative z-10 h-[45px] w-full rounded-[8px] p-[1px]'
+								style={{
+									background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
+								}}
+							>
+								<div className='absolute -top-[14px] left-1/2 -translate-x-1/2'>
+									<HexagonBg />
+									<IconDollarCircle className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+								</div>
+								<div
+									className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
+									style={{
+										background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+									}}
+								>
+									<p className='mb-1 text-[12px] font-medium leading-[8px] text-[#1BD69E]'>{giveaway.total}</p>
+									<p className='mb-[6px] text-[8px] font-medium leading-[8px] text-[#4A6070]'>
+										{t('giveaways.total').toUpperCase()}
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div
+						className='flex justify-center md:col-span-2'
 						style={
 							giveaway.status === GiveawayStatus.ON_PROGRESS ? { filter: 'drop-shadow(0px 0px 12px #10AA7C59)' } : {}
 						}
@@ -486,60 +492,151 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 				</>
 			) : (
 				<>
-					<div className='relative z-10 mb-2 flex items-center gap-3 rounded-[8px] border-1 border-[#202F38] p-[9px]'>
-						<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
+					{/* Content */}
+					<div>
+						<div
+							className='relative z-10 mb-4 h-[120px] w-full rounded-[12px] p-[1px]'
+							style={{
+								background: 'linear-gradient(104.98deg, #24B7AC 0%, rgba(21, 103, 97, 0.13) 50%)'
+							}}
+						>
+							<div
+								className='absolute left-0 top-0 h-full w-full rounded-[12px]'
+								style={{
+									background:
+										'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
+								}}
+							></div>
+							<div
+								className='absolute left-0 top-0 h-full w-full rotate-180 rounded-[12px]'
+								style={{
+									background:
+										'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
+								}}
+							></div>
+							<div className='absolute left-0 top-0'>
+								<GiveawayCardBrand />
+							</div>
+							<div className='absolute bottom-[6px] left-[16px]'>
+								<GiveawayCardEffect />
+							</div>
+							<div className='absolute right-[16px] top-[6px] rotate-180'>
+								<GiveawayCardEffect />
+							</div>
+							<div
+								className='absolute left-0 top-0 h-full w-full'
+								style={{
+									background: 'linear-gradient(180deg, rgba(45, 225, 214, 0.15) 0%, rgba(25, 123, 117, 0) 67.92%)',
+									clipPath: 'polygon(56px 0px, calc(100% - 56px) 0px, 100% 100%, 0px 100%)'
+								}}
+							></div>
+							<div className='absolute left-[56px] right-[56px] top-0 h-[2px] rounded-bl-[12px] rounded-br-[12px] bg-[#2DE1D6]'></div>
+							<div
+								className='h-full w-full rounded-[12px]'
+								style={{
+									background: 'linear-gradient(180deg, #151C27 0%, #0E121A 100%)'
+								}}
+							>
+								<div className={cls.slider}>
+									<Swiper
+										id='swiper-icon'
+										className={cls.icon_swiper}
+										navigation
+										modules={[Pagination, Navigation]}
+										loop
+										pagination={{
+											clickable: true,
+											dynamicBullets: true,
+											dynamicMainBullets: 3
+										}}
+										spaceBetween={50}
+										slidesPerView={1}
+									>
+										{giveaway.items.map((item, index) => (
+											<SwiperSlide key={`${index}-${Date.now()}`}>
+												<Image
+													className='mx-auto'
+													src={item.icon}
+													width={142}
+													height={104}
+													alt='giveaway'
+												/>
+											</SwiperSlide>
+										))}
+									</Swiper>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className='relative z-10 mb-[7px] flex justify-between md:order-1 md:col-span-2 md:w-full'>
+						<div>
+							<p className='text-[10px] font-medium leading-4 text-[#FFFFFF]'>{giveaway.items[0].name}</p>
+							<p className='text-[12px] leading-4 text-[#18CC97]'>{giveaway.items[0].price}</p>
+						</div>
+						<p className='text-[10px] font-medium leading-4 text-[#4A6070]'>{giveaway.items[0].title}</p>
+					</div>
+					<div className='relative z-10 mb-2 flex items-center gap-3 rounded-[8px] border-1 border-[#202F38] p-[9px] md:order-2 md:col-span-2'>
+						<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070] md:left-10 md:translate-x-0 md:bg-[#122931]'>
 							{t('giveaways.winner').toUpperCase()}
 						</p>
 						<Avatar />
 						<p className='text-[12px] font-bold leading-4 text-white'>{giveaway.creator.name}</p>
 					</div>
-					<div
-						className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
-						style={{
-							background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
-						}}
-					>
+					<div className='2sm:flex 2sm:flex-col 2sm:gap-2 2sm:pt-4'>
 						<div
-							className='flex h-full w-full items-center gap-2 rounded-[8px] p-[7px]'
+							className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
 							style={{
-								background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 							}}
 						>
-							<div className='relative'>
-								<HexagonBg />
-								<IconDollarCircle className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
-							</div>
-							<div>
-								<p className='text-[12px] font-medium leading-4 text-[#1BD69E]'>{giveaway.total}</p>
-								<p className='text-[8px] font-medium leading-4 text-[#4A6070]'>{t('giveaways.winning_amount')}</p>
+							<div
+								className='flex h-full w-full items-center gap-2 rounded-[8px] p-[7px] 2sm:justify-center 2sm:pt-5'
+								style={{
+									background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+								}}
+							>
+								<div className='relative top-0 2sm:absolute 2sm:left-1/2 2sm:-translate-x-1/2 2sm:-translate-y-1/2'>
+									<HexagonBg />
+									<IconDollarCircle className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+								</div>
+								<div>
+									<p className='text-[12px] font-medium leading-4 text-[#1BD69E] 2sm:text-center'>{giveaway.total}</p>
+									<p className='text-[8px] font-medium leading-4 text-[#4A6070] 2sm:text-center'>
+										{t('giveaways.winning_amount')}
+									</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div
-						className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
-						style={{
-							background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
-						}}
-					>
 						<div
-							className='flex h-full w-full items-center gap-2 rounded-[8px] p-[7px]'
+							className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
 							style={{
-								background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 							}}
 						>
-							<div className='relative'>
-								<HexagonBg />
-								<IconPeople className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
-							</div>
-							<div>
-								<p className='text-[12px] font-medium leading-4 text-[#1BD69E]'>{giveaway.participants}</p>
-								<p className='text-[8px] font-medium leading-4 text-[#4A6070]'>{t('giveaways.participants')}</p>
+							<div
+								className='flex h-full w-full items-center gap-2 rounded-[8px] p-[7px] 2sm:justify-center 2sm:pt-5'
+								style={{
+									background: 'linear-gradient(180deg, #1A313C 0%, #13252E 100%)'
+								}}
+							>
+								<div className='relative top-0 2sm:absolute 2sm:left-1/2 2sm:-translate-x-1/2 2sm:-translate-y-1/2'>
+									<HexagonBg />
+									<IconPeople className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+								</div>
+								<div>
+									<p className='text-[12px] font-medium leading-4 text-[#1BD69E] 2sm:text-center'>
+										{giveaway.participants}
+									</p>
+									<p className='text-[8px] font-medium leading-4 text-[#4A6070] 2sm:text-center'>
+										{t('giveaways.participants')}
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
 					<Button
 						classNames={{
-							base: 'w-full h-[42px] p-[1px] bg-[#213D48] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
+							base: 'w-full h-[42px] md:order-2 md:col-span-2 p-[1px] bg-[#213D48] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
 							content:
 								'w-full h-full bg-[#152B34] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)]'
 						}}
@@ -554,7 +651,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 
 const GiveawaysList = ({ filter }: IGiveawaysListProps) => {
 	return (
-		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-between gap-5'>
+		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-between gap-5 md:grid-cols-1'>
 			{giveaways.map((giveaway, index) => (
 				<GiveawayCard
 					key={index}

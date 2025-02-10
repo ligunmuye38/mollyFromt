@@ -12,6 +12,7 @@ import cls from './CaseBattle.module.sass'
 import DrawAvatar from './components/DrawAvatar'
 import LossAvatar from './components/LossAvatar'
 import LossBand from './components/LossBand'
+import SmallAvatar from './components/SmallAvatar'
 import WinnerAvatar from './components/WinnerAvatar'
 import WinnerBand from './components/WinnerBand'
 
@@ -37,7 +38,7 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 	}, [isDraw])
 
 	return (
-		<div className='flex w-[1137px] flex-col items-center justify-center'>
+		<div className='flex w-[1137px] flex-col items-center justify-center lg:w-[calc(100vw_-_80px)]'>
 			{isDraw ? (
 				<>
 					<Button
@@ -47,7 +48,7 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 						<IconClose className='h-4 w-4 fill-[#FFFFFF33]' />
 					</Button>
 					<p
-						className='mb-[18px] text-[32px] font-[900] leading-5'
+						className='mb-[18px] text-center text-[32px] font-[900] leading-8'
 						style={{
 							backgroundImage:
 								'linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)',
@@ -56,19 +57,19 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 					>
 						{t('case_battles.battle_over').toUpperCase()}
 					</p>
-					<p className='mb-24 text-[18px] font-medium leading-4 text-[#60719A]'>
+					<p className='mb-24 text-center text-[18px] font-medium leading-4 text-[#60719A] 3sm:text-[14px]'>
 						{t('case_battles.draw_is_preferable_to_defeat')}.
 					</p>
 					<div
 						className={`relative rounded-full border-2 border-b-[#FD2458] border-l-[#24FDBC] border-r-[#FDCD24] border-t-[#C424FD]`}
 						style={{ rotate: `${rotation}deg` }}
 					>
-						<div className='flex h-[484px] w-[484px] items-center justify-center rounded-[242px] bg-[#1C2332]'>
-							<div className='flex h-[258px] w-[258px] items-center justify-center rounded-[129px] bg-[#222B3D]'>
-								<div className='flex h-[224px] w-[224px] items-center justify-center rounded-[112px] border border-[#2E3950]'>
-									<div className='flex h-40 w-40 items-center justify-center rounded-[80px] bg-[#293143]'>
+						<div className='flex h-[484px] w-[484px] items-center justify-center rounded-[242px] bg-[#1C2332] 3sm:h-[306px] 3sm:w-[306px]'>
+							<div className='flex h-[258px] w-[258px] items-center justify-center rounded-[129px] bg-[#222B3D] 3sm:h-[180px] 3sm:w-[180px]'>
+								<div className='flex h-[224px] w-[224px] items-center justify-center rounded-[112px] border border-[#2E3950] 3sm:h-[155px] 3sm:w-[155px]'>
+									<div className='flex h-40 w-40 items-center justify-center rounded-[80px] bg-[#293143] 3sm:h-[110px] 3sm:w-[110px]'>
 										<IconFireBottle
-											className='h-[99px] w-[52px]'
+											className='h-[99px] w-[52px] 3sm:h-[39px] 3sm:w-[36px]'
 											style={{ rotate: `-${rotation}deg` }}
 										/>
 									</div>
@@ -97,7 +98,7 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 								<IconClose className='h-4 w-4 fill-[#FFFFFF33]' />
 							</Button>
 							<p
-								className='mb-[18px] text-[32px] font-[900] leading-5'
+								className='mb-[18px] text-center text-[32px] font-[900] leading-8'
 								style={{
 									backgroundImage:
 										'linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)',
@@ -106,10 +107,10 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 							>
 								{t('case_battles.choose_team').toUpperCase()}
 							</p>
-							<p className='mb-[40px] text-[18px] font-medium leading-4 text-[#60719A]'>
+							<p className='mb-[40px] text-center text-[18px] font-medium leading-4 text-[#60719A] 3sm:text-[14px]'>
 								{t('case_battles.join_green_or_red')}.
 							</p>
-							<div className='flex gap-10'>
+							<div className='flex gap-10 3sm:gap-4'>
 								<div style={{ filter: 'drop-shadow(0px 0px 24px #10AA7C40)' }}>
 									<Button onPress={closeModal}>
 										<div className={clsx(cls.select_team, cls.green_team)}>
@@ -143,7 +144,7 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 								<IconClose className='h-4 w-4 fill-[#FFFFFF33]' />
 							</Button>
 							<p
-								className='mb-[18px] text-[32px] font-[900] leading-5'
+								className='mb-[18px] text-center text-[32px] font-[900] leading-[32px]'
 								style={{
 									backgroundImage:
 										'linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #D1D9EB, #D1D9EB), linear-gradient(0deg, rgba(28, 34, 48, 0) -0.71%, rgba(28, 34, 48, 0.35) 100.71%)',
@@ -155,7 +156,7 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 							<p className='mb-[48px] text-[18px] font-medium leading-4 text-[#60719A]'>
 								{t('case_battles.each_user_received')} +$0.1
 							</p>
-							<div className='mb-9 flex w-full justify-between gap-[19px]'>
+							<div className='mb-9 flex w-full justify-between gap-[19px] 2md:hidden'>
 								<div className={clsx(cls.result_card, cls.result_loss)}>
 									<div className={clsx(cls.result_loss_inner)}>
 										<div className='absolute -top-6 left-1/2 -translate-x-1/2'>
@@ -221,7 +222,42 @@ const BattleOver = ({ isDraw }: IBattleOverProps) => {
 									</div>
 								</div>
 							</div>
-							<div className='flex items-center gap-2'>
+							<div className='mb-5 hidden w-full flex-col gap-5 2md:flex'>
+								{/* Winner */}
+								<div className={clsx(cls.player_card_bg, 'overflow-hidden 2md:!h-[106px] 2md:!w-full')}>
+									<div className={clsx(cls.player_card_bg_inner, 'relative')}>
+										<div className='!absolute -left-4 -top-[24px] z-10 flex translate-x-0 items-center gap-[6px]'>
+											<WinnerBand />
+											<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#022F22]'>
+												{t('case_battles.winner').toUpperCase()}
+											</span>
+										</div>
+										<div className={clsx(cls.lossed, '!absolute bottom-2 left-4 !bg-[#10AA7C] !bg-none')}>
+											<div className={clsx(cls.lossed_inner, '!text-[#24FDBC]')}>$ 1050.00</div>
+										</div>
+										<div className='absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-2'>
+											<SmallAvatar icon='/images/avatars/2.jpg' />
+											<span className='text-[14px] font-bold leading-4 text-white'>Djorgick</span>
+										</div>
+									</div>
+								</div>
+								{/* Losser */}
+								<div className={clsx(cls.player_card_bg, 'overflow-hidden 2md:!h-[70px] 2md:!w-full')}>
+									<div className={clsx(cls.player_card_bg_inner, 'relative')}>
+										<div className='!absolute -left-4 -top-[24px] z-10 flex translate-x-0 items-center gap-[6px]'>
+											<LossBand />
+											<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#480202]'>
+												{t('case_battles.loss').toUpperCase()}
+											</span>
+										</div>
+										<div className='absolute right-4 top-1/2 flex -translate-y-1/2 items-center gap-2'>
+											<SmallAvatar icon='/images/avatars/2.jpg' />
+											<span className='text-[14px] font-bold leading-4 text-white'>Djorgick</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div className='flex items-center gap-2 3sm:flex-col'>
 								<Button
 									onPress={() => toggleCanSelectTeam(true)}
 									classNames={{ base: cls.rematch_btn, content: cls.rematch_btn_inner }}

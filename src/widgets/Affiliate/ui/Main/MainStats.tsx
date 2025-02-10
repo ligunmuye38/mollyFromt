@@ -1,4 +1,5 @@
 import { chartData, periods } from '../../model/items'
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -8,7 +9,7 @@ import IconDownload from '@/shared/assets/icons/icon-document-download.svg'
 import IconGallery from '@/shared/assets/icons/icon-gallery.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconUserAdd from '@/shared/assets/icons/icon-user-add.svg'
-import IconWallet from '@/shared/assets/icons/icon-wallet.svg'
+import IconWallet from '@/shared/assets/icons/icon-wallet-2.svg'
 import Button from '@/shared/ui/Button/Button'
 import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
@@ -110,11 +111,59 @@ const Avatar = () => {
 const MainStats = () => {
 	const t = useTranslations()
 	const [activePeriod, setActivePeriod] = useState<string>(periods[0])
+	const [stats, setStats] = useState<boolean>(false)
 
 	return (
 		<div>
 			<div className='mb-5 grid grid-cols-2 gap-5 lg:grid-cols-1'>
-				<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+				<div className='hidden rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px] lg:block'>
+					<div className='relative h-full w-full items-center rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#141925_100%)] px-5 py-[15px]'>
+						<div className='mb-[10px] grid h-[39px] w-full grid-cols-2 gap-3'>
+							<Button
+								onPress={() => setStats(false)}
+								classNames={{
+									base: clsx(
+										'w-full rounded-[10px]',
+										stats ? 'border-[#283245] border-1 bg-[#1F2737]' : 'bg-[#E1B514] border-1 border-[#E1B514]'
+									)
+								}}
+							>
+								<IconUserAdd className={clsx('h-6 w-6', stats ? 'fill-[#536180]' : 'fill-[#191F2D]')} />
+								<p className={clsx(stats ? 'text-[#536180]' : 'text-[#191F2D]')}>{t('register').toUpperCase()}</p>
+							</Button>
+							<Button
+								onPress={() => setStats(true)}
+								classNames={{
+									base: clsx(
+										'w-full rounded-[10px]',
+										!stats ? 'border-[#283245] border-1 bg-[#1F2737]' : 'bg-[#E1B514] border-1 border-[#E1B514]'
+									)
+								}}
+							>
+								<IconWallet className={clsx('h-6 w-6', !stats ? 'fill-[#536180]' : 'fill-[#191F2D]')} />
+								<p className={clsx(!stats ? 'text-[#536180]' : 'text-[#191F2D]')}>{t('payments').toUpperCase()}</p>
+							</Button>
+						</div>
+						<div className='mb-3 flex justify-center gap-2'>
+							<div className='flex items-center gap-2'>
+								{periods.map((value, index) => (
+									<Button
+										onPress={() => setActivePeriod(value)}
+										key={index}
+										classNames={{
+											base: `${activePeriod === value ? 'bg-[#E1B514]' : 'bg-[#272F40]'} rounded-[8px] h-[34px] px-[14px]`,
+											content: `${activePeriod === value ? 'text-[#191F2D]' : 'text-[#536180]'} text-[14px] font-bold`
+										}}
+									>
+										{value}
+									</Button>
+								))}
+							</div>
+						</div>
+						<StatsChart />
+					</div>
+				</div>
+				<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px] lg:hidden'>
 					<div className='relative h-full w-full items-center rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#141925_100%)] px-5 py-[15px]'>
 						<div className='mb-3 flex justify-between gap-2'>
 							<div className='flex items-center gap-[5px]'>
@@ -139,7 +188,7 @@ const MainStats = () => {
 						<StatsChart />
 					</div>
 				</div>
-				<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+				<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px] lg:hidden'>
 					<div className='relative h-full w-full items-center rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#141925_100%)] px-5 py-[15px]'>
 						<div className='mb-3 flex justify-between gap-2'>
 							<div className='flex items-center gap-[5px]'>
@@ -211,7 +260,7 @@ const MainStats = () => {
 						<IconGallery className='h-6 w-6 fill-white' />
 						<p>{t('advertising_materials').toUpperCase()}</p>
 					</div>
-					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,200px)] justify-between gap-4 2sm:grid-cols-1'>
+					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,200px)] justify-between gap-4 2sm:grid-cols-2'>
 						{Array.from(new Array(10)).map((_, index) => (
 							<div
 								key={index}

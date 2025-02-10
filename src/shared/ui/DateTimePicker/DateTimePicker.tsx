@@ -3,9 +3,16 @@
 import Button from '../Button/Button'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useRef, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 import 'swiper/css'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
+
+import IconArrow from '@/shared/assets/icons/icon-arrow-down.svg'
+
+interface DateItem {
+	date: number
+	month: number
+}
 
 const DateTimePicker = () => {
 	const t = useTranslations()
@@ -14,9 +21,38 @@ const DateTimePicker = () => {
 	const [isSelected, toggleIsSelected] = useState<boolean>(false)
 	const [hour, setHour] = useState<number>(new Date().getHours())
 	const [minute, setMinute] = useState<number>(new Date().getMinutes())
-	const [_year, setYear] = useState<number>(new Date().getFullYear())
-	const [_month, setMonth] = useState<number>(new Date().getMonth())
-	const [_date, setDate] = useState<number>(new Date().getDate())
+	const [year, setYear] = useState<number>(new Date().getFullYear())
+	const [month, setMonth] = useState<number>(new Date().getMonth())
+	const [date, setDate] = useState<number>(new Date().getDate())
+
+	const dateItems = useMemo(() => {
+		const daysInCurrentMonth = new Date(year, month + 1, 0).getDate()
+		const daysInPreviousMonth = new Date(year, month, 0).getDate()
+		const firstDay = new Date(year, month, 1).getDay()
+		const lastDay = new Date(year, month, daysInCurrentMonth).getDay()
+		const days: DateItem[] = []
+
+		for (let i = 0; i < firstDay; i++) {
+			days.push({
+				date: daysInPreviousMonth - firstDay + i + 1,
+				month: new Date(year, month, 0).getMonth()
+			})
+		}
+		for (let i = 1; i <= daysInCurrentMonth; i++) {
+			days.push({
+				date: i,
+				month
+			})
+		}
+		for (let i = 1; i < 7 - lastDay; i++) {
+			days.push({
+				date: i,
+				month: new Date(year, month + 1, 1).getMonth()
+			})
+		}
+
+		return days
+	}, [year, month])
 
 	return (
 		<div className='flex h-[395px] w-[314px] flex-col bg-[#1B2130]'>
@@ -38,11 +74,14 @@ const DateTimePicker = () => {
 			</div>
 			<Button
 				onPress={() => {
-					hoursSwiperRef.current?.swiper.slideToLoop(new Date().getHours())
-					minutessSwiperRef.current?.swiper.slideToLoop(new Date().getMinutes())
-					setYear(new Date().getFullYear())
-					setMonth(new Date().getMonth())
-					setDate(new Date().getDate())
+					if (isSelected) {
+						hoursSwiperRef.current?.swiper.slideToLoop(new Date().getHours())
+						minutessSwiperRef.current?.swiper.slideToLoop(new Date().getMinutes())
+					} else {
+						setYear(new Date().getFullYear())
+						setMonth(new Date().getMonth())
+						setDate(new Date().getDate())
+					}
 				}}
 				classNames={{
 					base: 'bg-[#1AD19A] w-full flex-[0_0_44px] h-[44px]',
@@ -130,7 +169,64 @@ const DateTimePicker = () => {
 					</div>
 				</div>
 			) : (
-				<></>
+				<div className='flex h-full w-full flex-col gap-4'>
+					<div className='flex w-full flex-[0_0_45px] items-center justify-between bg-[#272E41] px-2'>
+						<Button
+							onPress={() => {
+								setDate(1)
+								setMonth(new Date(year, month - 1, 1).getMonth())
+							}}
+							classNames={{ base: 'rounded-full' }}
+						>
+							<IconArrow className='w-[24px] rotate-90 fill-[#1AD19A]' />
+						</Button>
+						<p className='text-[16px] font-bold text-[#1AD19A]'>
+							{t(`months_long.${month}`)} {year}
+						</p>
+						<Button
+							onPress={() => {
+								setDate(1)
+								setMonth(new Date(year, month + 1, 1).getMonth())
+							}}
+							classNames={{ base: 'rounded-full' }}
+						>
+							<IconArrow className='w-[24px] -rotate-90 fill-[#1AD19A]' />
+						</Button>
+					</div>
+					<div className='grid h-full grid-cols-7 justify-between px-2 text-[15px] font-medium leading-[15px]'>
+						{Array.from(new Array(7)).map((_, index) => (
+							<p
+								className='text-center text-[#1AD19A]'
+								key={index}
+							>
+								{t(`week_days.${index}`)}
+							</p>
+						))}
+						{dateItems.map((item, index) => (
+							<div
+								className='flex justify-center'
+								key={index}
+							>
+								<Button
+									onPress={() => {
+										setDate(item.date)
+										setMonth(item.month)
+									}}
+									classNames={{
+										base: clsx('rounded-full w-7 h-7', {
+											'bg-[#1AD19A] !text-[#1B2130]': item.date === date && item.month === month
+										}),
+										content: clsx(item.month === month ? 'text-[#60719A]' : 'text-[#6DB0FF]', {
+											'!text-[#1B2130]': item.date === date && item.month === month
+										})
+									}}
+								>
+									{item.date}
+								</Button>
+							</div>
+						))}
+					</div>
+				</div>
 			)}
 		</div>
 	)

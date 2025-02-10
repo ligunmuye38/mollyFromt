@@ -35,8 +35,8 @@ export const Giveaways: FC<GiveawaysProps> = ({ className }) => {
 				<div className={clsx(cls.h_inner, 'mb-[15px] mt-[20px]')}>
 					<div className={cls.title}>{t('giveaways.giveaways').toUpperCase()}</div>
 				</div>
-				<div className='relative z-10 mx-auto mb-10 flex items-center justify-between gap-4 px-5'>
-					<div>
+				<div className='relative z-10 mx-auto mb-10 flex items-center justify-between gap-4 px-5 lg:flex-col lg:items-center'>
+					<div className='w-full'>
 						<GiveAwaysFilterSwitcher
 							filter={filter}
 							setFilter={setFilter}

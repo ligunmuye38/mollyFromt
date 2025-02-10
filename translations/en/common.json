@@ -10,13 +10,13 @@
 		"support": "Support"
 	},
 	"week_days": {
-		"0": "Sun",
-		"1": "Mon",
-		"2": "Tue",
-		"3": "Wed",
-		"4": "Thu",
-		"5": "Fri",
-		"6": "Sat"
+		"0": "Su",
+		"1": "Mo",
+		"2": "Tu",
+		"3": "We",
+		"4": "Th",
+		"5": "Fr",
+		"6": "Sa"
 	},
 	"months": {
 		"0": "Jan",
@@ -31,6 +31,20 @@
 		"9": "Oct",
 		"10": "Nov",
 		"11": "Dec"
+	},
+	"months_long": {
+		"0": "January",
+		"1": "February",
+		"2": "March",
+		"3": "April",
+		"4": "May",
+		"5": "June",
+		"6": "July",
+		"7": "August",
+		"8": "September",
+		"9": "October",
+		"10": "November",
+		"11": "December"
 	},
 	"header": {
 		"vip": "VIP Club",
@@ -659,5 +673,6 @@
 	"case_open": "Case open",
 	"case_income": "Case income",
 	"date": "Date",
-	"time": "Time"
+	"time": "Time",
+	"bet": "Bet"
 }

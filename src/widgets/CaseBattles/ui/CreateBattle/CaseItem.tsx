@@ -84,11 +84,11 @@ const CaseItem = ({
 	}
 
 	return (
-		<div className={clsx('h-auto w-max hover:cursor-pointer')}>
-			<div className={clsx(cls.item_box, backTheme && cls[backTheme])}>
+		<div className={clsx('h-auto w-max hover:cursor-pointer 2sm:!w-full')}>
+			<div className={clsx(cls.item_box, '2sm:!w-full', backTheme && cls[backTheme])}>
 				<div
 					className={clsx(
-						'relative h-[213px] w-[192px] overflow-hidden rounded-[12px] p-[1px]',
+						'relative h-[213px] w-[192px] overflow-hidden rounded-[12px] p-[1px] 2sm:w-full',
 						isActive ? 'bg-[#10AA7C]' : 'bg-[#161C28]'
 					)}
 				>
@@ -110,7 +110,7 @@ const CaseItem = ({
 								<div className={clsx('mt-1 h-[8px] w-[8px] rounded-[2px]', getMarkBackground(type))}></div>
 							</div>
 						</div>
-						<div className='absolute left-[24px] top-[45px] h-[104px] w-[146px]'>
+						<div className='absolute left-1/2 top-[45px] h-[104px] w-[146px] -translate-x-1/2 2sm:w-[120px]'>
 							<div className={clsx('relative flex h-full w-full items-center justify-center', getBackground(type))}>
 								<Image
 									src={picUrl}
@@ -121,8 +121,8 @@ const CaseItem = ({
 							</div>
 						</div>
 						<div className='flex flex-col gap-1'>
-							<span className='text-[14px] font-[500] text-[#2F374A]'>{name}</span>
-							<span className='text-[16px] font-[500] text-[#D1D9EB]'>$ {price}</span>
+							<span className='text-[14px] font-[500] text-[#2F374A] 2sm:text-[12px]'>{name}</span>
+							<span className='text-[16px] font-[500] text-[#D1D9EB] 2sm:text-[14px]'>$ {price}</span>
 						</div>
 					</div>
 				</div>

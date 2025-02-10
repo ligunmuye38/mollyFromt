@@ -12,6 +12,7 @@ import IconCopySuccess from '@/shared/assets/icons/icon-copy-success.svg'
 import IconGift from '@/shared/assets/icons/icon-gift.svg'
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
 import IconLink from '@/shared/assets/icons/icon-link-2.svg'
+import IconLotto from '@/shared/assets/icons/icon-lottery-ticket.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconUnprotected from '@/shared/assets/icons/icon-unprotected.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
@@ -96,11 +97,10 @@ const TicketAvatar = ({ type }: { type?: boolean }) => {
 	)
 }
 
-const HexagonWrapper = () => {
+const HexagonWrapper = ({ className }: { className?: string }) => {
 	return (
 		<svg
-			width='42'
-			height='48'
+			className={className}
 			viewBox='0 0 42 48'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
@@ -154,11 +154,10 @@ const HexagonWrapper = () => {
 	)
 }
 
-const HexagonRedWrapper = () => {
+const HexagonRedWrapper = ({ className }: { className?: string }) => {
 	return (
 		<svg
-			width='34'
-			height='38'
+			className={className}
 			viewBox='0 0 34 38'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
@@ -204,13 +203,13 @@ const HexagonRedWrapper = () => {
 
 const CaseItem = () => {
 	return (
-		<div className='h-[154px] w-[133px] rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] p-[1px] shadow-[0px_25px_80px_0px_#15BD8B40]'>
-			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#141925] p-[13px]'>
+		<div className='h-[154px] w-[133px] rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] p-[1px] shadow-[0px_25px_80px_0px_#15BD8B40] md:h-[105px] md:w-[91px]'>
+			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#141925] p-[13px] md:p-2'>
 				<div className='flex w-full justify-between'>
-					<p className='text-[10px] font-medium leading-[10px] text-[#2F374A]'>FT</p>
-					<div className='h-2 w-2 rounded-sm bg-[#FF00F5] shadow-[0_0_4px_#FF00F54D]'></div>
+					<p className='text-[10px] font-medium leading-[10px] text-[#2F374A] md:text-[8px]'>FT</p>
+					<div className='h-2 w-2 rounded-sm bg-[#FF00F5] shadow-[0_0_4px_#FF00F54D] md:h-[6px] md:w-[6px]'></div>
 				</div>
-				<div className='h-[60px] w-[81px] bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md'>
+				<div className='h-[60px] w-[81px] bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md md:h-[44px] md:w-[55px]'>
 					<Image
 						src='/images/case/skin-2.png'
 						width={81}
@@ -219,8 +218,8 @@ const CaseItem = () => {
 					/>
 				</div>
 				<div>
-					<p className='w-full text-left text-[10px] font-medium text-[#2F374A]'>AK-47 | Fire Serpent</p>
-					<p className='w-full text-left text-[12px] font-bold text-[#D1D9EB]'>$ 456,05</p>
+					<p className='w-full text-left text-[10px] font-medium text-[#2F374A] md:text-[8px]'>AK-47 | Fire Serpent</p>
+					<p className='w-full text-left text-[12px] font-bold text-[#D1D9EB] md:text-[8px]'>$ 456,05</p>
 				</div>
 			</div>
 		</div>
@@ -244,7 +243,7 @@ const Ticket = ({
 		return (
 			<div className='flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1D2433] text-[14px] text-[#FFFFFF]'>
 				<TicketAvatar />
-				Mr.Horse
+				<span className='md:hidden'>Mr.Horse</span>
 			</div>
 		)
 	}
@@ -280,11 +279,14 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 
 	return (
 		<div className={clsx(cls.container, className)}>
-			<div className={clsx(cls.h, 'relative', joined ? 'mb-6' : 'mb-0')}>
+			<div className={clsx(cls.h, 'relative', joined ? 'mb-2' : 'mb-0')}>
 				<div className={cls.bg}>
 					<HeaderBg className={cls.bg_pic} />
+					<div className={cls.bg_icon}>
+						<IconLotto />
+					</div>
 				</div>
-				<div className={clsx(cls.h_inner, 'mb-[20px] mt-[20px]')}>
+				<div className={clsx(cls.h_inner, 'mb-[20px]')}>
 					<div className={cls.title}>{t('lotto.lotto').toUpperCase()}</div>
 				</div>
 			</div>
@@ -294,53 +296,59 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						<div className='w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 							<div className='flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'>
 								<IconCopySuccess className='h-[18px] w-[18px] fill-[#3B455C]' />
-								<p className='ml-1 text-[12px] font-bold text-[#3B455C]'>{t('lotto.select_10_cells').toUpperCase()}</p>
+								<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>
+									{t('lotto.select_10_cells').toUpperCase()}
+								</p>
 							</div>
 						</div>
 						<div className='w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 							<div className='flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'>
 								<IconHint className='h-[18px] w-[18px] fill-[#3B455C]' />
-								<p className='ml-1 text-[12px] font-bold text-[#3B455C]'>FAQ</p>
+								<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>FAQ</p>
 							</div>
 						</div>
 					</div>
 				)}
 				<div className='z-10 mb-12 rounded-[14px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[2px]'>
-					<div className='rounded-[14px] bg-[linear-gradient(270deg,_rgba(25,_31,_45,_0.65)_0%,_rgba(25,_31,_45,_0.15)_50%,_rgba(25,_31,_45,_0.65)_100%)] p-[26px]'>
+					<div className='rounded-[14px] bg-[linear-gradient(270deg,_rgba(25,_31,_45,_0.65)_0%,_rgba(25,_31,_45,_0.15)_50%,_rgba(25,_31,_45,_0.65)_100%)] p-[26px] md:p-[12px]'>
 						<div className='relative flex justify-between'>
-							<div className='flex items-center gap-3'>
+							<div className='flex items-center gap-3 md:gap-2'>
 								<div className='relative h-max'>
-									<HexagonRedWrapper />
+									<HexagonRedWrapper className='h-[38px] w-[34px] md:h-[24px] md:w-[22px]' />
 									<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
 										<IconUnprotected className='h-[18px] w-[18px] fill-white' />
 									</div>
 								</div>
 								<div className='relative'>
-									<HexagonWrapper />
+									<HexagonWrapper className='h-[48px] w-[42px] md:h-[34px] md:w-[32px]' />
 									<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
 										<IconPeople className='h-[18px] w-[18px] fill-[#60719A]' />
 									</div>
 								</div>
 								<div>
-									<p className='text-[12px] font-medium text-[#3B455C]'>{t('lotto.players').toUpperCase()}</p>
-									<p className='text-[14px] font-medium text-white'>14/50</p>
+									<p className='text-[12px] font-medium text-[#3B455C] md:text-[10px]'>
+										{t('lotto.players').toUpperCase()}
+									</p>
+									<p className='text-[14px] font-medium text-white md:text-[12px]'>14/50</p>
 								</div>
 							</div>
-							<div className='flex items-center gap-3'>
+							<div className='flex items-center gap-3 md:gap-2'>
 								<div>
-									<p className='text-[12px] font-bold text-[#3B455C]'>{t('lotto.grand_prize').toUpperCase()}</p>
-									<p className='text-right text-[14px] font-bold text-white'>
+									<p className='text-[12px] font-bold text-[#3B455C] md:text-[10px]'>
+										{t('lotto.grand_prize').toUpperCase()}
+									</p>
+									<p className='text-right text-[14px] font-bold text-white md:text-[12px]'>
 										<span className='text-[#17E2A5]'>$</span> 500.34
 									</p>
 								</div>
 								<div className='relative'>
-									<HexagonWrapper />
+									<HexagonWrapper className='h-[48px] w-[42px] md:h-[34px] md:w-[32px]' />
 									<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-										<IconGift className='scale-150' />
+										<IconGift className='scale-150 md:scale-100' />
 									</div>
 								</div>
 								<Button>
-									<IconLink />
+									<IconLink className='h-[38px] w-[34px] md:h-[24px] md:w-[22px]' />
 								</Button>
 							</div>
 							<div className='absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2'>
@@ -349,7 +357,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						</div>
 					</div>
 				</div>
-				<div className='relative rounded-[14px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+				<div className='relative mx-5 rounded-[14px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 					<div className='absolute left-1/2 top-0 flex h-[50px] w-[192px] -translate-x-1/2 flex-col items-center justify-center bg-[#121722] [clip-path:_polygon(0px_0px,_100%_0px,_calc(100%_-_20px)_100%,_20px_100%)]'>
 						{joined ? (
 							<p className='max-w-[114px] text-center text-[16px] font-[900] leading-4 text-[#D1D9EB]'>
@@ -362,7 +370,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 							</>
 						)}
 					</div>
-					<div className='h-full w-full rounded-[14px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] px-[30px] pb-[30px] pt-[70px]'>
+					<div className='h-full w-full rounded-[14px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] px-[30px] pb-[30px] pt-[70px] md:px-3'>
 						{selectedRooms.length < 10 ? (
 							<div className='mb-[30px] grid grid-cols-5 gap-4'>
 								{Array.from(new Array(20)).map((_, index) => (
@@ -380,7 +388,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 								))}
 							</div>
 						) : (
-							<div className='flex min-h-[300px] flex-col items-center justify-center'>
+							<div className='flex min-h-[300px] flex-col items-center justify-center md:min-h-[150px]'>
 								<div
 									className='flex w-max flex-col items-center'
 									style={{ filter: 'drop-shadow(0 0 75px #10AA7C73)' }}
@@ -397,25 +405,25 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						)}
 						<div
 							className={clsx(
-								'flex items-center gap-4 rounded-xl border-1 border-[#1A202E] py-[18px] pl-5 pr-[14px]',
+								'flex items-center gap-4 rounded-xl border-1 border-[#1A202E] py-[18px] pl-5 pr-[14px] 3sm:grid 3sm:grid-cols-1 3sm:gap-2 3sm:px-2 3sm:py-2',
 								selectedRooms.length < 10 ? 'justify-between' : 'justify-center'
 							)}
 						>
 							{selectedRooms.length < 10 ? (
 								<>
-									<div className='flex items-center gap-4'>
-										<div className='flex w-max items-center rounded-[8px] border-1 border-[#15C18F] bg-[#1A202E] px-3 py-[9px]'>
+									<div className='flex items-center gap-4 3sm:gap-2'>
+										<div className='flex w-max items-center rounded-[8px] border-1 border-[#15C18F] bg-[#1A202E] px-3 py-[9px] 3sm:w-full'>
 											<IconBagTick className='mr-2 w-6 fill-[#15C18D]' />
-											<span className='text-[12px] font-medium leading-4 text-[#60719A]'>
+											<span className='text-[12px] font-medium leading-4 text-[#60719A] 3sm:text-[10px]'>
 												{t('lotto.total_cost')}:{' '}
 												<span className='font-medium text-white'>
 													<span className='text-[#17E2A5]'>$</span>15.50
 												</span>
 											</span>
 										</div>
-										<div className='flex w-max items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#1A202E] px-[13px] py-[11px]'>
+										<div className='flex w-max flex-shrink-0 items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#1A202E] px-[13px] py-[11px]'>
 											<IconCheck className='h-[18px] w-[18px] fill-[#60719A]' />
-											<p className='text-[12px] text-[#60719A]'>
+											<p className='text-[12px] text-[#60719A] 3sm:text-[10px]'>
 												{t('lotto.selected')}: <span>{selectedRooms.length}</span>
 											</p>
 										</div>
@@ -424,7 +432,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 										<Button
 											onPress={() => setJoined(true)}
 											classNames={{
-												base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
+												base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px] 3sm:w-full'),
 												content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
 											}}
 										>
@@ -442,7 +450,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 										setSelectedRooms([])
 									}}
 									classNames={{
-										base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
+										base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px] md:w-full'),
 										content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
 									}}
 								>
