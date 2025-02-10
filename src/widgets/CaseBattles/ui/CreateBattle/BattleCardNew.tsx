@@ -22,14 +22,15 @@ interface BattleCardNewProps {
 	setAmount: (_: number) => void
 }
 
-const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount }: BattleCardNewProps) => {
+const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount: _setAmount }: BattleCardNewProps) => {
 	const t = useTranslations()
 	const [isHover, toggleIsHover] = useState<boolean>(false)
+	const [aamount, setAAmount] = useState<number>(amount)
 
 	return (
 		<div
 			className={clsx(cls.battle_card_new, { [cls.selected]: selected }, 'overflow-hidden 3sm:!w-full')}
-			onClick={() => toggleIsHover(true)}
+			onMouseEnter={() => toggleIsHover(true)}
 			onMouseLeave={() => setTimeout(() => toggleIsHover(false), 100)}
 		>
 			<div className={cls.battle_card_new_inner}>
@@ -51,22 +52,21 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 					alt='Case Image'
 				/>
 				<p className={cls.title}>{item.title}</p>
-				<div className='flex w-full justify-between 3sm:flex-col-reverse 3sm:items-center 3sm:gap-2'>
+				<div className='z-10 flex w-full justify-between 3sm:flex-col-reverse 3sm:items-center 3sm:gap-2'>
 					<div className={cls.price_wrapper}>
 						<div className={clsx(cls.price, '3sm:!h-[36px] 3sm:!w-[110px]')}>
 							<div className={cls.price_inner}>${item.price}</div>
 						</div>
 					</div>
 					<div className={clsx(cls.spin, '3sm:!h-[36px] 3sm:!w-[90px]')}>
-						<Button onPress={() => setAmount(amount == 0 ? amount : amount - 1)}>
+						<Button onPress={() => aamount! > 1 && setAAmount(aamount - 1)}>
 							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
 							<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>-</span>
 						</Button>
-						<span>{amount}</span>
+						<span>{aamount}</span>
 						<Button
 							onPress={() => {
-								if (!amount) toggleIsHover(true)
-								else setAmount(amount + 1)
+								setAAmount(aamount + 1)
 							}}
 						>
 							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
@@ -76,23 +76,21 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 				</div>
 			</div>
 			<div
-				className={`absolute left-0 h-full w-full ${isHover ? 'top-0' : 'top-full'} flex flex-col items-center justify-center bg-[#1E2434D9] backdrop-blur-[15px] duration-[250ms]`}
+				className={`absolute left-0 h-full w-full ${isHover ? 'top-0' : 'top-full'} flex flex-col items-center justify-center bg-[#1E2434D9] duration-[250ms]`}
 			>
 				<CicularBg className='absolute' />
-				{!selected && (
-					<Button
-						onPress={() => {
-							setAmount(1)
-							onSelect(true)
-						}}
-						classNames={{
-							base: clsx(cls.hexagon_btn, 'h-[42px] w-[130px] mb-4 z-10'),
-							content: clsx(cls.hexagon_btn_inner, '!gap-0')
-						}}
-					>
-						{t('case_battles.add_case').toUpperCase()}
-					</Button>
-				)}
+				<Button
+					onPress={() => {
+						setAAmount(1)
+						onSelect(true)
+					}}
+					classNames={{
+						base: clsx(cls.hexagon_btn, 'h-[42px] w-[130px] mb-4 z-10'),
+						content: clsx(cls.hexagon_btn_inner, '!gap-0')
+					}}
+				>
+					{t('case_battles.add_case').toUpperCase()}
+				</Button>
 				<Button
 					onPress={onViewDrop}
 					classNames={{

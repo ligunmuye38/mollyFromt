@@ -844,20 +844,22 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 									'relative flex flex-col items-center justify-end gap-4 overflow-hidden py-[20px] 3sm:items-end 3sm:pr-5'
 								)}
 							>
-								<div className='absolute left-[12px] top-1/2 z-10 flex h-[210px] w-[30px] -translate-y-1/2 flex-col overflow-hidden rounded-[100px] bg-[#0B0E15] 3sm:bottom-5 3sm:left-5 3sm:top-auto 3sm:h-[30px] 3sm:w-[120px] 3sm:translate-y-0 3sm:flex-row'>
-									{Array.from(new Array(7)).map((_, index) => (
-										<Button
-											key={index}
-											onPress={() => setEmojiStatus(index)}
-											classNames={{
-												base: `w-[30px] h-[30px] rounded-3xl flex-shrink-0 ${emojiStatus === index ? 'bg-[#0F141E]' : ''}`
-											}}
-										>
-											<EmojiHappy
-												className={clsx('h-4 w-4', emojiStatus === index ? 'fill-[#60719A]' : 'fill-[#262E42]')}
-											/>
-										</Button>
-									))}
+								<div className='hide-scrollbar absolute bottom-5 left-[12px] z-10 h-[30px] w-[30px] overflow-auto rounded-[100px] bg-[#0B0E15] duration-250 hover:h-[210px] 3sm:left-5 3sm:hover:h-[30px] 3sm:hover:w-[120px]'>
+									<div className='flex flex-col 3sm:flex-row'>
+										{Array.from(new Array(10)).map((_, index) => (
+											<Button
+												key={index}
+												onPress={() => setEmojiStatus(index)}
+												classNames={{
+													base: `w-[30px] h-[30px] rounded-3xl flex-shrink-0 ${emojiStatus === index ? 'bg-[#0F141E]' : ''}`
+												}}
+											>
+												<EmojiHappy
+													className={clsx('h-4 w-4', emojiStatus === index ? 'fill-[#60719A]' : 'fill-[#262E42]')}
+												/>
+											</Button>
+										))}
+									</div>
 								</div>
 								<Button
 									classNames={{
