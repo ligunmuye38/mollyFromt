@@ -21,7 +21,9 @@ const UpgradeTypeSwitcher = ({ className, type, setType }: IUpgradeTypeSwitcherP
 			<div
 				className={clsx(
 					cls.switcher_track_wrapper,
-					type === UpgradeTypes.UPGRADE ? 'left-1 w-[200px]' : 'left-[200px] w-[220px]'
+					type === UpgradeTypes.UPGRADE
+						? 'left-1 w-[200px] md:w-[170px]'
+						: 'left-[200px] w-[220px] md:left-[170px] md:w-[190px]'
 				)}
 			>
 				<div className={cls.switcher_track_wrapper_inner}>
@@ -43,17 +45,17 @@ const UpgradeTypeSwitcher = ({ className, type, setType }: IUpgradeTypeSwitcherP
 					</div>
 				</div>
 			</div>
-			<div className={cls.switcher}>
+			<div className={clsx(cls.switcher, 'md:!w-[365px]')}>
 				<div className={cls.switcher_inner}>
 					<div
-						className={clsx(cls.switcher_content, 'w-[200px]')}
+						className={clsx(cls.switcher_content, 'w-[200px] md:w-[170px]')}
 						onClick={() => setType(UpgradeTypes.UPGRADE)}
 					>
 						<IconUpgrade className={cls.switcher_content_icon} />
 						{t(UpgradeTypes.UPGRADE).toUpperCase()}
 					</div>
 					<div
-						className={clsx(cls.switcher_content, 'w-[220px]')}
+						className={clsx(cls.switcher_content, 'w-[220px] md:w-[190px]')}
 						onClick={() => setType(UpgradeTypes.UPGRADE_STREAKS)}
 					>
 						<IconMagicStar className={cls.switcher_content_icon} />

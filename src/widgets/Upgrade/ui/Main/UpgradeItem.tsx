@@ -11,7 +11,13 @@ import ToggleButton from '@/shared/ui/ToggleButton/ToggleButton'
 
 import cls from './Main.module.sass'
 
-const UpgradeItem = ({ selected, onClose }: { selected?: boolean; onClose: () => void }) => {
+interface IUpgradeItemProps {
+	selected?: boolean
+	onClose: () => void
+	className?: string
+}
+
+const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 	const t = useTranslations()
 	const pathname = usePathname()
 	const isFailed = pathname.includes('/failed')
@@ -19,7 +25,12 @@ const UpgradeItem = ({ selected, onClose }: { selected?: boolean; onClose: () =>
 
 	if (isSuccess) {
 		return (
-			<div className='relative h-[200px] w-full bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(31,_37,_52,_0)_81.03%)] p-[3px] backdrop-blur-md [clip-path:polygon(0px_0px,_calc(100%_-_36px)_0px,_100%_50%,_calc(100%_-_36px)_100%,_0px_100%)]'>
+			<div
+				className={clsx(
+					'relative h-[200px] w-full bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(31,_37,_52,_0)_81.03%)] p-[3px] backdrop-blur-md [clip-path:polygon(0px_0px,_calc(100%_-_36px)_0px,_100%_50%,_calc(100%_-_36px)_100%,_0px_100%)]',
+					className
+				)}
+			>
 				<div className='flex h-full w-full items-center justify-center bg-[linear-gradient(270deg,_#191F2D_0%,_rgba(25,_31,_45,_0.15)_100%)] [clip-path:polygon(0px_0px,_calc(100%_-_36px)_0px,_100%_50%,_calc(100%_-_36px)_100%,_0px_100%)]'>
 					<div
 						style={{
@@ -42,7 +53,7 @@ const UpgradeItem = ({ selected, onClose }: { selected?: boolean; onClose: () =>
 	}
 
 	return (
-		<div className='relative h-[240px] w-full'>
+		<div className={clsx('relative h-[240px] w-full', className)}>
 			<div className='h-full w-full origin-top-right skew-y-3 overflow-hidden rounded-[12px] opacity-80 backdrop-blur-md'>
 				<div className='h-full w-full origin-top-right -skew-y-6 rounded-[12px] bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_81.03%)] p-[3px]'>
 					{selected ? (

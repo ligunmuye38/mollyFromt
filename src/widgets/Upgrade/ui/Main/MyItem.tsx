@@ -15,14 +15,13 @@ import Button from '@/shared/ui/Button/Button'
 import HelpModal from './HelpModal'
 import cls from './Main.module.sass'
 
-const Hexagon = () => {
+export const Hexagon = ({ className }: { className?: string }) => {
 	return (
 		<svg
-			width='39'
-			height='45'
 			viewBox='0 0 39 45'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
+			className={clsx('h-[35px] w-[39px]', className)}
 		>
 			<g filter='url(#filter0_b_4313_30114)'>
 				<path
@@ -119,7 +118,7 @@ const Hexagon = () => {
 	)
 }
 
-const MyItem = () => {
+const MyItem = ({ className }: { className?: string }) => {
 	const t = useTranslations()
 	const [selected, toggleSelected] = useState<boolean>(false)
 	const pathname = usePathname()
@@ -144,7 +143,12 @@ const MyItem = () => {
 
 	if (isSuccess) {
 		return (
-			<div className='relative h-[200px] w-full bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(31,_37,_52,_0)_81.03%)] p-[3px] backdrop-blur-md [clip-path:polygon(36px_0px,_100%_0px,_100%_100%,_36px_100%,_0px_50%)]'>
+			<div
+				className={clsx(
+					'relative h-[200px] w-full bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(31,_37,_52,_0)_81.03%)] p-[3px] backdrop-blur-md [clip-path:polygon(36px_0px,_100%_0px,_100%_100%,_36px_100%,_0px_50%)]',
+					className
+				)}
+			>
 				<div className='flex h-full w-full items-center justify-center bg-[linear-gradient(90deg,_#191F2D_0%,_rgba(25,_31,_45,_0.15)_100%)] [clip-path:polygon(36px_0px,_100%_0px,_100%_100%,_36px_100%,_0px_50%)]'>
 					<div
 						style={{
@@ -168,7 +172,7 @@ const MyItem = () => {
 	}
 
 	return (
-		<div className='relative h-[240px] w-full'>
+		<div className={clsx('relative h-[240px] w-full', className)}>
 			<div className='h-full w-full origin-top-left -skew-y-3 self-start overflow-hidden rounded-[12px] backdrop-blur-sm'>
 				<div className='h-full w-full origin-top-left skew-y-6 rounded-[12px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_72.9%)] p-[3px]'>
 					{selected ? (

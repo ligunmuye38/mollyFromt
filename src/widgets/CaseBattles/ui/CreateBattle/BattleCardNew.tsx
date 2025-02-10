@@ -2,7 +2,7 @@ import { INewBattleCase } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 
 import CicularBg from '@/shared/assets/cicular-bg.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
@@ -15,21 +15,30 @@ import cls from './CreateBattle.module.sass'
 
 interface BattleCardNewProps {
 	item: INewBattleCase
-	selected: boolean
-	onSelect: (_: boolean) => void
-	onViewDrop: () => void
-	amount: number
-	setAmount: (_: number) => void
+	onViewDrop: (_: INewBattleCase) => void
+	defaultAmount: number
+	increaseAmount: () => void
+	decreaseAmount: () => void
 }
 
-const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount: _setAmount }: BattleCardNewProps) => {
+const BattleCardNew = ({ defaultAmount, item, onViewDrop, decreaseAmount, increaseAmount }: BattleCardNewProps) => {
 	const t = useTranslations()
 	const [isHover, toggleIsHover] = useState<boolean>(false)
-	const [aamount, setAAmount] = useState<number>(amount)
+	const [amount, setAmount] = useState<number>(defaultAmount)
+	const selected = useMemo(() => {
+		return Boolean(amount)
+	}, [amount])
+
+	const decreaseAmountRef = useRef(decreaseAmount)
+	const increaseAmountRef = useRef(increaseAmount)
+
+	// useEffect(() => {
+	// 	setAmount(defaultAmount)
+	// }, [])
 
 	return (
 		<div
-			className={clsx(cls.battle_card_new, { [cls.selected]: selected }, 'overflow-hidden 3sm:!w-full')}
+			className={clsx(cls.battle_card_new, { [cls.selected]: selected }, '!w-full overflow-hidden')}
 			onMouseEnter={() => toggleIsHover(true)}
 			onMouseLeave={() => setTimeout(() => toggleIsHover(false), 100)}
 		>
@@ -59,14 +68,22 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 						</div>
 					</div>
 					<div className={clsx(cls.spin, '3sm:!h-[36px] 3sm:!w-[90px]')}>
-						<Button onPress={() => aamount! > 1 && setAAmount(aamount - 1)}>
+						<Button
+							onPress={() => {
+								if (amount > 0) {
+									decreaseAmountRef.current()
+									setAmount(amount - 1)
+								}
+							}}
+						>
 							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
 							<span className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#141925]'>-</span>
 						</Button>
-						<span>{aamount}</span>
+						<span>{amount}</span>
 						<Button
 							onPress={() => {
-								setAAmount(aamount + 1)
+								increaseAmountRef.current()
+								setAmount(amount + 1)
 							}}
 						>
 							<IconHexagonGreenSmall className='h-[26px] w-[30px] 3sm:h-[24px] 3sm:w-[26px]' />
@@ -81,8 +98,8 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 				<CicularBg className='absolute' />
 				<Button
 					onPress={() => {
-						setAAmount(1)
-						onSelect(true)
+						increaseAmount()
+						setAmount(v => v + 1)
 					}}
 					classNames={{
 						base: clsx(cls.hexagon_btn, 'h-[42px] w-[130px] mb-4 z-10'),
@@ -92,7 +109,7 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 					{t('case_battles.add_case').toUpperCase()}
 				</Button>
 				<Button
-					onPress={onViewDrop}
+					onPress={() => onViewDrop(item)}
 					classNames={{
 						base: clsx(cls.hexagon_btn, cls.default, 'h-[42px] w-[130px] z-10 !bg-none !bg-[#364058]'),
 						content: clsx(cls.hexagon_btn_inner, cls.default, '!gap-0 !bg-none !bg-[#242C3F]')
@@ -105,4 +122,4 @@ const BattleCardNew = ({ amount, item, onSelect, onViewDrop, selected, setAmount
 	)
 }
 
-export default BattleCardNew
+export default React.memo(BattleCardNew)

@@ -4,7 +4,7 @@ import { Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { caseItems } from '@/widgets/Cases/model/items'
 
@@ -28,64 +28,79 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 
 	const { closeInnerModal, openInnerModal } = useModal()
 
-	const [selectedItems, setSelectedItems] = useState<number[]>([])
-	const [amounts, setAmounts] = useState<Record<number, number>>({})
+	const [amounts, setAmounts] = useState<number>(0)
+
 	const [selectedCase, toggleSelectedCase] = useState<boolean>(false)
 
-	const InnerModal = ({ item }: { item: INewBattleCase }) => {
-		return (
-			<div className='absolute bottom-0 max-h-[574px] w-full rounded-[15px] bg-[#141925] p-5'>
-				<div className='flex items-start justify-between'>
-					<div className='flex items-center gap-4'>
-						<div className='flex h-[80px] w-[80px] items-center justify-center rounded-xl bg-[#0D1018]'>
-							<Image
-								src={item?.image ?? ''}
-								width={67}
-								height={67}
-								alt='View Drop Image'
-							/>
-						</div>
-						<p className='text-[18px] font-medium leading-4 text-white'>{item?.title}</p>
-					</div>
-					<Button
-						startContent={<IconClose />}
-						className={clsx('flex min-h-[30px] min-w-[30px] items-center justify-center', cls.close_btn)}
-						onPress={closeInnerModal}
-					/>
-				</div>
-				<div className={clsx(cls.drop_list, 'max-h-[440px] overflow-y-auto')}>
-					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] 3sm:grid-cols-2'>
-						{caseItems.map((item, index) => (
-							<CaseItem
-								key={index}
-								title={item.title}
-								content={item.content}
-								price={item.price}
-								picUrl={item.picUrl}
-								type={item.type}
-								name={item.name}
-								percent={item.percent}
-							/>
-						))}
-					</div>
-				</div>
-				<div className={cls.blur_bg}></div>
-			</div>
-		)
-	}
+	const [priceRange, setPriceRange] = useState<number[]>([0, 100])
+	const [search, setSearch] = useState<string>('')
 
-	const openViewDrop = (item: INewBattleCase) => {
-		openInnerModal(<InnerModal item={item} />)
-	}
+	const increaseAmount = useCallback(() => {
+		setAmounts(v => v + 1)
+	}, [])
+
+	const decreaseAmount = useCallback(() => {
+		setAmounts(v => v - 1)
+	}, [])
+
+	const InnerModal = useCallback(
+		({ item }: { item: INewBattleCase }) => {
+			return (
+				<div className='absolute bottom-0 z-20 max-h-[574px] w-full rounded-[15px] bg-[#141925] p-5'>
+					<div className='flex items-start justify-between'>
+						<div className='flex items-center gap-4'>
+							<div className='flex h-[80px] w-[80px] items-center justify-center rounded-xl bg-[#0D1018]'>
+								<Image
+									src={item?.image ?? ''}
+									width={67}
+									height={67}
+									alt='View Drop Image'
+								/>
+							</div>
+							<p className='text-[18px] font-medium leading-4 text-white'>{item?.title}</p>
+						</div>
+						<Button
+							startContent={<IconClose />}
+							className={clsx('flex min-h-[30px] min-w-[30px] items-center justify-center', cls.close_btn)}
+							onPress={closeInnerModal}
+						/>
+					</div>
+					<div className={clsx(cls.drop_list, 'max-h-[440px] overflow-y-auto')}>
+						<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] 3sm:grid-cols-2'>
+							{caseItems.map((item, index) => (
+								<CaseItem
+									key={index}
+									title={item.title}
+									content={item.content}
+									price={item.price}
+									picUrl={item.picUrl}
+									type={item.type}
+									name={item.name}
+									percent={item.percent}
+								/>
+							))}
+						</div>
+					</div>
+					<div className={cls.blur_bg}></div>
+				</div>
+			)
+		},
+		[closeInnerModal]
+	)
+
+	const openViewDrop = useCallback(
+		(item: INewBattleCase) => {
+			openInnerModal(<InnerModal item={item} />)
+		},
+		[InnerModal, openInnerModal]
+	)
 
 	return (
 		<div className={clsx(cls.modal, 'relative')}>
 			<div className='mb-5 flex gap-5 2md:flex-col'>
 				<Input
-					value=''
-					onChange={() => {
-						return
-					}}
+					value={search}
+					onChange={value => setSearch(value)}
 					placeholder={t('create_case.search')}
 					startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
 					classNames={{
@@ -113,62 +128,51 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 						</p>
 					</div>
 					<div className='flex w-full flex-col'>
-						<div className='flex justify-between gap-2'>
-							<p className='text-[14px]'>{t('game_history_profile.price').toUpperCase()}</p>
-							<p className='text-[12px] text-[#60719A]'>$48.34 - $50 00.00</p>
-						</div>
 						<Slider
 							maxValue={100}
 							minValue={0}
-							value={[20, 60]}
+							value={priceRange}
+							onChange={value => setPriceRange([...(value as number[])])}
+							label={t('price').toUpperCase()}
+							formatOptions={{ style: 'currency', currency: 'USD' }}
 							classNames={{
 								base: 'w-[200px] 2md:w-full',
 								track: 'h-2',
-								thumb: 'w-5 h-5'
+								thumb: 'w-5 h-5',
+								value: 'text-[12px] text-[#60719A]'
 							}}
 						/>
 					</div>
 				</div>
 			</div>
 			<div className='app-scrollbar mb-5 h-[calc(100vh_-_300px)] max-h-[560px] overflow-auto'>
-				<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,240px)] justify-between gap-5 lg:justify-center 3sm:grid-cols-2'>
+				<div className='grid auto-rows-auto grid-cols-4 justify-between gap-5 lg:justify-center 2md:grid-cols-3 md:grid-cols-2'>
 					{newBattleItems.map((item, index) => (
 						<BattleCardNew
-							amount={amounts[index] ?? 0}
+							defaultAmount={0}
 							item={item}
-							onSelect={(value: boolean) => {
-								if (value) setSelectedItems(items => [...items, index])
-								else setSelectedItems(items => items.filter(item => item !== index))
-							}}
-							onViewDrop={() => {
-								openViewDrop(item)
-							}}
-							selected={selectedItems.includes(index)}
-							setAmount={value => {
-								amounts[index] = value
-								setAmounts({ ...amounts })
-								if (value === 0) {
-									setSelectedItems(items => items.filter(item => item !== index))
-								}
-							}}
-							key={`New-Case-Type-${index}:${Date.now()}`}
+							onViewDrop={openViewDrop}
+							increaseAmount={increaseAmount}
+							decreaseAmount={decreaseAmount}
+							key={`New-Case-Type-${index}`}
 						/>
 					))}
 				</div>
 			</div>
 			<div className='flex items-center gap-4 rounded-[12px] border border-[#1A202E] px-5 py-[18px] 2md:justify-center md:flex-wrap 2sm:gap-2 2sm:px-2 2sm:py-2'>
-				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-5'>
+				<div className='flex w-[180px] items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-5'>
 					<IconCaseOpen className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A] 2sm:text-[12px]'>
-						{t('case_battles.total_case')}: <span className='font-bold text-white'>1</span>
+						{t('case_battles.total_case')}: <span className='font-bold text-white'>{amounts}</span>
 					</span>
 				</div>
-				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:flex-grow md:pr-2'>
+				<div className='flex w-[210px] items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:flex-grow md:pr-2'>
 					<IconBagTick className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
 						{t('case_battles.total_cost')}:{' '}
 						<span className='font-bold text-white 2sm:text-[12px]'>
-							<span className='text-[#17E2A5]'>$</span>15.50
+							<span className='text-[#17E2A5]'>$</span>
+							{15.5 * amounts}
 						</span>
 					</span>
 				</div>
@@ -185,7 +189,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 					<div style={{ filter: 'drop-shadow(0 0 12px #10AA7C59)' }}>
 						<Button
 							onPress={() => {
-								addCases(selectedItems.length)
+								addCases(1)
 							}}
 							classNames={{
 								base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
@@ -206,7 +210,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 			>
 				<Button
 					onPress={() => {
-						addCases(selectedItems.length)
+						addCases(1)
 					}}
 					classNames={{
 						base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),

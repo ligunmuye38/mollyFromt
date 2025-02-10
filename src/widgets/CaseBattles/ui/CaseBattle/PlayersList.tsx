@@ -264,16 +264,1031 @@ const CircularBg = ({ className, red }: { className?: string; red?: boolean }) =
 	)
 }
 
+const WaitingForPlayer = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-center overflow-hidden py-[20px]'
+					)}
+				>
+					<svg
+						width='136'
+						height='136'
+						viewBox='0 0 136 136'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<path
+							opacity='0.15'
+							d='M88.0516 25.3309C90.7311 25.3309 93.2071 26.7604 94.5468 29.0809L114.759 64.0892C116.099 66.4097 116.099 69.2687 114.759 71.5892L94.5468 106.598C93.2071 108.918 90.7311 110.348 88.0516 110.348L47.6275 110.348C44.948 110.348 42.4721 108.918 41.1323 106.598L20.9202 71.5892C19.5805 69.2687 19.5805 66.4097 20.9202 64.0892L41.1323 29.0809C42.4721 26.7604 44.948 25.3309 47.6275 25.3309L88.0516 25.3309Z'
+							fill='url(#paint0_linear_4135_3914)'
+							stroke='url(#paint1_linear_4135_3914)'
+						/>
+						<path
+							d='M81.7146 36.3084C84.3941 36.3084 86.8701 37.7379 88.2098 40.0584L102.084 64.0891C103.424 66.4096 103.424 69.2685 102.084 71.5891L88.2098 95.6197C86.8701 97.9403 84.3941 99.3697 81.7146 99.3697L53.9664 99.3697C51.2869 99.3697 48.8109 97.9402 47.4712 95.6197L33.5971 71.5891C32.2573 69.2685 32.2573 66.4096 33.5971 64.0891L47.4712 40.0584C48.8109 37.7379 51.2869 36.3084 53.9664 36.3084L81.7146 36.3084Z'
+							fill='url(#paint2_linear_4135_3914)'
+							stroke='url(#paint3_linear_4135_3914)'
+						/>
+						<path
+							d='M75.1873 72.8933L69.8006 68H66.1873L60.8006 72.8933C59.294 74.2533 58.8006 76.3467 59.534 78.24C60.2673 80.12 62.054 81.3333 64.0673 81.3333H71.9206C73.9473 81.3333 75.7206 80.12 76.454 78.24C77.1873 76.3467 76.694 74.2533 75.1873 72.8933ZM70.4273 76.1867H65.574C65.0673 76.1867 64.6673 75.7733 64.6673 75.28C64.6673 74.7867 65.0806 74.3733 65.574 74.3733H70.4273C70.934 74.3733 71.334 74.7867 71.334 75.28C71.334 75.7733 70.9206 76.1867 70.4273 76.1867Z'
+							fill='#687DAD'
+						/>
+						<path
+							d='M76.4662 57.7603C75.7329 55.8803 73.9462 54.667 71.9329 54.667H64.0662C62.0529 54.667 60.2662 55.8803 59.5329 57.7603C58.8129 59.6537 59.3062 61.747 60.8129 63.107L66.1996 68.0003H69.8129L75.1996 63.107C76.6929 61.747 77.1862 59.6537 76.4662 57.7603ZM70.4262 61.6403H65.5729C65.0662 61.6403 64.6662 61.227 64.6662 60.7337C64.6662 60.2403 65.0796 59.827 65.5729 59.827H70.4262C70.9329 59.827 71.3329 60.2403 71.3329 60.7337C71.3329 61.227 70.9196 61.6403 70.4262 61.6403Z'
+							fill='#687DAD'
+						/>
+						<defs>
+							<linearGradient
+								id='paint0_linear_4135_3914'
+								x1='92.6704'
+								y1='24.8309'
+								x2='43.0087'
+								y2='110.848'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#191F2D' />
+								<stop
+									offset='1'
+									stop-color='#435170'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+							<linearGradient
+								id='paint1_linear_4135_3914'
+								x1='92.6704'
+								y1='24.8309'
+								x2='43.0087'
+								y2='110.848'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#1F2534' />
+								<stop
+									offset='1'
+									stop-color='#1F2534'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+							<linearGradient
+								id='paint2_linear_4135_3914'
+								x1='86.3334'
+								y1='35.8084'
+								x2='49.3476'
+								y2='99.8697'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#191F2D' />
+								<stop
+									offset='1'
+									stop-color='#435170'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+							<linearGradient
+								id='paint3_linear_4135_3914'
+								x1='86.3334'
+								y1='35.8084'
+								x2='49.3476'
+								y2='99.8697'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#1F2534' />
+								<stop
+									offset='1'
+									stop-color='#1F2534'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+						</defs>
+					</svg>
+					<p className='text-[12px] font-bold leading-4 text-[#60719A]'>
+						{t('case_battles.waiting_for_player').toUpperCase()}...
+					</p>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'flex animate-pulse items-center gap-4 px-3 py-[9px]')}>
+					<svg
+						width='42'
+						height='46'
+						viewBox='0 0 42 46'
+						fill='none'
+						xmlns='http://www.w3.org/2000/svg'
+					>
+						<path
+							d='M17.25 1.74241C19.5705 0.402668 22.4295 0.402668 24.75 1.74241L37.5346 9.12361C39.8551 10.4634 41.2846 12.9393 41.2846 15.6188V30.3812C41.2846 33.0607 39.8551 35.5366 37.5346 36.8764L24.75 44.2576C22.4295 45.5973 19.5705 45.5973 17.25 44.2576L4.46539 36.8764C2.14488 35.5366 0.715391 33.0607 0.715391 30.3812L0.715391 15.6188C0.715391 12.9393 2.14488 10.4634 4.46539 9.12361L17.25 1.74241Z'
+							fill='url(#paint0_linear_4135_3921)'
+							stroke='url(#paint1_linear_4135_3921)'
+						/>
+						<defs>
+							<linearGradient
+								id='paint0_linear_4135_3921'
+								x1='21'
+								y1='-1'
+								x2='21'
+								y2='47'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#191F2D' />
+								<stop
+									offset='1'
+									stop-color='#435170'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+							<linearGradient
+								id='paint1_linear_4135_3921'
+								x1='21'
+								y1='-1'
+								x2='21'
+								y2='47'
+								gradientUnits='userSpaceOnUse'
+							>
+								<stop stop-color='#1F2534' />
+								<stop
+									offset='1'
+									stop-color='#1F2534'
+									stop-opacity='0.25'
+								/>
+							</linearGradient>
+						</defs>
+					</svg>
+					<div className='flex h-[11px] w-[70px] items-center justify-center rounded-lg bg-gray-300 sm:w-96 dark:bg-gray-700'></div>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const ReadyPlayer = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						cls.has_offer,
+						'relative flex flex-col items-center justify-center gap-3 overflow-hidden py-[20px]'
+					)}
+				>
+					<div className='absolute'>
+						<ReadyIcon className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
+						<SmallAvatar
+							className='!absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 3sm:block'
+							icon='/images/avatars/2.jpg'
+						/>
+						<CircularBg />
+					</div>
+					<p className='z-10 translate-y-12 text-[20px] font-[900] leading-4 text-white 3sm:hidden'>
+						{t('case_battles.ready').toUpperCase()}
+					</p>
+					<p className='z-10 hidden translate-y-12 text-[14px] font-[900] leading-4 text-white 3sm:block'>Djorgick</p>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, cls.ready, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[2].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const JoinedPlayerWithOffer = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						cls.has_offer,
+						'relative flex flex-col items-center justify-center gap-3 overflow-hidden py-[20px] 3sm:justify-between 3sm:py-0'
+					)}
+				>
+					<div className='absolute right-4 top-4 3sm:hidden'>
+						<Button>
+							<div className='h-6 w-6 rounded-[7px] bg-[#242C3E] p-2'>
+								<IconClose className='h-8 w-8 fill-[#505C7A]' />
+							</div>
+						</Button>
+					</div>
+					<div className='relative flex items-center gap-3 rounded-b-2xl border-[#141D28] 3sm:grid 3sm:w-full 3sm:grid-cols-2 3sm:gap-0 3sm:border-b-2 3sm:bg-[linear-gradient(0deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)]'>
+						<div className='flex flex-col items-center 3sm:border-r-2 3sm:border-[#141D28] 3sm:py-1'>
+							<SmallAvatar icon='/images/avatars/2.jpg' />
+							<p className='hidden text-[10px] text-white 3sm:block'>Djorgick</p>
+						</div>
+						<IconCaseBattle className='h-6 w-6 fill-[#262E42] 3sm:absolute 3sm:left-1/2 3sm:-translate-x-1/2 3sm:fill-[#02E9A4]' />
+						<div className='flex flex-col items-center 3sm:py-1'>
+							<svg
+								width='48'
+								height='48'
+								viewBox='0 0 48 48'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<path
+									d='M20.25 2.74241C22.5705 1.40267 25.4295 1.40267 27.75 2.74241L40.5346 10.1236C42.8551 11.4634 44.2846 13.9393 44.2846 16.6188V31.3812C44.2846 34.0607 42.8551 36.5366 40.5346 37.8764L27.75 45.2576C25.4295 46.5973 22.5705 46.5973 20.25 45.2576L7.46539 37.8764C5.14488 36.5366 3.71539 34.0607 3.71539 31.3812L3.71539 16.6188C3.71539 13.9393 5.14488 11.4634 7.46539 10.1236L20.25 2.74241Z'
+									fill='url(#paint0_linear_4146_1739)'
+									stroke='url(#paint1_linear_4146_1739)'
+								/>
+								<g clip-path='url(#clip0_4146_1739)'>
+									<path
+										d='M32.75 21.5H32.3333V20.6667C32.3333 18.3692 30.4642 16.5 28.1667 16.5H24.8333V14.8333C24.8333 14.3733 24.4608 14 24 14C23.5392 14 23.1667 14.3733 23.1667 14.8333V16.5H19.8333C17.5358 16.5 15.6667 18.3692 15.6667 20.6667V21.5H15.25C14.5608 21.5 14 22.0608 14 22.75V25.25C14 25.9392 14.5608 26.5 15.25 26.5H15.6667V27.3333C15.6667 29.6308 17.5358 31.5 19.8333 31.5H26.2475L29.55 33.7017C29.85 33.9017 30.1958 34.0025 30.5425 34.0025C30.8325 34.0025 31.1225 33.9325 31.3883 33.79C31.9708 33.4775 32.3333 32.8733 32.3333 32.2117V26.4992H32.75C33.4392 26.4992 34 25.9383 34 25.2492V22.7492C34 22.06 33.4392 21.4992 32.75 21.4992V21.5ZM21.0833 20.6667C21.7733 20.6667 22.3333 21.2267 22.3333 21.9167C22.3333 22.6067 21.7733 23.1667 21.0833 23.1667C20.3933 23.1667 19.8333 22.6067 19.8333 21.9167C19.8333 21.2267 20.3933 20.6667 21.0833 20.6667ZM27.7758 26.9775C26.9117 27.52 25.5542 28.1667 24 28.1667C22.4458 28.1667 21.0883 27.52 20.2242 26.9775C19.8342 26.7333 19.7167 26.2183 19.9617 25.8292C20.2067 25.44 20.7208 25.3217 21.11 25.5658C21.7892 25.9925 22.8425 26.5 24.0008 26.5C25.1592 26.5 26.2117 25.9925 26.8917 25.5658C27.28 25.3208 27.7958 25.4392 28.04 25.8292C28.285 26.2192 28.1667 26.7333 27.7775 26.9775H27.7758ZM26.9167 23.1667C26.2267 23.1667 25.6667 22.6067 25.6667 21.9167C25.6667 21.2267 26.2267 20.6667 26.9167 20.6667C27.6067 20.6667 28.1667 21.2267 28.1667 21.9167C28.1667 22.6067 27.6067 23.1667 26.9167 23.1667Z'
+										fill='#60719A'
+									/>
+								</g>
+								<defs>
+									<linearGradient
+										id='paint0_linear_4146_1739'
+										x1='24'
+										y1='0'
+										x2='24'
+										y2='48'
+										gradientUnits='userSpaceOnUse'
+									>
+										<stop stop-color='#191F2D' />
+										<stop
+											offset='1'
+											stop-color='#435170'
+											stop-opacity='0.25'
+										/>
+									</linearGradient>
+									<linearGradient
+										id='paint1_linear_4146_1739'
+										x1='24'
+										y1='0'
+										x2='24'
+										y2='48'
+										gradientUnits='userSpaceOnUse'
+									>
+										<stop stop-color='#1F2534' />
+										<stop
+											offset='1'
+											stop-color='#1F2534'
+											stop-opacity='0.25'
+										/>
+									</linearGradient>
+									<clipPath id='clip0_4146_1739'>
+										<rect
+											width='20'
+											height='20'
+											fill='white'
+											transform='translate(14 14)'
+										/>
+									</clipPath>
+								</defs>
+							</svg>
+							<p className='hidden text-[10px] text-white 3sm:block'>Bot</p>
+						</div>
+					</div>
+					<div className='max-w-[140px] text-center 3sm:flex 3sm:h-full 3sm:items-center'>
+						<p className='text-center text-[12px] font-bold leading-4 text-white'>
+							{players[0].name},{' '}
+							<span className='text-[12px] font-bold leading-4 text-[#60719A]'>
+								{t('case_battles.offer_bot_description')}
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const RoundWinner = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-start overflow-hidden py-[25px]'
+					)}
+				>
+					<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
+						<WinnerBand />
+						<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#022F22]'>
+							{t('case_battles.winner').toUpperCase()}
+						</span>
+					</div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0 3sm:hidden'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
+						}}
+					></div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0 rotate-180 3sm:hidden'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
+						}}
+					></div>
+					<div className='relative mb-2 mt-10 3sm:absolute 3sm:bottom-1 3sm:left-8'>
+						<svg
+							width='78'
+							height='90'
+							viewBox='0 0 78 90'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+							className='3sm:h-[54px] 3sm:w-[54px]'
+						>
+							<path
+								d='M0.528858 22.7887L39 0.57735L77.4711 22.7887V67.2113L39 89.4226L0.528858 67.2113V22.7887Z'
+								fill='url(#paint0_linear_4157_12272)'
+								stroke='url(#paint1_linear_4157_12272)'
+							/>
+							<defs>
+								<linearGradient
+									id='paint0_linear_4157_12272'
+									x1='39'
+									y1='0'
+									x2='39'
+									y2='90'
+									gradientUnits='userSpaceOnUse'
+								>
+									<stop stop-color='#293247' />
+									<stop
+										offset='1'
+										stop-color='#191F2D'
+										stop-opacity='0.25'
+									/>
+								</linearGradient>
+								<linearGradient
+									id='paint1_linear_4157_12272'
+									x1='39'
+									y1='0'
+									x2='39'
+									y2='90'
+									gradientUnits='userSpaceOnUse'
+								>
+									<stop stop-color='#1F2534' />
+									<stop
+										offset='1'
+										stop-color='#1F2534'
+										stop-opacity='0.25'
+									/>
+								</linearGradient>
+							</defs>
+						</svg>
+						<div
+							className='absolute left-2 top-2 h-[90px] w-[90px] 3sm:top-1 3sm:h-[60px] 3sm:w-[60px]'
+							style={{
+								background: 'radial-gradient(50% 50% at 50% 50%, rgba(173, 0, 255, 0.45) 0%, rgba(18, 23, 34, 0) 100%)'
+							}}
+						></div>
+						<Image
+							className='absolute -left-3 top-0 h-[81px] w-[110px] max-w-none 3sm:left-0 3sm:top-1 3sm:h-[40px] 3sm:w-[54px]'
+							src='/images/case/skin-3.png'
+							width={110}
+							height={81}
+							alt='icon'
+						/>
+					</div>
+					<p className='mb-[10px] text-[14px] font-medium leading-4 text-white 3sm:absolute 3sm:left-[90px] 3sm:top-[70px] 3sm:w-[80px] 3sm:text-[12px]'>
+						AK-47 | Fire Serpent
+					</p>
+					<div
+						className='mb-[18px] h-[32px] w-[84px] 3sm:hidden'
+						style={{
+							padding: '1px',
+							background:
+								'linear-gradient(270deg, rgba(39, 49, 69, 0.65) 0%, rgba(39, 49, 69, 0.15) 50%, rgba(39, 49, 69, 0.65) 100%)',
+							clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
+						}}
+					>
+						<div
+							className='flex h-full w-full items-center justify-center text-[12px] font-bold leading-4 text-[#60719A]'
+							style={{
+								background: 'linear-gradient(270deg, #1A222F 0%, #161C28 48.5%, #1A222F 100%)',
+								clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
+							}}
+						>
+							{t('case_battles.round').toUpperCase()} 1
+						</div>
+					</div>
+					<div className='mb-[14px] flex items-center justify-center gap-[3px] 3sm:absolute 3sm:right-4 3sm:top-4'>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center 3sm:text-[14px]')}>$</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<p className='translate-y-[10px] text-[#24FDBC]'>.</p>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.winning,
+								'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
+							)}
+						>
+							<div
+								className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]')}
+							>
+								5
+							</div>
+						</div>
+					</div>
+					<p className='mt-2 text-[12px] font-bold leading-4 text-[#237C67] 3sm:hidden'>
+						{t('case_battles.total_winnings').toUpperCase()}
+					</p>
+					<div className='absolute bottom-4 right-4 hidden items-center gap-2 3sm:flex'>
+						<SmallAvatar icon='/images/avatars/2.jpg' />
+						<span className='text-[14px] font-bold leading-4 text-white'>Djorgick</span>
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const RoundLosser = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-start overflow-hidden py-[25px]'
+					)}
+				>
+					<div className='relative mb-2 mt-12 3sm:absolute 3sm:bottom-1 3sm:left-8'>
+						<svg
+							width='78'
+							height='90'
+							viewBox='0 0 78 90'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+							className='3sm:h-[54px] 3sm:w-[54px]'
+						>
+							<path
+								d='M0.528858 22.7887L39 0.57735L77.4711 22.7887V67.2113L39 89.4226L0.528858 67.2113V22.7887Z'
+								fill='url(#paint0_linear_4157_12272)'
+								stroke='url(#paint1_linear_4157_12272)'
+							/>
+							<defs>
+								<linearGradient
+									id='paint0_linear_4157_12272'
+									x1='39'
+									y1='0'
+									x2='39'
+									y2='90'
+									gradientUnits='userSpaceOnUse'
+								>
+									<stop stop-color='#293247' />
+									<stop
+										offset='1'
+										stop-color='#191F2D'
+										stop-opacity='0.25'
+									/>
+								</linearGradient>
+								<linearGradient
+									id='paint1_linear_4157_12272'
+									x1='39'
+									y1='0'
+									x2='39'
+									y2='90'
+									gradientUnits='userSpaceOnUse'
+								>
+									<stop stop-color='#1F2534' />
+									<stop
+										offset='1'
+										stop-color='#1F2534'
+										stop-opacity='0.25'
+									/>
+								</linearGradient>
+							</defs>
+						</svg>
+						<div
+							className='absolute left-2 top-2 h-[90px] w-[90px] 3sm:top-1 3sm:h-[60px] 3sm:w-[60px]'
+							style={{
+								background: 'radial-gradient(50% 50% at 50% 50%, rgba(173, 0, 255, 0.45) 0%, rgba(18, 23, 34, 0) 100%)'
+							}}
+						></div>
+						<Image
+							className='absolute -left-3 top-0 h-[81px] w-[110px] max-w-none 3sm:left-0 3sm:top-1 3sm:h-[40px] 3sm:w-[54px]'
+							src='/images/case/skin-3.png'
+							width={110}
+							height={81}
+							alt='icon'
+						/>
+					</div>
+					<p className='mb-[10px] text-[14px] font-medium leading-4 text-white 3sm:absolute 3sm:left-[90px] 3sm:top-[70px] 3sm:w-[80px] 3sm:text-[12px]'>
+						AK-47 | Fire Serpent
+					</p>
+					<div
+						className='mb-[18px] h-[32px] w-[84px] 3sm:hidden'
+						style={{
+							padding: '1px',
+							background:
+								'linear-gradient(270deg, rgba(39, 49, 69, 0.65) 0%, rgba(39, 49, 69, 0.15) 50%, rgba(39, 49, 69, 0.65) 100%)',
+							clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
+						}}
+					>
+						<div
+							className='flex h-full w-full items-center justify-center text-[12px] font-bold leading-4 text-[#60719A]'
+							style={{
+								background: 'linear-gradient(270deg, #1A222F 0%, #161C28 48.5%, #1A222F 100%)',
+								clipPath: 'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
+							}}
+						>
+							{t('case_battles.round').toUpperCase()} 1
+						</div>
+					</div>
+					<div className='mb-6 flex items-center justify-center 3sm:absolute 3sm:right-4 3sm:top-4'>
+						<div className={clsx(cls.winning, 'ml-2 h-[38px] w-[27px]')}>
+							<div
+								className={clsx(
+									cls.winning_inner,
+									'flex items-center justify-center text-[16px] font-medium leading-4 text-white'
+								)}
+							>
+								+
+							</div>
+						</div>
+						<div className={clsx(cls.winning, 'ml-[5px] h-[50px] w-[35px] text-[24px] font-medium leading-4')}>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC]')}>$</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>5</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+interface IBattleCreatorProps {
+	onStartBattle: () => void
+}
+
+const BattleCreator = ({ onStartBattle }: IBattleCreatorProps) => {
+	const t = useTranslations()
+	const [emojiStatus, setEmojiStatus] = useState<number>(0)
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-end gap-4 overflow-hidden py-[20px] 3sm:items-end 3sm:pr-5'
+					)}
+				>
+					<div className='hide-scrollbar absolute bottom-5 left-[12px] z-10 h-[30px] w-[30px] overflow-auto rounded-[100px] bg-[#0B0E15] duration-250 hover:h-[210px] 3sm:left-5 3sm:hover:h-[30px] 3sm:hover:w-[120px]'>
+						<div className='flex flex-col 3sm:flex-row'>
+							{Array.from(new Array(10)).map((_, index) => (
+								<Button
+									key={index}
+									onPress={() => setEmojiStatus(index)}
+									classNames={{
+										base: `w-[30px] h-[30px] rounded-3xl flex-shrink-0 ${emojiStatus === index ? 'bg-[#0F141E]' : ''}`
+									}}
+								>
+									<EmojiHappy
+										className={clsx('h-4 w-4', emojiStatus === index ? 'fill-[#60719A]' : 'fill-[#262E42]')}
+									/>
+								</Button>
+							))}
+						</div>
+					</div>
+					<Button
+						classNames={{
+							base: '!absolute 3sm:hidden left-1/2 -top-[2px] z-10 flex -translate-x-1/2 items-center gap-[6px] w-[106px] h-[33px]'
+						}}
+					>
+						<svg
+							width='106'
+							height='32'
+							viewBox='0 0 106 32'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<g filter='url(#filter0_b_4135_3850)'>
+								<path
+									d='M10 -1H96H106L96.8606 29.16C96.3495 30.8466 94.7948 32 93.0325 32H12.9675C11.2052 32 9.65049 30.8466 9.1394 29.16L0 -1H10Z'
+									fill='#31252E'
+									fill-opacity='1'
+								/>
+								<path
+									d='M10 -0.5H96H105.326L96.3821 29.015C95.9349 30.4908 94.5745 31.5 93.0325 31.5H12.9675C11.4255 31.5 10.0651 30.4908 9.61792 29.015L0.673968 -0.5H10Z'
+									stroke='#FD5454'
+									stroke-opacity='0.25'
+								/>
+							</g>
+							<defs>
+								<filter
+									id='filter0_b_4135_3850'
+									x='-45'
+									y='-46'
+									width='196'
+									height='123'
+									filterUnits='userSpaceOnUse'
+									color-interpolation-filters='sRGB'
+								>
+									<feFlood
+										flood-opacity='1'
+										result='BackgroundImageFix'
+									/>
+									<feGaussianBlur
+										in='BackgroundImageFix'
+										stdDeviation='22.5'
+									/>
+									<feComposite
+										in2='SourceAlpha'
+										operator='in'
+										result='effect1_backgroundBlur_4135_3850'
+									/>
+									<feBlend
+										mode='normal'
+										in='SourceGraphic'
+										in2='effect1_backgroundBlur_4135_3850'
+										result='shape'
+									/>
+								</filter>
+								<linearGradient
+									id='paint0_linear_4135_3850'
+									x1='136'
+									y1='-30'
+									x2='0'
+									y2='-30'
+									gradientUnits='userSpaceOnUse'
+								>
+									<stop stop-color='#F75151' />
+									<stop
+										offset='1'
+										stop-color='#B21313'
+									/>
+								</linearGradient>
+							</defs>
+						</svg>
+						<div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-[6px]'>
+							<svg
+								width='14'
+								height='14'
+								viewBox='0 0 14 14'
+								fill='none'
+								xmlns='http://www.w3.org/2000/svg'
+							>
+								<g clip-path='url(#clip0_4135_3853)'>
+									<path
+										d='M14 8.75067C14 9.11059 13.86 9.44892 13.6045 9.70384L12.3958 10.9131C12.2821 11.0268 12.1327 11.084 11.9834 11.084C11.8341 11.084 11.6847 11.0268 11.571 10.9131C11.3429 10.685 11.3429 10.3163 11.571 10.0883L12.3247 9.334H8.75C8.42742 9.334 8.16667 9.07325 8.16667 8.75067C8.16667 8.42809 8.42742 8.16734 8.75 8.16734H12.3247L11.571 7.41309C11.3429 7.185 11.3429 6.81634 11.571 6.58825C11.7991 6.36017 12.1677 6.36017 12.3958 6.58825L13.6051 7.79809C13.86 8.05242 14 8.39075 14 8.75067ZM8.16667 6.41734V3.50067C8.16667 2.85725 7.64342 2.334 7 2.334V12.8334H7.58333C7.90533 12.8334 8.16667 12.5721 8.16667 12.2501V11.0834C8.16667 10.7608 8.42742 10.5001 8.75 10.5001C9.07258 10.5001 9.33333 10.7608 9.33333 11.0834V12.2501C9.33333 13.2149 8.54817 14.0001 7.58333 14.0001H1.75C0.785167 14.0001 0 13.2149 0 12.2501V3.27959C0 1.89417 0.985833 0.691337 2.34442 0.419504L4.20933 0.0467538C4.89825 -0.0909128 5.60408 0.0852538 6.14658 0.530337C6.36533 0.70942 6.5345 0.92992 6.67275 1.16734H7C8.28683 1.16734 9.33333 2.21384 9.33333 3.50067V6.41734C9.33333 6.73992 9.07258 7.00067 8.75 7.00067C8.42742 7.00067 8.16667 6.73992 8.16667 6.41734ZM5.25 7.29234C5.25 6.80934 4.858 6.41734 4.375 6.41734C3.892 6.41734 3.5 6.80934 3.5 7.29234C3.5 7.77534 3.892 8.16734 4.375 8.16734C4.858 8.16734 5.25 7.77534 5.25 7.29234Z'
+										fill='#FF4343'
+									/>
+								</g>
+								<defs>
+									<clipPath id='clip0_4135_3853'>
+										<rect
+											width='14'
+											height='14'
+											fill='white'
+										/>
+									</clipPath>
+								</defs>
+							</svg>
+							<span className='text-[12px] font-bold leading-4 text-[#FF4343]'>
+								{t('case_battles.exit').toUpperCase()}
+							</span>
+						</div>
+					</Button>
+					<Button className='hidden 3sm:block'>
+						<svg
+							width='14'
+							height='14'
+							viewBox='0 0 14 14'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<g clip-path='url(#clip0_4135_3853)'>
+								<path
+									d='M14 8.75067C14 9.11059 13.86 9.44892 13.6045 9.70384L12.3958 10.9131C12.2821 11.0268 12.1327 11.084 11.9834 11.084C11.8341 11.084 11.6847 11.0268 11.571 10.9131C11.3429 10.685 11.3429 10.3163 11.571 10.0883L12.3247 9.334H8.75C8.42742 9.334 8.16667 9.07325 8.16667 8.75067C8.16667 8.42809 8.42742 8.16734 8.75 8.16734H12.3247L11.571 7.41309C11.3429 7.185 11.3429 6.81634 11.571 6.58825C11.7991 6.36017 12.1677 6.36017 12.3958 6.58825L13.6051 7.79809C13.86 8.05242 14 8.39075 14 8.75067ZM8.16667 6.41734V3.50067C8.16667 2.85725 7.64342 2.334 7 2.334V12.8334H7.58333C7.90533 12.8334 8.16667 12.5721 8.16667 12.2501V11.0834C8.16667 10.7608 8.42742 10.5001 8.75 10.5001C9.07258 10.5001 9.33333 10.7608 9.33333 11.0834V12.2501C9.33333 13.2149 8.54817 14.0001 7.58333 14.0001H1.75C0.785167 14.0001 0 13.2149 0 12.2501V3.27959C0 1.89417 0.985833 0.691337 2.34442 0.419504L4.20933 0.0467538C4.89825 -0.0909128 5.60408 0.0852538 6.14658 0.530337C6.36533 0.70942 6.5345 0.92992 6.67275 1.16734H7C8.28683 1.16734 9.33333 2.21384 9.33333 3.50067V6.41734C9.33333 6.73992 9.07258 7.00067 8.75 7.00067C8.42742 7.00067 8.16667 6.73992 8.16667 6.41734ZM5.25 7.29234C5.25 6.80934 4.858 6.41734 4.375 6.41734C3.892 6.41734 3.5 6.80934 3.5 7.29234C3.5 7.77534 3.892 8.16734 4.375 8.16734C4.858 8.16734 5.25 7.77534 5.25 7.29234Z'
+									fill='#FF4343'
+								/>
+							</g>
+							<defs>
+								<clipPath id='clip0_4135_3853'>
+									<rect
+										width='14'
+										height='14'
+										fill='white'
+									/>
+								</clipPath>
+							</defs>
+						</svg>
+					</Button>
+					<Button
+						onPress={onStartBattle}
+						classNames={{
+							base: clsx(cls.hexagon_btn, cls.sm, 'h-[36px] w-[120px] z-10 3sm:order-1'),
+							content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
+						}}
+					>
+						<span
+							className='text-[12px] font-[900] leading-4 text-[#121722]'
+							style={{
+								textShadow: '0px 1px 0px #25FEBD73'
+							}}
+						>
+							{t('case_battles.start_now').toUpperCase()}
+						</span>
+					</Button>
+					<div className='flex items-center gap-[6px]'>
+						<IconStartWithBots />
+						<span className='text-[12px] font-medium leading-4 text-[#60719A]'>
+							{t('case_battles.start_with_bots')}
+						</span>
+						<Switch
+							color='default'
+							classNames={{
+								base: 'rounded-sm w-[30px]',
+								wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+								thumb:
+									"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+							}}
+						/>
+					</div>
+					<div className='absolute -top-[90px] 3sm:-left-[125px] 3sm:-top-[125px]'>
+						<ReadyIcon className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+						<CircularBg />
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:!hidden')}>
+				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const BattleWinner = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-end overflow-hidden py-[25px]'
+					)}
+				>
+					<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
+						<WinnerBand />
+						<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#022F22]'>
+							{t('case_battles.winner').toUpperCase()}
+						</span>
+					</div>
+					<BgSnakeGreen className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
+					<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
+						<CircularBg />
+					</div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
+						}}
+					></div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0 rotate-180'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
+						}}
+					></div>
+					<div className='mb-6 flex items-center justify-center 3sm:absolute 3sm:right-4 3sm:top-4'>
+						<div className={clsx(cls.winning, 'ml-2 h-[38px] w-[27px]')}>
+							<div
+								className={clsx(
+									cls.winning_inner,
+									'flex items-center justify-center text-[16px] font-medium leading-4 text-white'
+								)}
+							>
+								+
+							</div>
+						</div>
+						<div className={clsx(cls.winning, 'ml-[5px] h-[50px] w-[35px] text-[24px] font-medium leading-4')}>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC]')}>$</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>5</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
+						</div>
+						<div
+							className={clsx(cls.winning, 'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white')}
+						>
+							<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
+						</div>
+					</div>
+					<div className={clsx(cls.winning_price, '3sm:absolute 3sm:bottom-4 3sm:left-4')}>
+						<div className={cls.winning_price_inner}>$ 1050.00</div>
+					</div>
+					<p className='mt-2 text-[12px] font-bold leading-4 text-[#237C67] 3sm:absolute 3sm:left-6 3sm:top-[60px]'>
+						{t('case_battles.total_winnings').toUpperCase()}
+					</p>
+					<div className='hidden items-center gap-2 3sm:absolute 3sm:bottom-4 3sm:right-4 3sm:flex'>
+						<SmallAvatar icon='/images/avatars/2.jpg' />
+						<span className='text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
+					<div className='absolute left-0 top-0 z-10'>
+						<BgBubble />
+					</div>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const BattleLosser = () => {
+	const t = useTranslations()
+
+	return (
+		<div className='3sm:w-full'>
+			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+				<div
+					className={clsx(
+						cls.player_card_bg_inner,
+						'relative flex flex-col items-center justify-center overflow-hidden py-[25px]'
+					)}
+				>
+					<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
+						<LossBand />
+						<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#480202]'>
+							{t('case_battles.loss').toUpperCase()}
+						</span>
+					</div>
+					<BgSnakeRed className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
+					<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
+						<CircularBg red={true} />
+					</div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(251, 73, 73, 0.1) 100%)'
+						}}
+					></div>
+					<div
+						className='absolute bottom-0 left-0 right-0 top-0 rotate-180'
+						style={{
+							background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(251, 73, 73, 0.1) 100%)'
+						}}
+					></div>
+					<div className={clsx(cls.lossed, '3sm:!absolute 3sm:right-4 3sm:top-4')}>
+						<div className={cls.lossed_inner}>{t('case_battles.lossed').toUpperCase()}</div>
+					</div>
+					<div className='hidden items-center gap-2 3sm:absolute 3sm:bottom-4 3sm:right-4 3sm:flex'>
+						<SmallAvatar icon='/images/avatars/2.jpg' />
+						<span className='text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
+					</div>
+				</div>
+			</div>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] opacity-60 3sm:hidden')}>
+				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
+					<SmallAvatar icon='/images/avatars/2.jpg' />
+					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
+				</div>
+			</div>
+		</div>
+	)
+}
+
 interface IPlayersListProps {
 	onStartBattle: () => void
 }
 
 const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
-	const t = useTranslations()
 	const params = useSearchParams()
 
 	const pathname = usePathname()
-	const [emojiStatus, setEmojiStatus] = useState<number>(0)
 	const { openModal } = useModal()
 	const openModalRef = useRef(openModal)
 
@@ -298,1027 +1313,36 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 	}, [params, pathname])
 
 	return (
-		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-between gap-5 3sm:grid-cols-1'>
+		<div className='flex w-full auto-rows-auto flex-wrap justify-center gap-5 3sm:grid-cols-1'>
 			{pathname.includes('/finish') ? (
 				<>
 					{/* Winner */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									'relative flex flex-col items-center justify-end overflow-hidden py-[25px]'
-								)}
-							>
-								<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
-									<WinnerBand />
-									<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#022F22]'>
-										{t('case_battles.winner').toUpperCase()}
-									</span>
-								</div>
-								<BgSnakeGreen className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
-								<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
-									<CircularBg />
-								</div>
-								<div
-									className='absolute bottom-0 left-0 right-0 top-0'
-									style={{
-										background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
-									}}
-								></div>
-								<div
-									className='absolute bottom-0 left-0 right-0 top-0 rotate-180'
-									style={{
-										background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
-									}}
-								></div>
-								<div className='mb-6 flex items-center justify-center 3sm:absolute 3sm:right-4 3sm:top-4'>
-									<div className={clsx(cls.winning, 'ml-2 h-[38px] w-[27px]')}>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[16px] font-medium leading-4 text-white'
-											)}
-										>
-											+
-										</div>
-									</div>
-									<div className={clsx(cls.winning, 'ml-[5px] h-[50px] w-[35px] text-[24px] font-medium leading-4')}>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC]')}>$</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>5</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
-									</div>
-								</div>
-								<div className={clsx(cls.winning_price, '3sm:absolute 3sm:bottom-4 3sm:left-4')}>
-									<div className={cls.winning_price_inner}>$ 1050.00</div>
-								</div>
-								<p className='mt-2 text-[12px] font-bold leading-4 text-[#237C67] 3sm:absolute 3sm:left-6 3sm:top-[60px]'>
-									{t('case_battles.total_winnings').toUpperCase()}
-								</p>
-								<div className='hidden items-center gap-2 3sm:absolute 3sm:bottom-4 3sm:right-4 3sm:flex'>
-									<SmallAvatar icon='/images/avatars/2.jpg' />
-									<span className='text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-								</div>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
-							<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
-								<div className='absolute left-0 top-0 z-10'>
-									<BgBubble />
-								</div>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-							</div>
-						</div>
-					</div>
+					<BattleWinner />
 					{/* Losser */}
 					{Array.from(new Array(3)).map((_, index) => (
-						<div key={index}>
-							<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-								<div
-									className={clsx(
-										cls.player_card_bg_inner,
-										'relative flex flex-col items-center justify-center overflow-hidden py-[25px]'
-									)}
-								>
-									<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
-										<LossBand />
-										<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#480202]'>
-											{t('case_battles.loss').toUpperCase()}
-										</span>
-									</div>
-									<BgSnakeRed className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
-									<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
-										<CircularBg red={true} />
-									</div>
-									<div
-										className='absolute bottom-0 left-0 right-0 top-0'
-										style={{
-											background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(251, 73, 73, 0.1) 100%)'
-										}}
-									></div>
-									<div
-										className='absolute bottom-0 left-0 right-0 top-0 rotate-180'
-										style={{
-											background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(251, 73, 73, 0.1) 100%)'
-										}}
-									></div>
-									<div className={clsx(cls.lossed, '3sm:!absolute 3sm:right-4 3sm:top-4')}>
-										<div className={cls.lossed_inner}>{t('case_battles.lossed').toUpperCase()}</div>
-									</div>
-									<div className='hidden items-center gap-2 3sm:absolute 3sm:bottom-4 3sm:right-4 3sm:flex'>
-										<SmallAvatar icon='/images/avatars/2.jpg' />
-										<span className='text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-									</div>
-								</div>
-							</div>
-							<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] opacity-60 3sm:hidden')}>
-								<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
-									<SmallAvatar icon='/images/avatars/2.jpg' />
-									<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
-								</div>
-							</div>
-						</div>
+						<BattleLosser key={index} />
 					))}
 				</>
 			) : pathname.includes('/round') ? (
 				<>
-					<div></div>
-					{/* Winner */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									'relative flex flex-col items-center justify-start overflow-hidden py-[25px]'
-								)}
-							>
-								<div className='!absolute -top-[24px] left-1/2 z-10 flex -translate-x-1/2 items-center gap-[6px] 3sm:-left-6 3sm:translate-x-0'>
-									<WinnerBand />
-									<span className='absolute left-1/2 -translate-x-1/2 text-[16px] font-bold leading-4 text-[#022F22]'>
-										{t('case_battles.winner').toUpperCase()}
-									</span>
-								</div>
-								<div
-									className='absolute bottom-0 left-0 right-0 top-0 3sm:hidden'
-									style={{
-										background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
-									}}
-								></div>
-								<div
-									className='absolute bottom-0 left-0 right-0 top-0 rotate-180 3sm:hidden'
-									style={{
-										background: 'linear-gradient(180deg, rgba(25, 31, 45, 0) 50%, rgba(18, 176, 128, 0.1) 100%)'
-									}}
-								></div>
-								<div className='relative mb-2 mt-10 3sm:absolute 3sm:bottom-1 3sm:left-8'>
-									<svg
-										width='78'
-										height='90'
-										viewBox='0 0 78 90'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-										className='3sm:h-[54px] 3sm:w-[54px]'
-									>
-										<path
-											d='M0.528858 22.7887L39 0.57735L77.4711 22.7887V67.2113L39 89.4226L0.528858 67.2113V22.7887Z'
-											fill='url(#paint0_linear_4157_12272)'
-											stroke='url(#paint1_linear_4157_12272)'
-										/>
-										<defs>
-											<linearGradient
-												id='paint0_linear_4157_12272'
-												x1='39'
-												y1='0'
-												x2='39'
-												y2='90'
-												gradientUnits='userSpaceOnUse'
-											>
-												<stop stop-color='#293247' />
-												<stop
-													offset='1'
-													stop-color='#191F2D'
-													stop-opacity='0.25'
-												/>
-											</linearGradient>
-											<linearGradient
-												id='paint1_linear_4157_12272'
-												x1='39'
-												y1='0'
-												x2='39'
-												y2='90'
-												gradientUnits='userSpaceOnUse'
-											>
-												<stop stop-color='#1F2534' />
-												<stop
-													offset='1'
-													stop-color='#1F2534'
-													stop-opacity='0.25'
-												/>
-											</linearGradient>
-										</defs>
-									</svg>
-									<div
-										className='absolute left-2 top-2 h-[90px] w-[90px] 3sm:top-1 3sm:h-[60px] 3sm:w-[60px]'
-										style={{
-											background:
-												'radial-gradient(50% 50% at 50% 50%, rgba(173, 0, 255, 0.45) 0%, rgba(18, 23, 34, 0) 100%)'
-										}}
-									></div>
-									<Image
-										className='absolute -left-3 top-0 h-[81px] w-[110px] max-w-none 3sm:left-0 3sm:top-1 3sm:h-[40px] 3sm:w-[54px]'
-										src='/images/case/skin-3.png'
-										width={110}
-										height={81}
-										alt='icon'
-									/>
-								</div>
-								<p className='mb-[10px] text-[14px] font-medium leading-4 text-white 3sm:absolute 3sm:left-[90px] 3sm:top-[70px] 3sm:w-[80px] 3sm:text-[12px]'>
-									AK-47 | Fire Serpent
-								</p>
-								<div
-									className='mb-[18px] h-[32px] w-[84px] 3sm:hidden'
-									style={{
-										padding: '1px',
-										background:
-											'linear-gradient(270deg, rgba(39, 49, 69, 0.65) 0%, rgba(39, 49, 69, 0.15) 50%, rgba(39, 49, 69, 0.65) 100%)',
-										clipPath:
-											'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
-									}}
-								>
-									<div
-										className='flex h-full w-full items-center justify-center text-[12px] font-bold leading-4 text-[#60719A]'
-										style={{
-											background: 'linear-gradient(270deg, #1A222F 0%, #161C28 48.5%, #1A222F 100%)',
-											clipPath:
-												'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
-										}}
-									>
-										{t('case_battles.round').toUpperCase()} 1
-									</div>
-								</div>
-								<div className='mb-[14px] flex items-center justify-center gap-[3px] 3sm:absolute 3sm:right-4 3sm:top-4'>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center 3sm:text-[14px]')}>$</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<p className='translate-y-[10px] text-[#24FDBC]'>.</p>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'h-[38px] w-[27px] text-[24px] font-medium leading-4 3sm:h-[27px] 3sm:w-[19px]'
-										)}
-									>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[#24FDBC] 3sm:text-[14px]'
-											)}
-										>
-											5
-										</div>
-									</div>
-								</div>
-								<p className='mt-2 text-[12px] font-bold leading-4 text-[#237C67] 3sm:hidden'>
-									{t('case_battles.total_winnings').toUpperCase()}
-								</p>
-								<div className='absolute bottom-4 right-4 hidden items-center gap-2 3sm:flex'>
-									<SmallAvatar icon='/images/avatars/2.jpg' />
-									<span className='text-[14px] font-bold leading-4 text-white'>Djorgick</span>
-								</div>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
-							<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-							</div>
-						</div>
-					</div>
 					{/* Losser */}
-					<div className='3sm:hidden'>
-						<div className={clsx(cls.player_card_bg, '!h-[370px]')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									'relative flex flex-col items-center justify-start overflow-hidden py-[25px]'
-								)}
-							>
-								<div className='relative mb-2 mt-12'>
-									<svg
-										width='78'
-										height='90'
-										viewBox='0 0 78 90'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<path
-											d='M0.528858 22.7887L39 0.57735L77.4711 22.7887V67.2113L39 89.4226L0.528858 67.2113V22.7887Z'
-											fill='url(#paint0_linear_4157_12272)'
-											stroke='url(#paint1_linear_4157_12272)'
-										/>
-										<defs>
-											<linearGradient
-												id='paint0_linear_4157_12272'
-												x1='39'
-												y1='0'
-												x2='39'
-												y2='90'
-												gradientUnits='userSpaceOnUse'
-											>
-												<stop stop-color='#293247' />
-												<stop
-													offset='1'
-													stop-color='#191F2D'
-													stop-opacity='0.25'
-												/>
-											</linearGradient>
-											<linearGradient
-												id='paint1_linear_4157_12272'
-												x1='39'
-												y1='0'
-												x2='39'
-												y2='90'
-												gradientUnits='userSpaceOnUse'
-											>
-												<stop stop-color='#1F2534' />
-												<stop
-													offset='1'
-													stop-color='#1F2534'
-													stop-opacity='0.25'
-												/>
-											</linearGradient>
-										</defs>
-									</svg>
-									<div
-										className='absolute left-2 top-2 h-[90px] w-[90px]'
-										style={{
-											background:
-												'radial-gradient(50% 50% at 50% 50%, rgba(173, 0, 255, 0.45) 0%, rgba(18, 23, 34, 0) 100%)'
-										}}
-									></div>
-									<Image
-										className='absolute -left-3 top-0 h-[81px] w-[110px] max-w-none'
-										src='/images/case/skin-3.png'
-										width={110}
-										height={81}
-										alt='icon'
-									/>
-								</div>
-								<p className='mb-[10px] text-[14px] font-medium leading-4 text-white'>AK-47 | Fire Serpent</p>
-								<div
-									className='mb-[18px] h-[32px] w-[84px]'
-									style={{
-										padding: '1px',
-										background:
-											'linear-gradient(270deg, rgba(39, 49, 69, 0.65) 0%, rgba(39, 49, 69, 0.15) 50%, rgba(39, 49, 69, 0.65) 100%)',
-										clipPath:
-											'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
-									}}
-								>
-									<div
-										className='flex h-full w-full items-center justify-center text-[12px] font-bold leading-4 text-[#60719A]'
-										style={{
-											background: 'linear-gradient(270deg, #1A222F 0%, #161C28 48.5%, #1A222F 100%)',
-											clipPath:
-												'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
-										}}
-									>
-										{t('case_battles.round').toUpperCase()} 1
-									</div>
-								</div>
-								<div className='mb-6 flex items-center justify-center'>
-									<div className={clsx(cls.winning, 'ml-2 h-[38px] w-[27px]')}>
-										<div
-											className={clsx(
-												cls.winning_inner,
-												'flex items-center justify-center text-[16px] font-medium leading-4 text-white'
-											)}
-										>
-											+
-										</div>
-									</div>
-									<div className={clsx(cls.winning, 'ml-[5px] h-[50px] w-[35px] text-[24px] font-medium leading-4')}>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center text-[#24FDBC]')}>$</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>5</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
-									</div>
-									<div
-										className={clsx(
-											cls.winning,
-											'ml-[3px] h-[50px] w-[35px] text-[24px] font-medium leading-4 text-white'
-										)}
-									>
-										<div className={clsx(cls.winning_inner, 'flex items-center justify-center')}>0</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px]')}>
-							<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-							</div>
-						</div>
-					</div>
-					<div></div>
+					<RoundLosser />
+					{/* Winner */}
+					<RoundWinner />
+					{/* Losser */}
+					<RoundLosser />
+					<RoundLosser />
 				</>
 			) : (
 				<>
 					{/* Creator */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									'relative flex flex-col items-center justify-end gap-4 overflow-hidden py-[20px] 3sm:items-end 3sm:pr-5'
-								)}
-							>
-								<div className='hide-scrollbar absolute bottom-5 left-[12px] z-10 h-[30px] w-[30px] overflow-auto rounded-[100px] bg-[#0B0E15] duration-250 hover:h-[210px] 3sm:left-5 3sm:hover:h-[30px] 3sm:hover:w-[120px]'>
-									<div className='flex flex-col 3sm:flex-row'>
-										{Array.from(new Array(10)).map((_, index) => (
-											<Button
-												key={index}
-												onPress={() => setEmojiStatus(index)}
-												classNames={{
-													base: `w-[30px] h-[30px] rounded-3xl flex-shrink-0 ${emojiStatus === index ? 'bg-[#0F141E]' : ''}`
-												}}
-											>
-												<EmojiHappy
-													className={clsx('h-4 w-4', emojiStatus === index ? 'fill-[#60719A]' : 'fill-[#262E42]')}
-												/>
-											</Button>
-										))}
-									</div>
-								</div>
-								<Button
-									classNames={{
-										base: '!absolute 3sm:hidden left-1/2 -top-[2px] z-10 flex -translate-x-1/2 items-center gap-[6px] w-[106px] h-[33px]'
-									}}
-								>
-									<svg
-										width='106'
-										height='32'
-										viewBox='0 0 106 32'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<g filter='url(#filter0_b_4135_3850)'>
-											<path
-												d='M10 -1H96H106L96.8606 29.16C96.3495 30.8466 94.7948 32 93.0325 32H12.9675C11.2052 32 9.65049 30.8466 9.1394 29.16L0 -1H10Z'
-												fill='#31252E'
-												fill-opacity='1'
-											/>
-											<path
-												d='M10 -0.5H96H105.326L96.3821 29.015C95.9349 30.4908 94.5745 31.5 93.0325 31.5H12.9675C11.4255 31.5 10.0651 30.4908 9.61792 29.015L0.673968 -0.5H10Z'
-												stroke='#FD5454'
-												stroke-opacity='0.25'
-											/>
-										</g>
-										<defs>
-											<filter
-												id='filter0_b_4135_3850'
-												x='-45'
-												y='-46'
-												width='196'
-												height='123'
-												filterUnits='userSpaceOnUse'
-												color-interpolation-filters='sRGB'
-											>
-												<feFlood
-													flood-opacity='1'
-													result='BackgroundImageFix'
-												/>
-												<feGaussianBlur
-													in='BackgroundImageFix'
-													stdDeviation='22.5'
-												/>
-												<feComposite
-													in2='SourceAlpha'
-													operator='in'
-													result='effect1_backgroundBlur_4135_3850'
-												/>
-												<feBlend
-													mode='normal'
-													in='SourceGraphic'
-													in2='effect1_backgroundBlur_4135_3850'
-													result='shape'
-												/>
-											</filter>
-											<linearGradient
-												id='paint0_linear_4135_3850'
-												x1='136'
-												y1='-30'
-												x2='0'
-												y2='-30'
-												gradientUnits='userSpaceOnUse'
-											>
-												<stop stop-color='#F75151' />
-												<stop
-													offset='1'
-													stop-color='#B21313'
-												/>
-											</linearGradient>
-										</defs>
-									</svg>
-									<div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-[6px]'>
-										<svg
-											width='14'
-											height='14'
-											viewBox='0 0 14 14'
-											fill='none'
-											xmlns='http://www.w3.org/2000/svg'
-										>
-											<g clip-path='url(#clip0_4135_3853)'>
-												<path
-													d='M14 8.75067C14 9.11059 13.86 9.44892 13.6045 9.70384L12.3958 10.9131C12.2821 11.0268 12.1327 11.084 11.9834 11.084C11.8341 11.084 11.6847 11.0268 11.571 10.9131C11.3429 10.685 11.3429 10.3163 11.571 10.0883L12.3247 9.334H8.75C8.42742 9.334 8.16667 9.07325 8.16667 8.75067C8.16667 8.42809 8.42742 8.16734 8.75 8.16734H12.3247L11.571 7.41309C11.3429 7.185 11.3429 6.81634 11.571 6.58825C11.7991 6.36017 12.1677 6.36017 12.3958 6.58825L13.6051 7.79809C13.86 8.05242 14 8.39075 14 8.75067ZM8.16667 6.41734V3.50067C8.16667 2.85725 7.64342 2.334 7 2.334V12.8334H7.58333C7.90533 12.8334 8.16667 12.5721 8.16667 12.2501V11.0834C8.16667 10.7608 8.42742 10.5001 8.75 10.5001C9.07258 10.5001 9.33333 10.7608 9.33333 11.0834V12.2501C9.33333 13.2149 8.54817 14.0001 7.58333 14.0001H1.75C0.785167 14.0001 0 13.2149 0 12.2501V3.27959C0 1.89417 0.985833 0.691337 2.34442 0.419504L4.20933 0.0467538C4.89825 -0.0909128 5.60408 0.0852538 6.14658 0.530337C6.36533 0.70942 6.5345 0.92992 6.67275 1.16734H7C8.28683 1.16734 9.33333 2.21384 9.33333 3.50067V6.41734C9.33333 6.73992 9.07258 7.00067 8.75 7.00067C8.42742 7.00067 8.16667 6.73992 8.16667 6.41734ZM5.25 7.29234C5.25 6.80934 4.858 6.41734 4.375 6.41734C3.892 6.41734 3.5 6.80934 3.5 7.29234C3.5 7.77534 3.892 8.16734 4.375 8.16734C4.858 8.16734 5.25 7.77534 5.25 7.29234Z'
-													fill='#FF4343'
-												/>
-											</g>
-											<defs>
-												<clipPath id='clip0_4135_3853'>
-													<rect
-														width='14'
-														height='14'
-														fill='white'
-													/>
-												</clipPath>
-											</defs>
-										</svg>
-										<span className='text-[12px] font-bold leading-4 text-[#FF4343]'>
-											{t('case_battles.exit').toUpperCase()}
-										</span>
-									</div>
-								</Button>
-								<Button className='hidden 3sm:block'>
-									<svg
-										width='14'
-										height='14'
-										viewBox='0 0 14 14'
-										fill='none'
-										xmlns='http://www.w3.org/2000/svg'
-									>
-										<g clip-path='url(#clip0_4135_3853)'>
-											<path
-												d='M14 8.75067C14 9.11059 13.86 9.44892 13.6045 9.70384L12.3958 10.9131C12.2821 11.0268 12.1327 11.084 11.9834 11.084C11.8341 11.084 11.6847 11.0268 11.571 10.9131C11.3429 10.685 11.3429 10.3163 11.571 10.0883L12.3247 9.334H8.75C8.42742 9.334 8.16667 9.07325 8.16667 8.75067C8.16667 8.42809 8.42742 8.16734 8.75 8.16734H12.3247L11.571 7.41309C11.3429 7.185 11.3429 6.81634 11.571 6.58825C11.7991 6.36017 12.1677 6.36017 12.3958 6.58825L13.6051 7.79809C13.86 8.05242 14 8.39075 14 8.75067ZM8.16667 6.41734V3.50067C8.16667 2.85725 7.64342 2.334 7 2.334V12.8334H7.58333C7.90533 12.8334 8.16667 12.5721 8.16667 12.2501V11.0834C8.16667 10.7608 8.42742 10.5001 8.75 10.5001C9.07258 10.5001 9.33333 10.7608 9.33333 11.0834V12.2501C9.33333 13.2149 8.54817 14.0001 7.58333 14.0001H1.75C0.785167 14.0001 0 13.2149 0 12.2501V3.27959C0 1.89417 0.985833 0.691337 2.34442 0.419504L4.20933 0.0467538C4.89825 -0.0909128 5.60408 0.0852538 6.14658 0.530337C6.36533 0.70942 6.5345 0.92992 6.67275 1.16734H7C8.28683 1.16734 9.33333 2.21384 9.33333 3.50067V6.41734C9.33333 6.73992 9.07258 7.00067 8.75 7.00067C8.42742 7.00067 8.16667 6.73992 8.16667 6.41734ZM5.25 7.29234C5.25 6.80934 4.858 6.41734 4.375 6.41734C3.892 6.41734 3.5 6.80934 3.5 7.29234C3.5 7.77534 3.892 8.16734 4.375 8.16734C4.858 8.16734 5.25 7.77534 5.25 7.29234Z'
-												fill='#FF4343'
-											/>
-										</g>
-										<defs>
-											<clipPath id='clip0_4135_3853'>
-												<rect
-													width='14'
-													height='14'
-													fill='white'
-												/>
-											</clipPath>
-										</defs>
-									</svg>
-								</Button>
-								<Button
-									onPress={onStartBattle}
-									classNames={{
-										base: clsx(cls.hexagon_btn, cls.sm, 'h-[36px] w-[120px] z-10 3sm:order-1'),
-										content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')
-									}}
-								>
-									<span
-										className='text-[12px] font-[900] leading-4 text-[#121722]'
-										style={{
-											textShadow: '0px 1px 0px #25FEBD73'
-										}}
-									>
-										{t('case_battles.start_now').toUpperCase()}
-									</span>
-								</Button>
-								<div className='flex items-center gap-[6px]'>
-									<IconStartWithBots />
-									<span className='text-[12px] font-medium leading-4 text-[#60719A]'>
-										{t('case_battles.start_with_bots')}
-									</span>
-									<Switch
-										color='default'
-										classNames={{
-											base: 'rounded-sm w-[30px]',
-											wrapper: 'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-											thumb:
-												"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-										}}
-									/>
-								</div>
-								<div className='absolute -top-[90px] 3sm:-left-[125px] 3sm:-top-[125px]'>
-									<ReadyIcon className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
-									<CircularBg />
-								</div>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:!hidden')}>
-							<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
-							</div>
-						</div>
-					</div>
+					<BattleCreator onStartBattle={onStartBattle} />
 					{/* Player with offer */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									cls.has_offer,
-									'relative flex flex-col items-center justify-center gap-3 overflow-hidden py-[20px] 3sm:justify-between 3sm:py-0'
-								)}
-							>
-								<div className='absolute right-4 top-4 3sm:hidden'>
-									<Button>
-										<div className='h-6 w-6 rounded-[7px] bg-[#242C3E] p-2'>
-											<IconClose className='h-8 w-8 fill-[#505C7A]' />
-										</div>
-									</Button>
-								</div>
-								<div className='relative flex items-center gap-3 rounded-b-2xl border-[#141D28] 3sm:grid 3sm:w-full 3sm:grid-cols-2 3sm:gap-0 3sm:border-b-2 3sm:bg-[linear-gradient(0deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)]'>
-									<div className='flex flex-col items-center 3sm:border-r-2 3sm:border-[#141D28] 3sm:py-1'>
-										<SmallAvatar icon='/images/avatars/2.jpg' />
-										<p className='hidden text-[10px] text-white 3sm:block'>Djorgick</p>
-									</div>
-									<IconCaseBattle className='h-6 w-6 fill-[#262E42] 3sm:absolute 3sm:left-1/2 3sm:-translate-x-1/2 3sm:fill-[#02E9A4]' />
-									<div className='flex flex-col items-center 3sm:py-1'>
-										<svg
-											width='48'
-											height='48'
-											viewBox='0 0 48 48'
-											fill='none'
-											xmlns='http://www.w3.org/2000/svg'
-										>
-											<path
-												d='M20.25 2.74241C22.5705 1.40267 25.4295 1.40267 27.75 2.74241L40.5346 10.1236C42.8551 11.4634 44.2846 13.9393 44.2846 16.6188V31.3812C44.2846 34.0607 42.8551 36.5366 40.5346 37.8764L27.75 45.2576C25.4295 46.5973 22.5705 46.5973 20.25 45.2576L7.46539 37.8764C5.14488 36.5366 3.71539 34.0607 3.71539 31.3812L3.71539 16.6188C3.71539 13.9393 5.14488 11.4634 7.46539 10.1236L20.25 2.74241Z'
-												fill='url(#paint0_linear_4146_1739)'
-												stroke='url(#paint1_linear_4146_1739)'
-											/>
-											<g clip-path='url(#clip0_4146_1739)'>
-												<path
-													d='M32.75 21.5H32.3333V20.6667C32.3333 18.3692 30.4642 16.5 28.1667 16.5H24.8333V14.8333C24.8333 14.3733 24.4608 14 24 14C23.5392 14 23.1667 14.3733 23.1667 14.8333V16.5H19.8333C17.5358 16.5 15.6667 18.3692 15.6667 20.6667V21.5H15.25C14.5608 21.5 14 22.0608 14 22.75V25.25C14 25.9392 14.5608 26.5 15.25 26.5H15.6667V27.3333C15.6667 29.6308 17.5358 31.5 19.8333 31.5H26.2475L29.55 33.7017C29.85 33.9017 30.1958 34.0025 30.5425 34.0025C30.8325 34.0025 31.1225 33.9325 31.3883 33.79C31.9708 33.4775 32.3333 32.8733 32.3333 32.2117V26.4992H32.75C33.4392 26.4992 34 25.9383 34 25.2492V22.7492C34 22.06 33.4392 21.4992 32.75 21.4992V21.5ZM21.0833 20.6667C21.7733 20.6667 22.3333 21.2267 22.3333 21.9167C22.3333 22.6067 21.7733 23.1667 21.0833 23.1667C20.3933 23.1667 19.8333 22.6067 19.8333 21.9167C19.8333 21.2267 20.3933 20.6667 21.0833 20.6667ZM27.7758 26.9775C26.9117 27.52 25.5542 28.1667 24 28.1667C22.4458 28.1667 21.0883 27.52 20.2242 26.9775C19.8342 26.7333 19.7167 26.2183 19.9617 25.8292C20.2067 25.44 20.7208 25.3217 21.11 25.5658C21.7892 25.9925 22.8425 26.5 24.0008 26.5C25.1592 26.5 26.2117 25.9925 26.8917 25.5658C27.28 25.3208 27.7958 25.4392 28.04 25.8292C28.285 26.2192 28.1667 26.7333 27.7775 26.9775H27.7758ZM26.9167 23.1667C26.2267 23.1667 25.6667 22.6067 25.6667 21.9167C25.6667 21.2267 26.2267 20.6667 26.9167 20.6667C27.6067 20.6667 28.1667 21.2267 28.1667 21.9167C28.1667 22.6067 27.6067 23.1667 26.9167 23.1667Z'
-													fill='#60719A'
-												/>
-											</g>
-											<defs>
-												<linearGradient
-													id='paint0_linear_4146_1739'
-													x1='24'
-													y1='0'
-													x2='24'
-													y2='48'
-													gradientUnits='userSpaceOnUse'
-												>
-													<stop stop-color='#191F2D' />
-													<stop
-														offset='1'
-														stop-color='#435170'
-														stop-opacity='0.25'
-													/>
-												</linearGradient>
-												<linearGradient
-													id='paint1_linear_4146_1739'
-													x1='24'
-													y1='0'
-													x2='24'
-													y2='48'
-													gradientUnits='userSpaceOnUse'
-												>
-													<stop stop-color='#1F2534' />
-													<stop
-														offset='1'
-														stop-color='#1F2534'
-														stop-opacity='0.25'
-													/>
-												</linearGradient>
-												<clipPath id='clip0_4146_1739'>
-													<rect
-														width='20'
-														height='20'
-														fill='white'
-														transform='translate(14 14)'
-													/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p className='hidden text-[10px] text-white 3sm:block'>Bot</p>
-									</div>
-								</div>
-								<div className='max-w-[140px] text-center 3sm:flex 3sm:h-full 3sm:items-center'>
-									<p className='text-center text-[12px] font-bold leading-4 text-white'>
-										{players[0].name},{' '}
-										<span className='text-[12px] font-bold leading-4 text-[#60719A]'>
-											{t('case_battles.offer_bot_description')}
-										</span>
-									</p>
-								</div>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
-							<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
-							</div>
-						</div>
-					</div>
+					<JoinedPlayerWithOffer />
 					{/* Player who is ready */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									cls.has_offer,
-									'relative flex flex-col items-center justify-center gap-3 overflow-hidden py-[20px]'
-								)}
-							>
-								<div className='absolute'>
-									<ReadyIcon className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
-									<SmallAvatar
-										className='!absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 3sm:block'
-										icon='/images/avatars/2.jpg'
-									/>
-									<CircularBg />
-								</div>
-								<p className='z-10 translate-y-12 text-[20px] font-[900] leading-4 text-white 3sm:hidden'>
-									{t('case_battles.ready').toUpperCase()}
-								</p>
-								<p className='z-10 hidden translate-y-12 text-[14px] font-[900] leading-4 text-white 3sm:block'>
-									Djorgick
-								</p>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, cls.ready, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
-							<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
-								<SmallAvatar icon='/images/avatars/2.jpg' />
-								<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[2].name}</span>
-							</div>
-						</div>
-					</div>
+					<ReadyPlayer />
 					{/* Waiting for player */}
-					<div>
-						<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
-							<div
-								className={clsx(
-									cls.player_card_bg_inner,
-									'relative flex flex-col items-center justify-center overflow-hidden py-[20px]'
-								)}
-							>
-								<svg
-									width='136'
-									height='136'
-									viewBox='0 0 136 136'
-									fill='none'
-									xmlns='http://www.w3.org/2000/svg'
-								>
-									<path
-										opacity='0.15'
-										d='M88.0516 25.3309C90.7311 25.3309 93.2071 26.7604 94.5468 29.0809L114.759 64.0892C116.099 66.4097 116.099 69.2687 114.759 71.5892L94.5468 106.598C93.2071 108.918 90.7311 110.348 88.0516 110.348L47.6275 110.348C44.948 110.348 42.4721 108.918 41.1323 106.598L20.9202 71.5892C19.5805 69.2687 19.5805 66.4097 20.9202 64.0892L41.1323 29.0809C42.4721 26.7604 44.948 25.3309 47.6275 25.3309L88.0516 25.3309Z'
-										fill='url(#paint0_linear_4135_3914)'
-										stroke='url(#paint1_linear_4135_3914)'
-									/>
-									<path
-										d='M81.7146 36.3084C84.3941 36.3084 86.8701 37.7379 88.2098 40.0584L102.084 64.0891C103.424 66.4096 103.424 69.2685 102.084 71.5891L88.2098 95.6197C86.8701 97.9403 84.3941 99.3697 81.7146 99.3697L53.9664 99.3697C51.2869 99.3697 48.8109 97.9402 47.4712 95.6197L33.5971 71.5891C32.2573 69.2685 32.2573 66.4096 33.5971 64.0891L47.4712 40.0584C48.8109 37.7379 51.2869 36.3084 53.9664 36.3084L81.7146 36.3084Z'
-										fill='url(#paint2_linear_4135_3914)'
-										stroke='url(#paint3_linear_4135_3914)'
-									/>
-									<path
-										d='M75.1873 72.8933L69.8006 68H66.1873L60.8006 72.8933C59.294 74.2533 58.8006 76.3467 59.534 78.24C60.2673 80.12 62.054 81.3333 64.0673 81.3333H71.9206C73.9473 81.3333 75.7206 80.12 76.454 78.24C77.1873 76.3467 76.694 74.2533 75.1873 72.8933ZM70.4273 76.1867H65.574C65.0673 76.1867 64.6673 75.7733 64.6673 75.28C64.6673 74.7867 65.0806 74.3733 65.574 74.3733H70.4273C70.934 74.3733 71.334 74.7867 71.334 75.28C71.334 75.7733 70.9206 76.1867 70.4273 76.1867Z'
-										fill='#687DAD'
-									/>
-									<path
-										d='M76.4662 57.7603C75.7329 55.8803 73.9462 54.667 71.9329 54.667H64.0662C62.0529 54.667 60.2662 55.8803 59.5329 57.7603C58.8129 59.6537 59.3062 61.747 60.8129 63.107L66.1996 68.0003H69.8129L75.1996 63.107C76.6929 61.747 77.1862 59.6537 76.4662 57.7603ZM70.4262 61.6403H65.5729C65.0662 61.6403 64.6662 61.227 64.6662 60.7337C64.6662 60.2403 65.0796 59.827 65.5729 59.827H70.4262C70.9329 59.827 71.3329 60.2403 71.3329 60.7337C71.3329 61.227 70.9196 61.6403 70.4262 61.6403Z'
-										fill='#687DAD'
-									/>
-									<defs>
-										<linearGradient
-											id='paint0_linear_4135_3914'
-											x1='92.6704'
-											y1='24.8309'
-											x2='43.0087'
-											y2='110.848'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#191F2D' />
-											<stop
-												offset='1'
-												stop-color='#435170'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-										<linearGradient
-											id='paint1_linear_4135_3914'
-											x1='92.6704'
-											y1='24.8309'
-											x2='43.0087'
-											y2='110.848'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#1F2534' />
-											<stop
-												offset='1'
-												stop-color='#1F2534'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-										<linearGradient
-											id='paint2_linear_4135_3914'
-											x1='86.3334'
-											y1='35.8084'
-											x2='49.3476'
-											y2='99.8697'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#191F2D' />
-											<stop
-												offset='1'
-												stop-color='#435170'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-										<linearGradient
-											id='paint3_linear_4135_3914'
-											x1='86.3334'
-											y1='35.8084'
-											x2='49.3476'
-											y2='99.8697'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#1F2534' />
-											<stop
-												offset='1'
-												stop-color='#1F2534'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-									</defs>
-								</svg>
-								<p className='text-[12px] font-bold leading-4 text-[#60719A]'>
-									{t('case_battles.waiting_for_player').toUpperCase()}...
-								</p>
-							</div>
-						</div>
-						<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
-							<div className={clsx(cls.player_title_inner, 'flex animate-pulse items-center gap-4 px-3 py-[9px]')}>
-								<svg
-									width='42'
-									height='46'
-									viewBox='0 0 42 46'
-									fill='none'
-									xmlns='http://www.w3.org/2000/svg'
-								>
-									<path
-										d='M17.25 1.74241C19.5705 0.402668 22.4295 0.402668 24.75 1.74241L37.5346 9.12361C39.8551 10.4634 41.2846 12.9393 41.2846 15.6188V30.3812C41.2846 33.0607 39.8551 35.5366 37.5346 36.8764L24.75 44.2576C22.4295 45.5973 19.5705 45.5973 17.25 44.2576L4.46539 36.8764C2.14488 35.5366 0.715391 33.0607 0.715391 30.3812L0.715391 15.6188C0.715391 12.9393 2.14488 10.4634 4.46539 9.12361L17.25 1.74241Z'
-										fill='url(#paint0_linear_4135_3921)'
-										stroke='url(#paint1_linear_4135_3921)'
-									/>
-									<defs>
-										<linearGradient
-											id='paint0_linear_4135_3921'
-											x1='21'
-											y1='-1'
-											x2='21'
-											y2='47'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#191F2D' />
-											<stop
-												offset='1'
-												stop-color='#435170'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-										<linearGradient
-											id='paint1_linear_4135_3921'
-											x1='21'
-											y1='-1'
-											x2='21'
-											y2='47'
-											gradientUnits='userSpaceOnUse'
-										>
-											<stop stop-color='#1F2534' />
-											<stop
-												offset='1'
-												stop-color='#1F2534'
-												stop-opacity='0.25'
-											/>
-										</linearGradient>
-									</defs>
-								</svg>
-								<div className='flex h-[11px] w-[70px] items-center justify-center rounded-lg bg-gray-300 sm:w-96 dark:bg-gray-700'></div>
-							</div>
-						</div>
-					</div>
+					<WaitingForPlayer />
 				</>
 			)}
 		</div>

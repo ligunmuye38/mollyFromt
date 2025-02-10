@@ -101,8 +101,10 @@ const CircularProgress = () => {
 				></NextCircularProgress>
 				<div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center'>
 					<p className='mb-4 text-[28px] font-bold leading-[28px] text-[#E1B514]'>9.274 %</p>
-					<p className='mb-[25px] text-[12px] font-medium leading-3 text-[#A6B0C6]'>{t('risky_chance')}</p>
-					<div className='mb-[14px] [filter:drop-shadow(0_0_14px_#FD3E2459)]'>
+					<p className='mb-[25px] text-[12px] font-medium leading-3 text-[#A6B0C6] lg:text-[16px]'>
+						{t('risky_chance')}
+					</p>
+					<div className='mb-[14px] [filter:drop-shadow(0_0_14px_#FD3E2459)] lg:hidden'>
 						<Button
 							classNames={{
 								base: '[clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)] bg-[linear-gradient(90deg,_rgba(253,_205,_36,_0)_122.17%,_#FDCD24_141.22%),_linear-gradient(270deg,_#E1B514_6.54%,_#FEDB61_33.68%)] w-[206px] h-[48px] p-[3px]',

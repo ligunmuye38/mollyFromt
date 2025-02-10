@@ -21,6 +21,7 @@ import { Slider } from '@/shared/ui/Slider/Slider'
 
 import CircularProgress from './CircularProgress'
 import cls from './Main.module.sass'
+import MobileSelect from './MobileSelect'
 import MyItem from './MyItem'
 import UpgradeItem from './UpgradeItem'
 import UpgradeStreaks from './UpgradeStreaks'
@@ -156,12 +157,17 @@ const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: bo
 	)
 }
 
-const MyItems = () => {
+const MyItems = ({ className }: { className?: string }) => {
 	const t = useTranslations()
 	const [selectedItems, setSelectedItems] = useState<number[]>([])
 
 	return (
-		<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+		<div
+			className={clsx(
+				'rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]',
+				className
+			)}
+		>
 			<div className='flex max-h-[390px] w-full flex-col gap-5 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5'>
 				<div className='flex w-full items-center gap-3'>
 					<div className='h-[42px] w-[42px] rounded-[8px] bg-[#202839] p-[10.5px]'>
@@ -199,11 +205,24 @@ const MyItems = () => {
 	)
 }
 
-const UpgradeItems = ({ selected, onSelect }: { selected?: number; onSelect: (v?: number) => void }) => {
+const UpgradeItems = ({
+	selected,
+	onSelect,
+	className
+}: {
+	selected?: number
+	onSelect: (v?: number) => void
+	className?: string
+}) => {
 	const t = useTranslations()
 
 	return (
-		<div className='rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+		<div
+			className={clsx(
+				'rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]',
+				className
+			)}
+		>
 			<div className='flex max-h-[390px] w-full flex-col gap-5 rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] p-5'>
 				<div className='flex w-full items-center'>
 					<div className='mr-3 h-[42px] w-[42px] rounded-[8px] bg-[#202839] p-[10.5px]'>
@@ -382,6 +401,9 @@ export const Main: FC<MainProps> = ({ className }) => {
 			<div className={clsx(cls.h, 'relative mb-5')}>
 				<div className={cls.bg}>
 					<HeaderBg className={cls.bg_pic} />
+					<div className={cls.bg_icon}>
+						<IconUpgrade />
+					</div>
 				</div>
 				<div className={clsx(cls.h_inner, 'mb-4 mt-5')}>
 					<div className={cls.title}>{t('upgrade').toUpperCase()}</div>
@@ -397,7 +419,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 					<>
 						<div className='absolute left-1/2 top-[64px] w-[1200px] -translate-x-1/2 [mask-image:radial-gradient(ellipse_at_top,_rgba(0,0,0,0)_15%,_rgba(0,0,0,1)_40%)]'>
 							<Image
-								className='[mask-image:radial-gradient(rgba(0,0,0,1)_20%,_rgba(0,0,0,0)_80%)]'
+								className='[mask-image:radial-gradient(rgba(0,0,0,0.7)_20%,_rgba(0,0,0,0)_80%)]'
 								src='/images/upgrade-bg.jpg'
 								width={1200}
 								height={600}
@@ -406,17 +428,18 @@ export const Main: FC<MainProps> = ({ className }) => {
 						</div>
 						<div className='absolute bottom-0 left-0 h-[126px] w-full bg-[linear-gradient(180deg,_rgba(18,_23,_34,_0)_0%,_#121722_100%)]'></div>
 						<div className='relative px-5'>
-							<div className='relative flex items-center gap-16'>
-								<MyItem />
+							<div className='relative flex items-center justify-center gap-16'>
+								<MyItem className='lg:!hidden' />
 								<div className='relative'>
 									<CircularProgress />
 								</div>
 								<UpgradeItem
+									className='lg:!hidden'
 									selected={Boolean(selectedUpgrade)}
 									onClose={() => setSelectedUpgrade(undefined)}
 								/>
 							</div>
-							<div className='absolute right-[calc(50%_+_172px)] h-[35px] w-[152px] bg-[#24FDBC] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+							<div className='absolute right-[calc(50%_+_172px)] h-[35px] w-[152px] bg-[#24FDBC] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)] lg:hidden'>
 								<div className='flex h-full w-full items-center justify-between gap-3 bg-[#0C4438] px-1 [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
 									<div className='ml-2 flex flex-grow justify-between'>
 										<Button>
@@ -437,9 +460,9 @@ export const Main: FC<MainProps> = ({ className }) => {
 									</div>
 								</div>
 							</div>
-							<div className='relative mx-auto mt-3 flex h-[32px] w-[230px] items-center rounded-lg border-1 border-[#242C3E] bg-[#191F2D] px-[11px]'>
-								<div className='absolute left-[11px] top-0 h-[7px] w-[calc(100%_-_22px)] bg-[linear-gradient(to_right,_#262F41_1px,_transparent_1px)] [background-size:3px]'></div>
-								<div className='absolute bottom-0 left-[11px] h-[7px] w-[calc(100%_-_22px)] bg-[linear-gradient(to_right,_#262F41_1px,_transparent_1px)] [background-size:3px]'></div>
+							<div className='relative mx-auto mt-3 flex h-[32px] w-[230px] items-center rounded-lg border-1 border-[#242C3E] bg-[#191F2D] px-[11px] lg:w-full lg:border-0 lg:bg-transparent'>
+								<div className='absolute left-[11px] top-0 h-[7px] w-[calc(100%_-_22px)] bg-[linear-gradient(to_right,_#262F41_1px,_transparent_1px)] [background-size:3px] lg:hidden'></div>
+								<div className='absolute bottom-0 left-[11px] h-[7px] w-[calc(100%_-_22px)] bg-[linear-gradient(to_right,_#262F41_1px,_transparent_1px)] [background-size:3px] lg:hidden'></div>
 								<Slider
 									value={50}
 									minValue={0}
@@ -457,13 +480,16 @@ export const Main: FC<MainProps> = ({ className }) => {
 				)}
 			</div>
 			{type === UpgradeTypes.UPGRADE && (
-				<div className='grid grid-cols-2 gap-5 px-5'>
-					<MyItems />
-					<UpgradeItems
-						onSelect={v => setSelectedUpgrade(v)}
-						selected={selectedUpgrade}
-					/>
-				</div>
+				<>
+					<div className='grid grid-cols-2 gap-5 px-5 lg:hidden lg:gap-3 2sm:px-[10px]'>
+						<MyItems />
+						<UpgradeItems
+							onSelect={v => setSelectedUpgrade(v)}
+							selected={selectedUpgrade}
+						/>
+					</div>
+					<MobileSelect />
+				</>
 			)}
 			<div className='px-5'>{type === UpgradeTypes.UPGRADE_STREAKS && <UpgradeStreaks />}</div>
 		</div>

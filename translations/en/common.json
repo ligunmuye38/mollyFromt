@@ -674,5 +674,9 @@
 	"case_income": "Case income",
 	"date": "Date",
 	"time": "Time",
-	"bet": "Bet"
+	"bet": "Bet",
+	"items_to_upgrade_to": "Items to upgrade to",
+	"items_or_balance_to_use": "Items or balance to use",
+	"select": "Select",
+	"enter_the_bid_amount": "Enter the bid amount"
 }
