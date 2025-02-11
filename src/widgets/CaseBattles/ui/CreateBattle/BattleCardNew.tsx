@@ -93,7 +93,7 @@ const BattleCardNew = ({ defaultAmount, item, onViewDrop, decreaseAmount, increa
 				</div>
 			</div>
 			<div
-				className={`absolute left-0 h-full w-full ${isHover ? 'top-0' : 'top-full'} flex flex-col items-center justify-center bg-[#1E2434D9] duration-[250ms]`}
+				className={`absolute left-0 h-full w-full ${isHover ? 'top-0' : 'top-full'} flex flex-col items-center justify-center bg-[#1E2434D9] duration-[250ms] 3sm:justify-start 3sm:pt-5`}
 			>
 				<CicularBg className='absolute' />
 				<Button

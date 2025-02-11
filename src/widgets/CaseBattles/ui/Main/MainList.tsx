@@ -442,13 +442,13 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='flex-[0_0_240px] 2md:order-1 2md:flex-[0_0_172px]'>
+			<div className='flex-[0_0_240px] 2md:order-1 2sm:ml-auto 2sm:w-[145px]'>
 				<div
 					className={clsx(
 						cls.hexagon_btn,
 						cls.default,
 						cls.sm,
-						'h-[38px] w-full max-w-[174px] flex-grow px-[13px] 2md:ml-auto'
+						'h-[38px] w-full max-w-[174px] flex-grow px-[13px] 2md:ml-auto 2sm:h-[32px]'
 					)}
 				>
 					<div
@@ -459,12 +459,12 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 							'!justify-end !gap-[6px] !bg-[#121722] !bg-none'
 						)}
 					>
-						<span className='text-[14px] font-bold leading-4 text-white'>
+						<span className='text-[14px] font-bold leading-4 text-white 2sm:text-[10px]'>
 							<span className='text-[#24FDBC]'>$</span>
 							{item.value.usd}
 						</span>
 						<div
-							className='ml-1 mr-[6px] flex h-[24px] w-[46px] items-center justify-center bg-[#EDBF1C] text-[10px] font-bold leading-4 text-[#121722]'
+							className='ml-1 mr-[6px] flex h-[24px] w-[46px] items-center justify-center bg-[#EDBF1C] text-[10px] font-bold leading-4 text-[#121722] 2sm:text-[8px]'
 							style={{
 								clipPath: 'polygon(5px 0px, calc(100% - 5px) 0px, 100% 50%, calc(100% - 5px) 100%, 5px 100%, 0px 50%)'
 							}}
@@ -480,11 +480,11 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 						cls.hexagon_btn,
 						cls.default,
 						cls.sm,
-						'mx-[10px] h-[38px] w-full max-w-[120px] px-[13px] 2md:mx-0 2md:ml-auto'
+						'mx-[10px] h-[38px] w-full max-w-[120px] px-[13px] 2md:mx-0 2md:ml-auto 2sm:h-[32px]'
 					)}
 				>
 					<div className={clsx(cls.hexagon_btn_inner, cls.default, cls.sm, '!gap-[6px]')}>
-						<span className='text-[14px] font-bold leading-4 text-white'>
+						<span className='text-[14px] font-bold leading-4 text-white 2sm:text-[10px]'>
 							<span className='text-[#24FDBC]'>$</span>
 							{item.price}
 						</span>

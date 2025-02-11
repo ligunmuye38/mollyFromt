@@ -77,14 +77,18 @@ const CaseItem = ({ item }: { item: ICaseItemType }) => {
 const CreateLottoModal = () => {
 	const t = useTranslations()
 
+	const [search, setSearch] = useState<string>('')
+	const [startPrice, setStartPrice] = useState<string>('1.00')
+	const [endPrice, setEndPrice] = useState<string>('500000.00')
+	const [people, setPeople] = useState<string>('1')
+	const [privacy, togglePrivay] = useState<boolean>(false)
+
 	return (
 		<div className={cls.modal}>
 			<div className='mb-5 flex gap-4 3sm:flex-col'>
 				<Input
-					value=''
-					onChange={() => {
-						return
-					}}
+					value={search}
+					onChange={setSearch}
 					placeholder={t('lotto.search')}
 					startContent={<IconSearch className='h-[15px] w-[15px] fill-[#60719A]' />}
 					classNames={{
@@ -97,23 +101,43 @@ const CreateLottoModal = () => {
 						<div className='w-max rounded-[100%] bg-[#353D51] p-1'>
 							<IconDollarCircle />
 						</div>
-						<p className='text-[14px] font-bold text-white'>1.00</p>
+						<Input
+							value={startPrice}
+							onChange={setStartPrice}
+							type='number'
+							classNames={{
+								mainWrapper: 'w-full',
+								input: clsx('!text-[14px] !font-bold !text-white hide-spin'),
+								inputWrapper: clsx('!bg-none !bg-transparent !border-0', cls.hide_spin)
+							}}
+						/>
 					</div>
 					<div className='flex w-full items-center gap-2 rounded-r-[12px] border-1 border-l-0 border-[#232B3E] p-3'>
 						<div className='w-max rounded-[100%] bg-[#353D51] p-1'>
 							<IconDollarCircle />
 						</div>
-						<p className='text-[14px] font-bold text-white'>500 000.00</p>
+						<Input
+							value={endPrice}
+							onChange={setEndPrice}
+							type='number'
+							classNames={{
+								mainWrapper: 'w-full',
+								input: clsx('!text-[14px] !font-bold !text-white'),
+								inputWrapper: clsx('!bg-none !bg-transparent !border-0', cls.hide_spin)
+							}}
+						/>
 					</div>
 				</div>
 			</div>
-			<div className='mb-5 grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] md:grid-cols-2'>
-				{caseItems.slice(0, 10).map((item, index) => (
-					<CaseItem
-						key={index}
-						item={item}
-					/>
-				))}
+			<div className='app-scrollbar mb-5 h-[calc(100vh_-_320px)] max-h-[440px] overflow-auto'>
+				<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] md:grid-cols-2'>
+					{caseItems.slice(0, 15).map((item, index) => (
+						<CaseItem
+							key={index}
+							item={item}
+						/>
+					))}
+				</div>
 			</div>
 			<div
 				className={clsx(
@@ -135,16 +159,23 @@ const CreateLottoModal = () => {
 							{t('lotto.number_of_participants')}:
 						</p>
 						<IconPeople className='h-6 w-6 fill-[#60719A]' />
-						<p className='text-[16px] text-white'>2</p>
+						<Input
+							value={people}
+							onChange={setPeople}
+							type='number'
+							classNames={{
+								mainWrapper: 'w-full',
+								input: clsx('!text-[16px] !font-bold !text-white', cls.hide_spin),
+								inputWrapper: '!bg-none !bg-transparent !border-0'
+							}}
+						/>
 					</div>
 					<div className='flex h-[44px] items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[12px] py-[10px] md:w-full'>
 						<IconUnprotected className='h-6 w-6 fill-[#60719A]' />
 						<p className='text-[14px] text-[#60719A]'>{t('lotto.lottery_privacy')}</p>
 						<ToggleButton
-							onToggle={() => {
-								return
-							}}
-							value
+							onToggle={() => togglePrivay(v => !v)}
+							value={privacy}
 						/>
 					</div>
 				</div>
@@ -164,7 +195,7 @@ const CreateLottoModal = () => {
 				</div>
 			</div>
 			<div
-				className='mt-4 flex justify-center'
+				className='mt-4 hidden justify-center lg:flex'
 				style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C40)' }}
 			>
 				<Button
