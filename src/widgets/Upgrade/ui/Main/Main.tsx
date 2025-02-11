@@ -229,21 +229,21 @@ const UpgradeItems = ({
 						<IconUpgrade className='h-[21px] w-[21px] fill-[#5A6786]' />
 					</div>
 					<p className='flex-grow text-[14px] font-bold text-[#FFFFFF]'>{t('upgrade').toUpperCase()}</p>
-					<Select
-						onChangeValue={() => {
-							return
-						}}
-						value={'all'}
-						theme='theme-2'
-						items={[{ label: 'Price', value: 'Price' }]}
-						classNames={{
-							base: 'w-[90px]',
-							trigger: 'h-[42px] !rounded-[10px] !bg-[#181E2C] !border-[#232B3E] w-[90px]',
-							itemInner: 'text-[#60719A]',
-							selectorIcon: 'w-5 h-5'
-						}}
-					/>
 					<div className='flex items-center gap-[5px]'>
+						<Select
+							onChangeValue={() => {
+								return
+							}}
+							value={'all'}
+							theme='theme-2'
+							items={[{ label: 'Price', value: 'Price' }]}
+							classNames={{
+								base: 'w-[90px]',
+								trigger: 'h-[42px] !rounded-[10px] !bg-[#181E2C] !border-[#232B3E] w-[90px]',
+								itemInner: 'text-[#60719A]',
+								selectorIcon: 'w-5 h-5'
+							}}
+						/>
 						<Popover placement='bottom'>
 							<PopoverTrigger>
 								<div className='h-10 w-10 rounded-[10px] border-1 border-[#232B3E] bg-[#181E2C] p-[10px]'>

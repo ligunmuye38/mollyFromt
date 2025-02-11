@@ -1,5 +1,5 @@
 import { upgradeItems } from '../../model/items'
-import { IUpgradeItem } from '../../model/types'
+import { IUpgradeItem, Periods } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -11,8 +11,8 @@ import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
-import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
+// import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import cls from './Main.module.sass'
 
 interface IListItemProps {
@@ -28,6 +28,7 @@ const RankBg = ({ rank }: { rank: number }) => {
 				viewBox='0 0 42 48'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'
+				className='2sm:h-[36px] 2sm:w-[36px]'
 			>
 				<path
 					d='M19.5 2.02073C20.4282 1.48483 21.5718 1.48483 22.5 2.02073L39.2846 11.7113C40.2128 12.2472 40.7846 13.2376 40.7846 14.3094V33.6906C40.7846 34.7624 40.2128 35.7528 39.2846 36.2887L22.5 45.9793C21.5718 46.5152 20.4282 46.5152 19.5 45.9793L2.71539 36.2887C1.78719 35.7528 1.21539 34.7624 1.21539 33.6906V14.3094C1.21539 13.2376 1.78719 12.2472 2.71539 11.7113L19.5 2.02073Z'
@@ -76,6 +77,7 @@ const RankBg = ({ rank }: { rank: number }) => {
 				viewBox='0 0 42 48'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'
+				className='2sm:h-[36px] 2sm:w-[36px]'
 			>
 				<path
 					d='M19.5 2.02073C20.4282 1.48483 21.5718 1.48483 22.5 2.02073L39.2846 11.7113C40.2128 12.2472 40.7846 13.2376 40.7846 14.3094V33.6906C40.7846 34.7624 40.2128 35.7528 39.2846 36.2887L22.5 45.9793C21.5718 46.5152 20.4282 46.5152 19.5 45.9793L2.71539 36.2887C1.78719 35.7528 1.21539 34.7624 1.21539 33.6906V14.3094C1.21539 13.2376 1.78719 12.2472 2.71539 11.7113L19.5 2.02073Z'
@@ -124,6 +126,7 @@ const RankBg = ({ rank }: { rank: number }) => {
 				viewBox='0 0 42 48'
 				fill='none'
 				xmlns='http://www.w3.org/2000/svg'
+				className='2sm:h-[36px] 2sm:w-[36px]'
 			>
 				<path
 					d='M19.5 2.02073C20.4282 1.48483 21.5718 1.48483 22.5 2.02073L39.2846 11.7113C40.2128 12.2472 40.7846 13.2376 40.7846 14.3094V33.6906C40.7846 34.7624 40.2128 35.7528 39.2846 36.2887L22.5 45.9793C21.5718 46.5152 20.4282 46.5152 19.5 45.9793L2.71539 36.2887C1.78719 35.7528 1.21539 34.7624 1.21539 33.6906V14.3094C1.21539 13.2376 1.78719 12.2472 2.71539 11.7113L19.5 2.02073Z'
@@ -171,6 +174,7 @@ const RankBg = ({ rank }: { rank: number }) => {
 			viewBox='0 0 42 48'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
+			className='2sm:h-[36px] 2sm:w-[36px]'
 		>
 			<path
 				d='M19.5 2.02073C20.4282 1.48483 21.5718 1.48483 22.5 2.02073L39.2846 11.7113C40.2128 12.2472 40.7846 13.2376 40.7846 14.3094V33.6906C40.7846 34.7624 40.2128 35.7528 39.2846 36.2887L22.5 45.9793C21.5718 46.5152 20.4282 46.5152 19.5 45.9793L2.71539 36.2887C1.78719 35.7528 1.21539 34.7624 1.21539 33.6906V14.3094C1.21539 13.2376 1.78719 12.2472 2.71539 11.7113L19.5 2.02073Z'
@@ -334,6 +338,7 @@ const HexagonBg2 = () => {
 			viewBox='0 0 42 48'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
+			className='2sm:h-[36px] 2sm:w-[36px]'
 		>
 			<path
 				d='M18.25 2.16506C19.9517 1.18258 22.0483 1.18258 23.75 2.16506L38.5346 10.701C40.2363 11.6834 41.2846 13.4991 41.2846 15.4641V32.5359C41.2846 34.5009 40.2363 36.3166 38.5346 37.299L23.75 45.8349C22.0483 46.8174 19.9517 46.8174 18.25 45.8349L3.46539 37.299C1.76369 36.3166 0.715391 34.5009 0.715391 32.5359V15.4641C0.715391 13.4991 1.76369 11.6834 3.46539 10.701L18.25 2.16506Z'
@@ -598,10 +603,11 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 				cls.top_list,
 				{ [cls.rank_first]: rank === 1 },
 				{ [cls.rank_second]: rank === 2 },
-				{ [cls.rank_third]: rank === 3 }
+				{ [cls.rank_third]: rank === 3 },
+				'2sm:!px-[6px]'
 			)}
 		>
-			<div className='relative mr-4 gap-4'>
+			<div className='relative mr-4 gap-4 2sm:mr-2'>
 				<RankBg rank={rank} />
 				<p
 					className={clsx(
@@ -615,10 +621,10 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 					{rank}
 				</p>
 			</div>
-			<div className='mr-4 [filter:drop-shadow(0_2px_11px_#FD3E2459)]'>
+			<div className='mr-4 [filter:drop-shadow(0_2px_11px_#FD3E2459)] 2md:mr-[2px]'>
 				<Avatar />
 			</div>
-			<div className='flex flex-grow'>
+			<div className='flex flex-grow 2md:hidden'>
 				{renderingSteps.map((step, index) => (
 					<Fragment key={index}>
 						{!step.isTruncate ? (
@@ -675,14 +681,28 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 					</Fragment>
 				))}
 			</div>
-			<div className='mx-5'>
-				<p className='text-center text-[10px] font-medium text-[#60719A]'>{t('steps').toUpperCase()}</p>
-				<p className='text-center text-[12px]'>{stepsList.length}</p>
+			<div className='mx-5 flex flex-col 2md:mx-2 2md:w-full'>
+				<div className='text-[12px] font-medium text-white'>Djorgick</div>
+				<div className='flex gap-2'>
+					<div className='hidden 2md:flex 2md:items-center'>
+						<p className='mr-1 text-center text-[10px] font-medium uppercase text-[#60719A] 2md:normal-case sm:text-[8px]'>
+							{t('level')}:
+						</p>
+						<p className='text-center text-[10px] font-bold text-[#13B584] sm:text-[8px]'>HACKER</p>
+					</div>
+					<div className='2md:flex 2md:items-center'>
+						<p className='text-center text-[10px] font-medium uppercase text-[#60719A] 2md:normal-case sm:text-[8px]'>
+							{t('steps')}
+							<span className='mr-1 hidden 2md:inline-block'>:</span>
+						</p>
+						<p className='text-center text-[12px] 2md:text-[10px] sm:text-[8px]'>{stepsList.length}</p>
+					</div>
+				</div>
 			</div>
-			<div className='mr-3 h-12 w-[135px] flex-[0_0_165px] bg-[linear-gradient(90deg,_#2D374F_0%,_rgba(45,_55,_79,_0.45)_50%,_#2D374F_100%)] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
-				<div className='flex h-full w-full items-center justify-center gap-1 bg-[linear-gradient(90deg,_#232B3E_0%,_rgba(35,_43,_62,_0.25)_50%,_#232B3E_100%)] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)]'>
-					<p className='text-[20px] font-bold leading-5 text-white'>61 329</p>
-					<p className='mb-4 text-[10px] font-medium leading-3 text-[#475471]'>v2.7</p>
+			<div className='mr-3 h-12 w-[135px] flex-[0_0_165px] bg-[linear-gradient(90deg,_#2D374F_0%,_rgba(45,_55,_79,_0.45)_50%,_#2D374F_100%)] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)] 2md:bg-none 3sm:mr-[2px] 3sm:w-[120px] 3sm:flex-[0_0_auto] 2sm:w-max 2sm:[clip-path:none]'>
+				<div className='flex h-full w-full items-center justify-center gap-1 bg-[linear-gradient(90deg,_#232B3E_0%,_rgba(35,_43,_62,_0.25)_50%,_#232B3E_100%)] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)] 2md:bg-none 2sm:flex-col-reverse 2sm:items-end 2sm:[clip-path:none]'>
+					<p className='text-[20px] font-bold leading-5 text-white 2sm:text-[14px]'>61 329</p>
+					<p className='mb-4 text-[10px] font-medium leading-3 text-[#475471] 2sm:mb-0 2sm:text-right'>v2.7</p>
 				</div>
 			</div>
 			<Button className='flex-[0_0_48px]'>
@@ -696,10 +716,45 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 }
 
 const UpgradeStreaks = () => {
-	const [page, setPage] = useState<number>(1)
+	// const [page, setPage] = useState<number>(1)
+	const [activePeriod, setPeriod] = useState<Periods>(Periods.TODAY)
 
 	return (
 		<div>
+			<div className='mx-auto mb-5 h-[42px] w-max bg-[linear-gradient(90deg,_#3F4654_0%,_rgba(63,_70,_84,_0.15)_48.98%,_#3F4654_97.96%)] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+				<div className='flex h-full w-full gap-1 bg-[#121722] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+					{Object.values(Periods).map((value, index) => (
+						<div
+							onClick={() => setPeriod(value)}
+							key={index}
+							className={clsx(
+								'w-max cursor-pointer p-[2px] duration-200 [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
+								activePeriod === value
+									? 'bg-[linear-gradient(90deg,_#2D374F_0%,_rgba(45,_55,_79,_0.45)_50%,_#2D374F_100%)] duration-200'
+									: 'bg-[#121722] duration-200 hover:bg-[linear-gradient(90deg,_#2D374F_0%,_rgba(45,_55,_79,_0.45)_50%,_#2D374F_100%)]'
+							)}
+						>
+							<div
+								className={clsx(
+									'flex h-full w-full items-center [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)] 3sm:px-[9px]',
+									activePeriod === value
+										? 'bg-[linear-gradient(90deg,_#232B3E_0%,_rgba(35,_43,_62,_0.25)_50%,_#232B3E_100%)] px-[24px] 3sm:px-[12px] sm:px-[10px]'
+										: 'bg-[#121722] px-[18px] 3sm:px-[9px] sm:px-[6px]'
+								)}
+							>
+								<p
+									className={clsx(
+										'text-[12px] 3sm:text-[10px]',
+										activePeriod === value ? 'font-bold text-white' : 'font-medium text-[#60719A]'
+									)}
+								>
+									{value.toUpperCase()}
+								</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
 			<div className='flex flex-col gap-2'>
 				{upgradeItems.map((item, index) => (
 					<ListItem
@@ -708,13 +763,13 @@ const UpgradeStreaks = () => {
 					/>
 				))}
 			</div>
-			<div className='mt-2 flex justify-center'>
+			{/* <div className='mt-2 flex justify-center'>
 				<PaginationBar
 					page={page}
 					setPage={setPage}
 					total={5}
 				/>
-			</div>
+			</div> */}
 		</div>
 	)
 }

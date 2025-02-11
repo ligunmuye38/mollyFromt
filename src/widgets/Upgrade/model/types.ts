@@ -15,3 +15,11 @@ export interface IUpgradeItem {
 		isTruncate?: boolean
 	}[]
 }
+
+export enum Periods {
+	TODAY = 'today',
+	MONTH = 'month',
+	THREE_MONTHS = '3 months',
+	HALF_YEAR = 'half year',
+	YEAR = 'year'
+}
