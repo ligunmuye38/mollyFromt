@@ -165,8 +165,8 @@ const CreateLottoModal = () => {
 							type='number'
 							classNames={{
 								mainWrapper: 'w-full',
-								input: clsx('!text-[16px] !font-bold !text-white', cls.hide_spin),
-								inputWrapper: '!bg-none !bg-transparent !border-0'
+								input: clsx('!text-[16px] !font-bold !text-white'),
+								inputWrapper: clsx('!bg-none !bg-transparent !border-0', cls.hide_spin)
 							}}
 						/>
 					</div>
