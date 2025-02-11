@@ -3,6 +3,10 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
@@ -185,13 +189,26 @@ const MyItem = ({ className }: { className?: string }) => {
 			</div>
 			{selected ? (
 				<>
-					<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)]'>
-						<Image
-							src='/images/livefeed/skin-9.png'
-							height={138}
-							width={188}
-							alt='myitem'
-						/>
+					<div className='absolute left-1/2 top-1/2 h-[150px] w-full -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)]'>
+						<Swiper
+							direction='vertical'
+							className={cls.items_swiper}
+							loop
+							navigation
+							modules={[Navigation]}
+						>
+							{Array.from(new Array(5)).map((_, index) => (
+								<SwiperSlide key={index}>
+									<Image
+										className='mx-auto'
+										src='/images/livefeed/skin-9.png'
+										height={138}
+										width={188}
+										alt='myitem'
+									/>
+								</SwiperSlide>
+							))}
+						</Swiper>
 					</div>
 					<div className='absolute bottom-5 flex w-full -rotate-3 justify-between px-5'>
 						<div>

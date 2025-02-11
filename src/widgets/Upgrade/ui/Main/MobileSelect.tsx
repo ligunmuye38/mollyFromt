@@ -16,7 +16,7 @@ const MobileSelect = () => {
 	const [_upgradeTo, setUpgradtTo] = useState<boolean>(false)
 
 	return (
-		<div className='hidden grid-cols-2 gap-4 lg:grid md:gap-3 3sm:gap-2'>
+		<div className='hidden grid-cols-2 gap-4 px-[10px] lg:grid md:gap-3 3sm:gap-2'>
 			<div className='hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
 				<IconAK47 className='mb-2 h-[44px] w-[167px] fill-[#566C9C] opacity-35 2sm:h-[36px] 2sm:w-[140px]' />
 				<p className='mb-3 text-center text-[14px] text-white 2sm:text-[12px]'>{t('items_to_upgrade_to')}</p>
