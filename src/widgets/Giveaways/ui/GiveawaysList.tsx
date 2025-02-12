@@ -314,7 +314,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 							</div>
 							<p className='text-[10px] font-medium leading-4 text-[#4A6070]'>{giveaway.items[0].title}</p>
 						</div>
-						<div className='relative z-10 mb-[10px] rounded-[8px] border-1 border-[#202F38] p-[9px]'>
+						<div className='relative z-10 mb-[10px] flex h-[56px] flex-col items-center justify-center rounded-[8px] border-1 border-[#202F38] p-[9px]'>
 							{giveaway.status === GiveawayStatus.COMPLETED ? (
 								<p className='absolute -top-[9px] left-1/2 -translate-x-1/2 bg-[#12262E] px-4 text-[10px] font-bold leading-4 text-[#4A6070]'>
 									{t('giveaways.players').toUpperCase()}
@@ -363,17 +363,17 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 								</div>
 							)}
 							{giveaway.status === GiveawayStatus.ON_PROGRESS && (
-								<div className='flex justify-between'>
-									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+								<div className='flex w-full justify-between gap-4'>
+									<p className='leading-1 w-full text-center text-[8px] font-medium text-[#4A6070]'>
 										{t('giveaways.days').toUpperCase()}
 									</p>
-									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+									<p className='leading-1 w-full text-center text-[8px] font-medium text-[#4A6070]'>
 										{t('giveaways.hours').toUpperCase()}
 									</p>
-									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+									<p className='leading-1 w-full text-center text-[8px] font-medium text-[#4A6070]'>
 										{t('giveaways.minutes').toUpperCase()}
 									</p>
-									<p className='leading-1 w-[46px] text-center text-[8px] font-medium text-[#4A6070]'>
+									<p className='leading-1 w-full text-center text-[8px] font-medium text-[#4A6070]'>
 										{t('giveaways.seconds').toUpperCase()}
 									</p>
 								</div>

@@ -42,15 +42,19 @@ export const CaseCard: FC<CaseCardProps> = ({ className, ...item }) => {
 					/>
 				)
 			case CaseType.DISCOUNTED:
-				return <CaseMarkdown>{`${t('caseCard.discount', { discount: item.discount })}`}</CaseMarkdown>
+				return (
+					<CaseMarkdown className='3sm:!text-[10px]'>{`${t('caseCard.discount', { discount: item.discount })}`}</CaseMarkdown>
+				)
 			case CaseType.LIMITED:
-				return <CaseMarkdown>{`**${item.limit?.current}**/${item.limit?.total}`}</CaseMarkdown>
+				return (
+					<CaseMarkdown className='3sm:!text-[10px]'>{`**${item.limit?.current}**/${item.limit?.total}`}</CaseMarkdown>
+				)
 			case CaseType.LOCKED:
 				return t('caseCard.locked')
 			case CaseType.AVAILABLE:
 				return t('caseCard.available')
 			case CaseType.UNIQUE:
-				return t('caseCard.unique')
+				return <p className='3sm:!text-[10px]'>{t('caseCard.unique')}</p>
 			default:
 				return ''
 		}

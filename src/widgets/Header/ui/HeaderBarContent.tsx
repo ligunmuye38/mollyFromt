@@ -107,7 +107,7 @@ export const HeaderBarContent: FC<HeaderBarContentProps> = ({ className }) => {
 	}, [signinState])
 
 	return isSignin == true ? (
-		<div className={clsx(className, 'flex items-center !pt-1', cls.bar)}>
+		<div className={clsx(className, 'flex items-center', cls.bar)}>
 			{/* <HeaderLangSwitcher className='mr-3' /> */}
 			<div className={cls.balance}>
 				<Balance />
@@ -148,7 +148,7 @@ export const HeaderBarContent: FC<HeaderBarContentProps> = ({ className }) => {
 			</div>
 		</div>
 	) : (
-		<div className={clsx(className, 'flex items-center !pt-1', cls.bar)}>
+		<div className={clsx(className, 'flex items-center', cls.bar)}>
 			<Button
 				theme='grey-4'
 				backdrop

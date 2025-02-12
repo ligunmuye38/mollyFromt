@@ -20,7 +20,10 @@ export const HeaderBar = () => {
 	}, [inViewport, setHeaderBarInView])
 
 	return (
-		<div ref={barRef}>
+		<div
+			ref={barRef}
+			className='pt-1'
+		>
 			<HeaderBarContent />
 		</div>
 	)

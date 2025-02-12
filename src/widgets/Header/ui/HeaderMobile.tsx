@@ -11,7 +11,7 @@ import { useCommonStore } from '@/entities/Common/model/store'
 import LineGradientPic from '@/shared/assets/line-green-gradient.svg'
 import { Link } from '@/shared/config/i18n/navigation'
 
-import { HeaderBar } from './HeaderBar'
+import { HeaderBarContent } from './HeaderBarContent'
 
 interface HeaderMobileProps {
 	className?: string
@@ -57,7 +57,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({ className }) => {
 						}}
 					/>
 				</div>
-				<HeaderBar />
+				<HeaderBarContent />
 			</header>
 		</div>
 	)

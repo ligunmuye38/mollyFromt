@@ -212,7 +212,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 				</div>
 			</div>
 
-			<div className='flex justify-between gap-0'>
+			<div className='flex items-center justify-between gap-0'>
 				<div className='w-[140px] px-2'>
 					<Slider
 						label={
@@ -240,7 +240,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 						}}
 					/>
 				</div>
-				<div className='pl-2 pr-3'>
+				<div className='flex pl-2 pr-3'>
 					<Checkbox
 						name='balance'
 						value='enough'
