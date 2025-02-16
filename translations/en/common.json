@@ -679,5 +679,9 @@
 	"items_or_balance_to_use": "Items or balance to use",
 	"select": "Select",
 	"enter_the_bid_amount": "Enter the bid amount",
-	"level": "Level"
+	"level": "Level",
+	"choose_subject": "Choose a subject",
+	"inventory": "Inventory",
+	"upgrade_items": "Upgrade items",
+	"search": "Search"
 }

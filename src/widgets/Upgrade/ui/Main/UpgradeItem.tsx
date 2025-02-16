@@ -2,6 +2,7 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
@@ -22,6 +23,7 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 	const pathname = usePathname()
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
+	const [locked, toggleLocked] = useState<boolean>(true)
 
 	if (isSuccess) {
 		return (
@@ -134,10 +136,8 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 			<div className='absolute right-3 top-4 flex origin-top-right -rotate-3 items-center gap-2'>
 				<p className='text-[13px] font-bold text-[#5F6C87]'>{t('lock_selected_items')}</p>
 				<ToggleButton
-					value
-					onToggle={() => {
-						return
-					}}
+					value={locked}
+					onToggle={() => toggleLocked(v => !v)}
 				/>
 			</div>
 		</div>

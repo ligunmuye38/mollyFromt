@@ -1,54 +1,161 @@
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
+import IconClose from '@/shared/assets/icons/icon-close-black.svg'
+import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 import { Input } from '@/shared/ui/Input/Input'
 
+import HelpModal from './HelpModal'
 import cls from './Main.module.sass'
+import MobileItemsModal from './MobileItemsModal'
 import { Hexagon } from './MyItem'
 
 const MobileSelect = () => {
 	const t = useTranslations()
-	const [_items, _setItems] = useState<boolean>(false)
+	const [items, setItems] = useState<boolean>(false)
 	const [upgradeTo, setUpgradtTo] = useState<boolean>(false)
 
 	const [times, setTimes] = useState<string>('X1')
 	const [bidAmount, setBidAmount] = useState<string>('0.00')
+	const { openModal } = useModal()
+
+	const pathname = usePathname()
+	const isSucces = pathname.includes('/success')
+
+	const selectItems = () => {
+		openModal(
+			<MobileItemsModal />,
+			{},
+			<IconUpgrade className='h-4 w-4 fill-[#17E2A5]' />,
+			t('choose_subject'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
+	const onClickSaleFor = () => {
+		openModal(
+			<HelpModal />,
+			{},
+			<IconInfo />,
+			t('upgrade_how_does_it_work.title'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
+
+	const handleSelectItems = () => {
+		selectItems()
+		setItems(true)
+	}
+
+	if (isSucces) {
+		return (
+			<div className='hidden grid-cols-2 gap-4 px-[10px] lg:grid md:gap-3 3sm:gap-2'>
+				<div className='relative hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
+					<div className='w-full [filter:drop-shadow(0_0_14px_#10AA7C59)]'>
+						<Button
+							onPress={onClickSaleFor}
+							classNames={{
+								base: '[clip-path:polygon(8px_0px,_calc(100%_-_8px)_0px,_100%_50%,_calc(100%_-_8px)_100%,_8px_100%,_0px_50%)] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] w-full h-[33px] p-[2px]',
+								content:
+									'flex items-center justify-center [clip-path:polygon(7px_0px,_calc(100%_-_7px)_0px,_100%_50%,_calc(100%_-_7px)_100%,_7px_100%,_0px_50%)] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] w-full h-full'
+							}}
+						>
+							<IconUpgrade className='h-[14px] w-[14px] fill-[#121722]' />
+							<p className='text-[10px] font-bold text-[#121722]'>{t('sell_for').toUpperCase()} $50.00</p>
+						</Button>
+					</div>
+				</div>
+				<div className='relative hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
+					<div className='w-full [filter:drop-shadow(0_0_14px_#FD3E2459)]'>
+						<Button
+							classNames={{
+								base: '[clip-path:polygon(8px_0px,_calc(100%_-_8px)_0px,_100%_50%,_calc(100%_-_8px)_100%,_8px_100%,_0px_50%)] bg-[linear-gradient(90deg,_rgba(253,_205,_36,_0)_122.17%,_#FDCD24_141.22%),_linear-gradient(270deg,_#E1B514_6.54%,_#FEDB61_33.68%)] w-full h-[33px] p-[2px]',
+								content:
+									'flex items-center justify-center [clip-path:polygon(7px_0px,_calc(100%_-_7px)_0px,_100%_50%,_calc(100%_-_7px)_100%,_7px_100%,_0px_50%)] bg-[linear-gradient(0deg,_#E1B514,_#E1B514),_linear-gradient(180deg,_rgba(253,_205,_36,_0)_0%,_rgba(253,_205,_36,_0.65)_100%)] w-full h-full'
+							}}
+						>
+							<IconUpgrade className='h-[14px] w-[14px] fill-[#121722]' />
+							<p className='text-[10px] font-bold text-[#121722]'>{t('upgrade').toUpperCase()}</p>
+						</Button>
+					</div>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className='hidden grid-cols-2 gap-4 px-[10px] lg:grid md:gap-3 3sm:gap-2'>
 			{upgradeTo ? (
-				<div className='hidden h-[180px] w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
-					<Swiper
-						className={cls.mobile_item_swiper}
-						direction='vertical'
-						loop
-					>
-						{Array.from(new Array(5)).map((_, index) => (
-							<SwiperSlide key={index}>
-								<div className='flex flex-col items-center'>
-									<div>
-										<Image
-											className='mx-auto'
-											src='/images/livefeed/skin-9.png'
-											height={78}
-											width={106}
-											alt='myitem'
-										/>
+				<div className='relative hidden w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
+					<div className='absolute right-2 top-2 z-10 flex justify-end'>
+						<Button onPress={() => setUpgradtTo(false)}>
+							<div className='h-5 w-5 rounded-full bg-[#0D1018] pl-[6px] pt-[6px]'>
+								<IconClose className='h-2 w-2 fill-[#2F374A]' />
+							</div>
+						</Button>
+					</div>
+					<div className='flex h-[120px] w-full overflow-hidden'>
+						<Swiper
+							className={cls.mobile_item_swiper}
+							direction='vertical'
+							navigation
+							modules={[Navigation]}
+							loop
+						>
+							{Array.from(new Array(5)).map((_, index) => (
+								<SwiperSlide key={index}>
+									<div className='flex flex-col items-center'>
+										<div className='bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)]'>
+											<Image
+												className='mx-auto'
+												src='/images/livefeed/skin-9.png'
+												height={78}
+												width={106}
+												alt='myitem'
+											/>
+										</div>
+										<p className='text-[10px] text-white'>Exoskeleton AWP</p>
+										<p className='text-[8px] text-[#735E8D]'>Field-Tested</p>
+										<p className='text-[12px] text-[#1AD19B]'>$2.64</p>
 									</div>
-									<p className='text-[10px] text-white'>Exoskeleton AWP</p>
-									<p className='text-[8px] text-[#735E8D]'>Field-Tested</p>
-									<p className='text-[12px] text-[#1AD19B]'>$2.64</p>
-								</div>
-							</SwiperSlide>
-						))}
-					</Swiper>
+								</SwiperSlide>
+							))}
+						</Swiper>
+					</div>
+					<div className='flex items-center gap-2'>
+						<Button
+							onPress={selectItems}
+							classNames={{
+								base: 'rounded-[7px] border-[1.4px] border-[rgba(36,253,188,0.65)] py-[6px] px-[30px] bg-[linear-gradient(0deg,_rgba(16,_170,_124,_0.15),_rgba(16,_170,_124,_0.15)),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.0975)_100%)] text-[12px] text-[rgba(32,_227,_169,_1)]'
+							}}
+						>
+							{t('select').toUpperCase()}
+						</Button>
+						<Button>
+							<Hexagon />
+							<IconWalletAdd className='absolute left-1/2 top-1/2 h-[16px] w-[16px] -translate-x-1/2 -translate-y-1/2' />
+						</Button>
+					</div>
 				</div>
 			) : (
 				<div className='hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
@@ -56,6 +163,7 @@ const MobileSelect = () => {
 					<p className='mb-3 text-center text-[14px] text-white 2sm:text-[12px]'>{t('items_to_upgrade_to')}</p>
 					<div className='flex items-center gap-2'>
 						<Button
+							onPress={selectItems}
 							classNames={{
 								base: 'rounded-[7px] border-[1.4px] border-[rgba(36,253,188,0.65)] py-[6px] px-[30px] bg-[linear-gradient(0deg,_rgba(16,_170,_124,_0.15),_rgba(16,_170,_124,_0.15)),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.0975)_100%)] text-[12px] text-[rgba(32,_227,_169,_1)]'
 							}}
@@ -69,10 +177,39 @@ const MobileSelect = () => {
 					</div>
 				</div>
 			)}
-			<div className='hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
-				<IconAK47 className='mb-2 h-[44px] w-[167px] fill-[#566C9C] opacity-35 2sm:h-[36px] 2sm:w-[140px]' />
-				<p className='mb-3 text-center text-[14px] text-white 2sm:text-[12px]'>{t('items_or_balance_to_use')}</p>
+			<div className='relative hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
+				{items ? (
+					<>
+						<div className='absolute right-2 top-2 z-10 flex justify-end'>
+							<Button onPress={() => setItems(false)}>
+								<div className='h-5 w-5 rounded-full bg-[#0D1018] pl-[6px] pt-[6px]'>
+									<IconClose className='h-2 w-2 fill-[#2F374A]' />
+								</div>
+							</Button>
+						</div>
+						<div className='mb-2 flex flex-col items-center'>
+							<div className='bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)]'>
+								<Image
+									className='mx-auto'
+									src='/images/livefeed/skin-9.png'
+									height={78}
+									width={106}
+									alt='myitem'
+								/>
+							</div>
+							<p className='text-[10px] text-white'>Exoskeleton AWP</p>
+							<p className='text-[8px] text-[#735E8D]'>Field-Tested</p>
+							<p className='text-[12px] text-[#1AD19B]'>$2.64</p>
+						</div>
+					</>
+				) : (
+					<>
+						<IconAK47 className='mb-2 h-[44px] w-[167px] fill-[#566C9C] opacity-35 2sm:h-[36px] 2sm:w-[140px]' />
+						<p className='mb-3 text-center text-[14px] text-white 2sm:text-[12px]'>{t('items_or_balance_to_use')}</p>
+					</>
+				)}
 				<Button
+					onPress={handleSelectItems}
 					classNames={{
 						base: 'rounded-[7px] border-[1.4px] border-[rgba(36,253,188,0.65)] py-[6px] px-[30px] bg-[linear-gradient(0deg,_rgba(16,_170,_124,_0.15),_rgba(16,_170,_124,_0.15)),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.0975)_100%)] text-[12px] text-[rgba(32,_227,_169,_1)]'
 					}}

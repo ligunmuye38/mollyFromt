@@ -456,6 +456,55 @@
 
 .mobile_item_swiper
   width: 100%
+  display: none
+  height: 150px
+  width: 100%
+
+  & > div[class="swiper-button-next"]
+    background: #272E3E
+    width: 24px
+    height: 24px
+    clip-path: polygon(50% 0%, 6.7% 25%, 6.7% 75%, 50% 100%, 93.3% 75%, 93.3% 25%)
+    rotate: 90deg
+    left: 0px !important
+    top: auto !important
+    bottom: 45px !important
+
+    &:after
+      font-size: 10px !important
+      background-image: none !important
+      background: #141925
+      clip-path: polygon(50% 0%, 6.7% 25%, 6.7% 75%, 50% 100%, 93.3% 75%, 93.3% 25%)
+      width: 22px
+      height: 22px
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #7785B3 !important
+      font-weight: bold
+  
+  & > div[class="swiper-button-prev"]
+    background: #272E3E
+    width: 24px
+    height: 24px
+    clip-path: polygon(50% 0%, 6.7% 25%, 6.7% 75%, 50% 100%, 93.3% 75%, 93.3% 25%)
+    rotate: 90deg
+    left: 0px !important
+    top: auto !important
+    bottom: 70px !important
+
+    &:after
+      font-size: 10px !important
+      background-image: none !important
+      background: #141925
+      clip-path: polygon(50% 0%, 6.7% 25%, 6.7% 75%, 50% 100%, 93.3% 75%, 93.3% 25%)
+      width: 22px
+      height: 22px
+      display: flex
+      align-items: center
+      justify-content: center
+      color: #7785B3 !important
+      font-weight: bold
 
 .items_swiper
   display: none

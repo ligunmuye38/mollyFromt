@@ -124,18 +124,18 @@ const HexagonSm = () => {
 	)
 }
 
-const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: boolean) => void }) => {
+export const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: boolean) => void }) => {
 	return (
 		<div
 			onClick={() => onSelect(!selected)}
 			className={clsx(
-				'h-[140px] w-[125px] rounded-[12px] p-[1px]',
+				'h-[140px] w-[125px] rounded-[12px] p-[1px] 3sm:w-full',
 				selected
 					? 'bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 					: 'bg-[#161C28]'
 			)}
 		>
-			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#141925] p-[13px]'>
+			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#111620] p-[13px]'>
 				<div className='flex w-full justify-between'>
 					<p className='text-[10px] font-medium leading-[10px] text-[#2F374A]'>FT</p>
 					<div className='h-2 w-2 rounded-sm bg-[#FF00F5] shadow-[0_0_4px_#FF00F54D]'></div>

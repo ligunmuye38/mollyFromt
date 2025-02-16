@@ -4,7 +4,7 @@ const HelpModal = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='w-[1020px] pt-5 lg:w-[calc(100vw_-_80px)]'>
+		<div className='max-h-[calc(100vh_-_130px)] w-[1020px] overflow-auto pt-5 lg:w-[calc(100vw_-_80px)]'>
 			<p className='mb-10 text-[24px] font-medium leading-[36px] text-white 3sm:mb-5'>
 				{t('upgrade_how_does_it_work.header1')}
 			</p>
