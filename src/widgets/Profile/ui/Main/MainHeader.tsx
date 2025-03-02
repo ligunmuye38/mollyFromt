@@ -12,7 +12,7 @@ import { useCommonStore } from '@/entities/Common/model/store'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 // import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
-import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
+// import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import Iconverified from '@/shared/assets/icons/icon-verified-user.svg'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
 import Button from '@/shared/ui/Button/Button'
@@ -108,19 +108,21 @@ const MainHeader = () => {
 							<div className='flex h-full w-auto items-center gap-4'>
 								<div className='flex items-center gap-4'>
 									<div className='flex flex-col'>
-										<div className='relative flex'>
-											<Iconverified className='absolute -left-4 -top-1/3' />
-											<span className='ml-2 text-[16px] text-[#D1D9EB]'>Aleksandr</span>
+										<div className='relative flex items-center'>
+											<div className='relative w-5'>
+												<Iconverified className='absolute left-1/2 top-1/2 !h-[50px] !w-[50px] -translate-x-1/2 -translate-y-1/2' />
+											</div>
+											<span className='ml-1 text-[16px] text-[#D1D9EB]'>Aleksandr</span>
 										</div>
 										{/* <div className='flex gap-2'>
 											<IconLogout className='h-4 w-4 fill-[#CB3434]' />
 											<span className='text-[12px] text-[#CB3434]'>{t('profile_page.leave_site')}</span>
 										</div> */}
-										<div className='mt-1 hidden w-auto 3sm:flex'>
+										{/* <div className='mt-1 hidden w-auto 3sm:flex'>
 											<div className='h-auto rounded-lg border-[1px] border-[#49547014] bg-[#4954700D] p-2 3sm:p-1'>
 												<IconSteam className='h-[12px] w-[12px] fill-[#60719A]' />
 											</div>
-										</div>
+										</div> */}
 									</div>
 								</div>
 							</div>

@@ -15,7 +15,7 @@ const GameHistoryHeader = () => {
 				<IconHistoryGame className={clsx('h-7 w-7')} />
 				<span>{t('game_history_profile.history_games')}</span>
 			</div>
-			<div className=''>
+			<div className='w-full'>
 				<GameHistoryTypeSwitcher />
 			</div>
 		</div>

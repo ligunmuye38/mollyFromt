@@ -29,7 +29,7 @@ const GameHistoryTypeSwitcher = () => {
 				theme='theme-2'
 				items={items}
 				classNames={{
-					base: 'w-[200px] h-[42px]'
+					base: 'w-[200px] h-[42px] 2sm:w-full'
 				}}
 			/>
 		</>

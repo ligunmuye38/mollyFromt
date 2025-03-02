@@ -13,6 +13,7 @@ import IconCaseOpen from '@/shared/assets/icons/icon-case-open.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
 import IconFacebook from '@/shared/assets/icons/icon-facebook-2.svg'
+import IconGiveawayTick from '@/shared/assets/icons/icon-giveaway-tick.svg'
 import IconGun from '@/shared/assets/icons/icon-gun.svg'
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
 import IconLink from '@/shared/assets/icons/icon-link-3.svg'
@@ -54,6 +55,7 @@ interface IRequirementCardProps {
 	content: string
 	active?: boolean
 	locked?: boolean
+	onClick?: () => void
 }
 
 const Avatar = () => {
@@ -301,12 +303,15 @@ const RequirementIcon = ({ active, icon }: IRequirementIconProps) => {
 	)
 }
 
-const RequirementCard = ({ icon, content, active, locked }: IRequirementCardProps) => {
+const RequirementCard = ({ icon, content, active, locked, onClick }: IRequirementCardProps) => {
 	return (
 		<div
+			onClick={onClick}
 			className={clsx(
 				'relative flex flex-col items-center justify-center gap-[10px] rounded-[12px] border-1 bg-[#141925] p-[15px]',
-				active ? 'border-[#24FDBC]' : 'border-[#1A2130]'
+				active ? 'border-[#24FDBC]' : 'border-[#1A2130]',
+				locked ? 'cursor-default' : 'cursor-pointer',
+				{ 'hover:border-[#24FDBC60]': !locked }
 			)}
 		>
 			{locked && (
@@ -348,6 +353,9 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 	const [isActive, toggleIsActive] = useState<boolean>(false)
 	const [isOpen, toggleIsOpen] = useState<boolean>(false)
 	const [casesCount, setCasesCount] = useState<number>(1)
+	const [requirements, setRequirements] = useState<string[]>([])
+	const [selectedCase, setSelectedCase] = useState<number>()
+	const [cases, setCases] = useState<any[]>([])
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -368,7 +376,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								Aleksandr
 							</p>
 							<div
-								className='mb-1 h-[18px] w-[53px] p-[1px]'
+								className='mb-1 h-[18px] p-[1px]'
 								style={{
 									background:
 										'linear-gradient(270deg, rgba(64, 106, 127, 0.45) 9.99%, rgba(27, 50, 61, 0.25) 54.99%, rgba(64, 106, 127, 0.45) 100%)',
@@ -376,7 +384,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								}}
 							>
 								<div
-									className='flex h-full w-full items-center justify-center'
+									className='flex h-full w-full items-center justify-center px-2'
 									style={{
 										background: 'linear-gradient(270deg, #1B323D -32.2%, rgba(18, 36, 44, 0.45) 33.9%, #1B323D 100%)',
 										clipPath:
@@ -513,7 +521,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								<IconHint className='h-[18px] w-[18px] fill-[#60719A]' />
 								<p className='text-[12px] font-medium text-[#60719A]'>
 									{t('giveaways.giveaway_choose_description')} <span className='text-[#17E2A5]'>$</span>
-									<span className='text-white'>3.00+</span>.
+									<span className='text-white'>3.00+</span>
 								</p>
 							</div>
 							<p className='text-right text-[12px] text-[#CE3C3C] md:pl-4 md:text-left'>
@@ -545,7 +553,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						</div>
 					</div>
 				</div>
-				<div className='w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+				<div className='mb-5 w-full rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
 					<div className='flex w-full items-center justify-start gap-3 rounded-t-[12px] bg-[#141925] p-[11px]'>
 						<HexagonIcon
 							icon={
@@ -558,7 +566,14 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						<div className='grid grid-cols-5 gap-[10px] 2md:grid-cols-3 md:grid-cols-2'>
 							<RequirementCard
 								icon={<IconWallet />}
-								active
+								active={requirements.includes('wallet_requirement')}
+								onClick={() =>
+									setRequirements(v =>
+										v.includes('wallet_requirement')
+											? v.filter(st => st !== 'wallet_requirement')
+											: [...v, 'wallet_requirement']
+									)
+								}
 								content={t('giveaways.wallet_requirement')}
 							/>
 							<RequirementCard
@@ -568,18 +583,48 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 							/>
 							<RequirementCard
 								icon={<IconCaseOpen />}
+								active={requirements.includes('case_requirement')}
+								onClick={() =>
+									setRequirements(v =>
+										v.includes('case_requirement')
+											? v.filter(st => st !== 'case_requirement')
+											: [...v, 'case_requirement']
+									)
+								}
 								content={t('giveaways.case_requirement')}
 							/>
 							<RequirementCard
 								icon={<IconTwitter />}
+								active={requirements.includes('twitter_requirement')}
+								onClick={() =>
+									setRequirements(v =>
+										v.includes('twitter_requirement')
+											? v.filter(st => st !== 'twitter_requirement')
+											: [...v, 'twitter_requirement']
+									)
+								}
 								content={t('giveaways.twitter_requirement')}
 							/>
 							<RequirementCard
 								icon={<IconVK />}
+								active={requirements.includes('vk_requirement')}
+								onClick={() =>
+									setRequirements(v =>
+										v.includes('vk_requirement') ? v.filter(st => st !== 'vk_requirement') : [...v, 'vk_requirement']
+									)
+								}
 								content={t('giveaways.vk_requirement')}
 							/>
 							<RequirementCard
 								icon={<IconFacebook />}
+								active={requirements.includes('facebook_requirement')}
+								onClick={() =>
+									setRequirements(v =>
+										v.includes('facebook_requirement')
+											? v.filter(st => st !== 'facebook_requirement')
+											: [...v, 'facebook_requirement']
+									)
+								}
 								content={t('giveaways.facebook_requirement')}
 							/>
 							<RequirementCard
@@ -648,19 +693,28 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									>
 										<PopoverTrigger>
 											<div className='flex w-full items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
-												<Image
-													src='/images/case/case-full-2.png'
-													width={24}
-													height={24}
-													alt='option'
-												/>
-												<div className='flex w-full justify-between 2sm:flex-col'>
-													<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-													<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-												</div>
-												<Button classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}>
-													<IconClose className='h-2 w-2 fill-[#1B2233]' />
-												</Button>
+												{selectedCase ? (
+													<>
+														<Image
+															src='/images/case/case-full-2.png'
+															width={24}
+															height={24}
+															alt='option'
+														/>
+														<div className='flex w-full justify-between 2sm:flex-col'>
+															<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+															<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+														</div>
+														<Button
+															onPress={() => setSelectedCase(undefined)}
+															classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
+														>
+															<IconClose className='h-2 w-2 fill-[#1B2233]' />
+														</Button>
+													</>
+												) : (
+													<div className='w-full'></div>
+												)}
 												<div className='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#252C3F]'>
 													<IconArrowDown
 														className={clsx('w-[18px] fill-[#60719A] duration-150', isOpen ? 'rotate-180' : 'rotate-0')}
@@ -701,13 +755,19 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 														inputWrapper: 'rounded-lg'
 													}}
 												/>
-												<div className='app-scrollbar max-h-[300px] overflow-auto'>
-													<div className='flex flex-col gap-2'>
+												<div className='app-popover-scrollbar max-h-[300px] overflow-auto'>
+													<div className='flex flex-col gap-2 pr-[6px]'>
 														{Array.from(new Array(12)).map((_, index) => (
 															<Button
 																key={index}
+																onPress={() => {
+																	setSelectedCase(prev => (prev === index ? undefined : index))
+																}}
 																classNames={{
-																	base: 'border-1 border-[#2D364B] py-[9px] pl-[7px] pr-[15px] rounded-lg flex items-center gap-2'
+																	base: clsx(
+																		'border-1 py-[9px] pl-[7px] pr-[15px] rounded-lg flex items-center gap-2',
+																		selectedCase === index ? 'border-[#10AA7C]' : 'border-[#2D364B]'
+																	)
 																}}
 															>
 																<Image
@@ -741,16 +801,53 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 										</Button>
 									</div>
 								</div>
-								<div className='mt-[10px] flex items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>
-									<div className='mr-2 flex h-4 w-4 items-center justify-center rounded-[4px] bg-[#60719A] text-[12px] leading-[0px] text-[#141925]'>
-										+
+								{cases.map((_case, index) => (
+									<div
+										className='my-1 flex items-center gap-2 rounded-[8px] bg-[#1B223380] px-2 py-2'
+										key={index}
+									>
+										<Image
+											src='/images/case/case-full-2.png'
+											width={24}
+											height={24}
+											alt='option'
+										/>
+										<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+										<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+										{/* <p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>{_case.count}</p> */}
+										<Button
+											onPress={() => setCases(prev => prev.filter((_, _index) => index !== _index))}
+											classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
+										>
+											<IconClose className='h-2 w-2 fill-[#1B2233]' />
+										</Button>
 									</div>
-									<p className='text-[12px] text-[#768BBD]'>{t('giveaways.add_case').toUpperCase()}</p>
-								</div>
+								))}
+								<Button
+									classNames={{ base: 'w-full mt-[10px]' }}
+									onPress={() => setCases(prev => [...prev, { count: casesCount }])}
+								>
+									<div className='flex w-full items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>
+										<div className='mr-2 flex h-4 w-4 items-center justify-center rounded-[4px] bg-[#60719A] text-[12px] leading-[0px] text-[#141925]'>
+											+
+										</div>
+										<p className='text-[12px] text-[#768BBD]'>{t('giveaways.add_case').toUpperCase()}</p>
+									</div>
+								</Button>
 							</div>
 						</div>
 					</div>
 				</div>
+				<Button
+					classNames={{
+						base: 'h-[56px] p-[1px] rounded-[12px] w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0.2)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.65)_40.76%,_#24FDBC_57.96%)]',
+						content:
+							'text-[#141925] h-full text-[14px] font-bold bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
+					}}
+				>
+					<IconGiveawayTick />
+					{t('giveaways.create_distribution').toUpperCase()}
+				</Button>
 			</div>
 		</div>
 	)

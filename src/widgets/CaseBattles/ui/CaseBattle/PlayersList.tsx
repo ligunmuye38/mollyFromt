@@ -951,7 +951,7 @@ const BattleCreator = ({ onStartBattle }: IBattleCreatorProps) => {
 						'relative flex flex-col items-center justify-end gap-4 overflow-hidden py-[20px] 3sm:items-end 3sm:pr-5'
 					)}
 				>
-					<div className='hide-scrollbar absolute bottom-[18px] left-[12px] z-10 h-[30px] w-[30px] overflow-auto rounded-[100px] bg-[#0B0E15] duration-250 hover:h-[210px] 3sm:left-5 3sm:hover:h-[30px] 3sm:hover:w-[120px]'>
+					<div className='hide-scrollbar absolute bottom-[15px] left-[12px] z-10 h-[30px] w-[30px] overflow-auto rounded-[100px] bg-[#0B0E15] duration-250 hover:h-[210px] 3sm:left-5 3sm:hover:h-[30px] 3sm:hover:w-[120px]'>
 						<div className='flex flex-col 3sm:flex-row'>
 							{Array.from(new Array(10)).map((_, index) => (
 								<Button

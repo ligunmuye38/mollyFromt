@@ -567,7 +567,8 @@
 		"new_begin": "New begin",
 		"add_case": "Add Case",
 		"community_cases": "Community cases",
-		"official_cases": "Official cases"
+		"official_cases": "Official cases",
+		"create_distribution": "Create A Distribution"
 	},
 	"lotto": {
 		"lotto": "Lotto",
@@ -683,5 +684,6 @@
 	"choose_subject": "Choose a subject",
 	"inventory": "Inventory",
 	"upgrade_items": "Upgrade items",
-	"search": "Search"
+	"search": "Search",
+	"save": "Save"
 }

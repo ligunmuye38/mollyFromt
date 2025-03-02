@@ -15,7 +15,7 @@ const TransactionHistoryHeader = () => {
 				<IconTransactionHistory className={clsx('h-7 w-7')} />
 				<span>{t('transaction_history_profile.transaction_history')}</span>
 			</div>
-			<div className=''>
+			<div className='2sm:w-full'>
 				<TransactionHistoryTypeSwitcher />
 			</div>
 		</div>

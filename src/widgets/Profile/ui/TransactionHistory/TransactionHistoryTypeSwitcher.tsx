@@ -19,7 +19,7 @@ const TransactionHistoryTypeSwitcher = () => {
 
 	return (
 		<div className={cls.switch}>
-			<div className={clsx(cls.switch_trigger, transactionHistoryType === 'deposit' ? 'left-0' : 'left-[127px]')}>
+			<div className={clsx(cls.switch_trigger, transactionHistoryType === 'deposit' ? 'left-0' : 'left-[50%]')}>
 				<div className={cls.switch_trigger_inner}>
 					{transactionHistoryType === 'deposit' ? (
 						<IconPlus className='fill-[#121722]' />

@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
-import IconEditPicture from '@/shared/assets/icons/icon-edit-picture.svg'
+// import IconEditPicture from '@/shared/assets/icons/icon-edit-picture.svg'
 import IconSetting from '@/shared/assets/icons/icon-setting-profile.svg'
 import IconUpload from '@/shared/assets/icons/icon-upload.svg'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
@@ -37,15 +37,21 @@ const SettingsHeader = () => {
 			<div className={clsx('mb-10 h-auto w-full flex-wrap !p-0 lg:!p-1', !breakpoints.lg && cls.user_main)}>
 				<div className={clsx('h-full w-full !p-0 lg:!p-5 3sm:!p-1.5', !breakpoints.lg && cls.user_main_inner)}>
 					<div className='relative max-h-[500px] w-full'>
-						<div className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] bg-[#111620]')}></div>
-						<div className={clsx('h-full w-full overflow-hidden rounded-[14px]', { 'mix-blend-color-burn': !cover })}>
+						<div
+							className={clsx('absolute left-0 top-0 h-full w-full rounded-[14px] bg-[#111620] 3sm:rounded-[8px]')}
+						></div>
+						<div
+							className={clsx('h-full w-full overflow-hidden rounded-[14px] 3sm:rounded-[8px]', {
+								'mix-blend-color-burn': !cover
+							})}
+						>
 							{cover ? (
 								<Image
 									src={'/images/profile/user-bg.png'}
 									alt='bg'
 									sizes='100%'
 									fill
-									className='!relative !h-auto max-h-[200] min-h-[200px] !w-full object-cover 3sm:hidden'
+									className='!relative !h-auto max-h-[200] min-h-[200px] !w-full object-cover'
 								/>
 							) : (
 								<Image
@@ -63,12 +69,13 @@ const SettingsHeader = () => {
 							></div>
 						)}
 						{cover ? (
-							<div className='absolute top-0 flex h-auto w-full justify-between p-4 3sm:relative 3sm:p-0'>
-								<div className='h-auto rounded-lg border-[1px] border-[#49547014] bg-[#4954700D] p-2 3sm:p-1'>
-									<IconEditPicture className='h-[22px] w-[22px] fill-[#495470] 3sm:h-[12px] 3sm:w-[12px]' />
-								</div>
-							</div>
+							<></>
 						) : (
+							// <div className='absolute top-0 flex h-auto w-full justify-between p-4 3sm:relative 3sm:p-0'>
+							// 	<div className='h-auto rounded-lg border-[1px] border-[#49547014] bg-[#4954700D] p-2 3sm:p-1'>
+							// 		<IconEditPicture className='h-[22px] w-[22px] fill-[#495470] 3sm:h-[12px] 3sm:w-[12px]' />
+							// 	</div>
+							// </div>
 							<div
 								className={clsx(
 									cls.upload_btn,
@@ -97,7 +104,7 @@ const SettingsHeader = () => {
 						)}
 						<div
 							className={clsx(
-								'absolute -bottom-8 left-4 flex w-full flex-wrap items-center gap-3 overflow-hidden 3sm:relative 3sm:bottom-0 3sm:left-0 3sm:overflow-visible 2sm:flex-col 2sm:items-start',
+								'absolute -bottom-8 left-4 flex w-full flex-wrap items-center gap-3 overflow-hidden 3sm:bottom-0 3sm:left-0 3sm:overflow-visible 2sm:flex-col 2sm:items-start',
 								chatViewHidden ? '' : '!bottom-0 !left-3 !gap-0'
 							)}
 						>
@@ -149,7 +156,7 @@ const SettingsHeader = () => {
 												>
 													<IconUpload />
 													{chatViewHidden && (
-														<p className='max-w-14 text-center text-[12px] font-bold uppercase leading-[14px] text-[#606EA1]'>
+														<p className='max-w-14 text-center text-[12px] font-bold uppercase leading-[14px] text-[#606EA1] 3sm:hidden'>
 															{t('settings_profile.upload_avatar')}
 														</p>
 													)}

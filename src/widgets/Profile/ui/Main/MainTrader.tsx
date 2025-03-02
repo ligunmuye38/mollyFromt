@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import IconTrader from '@/shared/assets/icons/icon-trader.svg'
+import Button from '@/shared/ui/Button/Button'
 import { Input } from '@/shared/ui/Input/Input'
 
 import cls from './Main.module.sass'
@@ -46,6 +47,15 @@ const MainTrader = () => {
 				}}
 				placeholder={t('profile_page.trade_url_placeholder')}
 				startContent={<IconSteam className={clsx(cls.box_icon, cls.input_icon, 'h-6 w-6')} />}
+				endContent={
+					<Button
+						classNames={{
+							content: 'uppercase text-[#10AA7C] text-[12px] font-bold'
+						}}
+					>
+						{t('save')}
+					</Button>
+				}
 				classNames={{
 					inputWrapper: [cls.box, '!px-3 !py-4'],
 					input: [cls.box_value, 'w-full text-[14px]'],

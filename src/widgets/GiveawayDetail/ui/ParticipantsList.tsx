@@ -77,7 +77,7 @@ const ParticipantsList = () => {
 			</p>
 			{isCompleted ? (
 				<div className='relative rounded-[12px] border-1 border-[#1F2639] bg-[#171D2C] py-[10px]'>
-					<div className='flex justify-center gap-[13px] overflow-hidden'>
+					<div className='flex justify-center gap-[13px] overflow-hidden [mask-image:linear-gradient(90deg,_rgba(0,0,0,0)_0%,_rgba(0,0,0,1)_30%,_rgba(0,0,0,1)_70%,_rgba(0,0,0,0)_100%)]'>
 						{Array.from(new Array(27)).map((_, index) => (
 							<div
 								className='flex h-[70px] w-[70px] justify-center'
@@ -86,8 +86,8 @@ const ParticipantsList = () => {
 								<Particiant />
 							</div>
 						))}
-						<div className='absolute left-1/2 top-1/2 z-10 h-[100px] w-1 -translate-y-1/2 rounded-sm bg-[#FFC600] [box-shadow:_0px_0px_18px_0px_#FFC600CC]'></div>
 					</div>
+					<div className='absolute left-1/2 top-1/2 z-10 h-[100px] w-1 -translate-y-1/2 rounded-sm bg-[#FFC600] [box-shadow:_0px_0px_18px_0px_#FFC600CC]'></div>
 				</div>
 			) : (
 				<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,70px)] gap-[13px]'>

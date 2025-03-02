@@ -56,7 +56,9 @@ const ListItme = ({ icon: Icon, title, isActived, onClick }: ListItemProps) => {
 						isActived == true ? 'bg-[#17C993]' : 'bg-[#191F2D80]'
 					)}
 				>
-					<div className={clsx('h-full w-full rounded-[10px]', isActived == true ? 'bg-[#0A372A]' : 'bg-[#191F2D80]')}>
+					<div
+						className={clsx('h-full w-full rounded-[10px] px-2', isActived == true ? 'bg-[#0A372A]' : 'bg-[#191F2D80]')}
+					>
 						<Button
 							classNames={{
 								base: 'w-full h-full flex pt-[5px] justify-between',
