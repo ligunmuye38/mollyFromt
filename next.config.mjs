@@ -26,6 +26,15 @@ const nextConfig = {
 
     return config
   },
+  images: {
+    remotePatterns: [{
+      protocol: 'https',
+      hostname: 's2.coinmarketcap.com',
+      port: '',
+      pathname: '/*/**',
+      search: '',
+    }]
+  },
 }
 
 export default withNextIntl(nextConfig);

@@ -52,7 +52,7 @@ export const DepositHistoryListItem = ({ item }: DepositHistoryListItemProps) =>
 			return <IconCheck className='w-[14px] fill-[#10AA7C]' />
 		}
 		if (item.status === TransactionStatus.ON_PROGRESS) {
-			return <IconTimer />
+			return <IconTimer className='h-[14px] w-[14px] fill-[#E1B514]' />
 		}
 		if (item.status === TransactionStatus.FAILED) {
 			return <IconFail className='fill-[#B74242]' />

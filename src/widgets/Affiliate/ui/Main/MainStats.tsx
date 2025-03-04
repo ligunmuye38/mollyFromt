@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 
+import LevelInfoModal from '@/widgets/LevelInfoModal'
+
 import IconDownload from '@/shared/assets/icons/icon-document-download.svg'
 import IconGallery from '@/shared/assets/icons/icon-gallery.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
@@ -112,9 +114,14 @@ const MainStats = () => {
 	const t = useTranslations()
 	const [activePeriod, setActivePeriod] = useState<string>(periods[0])
 	const [stats, setStats] = useState<boolean>(false)
+	const [isOpen, toggleIsOpen] = useState<boolean>(false)
 
 	return (
 		<div>
+			<LevelInfoModal
+				onClose={() => toggleIsOpen(false)}
+				open={isOpen}
+			/>
 			<div className='mb-5 grid grid-cols-2 gap-5 lg:grid-cols-1'>
 				<div className='hidden rounded-[12px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px] lg:block'>
 					<div className='relative h-full w-full items-center rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_#141925_100%)] px-5 py-[15px]'>
@@ -228,8 +235,9 @@ const MainStats = () => {
 					<div className='flex flex-col gap-2'>
 						{Array.from(new Array(6)).map((_, index) => (
 							<div
-								className='grid grid-cols-3 items-center gap-2 rounded-[14px] bg-[#11151F] px-5 py-2 3sm:grid-cols-2'
+								className='grid cursor-pointer grid-cols-3 items-center gap-2 rounded-[14px] bg-[#11151F] px-5 py-2 3sm:grid-cols-2'
 								key={index}
+								onClick={() => toggleIsOpen(true)}
 							>
 								<div className='flex items-center gap-2'>
 									<Avatar />

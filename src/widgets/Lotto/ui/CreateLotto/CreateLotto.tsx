@@ -344,7 +344,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 								<div className='relative'>
 									<HexagonWrapper className='h-[48px] w-[42px] md:h-[34px] md:w-[32px]' />
 									<div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-										<IconGift className='scale-150 md:scale-100' />
+										<IconGift className='h-5 w-5 md:scale-100' />
 									</div>
 								</div>
 								<Button>

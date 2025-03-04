@@ -3,11 +3,14 @@ import { GiveawayStatus, GiveawaysFilters, IGiveaway } from '../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/scss/pagination'
+
+import SkinReplacementModal from '@/widgets/SkinReplacementModal'
 
 import GiveawayCardBrand from '@/shared/assets/giveaway-card-brand-decorator.svg'
 import GiveawayCardEffect from '@/shared/assets/giveaway-card-effect.svg'
@@ -29,6 +32,7 @@ interface IGiveawyCardProps {
 
 const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 	const t = useTranslations()
+	const [isOpen, toggleIsOpen] = useState<boolean>(false)
 
 	const Avatar = () => {
 		return (
@@ -201,6 +205,10 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 
 	return (
 		<div className={clsx(cls.giveaway_card, 'md:!grid md:!w-full md:grid-cols-[235px_auto] md:gap-2 md:!px-2')}>
+			<SkinReplacementModal
+				open={isOpen}
+				onClose={() => toggleIsOpen(false)}
+			/>
 			<div
 				className='absolute left-0 top-0 h-full w-full rounded-[12px] p-[3px]'
 				style={{
@@ -416,7 +424,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 							>
 								<div className='absolute -top-[14px] left-1/2 -translate-x-1/2'>
 									<HexagonBg />
-									<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+									<IconGift className='absolute left-1/2 top-1/2 h-[13px] w-[13px] -translate-x-1/2 -translate-y-1/2' />
 								</div>
 								<div
 									className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
@@ -484,6 +492,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 									base: clsx(cls.hexagon_btn, 'h-[42px] w-[232px]'),
 									content: clsx(cls.hexagon_btn_inner, '!gap-0')
 								}}
+								onPress={() => toggleIsOpen(true)}
 							>
 								{t('giveaways.view_requirements').toUpperCase()}
 							</Button>

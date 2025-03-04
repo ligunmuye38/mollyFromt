@@ -2,6 +2,9 @@ import { PartnershipTypes } from '../../model/types'
 import { CircularProgress } from '@nextui-org/react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import { useState } from 'react'
+
+import TransferMethodSelectionModal from '@/widgets/TransferMethodSelectionModal'
 
 import IconArrowRight from '@/shared/assets/icons/icon-arrow-right-hexagon-2.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
@@ -47,6 +50,7 @@ interface IMainHeader {
 
 const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 	const t = useTranslations()
+	const [isOpen, toggleIsOpen] = useState<boolean>(false)
 
 	return (
 		<div className=''>
@@ -163,7 +167,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 									onChange={() => {
 										return
 									}}
-									endContent={<IconCopy />}
+									endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
 									label={t('your_link').toUpperCase()}
 									labelPlacement='inside'
 									classNames={{
@@ -191,7 +195,12 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 											}}
 										/>
 									</div>
+									<TransferMethodSelectionModal
+										onClose={() => toggleIsOpen(false)}
+										open={isOpen}
+									/>
 									<Button
+										onPress={() => toggleIsOpen(true)}
 										classNames={{
 											base: 'w-[124px] h-12 rounded-[8px] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] p-[1px]',
 											content:

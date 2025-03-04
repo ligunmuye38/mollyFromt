@@ -93,7 +93,7 @@ const AchievementModal = () => {
 						</div>
 					</div>
 					<div className='flex items-center gap-2 rounded-[10px] border-1 border-[#F4AD5C59] bg-[#F4AD5C26] p-[9px]'>
-						<IconInfo />
+						<IconInfo className='h-[26px] w-6 fill-[#F4AD5C]' />
 						<span className='text-[12px] font-bold leading-4 text-[#F4AD5C]'>
 							{t('profile_achievements.get_daily_free_bonus')}
 						</span>

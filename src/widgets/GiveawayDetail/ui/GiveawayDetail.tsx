@@ -309,7 +309,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 														<p className='text-[10px] font-bold leading-4 text-[#121722]'>+10%</p>
 													</div>
 												</div>
-												<IconCopy clasName='fill-[#668397]' />
+												<IconCopy clasName='w-5 h-5 fill-[#668397]' />
 											</div>
 										</div>
 										<Button

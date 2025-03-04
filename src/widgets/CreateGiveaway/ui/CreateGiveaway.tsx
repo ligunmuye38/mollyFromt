@@ -5,7 +5,7 @@ import { Popover, PopoverContent, PopoverTrigger, Switch } from '@nextui-org/rea
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { FC, ReactNode, useState } from 'react'
+import { FC, ReactNode, useCallback, useRef, useState } from 'react'
 
 import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconBucket from '@/shared/assets/icons/icon-bag-tick.svg'
@@ -13,6 +13,7 @@ import IconCaseOpen from '@/shared/assets/icons/icon-case-open.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
 import IconFacebook from '@/shared/assets/icons/icon-facebook-2.svg'
+import IconGift from '@/shared/assets/icons/icon-gift.svg'
 import IconGiveawayTick from '@/shared/assets/icons/icon-giveaway-tick.svg'
 import IconGun from '@/shared/assets/icons/icon-gun.svg'
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
@@ -30,10 +31,12 @@ import IconVK from '@/shared/assets/icons/icon-vkontakte-2.svg'
 import IconWallet from '@/shared/assets/icons/icon-wallet.svg'
 import IconYoutube from '@/shared/assets/icons/icon-youtube.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 import DateTimePicker from '@/shared/ui/DateTimePicker/DateTimePicker'
 import { Input } from '@/shared/ui/Input/Input'
 
+import AddPrizeModal from './AddPrizeModal'
 import CaseItem from './CaseItem'
 import cls from './CreateGiveaway.module.sass'
 
@@ -335,14 +338,34 @@ const RequirementCard = ({ icon, content, active, locked, onClick }: IRequiremen
 
 const EmptyCaseCard = () => {
 	const t = useTranslations()
+	const { openModal } = useModal()
+
+	const openModalRef = useRef(openModal)
+	const translationsRef = useRef(t)
+
+	const handleClickAdd = useCallback(() => {
+		openModalRef.current(
+			<AddPrizeModal />,
+			{},
+			<IconGift className='h-[22px] w-[22px]' />,
+			translationsRef.current('adding_prizes').toUpperCase(),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}, [])
 
 	return (
-		<div className='flex h-[153px] w-[133px] flex-col items-center justify-center gap-2 rounded-[12px] border-1 border-[#161C28] bg-[#141925]'>
-			<div className='flex h-6 w-6 items-center justify-center rounded-md bg-[#2A3143] text-[16px] leading-[14px] text-[#141925]'>
-				+
+		<Button onPress={handleClickAdd}>
+			<div className='flex h-[153px] w-[133px] flex-col items-center justify-center gap-2 rounded-[12px] border-1 border-[#161C28] bg-[#141925]'>
+				<div className='flex h-6 w-6 items-center justify-center rounded-md bg-[#2A3143] text-[16px] leading-[14px] text-[#141925]'>
+					+
+				</div>
+				<span className='text-[12px] font-medium text-[#2A3143]'>{t('giveaways.add').toUpperCase()}</span>
 			</div>
-			<span className='text-[12px] font-medium text-[#2A3143]'>{t('giveaways.add').toUpperCase()}</span>
-		</div>
+		</Button>
 	)
 }
 

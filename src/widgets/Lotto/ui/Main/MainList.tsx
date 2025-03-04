@@ -167,7 +167,7 @@ export const MainListItem = () => {
 				<div className='flex items-center gap-3 md:order-3 md:!col-span-2 md:flex-col md:gap-2'>
 					<div className='relative'>
 						<HexagonWrapper />
-						<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-125 fill-[#60719A]' />
+						<IconGift className='absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 fill-[#60719A]' />
 					</div>
 					<div>
 						<p className='text-[12px] font-bold text-[#3B455C] md:text-center md:text-[10px]'>

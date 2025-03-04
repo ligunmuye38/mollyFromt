@@ -368,7 +368,7 @@ const GiveawaysHeader = () => {
 					>
 						<div className='absolute -top-[20px] left-1/2 -translate-x-1/2'>
 							<HexagonBg />
-							<IconGift className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+							<IconGift className='absolute left-1/2 top-1/2 h-[13px] w-[13px] -translate-x-1/2 -translate-y-1/2' />
 						</div>
 						<div
 							className='flex h-full w-full flex-col items-center justify-end rounded-[8px]'
