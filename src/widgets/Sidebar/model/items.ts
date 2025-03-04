@@ -28,8 +28,8 @@ export const navItems: ISidebarNavItem[] = [
 		icon: IconUpgrade
 	},
 	{
-		label: 'sidebar.contracts',
-		src: AppRoute.CONTRACTS,
+		label: 'sidebar.lotto',
+		src: AppRoute.LOTTERY,
 		icon: IconContract
 	}
 ]

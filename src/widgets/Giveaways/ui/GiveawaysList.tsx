@@ -241,7 +241,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 			{filter === GiveawaysFilters.ACTIVE_GIVEAWAYS || filter === GiveawaysFilters.MY_PARTICIPATION ? (
 				<>
 					{/* Content */}
-					<div className='relative w-[235px]'>
+					<div className='relative w-[232px]'>
 						<div
 							className='relative z-10 mb-4 h-[120px] w-full overflow-hidden rounded-[12px] p-[1px]'
 							style={{
@@ -353,7 +353,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 									))}
 								</div>
 							) : (
-								<div className='flex items-center gap-1 text-[#4A6070]'>
+								<div className='flex w-full items-center justify-between text-[#4A6070]'>
 									{Array.from(new Array(giveaway.endBy?.length)).map((_, index) => (
 										<>
 											{index % 3 === 2 ? (
@@ -523,8 +523,8 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 										'radial-gradient(44.17% 61.22% at 0% 0%, rgba(16, 166, 154, 0.65) 0%, rgba(21, 194, 180, 0) 100%)'
 								}}
 							></div>
-							<div className='absolute left-0 top-0'>
-								<GiveawayCardBrand />
+							<div className='absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2'>
+								<GiveawayCardBrand className='h-full w-full' />
 							</div>
 							<div className='absolute bottom-[6px] left-[16px]'>
 								<GiveawayCardEffect />
@@ -593,7 +593,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 					</div>
 					<div className='2sm:flex 2sm:flex-col 2sm:gap-2 2sm:pt-4'>
 						<div
-							className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
+							className='relative z-10 mb-[9px] h-[45px] w-full rounded-[8px] p-[1px]'
 							style={{
 								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 							}}
@@ -617,7 +617,7 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 							</div>
 						</div>
 						<div
-							className='relative z-10 mb-[8px] h-[45px] w-full rounded-[8px] p-[1px]'
+							className='relative z-10 mb-[10px] h-[45px] w-full rounded-[8px] p-[1px]'
 							style={{
 								background: 'linear-gradient(180deg, #233E4B 0%, #14262F 100%)'
 							}}

@@ -268,8 +268,8 @@ const WaitingForPlayer = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -370,7 +370,7 @@ const WaitingForPlayer = () => {
 					</p>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'flex animate-pulse items-center gap-4 px-3 py-[9px]')}>
 					<svg
 						width='42'
@@ -428,8 +428,8 @@ const ReadyPlayer = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -451,7 +451,7 @@ const ReadyPlayer = () => {
 					<p className='z-10 hidden translate-y-12 text-[14px] font-[900] leading-4 text-white 3sm:block'>Djorgick</p>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, cls.ready, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, cls.ready, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[2].name}</span>
@@ -465,8 +465,8 @@ const JoinedPlayerWithOffer = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -560,7 +560,7 @@ const JoinedPlayerWithOffer = () => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
@@ -574,8 +574,8 @@ const RoundWinner = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!h-[370px] !w-full 3sm:!h-[129px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -787,7 +787,7 @@ const RoundWinner = () => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
@@ -801,8 +801,8 @@ const RoundLosser = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '!h-[370px] 3sm:!h-[129px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!h-[370px] !w-full 3sm:!h-[129px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -924,7 +924,7 @@ const RoundLosser = () => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
@@ -943,8 +943,8 @@ const BattleCreator = ({ onStartBattle }: IBattleCreatorProps) => {
 	const [emojiStatus, setEmojiStatus] = useState<number>(0)
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -1129,7 +1129,7 @@ const BattleCreator = ({ onStartBattle }: IBattleCreatorProps) => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:!hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:!hidden')}>
 				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[0].name}</span>
@@ -1143,8 +1143,8 @@ const BattleWinner = () => {
 	const t = useTranslations()
 
 	return (
-		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+		<div className='w-full'>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -1157,7 +1157,7 @@ const BattleWinner = () => {
 							{t('case_battles.winner').toUpperCase()}
 						</span>
 					</div>
-					<BgSnakeGreen className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
+					<BgSnakeGreen className='absolute top-0 h-full w-full 3sm:hidden' />
 					<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
 						<CircularBg />
 					</div>
@@ -1215,7 +1215,7 @@ const BattleWinner = () => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'relative flex items-center overflow-hidden px-3 py-[9px]')}>
 					<div className='absolute left-0 top-0 z-10'>
 						<BgBubble />
@@ -1233,7 +1233,7 @@ const BattleLosser = () => {
 
 	return (
 		<div className='3sm:w-full'>
-			<div className={clsx(cls.player_card_bg, '3sm:!h-[145px] 3sm:!w-full')}>
+			<div className={clsx(cls.player_card_bg, '!w-full 3sm:!h-[145px]')}>
 				<div
 					className={clsx(
 						cls.player_card_bg_inner,
@@ -1246,7 +1246,7 @@ const BattleLosser = () => {
 							{t('case_battles.loss').toUpperCase()}
 						</span>
 					</div>
-					<BgSnakeRed className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 3sm:hidden' />
+					<BgSnakeRed className='absolute h-full w-full 3sm:hidden' />
 					<div className='absolute hidden 3sm:-left-[125px] 3sm:-top-[125px] 3sm:block'>
 						<CircularBg red={true} />
 					</div>
@@ -1271,7 +1271,7 @@ const BattleLosser = () => {
 					</div>
 				</div>
 			</div>
-			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-[272px] opacity-60 3sm:hidden')}>
+			<div className={clsx(cls.player_title, 'mt-5 h-[66px] w-full opacity-60 3sm:hidden')}>
 				<div className={clsx(cls.player_title_inner, 'flex items-center px-3 py-[9px]')}>
 					<SmallAvatar icon='/images/avatars/2.jpg' />
 					<span className='ml-4 text-[14px] font-bold leading-4 text-white'>{players[1].name}</span>
@@ -1313,7 +1313,7 @@ const PlayersList = ({ onStartBattle }: IPlayersListProps) => {
 	}, [params, pathname])
 
 	return (
-		<div className='flex w-full auto-rows-auto flex-wrap justify-center gap-5 3sm:grid-cols-1'>
+		<div className='grid w-full grid-cols-4 justify-between gap-5 3sm:grid-cols-1'>
 			{pathname.includes('/finish') ? (
 				<>
 					{/* Winner */}

@@ -22,8 +22,8 @@ const Page = () => {
 	return (
 		<>
 			<div className='container-common'>
+				<LiveFeedWithToolbar className='my-5' />
 				<MainNews />
-				<LiveFeedWithToolbar />
 			</div>
 			<div className='container-common mt-4 grid grid-cols-[auto_1fr] items-start gap-6 3xl:grid-cols-1 3xl:gap-4'>
 				<Giveaway />

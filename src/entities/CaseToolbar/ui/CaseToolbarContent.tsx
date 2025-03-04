@@ -3,7 +3,8 @@ import { SliderValue } from '@nextui-org/react'
 import { useDebounceFn } from 'ahooks'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { FC, useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { FC, useEffect, useMemo, useState } from 'react'
 
 import IconCase from '@/shared/assets/icons/icon-case.svg'
 import IconClear from '@/shared/assets/icons/icon-clear-gradient-grey.svg'
@@ -67,12 +68,16 @@ const caseList = [
 ]
 
 export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) => {
+	const pathname = usePathname()
 	const t = useTranslations()
+
+	const isCasesPage = useMemo(() => pathname.endsWith('/cases'), [pathname])
 
 	const [viewType, setViewType] = useState<Type>(initialState.type)
 	const [viewSearch, setViewSearch] = useState<string>(initialState.search)
 	const [viewPriceRange, setViewPriceRange] = useState<PriceRange>(initialState.priceRange)
 	const [viewIsEnoughBalance, setViewIsEnoughBalance] = useState<boolean>(initialState.isEnoughBalance)
+	const [viewOfficialCase, setViewOfficialCase] = useState<boolean>(false)
 
 	const { type, search, weaponType, mode, cases, priceRange, isEnoughBalance, clearFilter, setFilter } =
 		useCasesToolbarStore(state => state)
@@ -190,7 +195,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 							}}
 						/>
 					</div>
-					<div className='flex-1'>
+					<div className={clsx('flex-1', { hidden: isCasesPage })}>
 						<Select
 							value={new Set([cases])}
 							onChangeValue={v => setFilter('cases', Array.from(v).join(''))}
@@ -208,6 +213,25 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 								popoverContent: cls.box_listbox_content
 							}}
 						/>
+					</div>
+					<div className={clsx('flex pl-2 pr-3', { hidden: !isCasesPage })}>
+						<Checkbox
+							name='balance'
+							value='enough'
+							icon='2'
+							isSelected={viewOfficialCase}
+							onValueChange={v => {
+								setViewOfficialCase(v)
+								onFilterChange('isOfficialCase', v)
+							}}
+							theme='theme-2'
+							classNames={{
+								wrapper: cls.checkbox,
+								label: cls.checkbox_label
+							}}
+						>
+							{t('toolbar.official_case')}
+						</Checkbox>
 					</div>
 				</div>
 			</div>

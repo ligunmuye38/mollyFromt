@@ -59,11 +59,13 @@ export const HeaderBarContent: FC<HeaderBarContentProps> = ({ className }) => {
 				onClickSignIn={signIn}
 			/>,
 			{},
-			<IconSignInLock className='h-[18px] w-[14px] fill-[#19D099]' />,
+			<div className='w-[19px]'>
+				<IconSignInLock className='h-[18px] w-[14px] fill-[#19D099]' />
+			</div>,
 			t('auth.sigin_btn_text'),
 			{
 				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+				modal: 'relative w-full lg:h-full h-screen flex items-start justify-center pt-[100px] lg:pt-0'
 			},
 			true
 		)
@@ -77,7 +79,7 @@ export const HeaderBarContent: FC<HeaderBarContentProps> = ({ className }) => {
 			t('auth.signup_btn_text'),
 			{
 				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+				modal: 'relative w-full lg:h-full h-screen flex items-start justify-center pt-[100px] lg:pt-0'
 			},
 			true
 		)

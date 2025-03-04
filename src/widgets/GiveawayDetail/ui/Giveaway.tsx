@@ -35,7 +35,7 @@ export const Giveaway: FC<GiveawaysProps> = ({ className }) => {
 					</div>
 					<Button
 						onPress={() => toggleCompletePageMode(v => !v)}
-						className='absolute right-0'
+						className='!absolute right-5'
 					>
 						<IconLink className='h-[38px] w-[34px]' />
 					</Button>

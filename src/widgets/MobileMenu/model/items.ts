@@ -31,8 +31,8 @@ export const mainNavItems: ISidebarNavItem[] = [
 		icon: IconUpgrade
 	},
 	{
-		label: 'pages.contracts',
-		src: AppRoute.CONTRACTS,
+		label: 'pages.lotto',
+		src: AppRoute.LOTTERY,
 		icon: IconContract
 	},
 	{

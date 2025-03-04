@@ -6,6 +6,7 @@
 		"cases_battle": "Cases Battles",
 		"upgrades": "Upgrades",
 		"contracts": "Contracts",
+		"lotto": "Lottery",
 		"faq": "FAQ",
 		"support": "Support"
 	},
@@ -86,7 +87,8 @@
 		"mode": "Mode",
 		"enough_balance": "Enough balance",
 		"clear": "Clear",
-		"cases": "Community cases"
+		"cases": "Community cases",
+		"official_case": "Official case"
 	},
 	"chat": {
 		"chat": "Chat",
@@ -98,6 +100,7 @@
 		"battles": "Cases Battles",
 		"upgrades": "Upgrades",
 		"contracts": "Contracts",
+		"lotto": "Lottery",
 		"vip": "VIP Club",
 		"bonuses": "Bonuses",
 		"leaderboard": "Leaderboard",
@@ -112,7 +115,8 @@
 			"cases_opening": "Cases",
 			"battles": "Battles",
 			"upgrades": "Upgrades",
-			"contracts": "Contracts"
+			"contracts": "Contracts",
+			"lotto": "Lottery"
 		}
 	},
 	"auth": {

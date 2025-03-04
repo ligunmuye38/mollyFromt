@@ -63,11 +63,11 @@ const FairnessModal = () => {
 							{t('case_battles.server_seed').toUpperCase()}
 						</p>
 						<div
-							className='flex h-[44px] w-full items-center justify-between rounded-[12px] bg-[#1A202E] p-[12px] pl-[14px]'
+							className='flex h-[44px] w-full items-center justify-between rounded-[12px] border-1 border-transparent bg-[#1A202E] p-[12px] pl-[14px] hover:border-[#FFF4]'
 							onClick={() => navigator.clipboard.writeText('7e2d8926de5f4df1e1205f28cc022bb2')}
 						>
 							<p className='text-[12px] font-medium leading-4 text-white'>7e2d8926de5f4df1e1205f28cc022bb2</p>
-							<IconCopy />
+							<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
 						</div>
 					</div>
 					<Select
@@ -100,7 +100,7 @@ const FairnessModal = () => {
 								className='flex h-[44px] w-full items-center justify-between rounded-[12px] border-1 border-transparent bg-[#1A202E] p-[12px] pl-[14px] hover:border-[#FFF4]'
 							>
 								<p className='text-[12px] font-medium leading-4 text-white'>7e2d8926de5f4df1e1205f28cc022bb2</p>
-								<IconCopy />
+								<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
 							</div>
 						</div>
 					))}
@@ -109,11 +109,11 @@ const FairnessModal = () => {
 							{t('case_battles.server_seed').toUpperCase()}
 						</p>
 						<div
-							className='flex h-[44px] w-full items-center justify-between rounded-[12px] bg-[#1A202E] p-[12px] pl-[14px]'
+							className='flex h-[44px] w-full items-center justify-between rounded-[12px] border-1 border-transparent bg-[#1A202E] p-[12px] pl-[14px] hover:border-[#FFF4]'
 							onClick={() => navigator.clipboard.writeText('7e2d8926de5f4df1e1205f28cc022bb2')}
 						>
 							<p className='text-[12px] font-medium leading-4 text-white'>7e2d8926de5f4df1e1205f28cc022bb2</p>
-							<IconCopy />
+							<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
 						</div>
 					</div>
 					<div className='flex w-full items-center rounded-[12px] bg-[#1A202E] p-[10px]'>
