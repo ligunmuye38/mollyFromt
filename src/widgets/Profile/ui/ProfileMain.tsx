@@ -3,8 +3,9 @@
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 
+import DepositModal from '@/widgets/DepositModal/ui'
 import { mobileProfileList, profileList } from '@/widgets/Profile/model/items'
 
 import ListItem from '@/entities/ListItem/ui/ListItem'
@@ -13,6 +14,7 @@ import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 // import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
 import { useRouter } from '@/shared/config/i18n/navigation'
+import { useModal } from '@/shared/context/ModalContext'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
 import Button from '@/shared/ui/Button/Button'
 
@@ -43,6 +45,25 @@ const ProfileMain = () => {
 		setSelectedItem(item)
 		navigation.push(link)
 	}
+
+	// Trigger Deposits
+	const { openModal } = useModal()
+	const openModalRef = useRef(openModal)
+
+	const handleDeposit = useCallback(() => {
+		openModalRef.current(
+			<DepositModal />,
+			{},
+			null,
+			'',
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true,
+			true
+		)
+	}, [])
 
 	return (
 		<div className='h-auto w-full'>
@@ -75,6 +96,7 @@ const ProfileMain = () => {
 							<div className={clsx(cls.deposit_btn, 'h-auto w-full')}>
 								<div className={clsx(cls.deposit_btn_inner, 'flex h-auto w-full items-center justify-center')}>
 									<Button
+										onPress={handleDeposit}
 										startContent={<IconPlus className='h-5 w-5 fill-[#121722]' />}
 										classNames={{
 											base: 'w-full h-full py-[11px] hover:!bg-[#1d9c76]'

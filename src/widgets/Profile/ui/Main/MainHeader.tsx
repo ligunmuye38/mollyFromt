@@ -5,7 +5,9 @@ import { CircularProgress } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
+
+import DepositModal from '@/widgets/DepositModal/ui'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
@@ -14,6 +16,7 @@ import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconWallet from '@/shared/assets/icons/icon-profile-wallet.svg'
 // import IconSteam from '@/shared/assets/icons/icon-steam-logo.svg'
 import Iconverified from '@/shared/assets/icons/icon-verified-user.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import { useAppResponsive } from '@/shared/lib/useResponsive'
 import Button from '@/shared/ui/Button/Button'
 
@@ -30,6 +33,25 @@ const MainHeader = () => {
 	const chatViewHidden = useCommonStore(state => state.chatViewHidden)
 
 	const [popoverOpen, togglePopoverOpen] = useState<boolean>(false)
+
+	// Trigger Deposits
+	const { openModal } = useModal()
+	const openModalRef = useRef(openModal)
+
+	const handleDeposit = useCallback(() => {
+		openModalRef.current(
+			<DepositModal />,
+			{},
+			null,
+			'',
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true,
+			true
+		)
+	}, [])
 
 	return (
 		<div className={clsx('h-auto w-full flex-wrap !p-0 lg:!p-1', !breakpoints.lg && cls.user_main)}>
@@ -212,6 +234,7 @@ const MainHeader = () => {
 									)}
 								>
 									<Button
+										onPress={handleDeposit}
 										startContent={<IconPlus className='h-[10px] w-[10px] fill-[#121722]' />}
 										classNames={{
 											base: 'w-full h-full py-[6px] hover:!bg-[#1d9c76]'

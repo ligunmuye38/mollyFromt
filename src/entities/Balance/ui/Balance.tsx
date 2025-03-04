@@ -1,8 +1,11 @@
 import clsx from 'clsx'
-import { FC } from 'react'
+import { FC, useCallback, useRef } from 'react'
+
+import DepositModal from '@/widgets/DepositModal/ui'
 
 import IconBalanceAdd from '@/shared/assets/icons/icon-balance-add.svg'
 import IconPoint from '@/shared/assets/icons/icon-balance-point.svg'
+import { useModal } from '@/shared/context/ModalContext'
 
 import cls from './Balance.module.sass'
 
@@ -11,9 +14,30 @@ interface BalanceProps {
 }
 
 export const Balance: FC<BalanceProps> = ({ className }) => {
+	const { openModal } = useModal()
+	const openModalRef = useRef(openModal)
+
+	const handleClick = useCallback(() => {
+		openModalRef.current(
+			<DepositModal />,
+			{},
+			null,
+			'',
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true,
+			true
+		)
+	}, [])
+
 	return (
 		<div className={clsx(cls.container, className)}>
-			<button className={cls.item_btn_add}>
+			<button
+				onClick={handleClick}
+				className={cls.item_btn_add}
+			>
 				<IconBalanceAdd className={cls.item_btn_add_icon} />
 			</button>
 			<div className={clsx(cls.item_wrapper, cls._green, 'z-[2]')}>
