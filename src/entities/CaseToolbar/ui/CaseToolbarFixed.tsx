@@ -18,14 +18,14 @@ interface CaseToolbarFixedProps {
 
 export const CaseToolbarFixed: FC<CaseToolbarFixedProps> = ({ className }) => {
 	const setFixedCaseToolbarInView = useCommonStore(state => state.setFixedCaseToolbarInView)
-	const headerBarInView = useCommonStore(state => state.headerBarInView)
-	const [display, setDisplay] = useState<'flex' | 'hidden'>(headerBarInView ? 'hidden' : 'flex')
+	const caseToolbarInView = useCommonStore(state => state.caseToolbarInView)
+	const [display, setDisplay] = useState<'flex' | 'hidden'>(caseToolbarInView ? 'hidden' : 'flex')
 
 	return (
 		<motion.div
 			initial='inactive'
 			variants={animationVariants}
-			animate={headerBarInView ? 'inactive' : 'active'}
+			animate={caseToolbarInView ? 'inactive' : 'active'}
 			transition={{ type: 'tween' }}
 			onAnimationStart={variant => {
 				if (variant === 'active') {
