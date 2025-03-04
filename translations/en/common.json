@@ -650,6 +650,14 @@
 		"step3_leading": "Earn money",
 		"step3_description": "Receive royalties from each replenishment of the balance of your referrals"
 	},
+	"partnership_cases_steps": {
+		"step1_leading": "Create your own promo cases",
+		"step1_description": "Add any items you consider necessary to them, set your commission for opening",
+		"step2_leading": "Advertise your cases anywhere",
+		"step2_description": "Share the link to the case with your friends, acquaintances, anyone",
+		"step3_leading": "Earn from every opening",
+		"step3_description": "Get a portion of the money from every opening of your case"
+	},
 	"referral_balance": "Referral balance",
 	"withdrawal": "Withdrawal",
 	"what_is_it": "What is it?",
@@ -737,5 +745,6 @@
 	"transfer_to_balance": "Transfer to the balance",
 	"withdraw_to_wallet": "Withdraw to your wallet",
 	"adding_prizes": "Adding prizes",
-	"show_selected_items": "Show selected items"
+	"show_selected_items": "Show selected items",
+	"date_of_opening": "Date of opening"
 }

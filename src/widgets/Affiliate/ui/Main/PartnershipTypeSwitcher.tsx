@@ -21,7 +21,9 @@ const PartnershipTypeSwitcher = ({ className, type, setType }: IPartnershipTypeS
 			<div
 				className={clsx(
 					cls.switcher_track_wrapper,
-					type === PartnershipTypes.PARTNERSHIP ? 'left-1 w-[200px]' : 'left-[200px] w-[220px]'
+					type === PartnershipTypes.PARTNERSHIP
+						? 'left-1 w-[200px] 3sm:w-[170px]'
+						: 'left-[200px] w-[220px] 3sm:left-[170px] 3sm:w-[184px]'
 				)}
 			>
 				<div className={cls.switcher_track_wrapper_inner}>
@@ -43,7 +45,7 @@ const PartnershipTypeSwitcher = ({ className, type, setType }: IPartnershipTypeS
 					</div>
 				</div>
 			</div>
-			<div className={cls.switcher}>
+			<div className={clsx(cls.switcher, '3sm:!w-[360px]')}>
 				<div className={cls.switcher_inner}>
 					<div
 						className={clsx(cls.switcher_content, 'w-[200px]')}

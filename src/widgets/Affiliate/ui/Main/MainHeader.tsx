@@ -1,9 +1,13 @@
 import { PartnershipTypes } from '../../model/types'
 import { CircularProgress } from '@nextui-org/react'
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
+import CreateCaseModal from '@/widgets/Cases/ui/CreateCase/CreateCaseModal'
+import LevelInfoModal from '@/widgets/LevelInfoModal'
 import TransferMethodSelectionModal from '@/widgets/TransferMethodSelectionModal'
 
 import IconArrowRight from '@/shared/assets/icons/icon-arrow-right-hexagon-2.svg'
@@ -13,8 +17,10 @@ import IconCoin from '@/shared/assets/icons/icon-coin.svg'
 import IconCopy from '@/shared/assets/icons/icon-copy-2.svg'
 import IconDollarCircle from '@/shared/assets/icons/icon-dollar.svg'
 import IconGift from '@/shared/assets/icons/icon-gift-black.svg'
+import IconCreateModalLogo from '@/shared/assets/icons/icon-green-plus.svg'
 import IconRadio from '@/shared/assets/icons/icon-radio.svg'
 import IconUser from '@/shared/assets/icons/icon-user-avatar.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 import { Input } from '@/shared/ui/Input/Input'
 
@@ -33,7 +39,7 @@ const StepWrapper = ({ icon: Icon, description, leading, step }: IStepWrapper) =
 					<Icon className='h-[34px] w-[34px] fill-white' />
 				</div>
 				<div>
-					<p className='mb-1 text-[14px] font-bold leading-4 text-white'>{leading}</p>
+					<p className='mb-1 text-[14px] font-medium leading-4 text-white'>{leading}</p>
 					<p className='text-[12px] font-medium leading-[14px] text-[#60719A]'>{description}</p>
 				</div>
 				<div className='absolute right-[14px] top-1/2 -translate-y-1/2 text-[88px] font-bold leading-[16px] text-[#1E2434] opacity-35'>
@@ -51,76 +57,121 @@ interface IMainHeader {
 const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 	const t = useTranslations()
 	const [isOpen, toggleIsOpen] = useState<boolean>(false)
+	const [isOpenLevelInfo, toggleIsOpenLevelInfo] = useState<boolean>(false)
+	const [code, setCode] = useState<string>('')
+	const { openModal } = useModal()
+	const params = useSearchParams()
+	const [caseId, setCaseId] = useState<string>()
+
+	useEffect(() => {
+		if (params.has('case-id')) {
+			setCaseId(params.get('case-id') ?? '')
+		} else {
+			setCaseId('')
+		}
+	}, [params])
+
+	const handleCreateNewCase = () => {
+		openModal(
+			<CreateCaseModal />,
+			{},
+			<IconCreateModalLogo className='h-[20px] w-[20px]' />,
+			t('create_case.title'),
+			{
+				body: 'lg:w-full',
+				modal: 'relative w-full lg:h-full lg:w-screen h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
 
 	return (
 		<div className=''>
-			<div className='relative mb-5 grid grid-cols-3 gap-5 lg:grid-cols-1'>
+			<LevelInfoModal
+				onClose={() => toggleIsOpenLevelInfo(false)}
+				open={isOpenLevelInfo}
+			/>
+			<div
+				className={clsx('relative mb-5 grid grid-cols-3 gap-5 lg:grid-cols-1', {
+					hidden: type === PartnershipTypes.PARTNERSHIP_CASES && caseId
+				})}
+			>
 				<StepWrapper
-					description={t('partnership_steps.step1_description')}
-					icon={IconGift}
-					leading={t('partnership_steps.step1_leading')}
+					description={t(`${type}_steps.step1_description`)}
+					icon={type === PartnershipTypes.PARTNERSHIP ? IconGift : IconCaseOpen}
+					leading={t(`${type}_steps.step1_leading`)}
 					step={1}
 				/>
 				<IconArrowRight className='absolute left-[33%] top-1/2 z-10 -translate-x-[18px] -translate-y-1/2 lg:left-1/2 lg:top-[33%] lg:-translate-x-1/2 lg:rotate-90' />
 				<StepWrapper
-					description={t('partnership_steps.step2_description')}
+					description={t(`${type}_steps.step2_description`)}
 					icon={IconRadio}
-					leading={t('partnership_steps.step2_leading')}
+					leading={t(`${type}_steps.step2_leading`)}
 					step={2}
 				/>
 				<IconArrowRight className='absolute left-[66%] top-1/2 z-10 -translate-x-[7px] -translate-y-[30%] lg:left-1/2 lg:top-[66%] lg:-translate-x-1/2 lg:rotate-90' />
 				<StepWrapper
-					description={t('partnership_steps.step3_description')}
+					description={t(`${type}_steps.step3_description`)}
 					icon={IconCoin}
-					leading={t('partnership_steps.step3_leading')}
+					leading={t(`${type}_steps.step3_leading`)}
 					step={3}
 				/>
 			</div>
-			<div className='grid grid-cols-3 gap-5 lg:grid-cols-1'>
+			<div
+				className={clsx('grid grid-cols-3 gap-5 lg:grid-cols-1', {
+					hidden: type === PartnershipTypes.PARTNERSHIP_CASES && caseId
+				})}
+			>
 				<div className='h-full w-full rounded-[12px] bg-[linear-gradient(90deg,_#FDCD24_0%,_#E8BB19_100%)] p-[3px]'>
 					<div className='flex h-full w-full items-center justify-between rounded-[12px] bg-[linear-gradient(90deg,_#EABC1A_0%,_#E8BB19_100%)] py-5 pl-[25px] pr-5'>
 						<div>
 							<p className='mb-3 text-[34px] font-bold leading-[30px] text-[#121722]'>$500.34</p>
 							<p className='mb-4 text-[12px] font-bold leading-[12px] text-[#7E6B2A]'>
-								{t('referral_balance').toUpperCase()}
+								{type === PartnershipTypes.PARTNERSHIP
+									? t('referral_balance').toUpperCase()
+									: t('your_earnings').toUpperCase()}
 							</p>
 							<Button
+								onPress={() => toggleIsOpen(true)}
 								classNames={{
-									base: 'bg-[#151A2626] w-[158px] h-[44px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
+									base: 'bg-[#151A26] w-[158px] h-[44px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
 									content: 'flex items-center justify-center'
 								}}
 							>
-								<p className='text-[14px] font-bold text-[#756012]'>{t('withdrawal').toUpperCase()}</p>
+								<p className='text-[14px] font-bold text-[white]'>{t('withdrawal').toUpperCase()}</p>
 							</Button>
 						</div>
-						<div className='flex flex-col items-center gap-[7px]'>
-							<div className='relative h-auto w-auto'>
-								<CircularProgress
-									color='success'
-									size='lg'
-									value={70}
+						{type === PartnershipTypes.PARTNERSHIP && (
+							<div className='flex flex-col items-center gap-[7px]'>
+								<div className='relative h-auto w-auto'>
+									<CircularProgress
+										color='success'
+										size='lg'
+										value={60}
+										classNames={{
+											svg: 'w-[80px] h-[80px] -rotate-[120deg]',
+											indicator: 'stroke-[#151A26]',
+											track: 'stroke-[#B69316]'
+										}}
+										strokeWidth={2}
+									></CircularProgress>
+									<span className='absolute left-0 top-1/2 flex h-full w-full -translate-y-1/2 flex-col items-center justify-center'>
+										<span className='text-[28px] font-bold leading-[28px] text-[#151A26]'>2</span>
+										<span className='text-[16px] font-bold uppercase leading-4 text-[#151A26]'>lvl</span>
+									</span>
+								</div>
+								<Button
+									onPress={() => toggleIsOpenLevelInfo(true)}
 									classNames={{
-										svg: 'w-[60px] h-[60px] rotate-180',
-										indicator: 'stroke-[#10AA7C]',
-										track: 'stroke-[#2C354A]'
+										base: 'bg-[#D4AE27] w-[105px] h-[32px] [clip-path:polygon(9px_0px,_calc(100%_-_9px)_0px,_100%_50%,_calc(100%_-_9px)_100%,_9px_100%,_0px_50%)] p-[1px]',
+										content:
+											'w-full h-full flex items-center justify-center [clip-path:polygon(9px_0px,_calc(100%_-_9px)_0px,_100%_50%,_calc(100%_-_9px)_100%,_9px_100%,_0px_50%)] bg-[#E9BC1A]'
 									}}
-									strokeWidth={1.5}
-								></CircularProgress>
-								<span className='absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center'>
-									<span className='text-[18px] font-[700] text-white'>2</span>
-									<span className='text-[11px] uppercase text-[#7082B0]'>lvl</span>
-								</span>
+								>
+									<p className='text-[12px] font-bold text-[#765E06]'>{t('what_is_it').toUpperCase()}</p>
+								</Button>
 							</div>
-							<Button
-								classNames={{
-									base: 'bg-[#D4AE27] w-[105px] h-[32px] [clip-path:polygon(9px_0px,_calc(100%_-_9px)_0px,_100%_50%,_calc(100%_-_9px)_100%,_9px_100%,_0px_50%)] p-[1px]',
-									content:
-										'w-full h-full flex items-center justify-center [clip-path:polygon(9px_0px,_calc(100%_-_9px)_0px,_100%_50%,_calc(100%_-_9px)_100%,_9px_100%,_0px_50%)] bg-[#E9BC1A]'
-								}}
-							>
-								<p className='text-[12px] font-bold text-[#765E06]'>{t('what_is_it').toUpperCase()}</p>
-							</Button>
-						</div>
+						)}
 					</div>
 				</div>
 				{type === PartnershipTypes.PARTNERSHIP ? (
@@ -180,10 +231,8 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 								<div className='flex gap-[10px]'>
 									<div className='flex-grow rounded-[8px] bg-[linear-gradient(0deg,_rgba(16,_170,_124,_0.15),_rgba(16,_170,_124,_0.15)),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.0975)_100%)] p-[1px]'>
 										<Input
-											value=''
-											onChange={() => {
-												return
-											}}
+											value={code}
+											onChange={v => setCode(v)}
 											placeholder={t('enter_your_code')}
 											label={t('your_code').toUpperCase()}
 											labelPlacement='inside'
@@ -200,7 +249,6 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 										open={isOpen}
 									/>
 									<Button
-										onPress={() => toggleIsOpen(true)}
 										classNames={{
 											base: 'w-[124px] h-12 rounded-[8px] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] p-[1px]',
 											content:
@@ -243,7 +291,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 											<IconDollarCircle className='h-4 w-4 fill-[#151A26]' />
 										</div>
 										<div>
-											<p className='mb-[2px] text-[14px] font-bold leading-4 text-white'>3 892</p>
+											<p className='mb-[2px] text-[14px] font-bold leading-4 text-white'>$3 892</p>
 											<p className='text-[12px] font-medium leading-3 text-[#60719A]'>{t('total_earn')}</p>
 										</div>
 									</div>
@@ -251,6 +299,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 							</div>
 						</div>
 						<Button
+							onPress={handleCreateNewCase}
 							classNames={{
 								base: 'rounded-[12px] bg-[linear-gradient(0deg,_rgba(16,_170,_124,_0.25),_rgba(16,_170,_124,_0.25)),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.1625)_100%)] p-[2px]',
 								content:

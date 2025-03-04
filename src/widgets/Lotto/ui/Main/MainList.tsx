@@ -4,15 +4,15 @@ import { LottoTypes } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useState } from 'react'
 
+// import { useState } from 'react'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconGift from '@/shared/assets/icons/icon-gift.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconSort from '@/shared/assets/icons/icon-sort.svg'
 import Button from '@/shared/ui/Button/Button'
-import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 
+// import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import cls from './Main.module.sass'
 
 const Avatar = () => {
@@ -258,7 +258,7 @@ interface IMainListProps {
 const MainList = ({ type }: IMainListProps) => {
 	const t = useTranslations()
 
-	const [page, setPage] = useState<number>(1)
+	// const [page, setPage] = useState<number>(1)
 
 	return (
 		<>
@@ -321,13 +321,13 @@ const MainList = ({ type }: IMainListProps) => {
 					<TopBattleItem />
 				</div>
 			)}
-			<div className='mt-2 flex justify-center'>
+			{/* <div className='mt-2 flex justify-center'>
 				<PaginationBar
 					page={page}
 					setPage={setPage}
 					total={5}
 				/>
-			</div>
+			</div> */}
 		</>
 	)
 }
