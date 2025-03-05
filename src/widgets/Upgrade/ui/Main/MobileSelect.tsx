@@ -10,14 +10,12 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
-import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 import { Input } from '@/shared/ui/Input/Input'
 
-import HelpModal from './HelpModal'
 import cls from './Main.module.sass'
 import MobileItemsModal from './MobileItemsModal'
 import { Hexagon } from './MyItem'
@@ -48,20 +46,6 @@ const MobileSelect = () => {
 		)
 	}
 
-	const onClickSaleFor = () => {
-		openModal(
-			<HelpModal />,
-			{},
-			<IconInfo />,
-			t('upgrade_how_does_it_work.title'),
-			{
-				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
-			},
-			true
-		)
-	}
-
 	const handleSelectItems = () => {
 		selectItems()
 		setItems(true)
@@ -73,7 +57,6 @@ const MobileSelect = () => {
 				<div className='relative hidden w-full flex-col items-center justify-center rounded-xl border-2 border-[#1F253480] bg-[#181E2C80] px-[16px] py-[17px] lg:flex'>
 					<div className='w-full [filter:drop-shadow(0_0_14px_#10AA7C59)]'>
 						<Button
-							onPress={onClickSaleFor}
 							classNames={{
 								base: '[clip-path:polygon(8px_0px,_calc(100%_-_8px)_0px,_100%_50%,_calc(100%_-_8px)_100%,_8px_100%,_0px_50%)] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] w-full h-[33px] p-[2px]',
 								content:

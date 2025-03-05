@@ -50,7 +50,7 @@ const MainTrader = () => {
 				endContent={
 					<Button
 						classNames={{
-							content: 'uppercase text-[#10AA7C] text-[12px] font-bold'
+							content: 'uppercase text-[#10AA7C] text-[12px] font-bold px-1'
 						}}
 					>
 						{t('save')}

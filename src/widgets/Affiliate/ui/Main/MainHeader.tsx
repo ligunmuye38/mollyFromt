@@ -109,7 +109,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 					leading={t(`${type}_steps.step2_leading`)}
 					step={2}
 				/>
-				<IconArrowRight className='absolute left-[66%] top-1/2 z-10 -translate-x-[7px] -translate-y-[30%] lg:left-1/2 lg:top-[66%] lg:-translate-x-1/2 lg:rotate-90' />
+				<IconArrowRight className='absolute left-[66%] top-1/2 z-10 -translate-x-[7px] -translate-y-1/2 lg:left-1/2 lg:top-[66%] lg:-translate-x-1/2 lg:-translate-y-[33%] lg:rotate-90' />
 				<StepWrapper
 					description={t(`${type}_steps.step3_description`)}
 					icon={IconCoin}
@@ -122,7 +122,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 					hidden: type === PartnershipTypes.PARTNERSHIP_CASES && caseId
 				})}
 			>
-				<div className='h-full w-full rounded-[12px] bg-[linear-gradient(90deg,_#FDCD24_0%,_#E8BB19_100%)] p-[3px]'>
+				<div className='h-[170px] w-full rounded-[12px] bg-[linear-gradient(90deg,_#FDCD24_0%,_#E8BB19_100%)] p-[3px]'>
 					<div className='flex h-full w-full items-center justify-between rounded-[12px] bg-[linear-gradient(90deg,_#EABC1A_0%,_#E8BB19_100%)] py-5 pl-[25px] pr-5'>
 						<div>
 							<p className='mb-3 text-[34px] font-bold leading-[30px] text-[#121722]'>$500.34</p>
@@ -218,7 +218,15 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 									onChange={() => {
 										return
 									}}
-									endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
+									endContent={
+										<Button
+											onPress={() => {
+												navigator.clipboard.writeText('https://molly.io/ref=9878ijdkl12d')
+											}}
+										>
+											<IconCopy className='h-5 w-5 cursor-pointer fill-[#5F6C87]' />
+										</Button>
+									}
 									label={t('your_link').toUpperCase()}
 									labelPlacement='inside'
 									classNames={{

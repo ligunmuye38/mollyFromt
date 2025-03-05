@@ -72,6 +72,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 	const t = useTranslations()
 
 	const isCasesPage = useMemo(() => pathname.endsWith('/cases'), [pathname])
+	const isHome = useMemo(() => pathname.length === 3, [pathname])
 
 	const [viewType, setViewType] = useState<Type>(initialState.type)
 	const [viewSearch, setViewSearch] = useState<string>(initialState.search)
@@ -195,7 +196,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 							}}
 						/>
 					</div>
-					<div className={clsx('flex-1', { hidden: isCasesPage })}>
+					<div className={clsx('flex-1', { hidden: isCasesPage || isHome })}>
 						<Select
 							value={new Set([cases])}
 							onChangeValue={v => setFilter('cases', Array.from(v).join(''))}
@@ -230,7 +231,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 								label: cls.checkbox_label
 							}}
 						>
-							{t('toolbar.official_case')}
+							{t('toolbar.community_case')}
 						</Checkbox>
 					</div>
 				</div>

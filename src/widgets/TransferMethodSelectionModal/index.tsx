@@ -3,6 +3,7 @@ import WithdrawalModal from '../WithdrawalModal/ui'
 import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useRef } from 'react'
 
+import Close from '@/shared/assets/icons/icon-modal-close.svg'
 import IconSkinReplacement from '@/shared/assets/icons/icon-skin-replacement.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
@@ -15,7 +16,7 @@ interface ITransferMethodSelectionModalProps {
 function ModalContent() {
 	const t = useTranslations()
 
-	const { openModal } = useModal()
+	const { openModal, closeModal } = useModal()
 	const openModalRef = useRef(openModal)
 
 	const handleTransferToBalance = useCallback(() => {
@@ -49,7 +50,7 @@ function ModalContent() {
 	}, [])
 
 	return (
-		<div className='rounded-[16px] border-2 border-[#161C28] bg-[#141925] p-5'>
+		<div className='relative rounded-[16px] border-2 border-[#161C28] bg-[#141925] p-5'>
 			<div className='flex w-[calc(100vw_-_80px)] max-w-[480px] flex-col items-center'>
 				<p className='mb-3 mt-5 text-[20px] font-bold leading-4 text-white'>{t('select_transfer_method')}</p>
 				<p className='mb-[30px] max-w-[420px] text-center text-[14px] font-medium text-[#7785B3]'>
@@ -106,6 +107,13 @@ function ModalContent() {
 					</div>
 				</Button>
 			</div>
+			<Button
+				startContent={<Close />}
+				classNames={{
+					base: '!absolute !right-3 !top-3 flex min-h-[30px] min-w-[30px] items-center justify-center'
+				}}
+				onPress={closeModal}
+			/>
 		</div>
 	)
 }

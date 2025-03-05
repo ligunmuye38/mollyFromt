@@ -6,7 +6,8 @@ import { FC } from 'react'
 import { itemsList } from '@/features/LiveFeed/model/items'
 import { LiveFeed } from '@/features/LiveFeed/ui/LiveFeed'
 
-// import { CaseToolbar } from '@/entities/CaseToolbar/ui/CaseToolbar'
+import { CaseToolbar } from '@/entities/CaseToolbar/ui/CaseToolbar'
+
 import { Media } from '@/shared/ui/Media/Media'
 
 import cls from './LiveFeedWithToolbar.module.sass'
@@ -25,10 +26,10 @@ export const LiveFeedWithToolbar: FC<LiveFeedWithToolbarProps> = ({ className })
 						axis='x'
 						itemsList={itemsList}
 					/>
-					{/* <CaseToolbar
+					<CaseToolbar
 						className='mt-2.5'
 						withContainer={false}
-					/> */}
+					/>
 				</div>
 			</div>
 		</Media>

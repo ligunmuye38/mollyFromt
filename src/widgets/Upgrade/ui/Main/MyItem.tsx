@@ -10,13 +10,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
-import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconShoppingCart from '@/shared/assets/icons/icon-shopping-cart.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
-import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
-import HelpModal from './HelpModal'
 import cls from './Main.module.sass'
 
 export const Hexagon = ({ className }: { className?: string }) => {
@@ -129,22 +126,6 @@ const MyItem = ({ className }: { className?: string }) => {
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
 
-	const { openModal } = useModal()
-
-	const onClick = () => {
-		openModal(
-			<HelpModal />,
-			{},
-			<IconInfo />,
-			t('upgrade_how_does_it_work.title'),
-			{
-				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
-			},
-			true
-		)
-	}
-
 	if (isSuccess) {
 		return (
 			<div
@@ -160,7 +141,6 @@ const MyItem = ({ className }: { className?: string }) => {
 						}}
 					>
 						<Button
-							onPress={onClick}
 							classNames={{
 								base: clsx(cls.hexagon_btn, 'h-[42px] w-[216px]'),
 								content: clsx(cls.hexagon_btn_inner, '!gap-0')

@@ -88,7 +88,8 @@
 		"enough_balance": "Enough balance",
 		"clear": "Clear",
 		"cases": "Community cases",
-		"official_case": "Official case"
+		"official_case": "Official case",
+		"community_case": "Community case"
 	},
 	"chat": {
 		"chat": "Chat",
@@ -750,5 +751,7 @@
 	"withdraw_to_wallet": "Withdraw to your wallet",
 	"adding_prizes": "Adding prizes",
 	"show_selected_items": "Show selected items",
-	"date_of_opening": "Date of opening"
+	"date_of_opening": "Date of opening",
+	"case": "Case",
+	"home": "Home"
 }

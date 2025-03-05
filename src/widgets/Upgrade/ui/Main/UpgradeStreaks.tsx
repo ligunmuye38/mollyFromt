@@ -7,11 +7,13 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 
 import IconArrowRight from '@/shared/assets/icons/icon-arrow-right-hexagon.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
+import IconFAQ from '@/shared/assets/icons/icon-faq.svg'
 import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
+import HelpModal from './HelpModal'
 // import PaginationBar from '@/shared/ui/PaginationBar/PaginationBar'
 import cls from './Main.module.sass'
 
@@ -330,7 +332,7 @@ const HexagonBg = () => {
 	)
 }
 
-const HexagonBg2 = () => {
+const HexagonBg2 = ({ className }: { className?: string }) => {
 	return (
 		<svg
 			width='42'
@@ -338,7 +340,7 @@ const HexagonBg2 = () => {
 			viewBox='0 0 42 48'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
-			className='2sm:h-[36px] 2sm:w-[36px]'
+			className={clsx('2sm:h-[36px] 2sm:w-[36px]', className)}
 		>
 			<path
 				d='M18.25 2.16506C19.9517 1.18258 22.0483 1.18258 23.75 2.16506L38.5346 10.701C40.2363 11.6834 41.2846 13.4991 41.2846 15.4641V32.5359C41.2846 34.5009 40.2363 36.3166 38.5346 37.299L23.75 45.8349C22.0483 46.8174 19.9517 46.8174 18.25 45.8349L3.46539 37.299C1.76369 36.3166 0.715391 34.5009 0.715391 32.5359V15.4641C0.715391 13.4991 1.76369 11.6834 3.46539 10.701L18.25 2.16506Z'
@@ -604,7 +606,7 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 				{ [cls.rank_first]: rank === 1 },
 				{ [cls.rank_second]: rank === 2 },
 				{ [cls.rank_third]: rank === 3 },
-				'2sm:!px-[6px]'
+				'cursor-pointer 2sm:!px-[6px]'
 			)}
 		>
 			<div className='relative mr-4 gap-4 2sm:mr-2'>
@@ -718,11 +720,27 @@ const ListItem = ({ item: { rank, stepsList } }: IListItemProps) => {
 const UpgradeStreaks = () => {
 	// const [page, setPage] = useState<number>(1)
 	const [activePeriod, setPeriod] = useState<Periods>(Periods.TODAY)
+	const { openModal } = useModal()
+	const t = useTranslations()
+
+	const handleInfo = () => {
+		openModal(
+			<HelpModal />,
+			{},
+			<IconInfo />,
+			t('upgrade_how_does_it_work.title'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
 
 	return (
-		<div>
-			<div className='mx-auto mb-5 h-[42px] w-max bg-[linear-gradient(90deg,_#3F4654_0%,_rgba(63,_70,_84,_0.15)_48.98%,_#3F4654_97.96%)] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
-				<div className='flex h-full w-full gap-1 bg-[#121722] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+		<div className='relative'>
+			<div className='mx-auto mb-5 h-[42px] w-max bg-[linear-gradient(90deg,_#3F4654_0%,_rgba(63,_70,_84,_0.15)_48.98%,_#3F4654_97.96%)] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)] 2sm:h-[36px]'>
+				<div className='flex h-full w-full gap-1 bg-[#121722] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)] 2sm:gap-0'>
 					{Object.values(Periods).map((value, index) => (
 						<div
 							onClick={() => setPeriod(value)}
@@ -744,7 +762,7 @@ const UpgradeStreaks = () => {
 							>
 								<p
 									className={clsx(
-										'text-[12px] 3sm:text-[10px]',
+										'text-[12px] 3sm:text-[10px] 2sm:text-[8px]',
 										activePeriod === value ? 'font-bold text-white' : 'font-medium text-[#60719A]'
 									)}
 								>
@@ -755,6 +773,15 @@ const UpgradeStreaks = () => {
 					))}
 				</div>
 			</div>
+			<Button
+				onPress={handleInfo}
+				classNames={{
+					base: '!absolute right-0 -top-[3px] 2sm:!top-0'
+				}}
+			>
+				<HexagonBg2 />
+				<IconFAQ className='absolute h-6 w-6' />
+			</Button>
 			<div className='flex flex-col gap-2'>
 				{upgradeItems.map((item, index) => (
 					<ListItem

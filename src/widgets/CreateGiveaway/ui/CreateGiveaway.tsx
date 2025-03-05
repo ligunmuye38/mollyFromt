@@ -373,12 +373,16 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 	const t = useTranslations()
 
 	const [name, setName] = useState<string>('')
+	const [giveawayLink, setGiveawayLink] = useState<string>('')
+	const [usersLimit, setUsersLimit] = useState<string>('')
+	const [ends, setEnds] = useState<string>('')
 	const [isActive, toggleIsActive] = useState<boolean>(false)
 	const [isOpen, toggleIsOpen] = useState<boolean>(false)
 	const [casesCount, setCasesCount] = useState<number>(1)
 	const [requirements, setRequirements] = useState<string[]>([])
 	const [selectedCase, setSelectedCase] = useState<number>()
 	const [cases, setCases] = useState<any[]>([])
+	const [communitySearch, setCommunitySearch] = useState<string>('')
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -438,8 +442,8 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						<div>
 							<p className='mb-2 text-[14px] font-medium leading-4 text-white'>{t('giveaways.users_limit')}</p>
 							<Input
-								value={name}
-								onChange={setName}
+								value={giveawayLink}
+								onChange={setGiveawayLink}
 								startContent={<IconPeople className='h-5 w-5 fill-[#60719A]' />}
 								placeholder={t('giveaways.users_limit_placeholder')}
 								classNames={{
@@ -453,8 +457,8 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 						<div>
 							<p className='mb-2 text-[14px] font-medium leading-4 text-white'>{t('giveaways.custom_giveaway_link')}</p>
 							<Input
-								value={name}
-								onChange={setName}
+								value={usersLimit}
+								onChange={setUsersLimit}
 								startContent={<IconLock className='h-5 w-5 fill-[#60719A]' />}
 								placeholder={t('giveaways.name_giveaway_placeholder')}
 								classNames={{
@@ -472,8 +476,8 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 										<span className='text-[12px] font-medium text-[#404B65]'>({t('giveaways.max_duration')})</span>
 									</p>
 									<Input
-										value={name}
-										onChange={setName}
+										value={ends}
+										onChange={setEnds}
 										startContent={<IconTimer className='h-5 w-5 fill-[#60719A]' />}
 										placeholder={t('giveaways.users_limit_placeholder')}
 										classNames={{
@@ -716,7 +720,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									>
 										<PopoverTrigger>
 											<div className='flex w-full items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
-												{selectedCase ? (
+												{selectedCase !== undefined ? (
 													<>
 														<Image
 															src='/images/case/case-full-2.png'
@@ -766,10 +770,8 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 													<p className={isActive ? 'text-white' : 'text-[#60719A]'}>{t('giveaways.official_cases')}</p>
 												</div>
 												<Input
-													onChange={() => {
-														return
-													}}
-													value=''
+													onChange={v => setCommunitySearch(v)}
+													value={communitySearch}
 													placeholder='Search'
 													startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
 													classNames={{
@@ -826,29 +828,52 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								</div>
 								{cases.map((_case, index) => (
 									<div
-										className='my-1 flex items-center gap-2 rounded-[8px] bg-[#1B223380] px-2 py-2'
+										className='my-1 flex w-full gap-2'
 										key={index}
 									>
-										<Image
-											src='/images/case/case-full-2.png'
-											width={24}
-											height={24}
-											alt='option'
-										/>
-										<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-										<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-										{/* <p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>{_case.count}</p> */}
-										<Button
-											onPress={() => setCases(prev => prev.filter((_, _index) => index !== _index))}
-											classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
-										>
-											<IconClose className='h-2 w-2 fill-[#1B2233]' />
-										</Button>
+										<div className='flex w-full items-center gap-2 rounded-[8px] bg-[#1B223380] px-2 py-2'>
+											<Image
+												src='/images/case/case-full-2.png'
+												width={24}
+												height={24}
+												alt='option'
+											/>
+											<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+											<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+											{/* <p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>{_case.count}</p> */}
+											<Button
+												onPress={() => setCases(prev => prev.filter((_, _index) => index !== _index))}
+												classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
+											>
+												<IconClose className='h-2 w-2 fill-[#1B2233]' />
+											</Button>
+										</div>
+										<div className='flex flex-[0_0_100px] items-center justify-between rounded-lg bg-[#1B2233] p-[5px]'>
+											<Button
+												onPress={() =>
+													setCases(c => c.map((v, i) => (i === index ? { ...v, count: Math.max(v.count - 1, 1) } : v)))
+												}
+												classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+											>
+												-
+											</Button>
+											<p className='text-[14px] text-white'>{_case.count}</p>
+											<Button
+												onPress={() => setCases(c => c.map((v, i) => (i === index ? { ...v, count: v.count + 1 } : v)))}
+												classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+											>
+												+
+											</Button>
+										</div>
 									</div>
 								))}
 								<Button
 									classNames={{ base: 'w-full mt-[10px]' }}
-									onPress={() => setCases(prev => [...prev, { count: casesCount }])}
+									onPress={() => {
+										setCases(prev => [...prev, { count: casesCount }])
+										setSelectedCase(undefined)
+										setCasesCount(1)
+									}}
 								>
 									<div className='flex w-full items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>
 										<div className='mr-2 flex h-4 w-4 items-center justify-center rounded-[4px] bg-[#60719A] text-[12px] leading-[0px] text-[#141925]'>
