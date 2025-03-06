@@ -87,6 +87,10 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 
 	return (
 		<div className=''>
+			<TransferMethodSelectionModal
+				onClose={() => toggleIsOpen(false)}
+				open={isOpen}
+			/>
 			<LevelInfoModal
 				onClose={() => toggleIsOpenLevelInfo(false)}
 				open={isOpenLevelInfo}
@@ -252,10 +256,6 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 											}}
 										/>
 									</div>
-									<TransferMethodSelectionModal
-										onClose={() => toggleIsOpen(false)}
-										open={isOpen}
-									/>
 									<Button
 										classNames={{
 											base: 'w-[124px] h-12 rounded-[8px] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] p-[1px]',

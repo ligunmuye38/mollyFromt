@@ -7,7 +7,6 @@ import { useRouter } from 'next/navigation'
 import { FC, useState } from 'react'
 
 import IconPlusRounded from '@/shared/assets/icons/icon-black-plus.svg'
-import HeaderBgTop2 from '@/shared/assets/section-header-bg-top-2.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 import Button from '@/shared/ui/Button/Button'
 
@@ -35,7 +34,7 @@ export const Giveaways: FC<GiveawaysProps> = ({ className }) => {
 				<div className={clsx(cls.h_inner, 'mb-[15px] mt-[20px]')}>
 					<div className={cls.title}>{t('giveaways.giveaways').toUpperCase()}</div>
 				</div>
-				<div className='relative z-10 mx-auto mb-10 flex items-center justify-between gap-4 px-5 lg:flex-col lg:items-center'>
+				<div className='relative z-10 mx-auto mb-5 flex items-center justify-between gap-4 px-5 lg:flex-col lg:items-center'>
 					<div className='w-full'>
 						<GiveAwaysFilterSwitcher
 							filter={filter}
@@ -54,9 +53,6 @@ export const Giveaways: FC<GiveawaysProps> = ({ className }) => {
 							{t('giveaways.create_giveaway').toUpperCase()}
 						</Button>
 					</div>
-				</div>
-				<div className='absolute bottom-0 flex h-[84px] w-full justify-center'>
-					<HeaderBgTop2 className='flex-shrink-0' />
 				</div>
 			</div>
 			<div className='mb-5 px-[20px]'>

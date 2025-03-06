@@ -719,7 +719,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 										onOpenChange={v => toggleIsOpen(v)}
 									>
 										<PopoverTrigger>
-											<div className='flex w-full items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
+											<div className='flex w-full cursor-pointer items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
 												{selectedCase !== undefined ? (
 													<>
 														<Image
@@ -870,9 +870,13 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 								<Button
 									classNames={{ base: 'w-full mt-[10px]' }}
 									onPress={() => {
-										setCases(prev => [...prev, { count: casesCount }])
-										setSelectedCase(undefined)
-										setCasesCount(1)
+										if (selectedCase) {
+											setCases(prev => [...prev, { count: casesCount }])
+											setSelectedCase(undefined)
+											setCasesCount(1)
+										} else {
+											toggleIsOpen(true)
+										}
 									}}
 								>
 									<div className='flex w-full items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>

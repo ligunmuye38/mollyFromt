@@ -8,7 +8,6 @@ import React, { FC, useState } from 'react'
 
 import IconPlusRounded from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCaseBattles from '@/shared/assets/icons/icon-case-battle.svg'
-import HeaderBgTop2 from '@/shared/assets/section-header-bg-top-2.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 import Button from '@/shared/ui/Button/Button'
 
@@ -38,7 +37,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 				<div className={clsx(cls.h_inner, 'mb-[20px]')}>
 					<div className={cls.title}>{t('case_battles.case_battle').toUpperCase()}</div>
 				</div>
-				<div className='relative z-20 mx-auto mb-[40px] w-full'>
+				<div className='relative z-20 mx-auto mb-4 w-full'>
 					<BattlesTypeSwitcher
 						type={type}
 						setType={setType}
@@ -59,9 +58,6 @@ export const Main: FC<MainProps> = ({ className }) => {
 							{t('case_battles.create_battle')}
 						</Button>
 					</div>
-				</div>
-				<div className='absolute bottom-0 flex h-[84px] w-full justify-center'>
-					<HeaderBgTop2 className='flex-shrink-0' />
 				</div>
 			</div>
 			<div className='mb-5 flex justify-center px-[20px]'>

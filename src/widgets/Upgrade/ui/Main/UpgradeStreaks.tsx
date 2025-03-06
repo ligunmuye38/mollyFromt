@@ -7,7 +7,7 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 
 import IconArrowRight from '@/shared/assets/icons/icon-arrow-right-hexagon.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
-import IconFAQ from '@/shared/assets/icons/icon-faq.svg'
+import IconHint from '@/shared/assets/icons/icon-hint.svg'
 import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import { useModal } from '@/shared/context/ModalContext'
@@ -776,11 +776,13 @@ const UpgradeStreaks = () => {
 			<Button
 				onPress={handleInfo}
 				classNames={{
-					base: '!absolute right-0 -top-[3px] 2sm:!top-0'
+					base: '!absolute right-0 top-1 w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]',
+					content:
+						'flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2 3sm:p-1'
 				}}
 			>
-				<HexagonBg2 />
-				<IconFAQ className='absolute h-6 w-6' />
+				<IconHint className='h-[18px] w-[18px] fill-[#3B455C]' />
+				<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:hidden'>FAQ</p>
 			</Button>
 			<div className='flex flex-col gap-2'>
 				{upgradeItems.map((item, index) => (
