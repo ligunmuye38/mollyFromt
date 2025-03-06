@@ -5,30 +5,32 @@ $hexagon-angle-offset-input: 15px
     // height: 64px
     clip-path: polygon( #{$hexagon-angle-offset} 0%, calc(100% - #{$hexagon-angle-offset}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset}) 100%, #{$hexagon-angle-offset} 100%, 0% 50%)
     background: #0F131C
+    padding: 12px 20px
     // max-width: 1155px
     box-sizing: border-box
     margin-bottom: 20px
     margin-top: 37px
+    &_inner
+        clip-path: polygon( #{$hexagon-angle-offset-input} 0%, calc(100% - #{$hexagon-angle-offset-input}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset-input}) 100%, #{$hexagon-angle-offset-input} 100%, 0% 50%)
+        background: linear-gradient(90deg, rgba(63, 70, 84, 0.15) 0%, rgba(63, 70, 84, 0.0225) 21.66%, rgba(63, 70, 84, 0.15) 43.32%)
+        padding: 2px
     &__inner
-        position: relative
+        padding: 0px 20px
+        clip-path: polygon( #{$hexagon-angle-offset-input} 0%, calc(100% - #{$hexagon-angle-offset-input}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset-input}) 100%, #{$hexagon-angle-offset-input} 100%, 0% 50%)
+        background: #0F131C
         display: flex
-        justify-content: center
+        justify-content: start
         align-items: center
-        padding: 12px 20px
         svg
-            position: absolute
             display: block
-            left: 40px
-            z-index: 10
         input
-            clip-path: polygon( #{$hexagon-angle-offset-input} 0%, calc(100% - #{$hexagon-angle-offset-input}) 0%, 100% 50%, calc(100% - #{$hexagon-angle-offset-input}) 100%, #{$hexagon-angle-offset-input} 100%, 0% 50%)
-            padding: 15px 48px
+            padding: 15px 15px
             color: #60719A
             font-size: 14px
             font-weight: 500
             line-height: 16px
             width: 100%
+            outline: none
+            background: transparent
             // max-width: 1130px
-            background: #3F4654
-            background: #0F131C
             box-sizing: border-box

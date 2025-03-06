@@ -1,8 +1,16 @@
+'use client'
+
+import clsx from 'clsx'
 import Image from 'next/image'
+import { useState } from 'react'
+
+import Button from '@/shared/ui/Button/Button'
 
 import cls from './WikiSidebar.module.sass'
 
 const WikiSidebar = () => {
+	const [status, toggleStatus] = useState<boolean>(false)
+
 	return (
 		<aside className='rounded-[14px] border-[3px] border-solid border-[#1F2534] bg-[#191F2D] p-5 lg:inline-flex lg:max-w-[650px] 3sm:flex-col'>
 			<div
@@ -33,20 +41,48 @@ const WikiSidebar = () => {
 			</div>
 			<div className='lg:ml-5 lg:w-full lg:max-w-[290px] 3sm:mx-auto'>
 				<div className={cls.filters}>
-					<button className={cls.filters__btn + ' ' + cls.active}>Normal</button>
-					<button className={cls.filters__btn}>StatTrek</button>
+					<div className={cls.filters_inner}>
+						<Button
+							onPress={() => toggleStatus(false)}
+							className={cls.filters__btn}
+						>
+							Normal
+						</Button>
+						<Button
+							onPress={() => toggleStatus(true)}
+							className={cls.filters__btn}
+						>
+							StatTrek
+						</Button>
+					</div>
+					<div
+						className={clsx(
+							cls.filters__btn,
+							cls.active,
+							'!absolute top-0 flex !h-[calc(100%_+_1px)] !w-[calc(50%_+_1px)] items-center justify-center duration-200',
+							status ? 'left-1/2' : 'left-0'
+						)}
+					>
+						{status ? 'StatTrek' : 'Normal'}
+					</div>
 				</div>
 				<div className='table w-full'>
 					<div className='mb-[10px] flex w-full justify-between rounded-[8px] border border-solid border-[#1D2535] bg-[#121722] px-[15px] py-[14px] last:mb-0'>
-						<span className='text-xs font-bold not-italic leading-4 text-white'>Battle-Scarred</span>
+						<span className={clsx('text-xs font-bold not-italic leading-4', status ? 'text-[#C26F40]' : 'text-white')}>
+							Battle-Scarred
+						</span>
 						<strong className='text-xs font-bold not-italic leading-4 text-[#17E2A5]'>$ 456,05</strong>
 					</div>
 					<div className='mb-[10px] flex w-full justify-between rounded-[8px] border border-solid border-[#1D2535] bg-[#121722] px-[15px] py-[14px] last:mb-0'>
-						<span className='text-xs font-bold not-italic leading-4 text-white'>Battle-Scarred</span>
+						<span className={clsx('text-xs font-bold not-italic leading-4', status ? 'text-[#C26F40]' : 'text-white')}>
+							Battle-Scarred
+						</span>
 						<strong className='text-xs font-bold not-italic leading-4 text-[#17E2A5]'>$ 456,05</strong>
 					</div>
 					<div className='mb-[10px] flex w-full justify-between rounded-[8px] border border-solid border-[#1D2535] bg-[#121722] px-[15px] py-[14px] last:mb-0'>
-						<span className='text-xs font-bold not-italic leading-4 text-white'>Battle-Scarred</span>
+						<span className={clsx('text-xs font-bold not-italic leading-4', status ? 'text-[#C26F40]' : 'text-white')}>
+							Battle-Scarred
+						</span>
 						<strong className='text-xs font-bold not-italic leading-4 text-[#17E2A5]'>$ 456,05</strong>
 					</div>
 				</div>

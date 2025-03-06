@@ -1,6 +1,7 @@
 'use client'
 
 import { blogItems } from '../model/items'
+import { useState } from 'react'
 
 import { BlogCard } from '@/entities/blogCard/ui/BlogCard'
 
@@ -10,7 +11,7 @@ import Button from '@/shared/ui/Button/Button'
 import cls from './BlogItems.module.sass'
 
 export const BlogItems = () => {
-	const activeTab = 'all'
+	const [activeTab, setActiveTab] = useState<string>('all')
 
 	const tabs = [
 		{ id: 'all', label: 'All' },
@@ -26,6 +27,7 @@ export const BlogItems = () => {
 					<Icon />
 					{tabs.map(tab => (
 						<Button
+							onPress={() => setActiveTab(tab.id)}
 							key={tab.id}
 							hexagonAngleOffset={12}
 							classNames={{

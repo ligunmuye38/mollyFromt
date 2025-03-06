@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
@@ -119,12 +119,16 @@ export const Hexagon = ({ className }: { className?: string }) => {
 	)
 }
 
-const MyItem = ({ className }: { className?: string }) => {
+const MyItem = ({ className, isSelected }: { className?: string; isSelected: boolean }) => {
 	const t = useTranslations()
 	const [selected, toggleSelected] = useState<boolean>(false)
 	const pathname = usePathname()
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
+
+	useEffect(() => {
+		toggleSelected(isSelected)
+	}, [isSelected])
 
 	if (isSuccess) {
 		return (

@@ -102,8 +102,11 @@ export const AchievementsContent = () => {
 					>
 						<Button
 							hexagonAngleOffset={12}
+							hexagon
+							hexagonAxis='x'
 							classNames={{
-								base: cls.btn_inner
+								base: `${cls.btn_inner} !bg-[linear-gradient(90deg,_#2D374F_0%,_rgba(45,_55,_79,_0.45)_50%,_#2D374F_100%)] !p-[2px]`,
+								content: 'bg-[#0004] !w-full !h-full'
 							}}
 						>
 							SEE ALL PROGRESS

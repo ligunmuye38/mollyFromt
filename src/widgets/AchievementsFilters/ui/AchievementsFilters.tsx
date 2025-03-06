@@ -36,20 +36,24 @@ export const AchievementsFilters = () => {
 				strokeSize='reg'
 				backdrop
 				hexagon
+				hexagonAngleOffset={12}
 				hexagonAxis='x'
 				classNames={{
 					base: cls.filters,
-					content: '!bg-[#0F131C] !gap-0'
+					content: '!bg-[#0004] !gap-0 p-1'
 				}}
 			>
 				{filters.map(filter => (
-					<button
+					<Button
 						key={filter}
-						className={`${cls.filters__btn} ${activeFilter === filter ? cls.active : ''}`}
-						onClick={() => handleClick(filter)}
+						classNames={{
+							base: `${cls.filters__btn} ${activeFilter === filter ? cls.active : ''}`,
+							content: '!bg-transparent !w-full !h-full'
+						}}
+						onPress={() => handleClick(filter)}
 					>
 						{filter}
-					</button>
+					</Button>
 				))}
 			</Button>
 

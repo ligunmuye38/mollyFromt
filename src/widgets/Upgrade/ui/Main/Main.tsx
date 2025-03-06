@@ -5,8 +5,9 @@ import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 
+import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
 import IconFilter from '@/shared/assets/icons/icon-filter-3.svg'
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
@@ -16,13 +17,13 @@ import HeaderBg from '@/shared/assets/section-header-bg.svg'
 import Button from '@/shared/ui/Button/Button'
 import { Checkbox } from '@/shared/ui/Checkbox/Checkbox'
 import { Input } from '@/shared/ui/Input/Input'
-import { Select } from '@/shared/ui/Select/Select'
 import { Slider } from '@/shared/ui/Slider/Slider'
 
 import CircularProgress from './CircularProgress'
 import cls from './Main.module.sass'
 import MobileSelect from './MobileSelect'
 import MyItem from './MyItem'
+import SuccessPrompt from './SuccessPrompt'
 import UpgradeItem from './UpgradeItem'
 import UpgradeStreaks from './UpgradeStreaks'
 import UpgradeTypeSwitcher from './UpgradeTypeSwitcher'
@@ -157,9 +158,14 @@ export const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect:
 	)
 }
 
-const MyItems = ({ className }: { className?: string }) => {
+const MyItems = ({ className, onSelect }: { className?: string; onSelect: (_: boolean) => void }) => {
 	const t = useTranslations()
 	const [selectedItems, setSelectedItems] = useState<number[]>([])
+	const [dir, toggleDir] = useState<boolean>(false)
+
+	useEffect(() => {
+		onSelect(selectedItems.length > 0)
+	}, [selectedItems, onSelect])
 
 	return (
 		<div
@@ -174,20 +180,19 @@ const MyItems = ({ className }: { className?: string }) => {
 						<IconGun className='h-[21px] w-[21px] fill-[#5A6786]' />
 					</div>
 					<p className='flex-grow text-[14px] font-bold text-[#FFFFFF]'>{t('my_items').toUpperCase()}</p>
-					<Select
-						onChangeValue={() => {
-							return
-						}}
-						value={'all'}
-						theme='theme-2'
-						items={[{ label: 'Price', value: 'Price' }]}
+					<Button
+						onPress={() => toggleDir(v => !v)}
 						classNames={{
-							base: 'w-[90px]',
-							trigger: 'h-[42px] !rounded-[10px] !bg-[#181E2C] !border-[#232B3E] w-[90px]',
-							itemInner: 'text-[#60719A]',
-							selectorIcon: 'w-5 h-5'
+							base: 'flex items-center gap-2 rounded-[10px] border-1 border-[#232B3E] px-[10px] py-[9px] text-[14px] text-[#60719A]'
 						}}
-					/>
+					>
+						Price
+						<div className='flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md bg-[#252C3F]'>
+							<IconArrowDown
+								className={clsx('w-[14px] fill-[#60719A] duration-150', dir ? 'rotate-180' : 'rotate-0')}
+							/>
+						</div>
+					</Button>
 				</div>
 				<div className='app-scrollbar overflow-auto px-1'>
 					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,125px)] justify-between gap-2'>
@@ -215,6 +220,7 @@ const UpgradeItems = ({
 	className?: string
 }) => {
 	const t = useTranslations()
+	const [dir, toggleDir] = useState<boolean>(false)
 
 	return (
 		<div
@@ -230,20 +236,19 @@ const UpgradeItems = ({
 					</div>
 					<p className='flex-grow text-[14px] font-bold text-[#FFFFFF]'>{t('upgrade').toUpperCase()}</p>
 					<div className='flex items-center gap-[5px]'>
-						<Select
-							onChangeValue={() => {
-								return
-							}}
-							value={'all'}
-							theme='theme-2'
-							items={[{ label: 'Price', value: 'Price' }]}
+						<Button
+							onPress={() => toggleDir(v => !v)}
 							classNames={{
-								base: 'w-[90px]',
-								trigger: 'h-[42px] !rounded-[10px] !bg-[#181E2C] !border-[#232B3E] w-[90px]',
-								itemInner: 'text-[#60719A]',
-								selectorIcon: 'w-5 h-5'
+								base: 'flex items-center gap-2 rounded-[10px] border-1 border-[#232B3E] px-[10px] py-[9px] text-[14px] text-[#60719A]'
 							}}
-						/>
+						>
+							Price
+							<div className='flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md bg-[#252C3F]'>
+								<IconArrowDown
+									className={clsx('w-[14px] fill-[#60719A] duration-150', dir ? 'rotate-180' : 'rotate-0')}
+								/>
+							</div>
+						</Button>
 						<Popover placement='bottom'>
 							<PopoverTrigger>
 								<div className='h-10 w-10 rounded-[10px] border-1 border-[#232B3E] bg-[#181E2C] p-[10px]'>
@@ -395,10 +400,12 @@ export const Main: FC<MainProps> = ({ className }) => {
 
 	const [type, setType] = useState<UpgradeTypes>(UpgradeTypes.UPGRADE)
 	const [selectedUpgrade, setSelectedUpgrade] = useState<number>()
+	const [selected, toggleSelected] = useState<boolean>(false)
 
 	return (
 		<div className={clsx(cls.container, className)}>
 			<div className={clsx(cls.h, 'relative mb-5')}>
+				<SuccessPrompt />
 				<div className={cls.bg}>
 					<HeaderBg className={cls.bg_pic} />
 					<div className={cls.bg_icon}>
@@ -429,7 +436,10 @@ export const Main: FC<MainProps> = ({ className }) => {
 						<div className='absolute bottom-0 left-0 h-[126px] w-full bg-[linear-gradient(180deg,_rgba(18,_23,_34,_0)_0%,_#121722_100%)]'></div>
 						<div className='relative px-5'>
 							<div className='relative flex items-center justify-center gap-16'>
-								<MyItem className='lg:!hidden' />
+								<MyItem
+									isSelected={selected}
+									className='lg:!hidden'
+								/>
 								<div className='relative'>
 									<CircularProgress />
 								</div>
@@ -482,7 +492,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 			{type === UpgradeTypes.UPGRADE && (
 				<>
 					<div className='grid grid-cols-2 gap-5 px-5 lg:hidden lg:gap-3 2sm:px-[10px]'>
-						<MyItems />
+						<MyItems onSelect={v => toggleSelected(v)} />
 						<UpgradeItems
 							onSelect={v => setSelectedUpgrade(v)}
 							selected={selectedUpgrade}

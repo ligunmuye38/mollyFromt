@@ -1,11 +1,15 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import { UserImage } from '@/entities/UserImage/ui/UserImage'
 
 import IconEye from '@/shared/assets/icons/eye.svg'
 import IconAvatarFrame from '@/shared/assets/icons/icon-blog-user-avatar-frame.svg'
-import youtube from '@/shared/assets/icons/youtube.png'
+import IconDiscord from '@/shared/assets/icons/icon-discord.svg'
+import IconFacebook from '@/shared/assets/icons/icon-facebook-logo.svg'
+import IconReddit from '@/shared/assets/icons/icon-reddit.svg'
+import IconTelegram from '@/shared/assets/icons/icon-telegram-2.svg'
+import IconVK from '@/shared/assets/icons/icon-vkontakte.svg'
+import IconYoutube from '@/shared/assets/icons/icon-youtube.svg'
 import avatar from '@/shared/assets/user-avatar-example.png'
 import { PublicDate } from '@/shared/ui/PublicDate/PublicDate'
 
@@ -36,18 +40,42 @@ export const BlogItemInfo = () => {
 					</Link>
 				</div>
 				<div className={cls.social}>
-					{[0, 1, 2, 3, 4, 5].map(i => (
-						<Link
-							href='#'
-							className={cls.soc__item}
-							key={i}
-						>
-							<Image
-								src={youtube.src}
-								alt=''
-							/>
-						</Link>
-					))}
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#5865F2]'}
+					>
+						<IconDiscord className='h-6 w-6' />
+					</Link>
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#27A5E5]'}
+					>
+						<IconTelegram />
+					</Link>
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#CC3C3C]'}
+					>
+						<IconYoutube className='h-6 w-6' />
+					</Link>
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#3068BB]'}
+					>
+						<IconFacebook />
+					</Link>
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#FF5700]'}
+					>
+						<IconReddit />
+					</Link>
+					<Link
+						href='#'
+						className={cls.soc__item + ' bg-[#3773EA]'}
+					>
+						<IconVK />
+					</Link>
 				</div>
 			</div>
 		</>
