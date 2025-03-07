@@ -377,10 +377,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 	const [usersLimit, setUsersLimit] = useState<string>('')
 	const [ends, setEnds] = useState<string>('')
 	const [isActive, toggleIsActive] = useState<boolean>(false)
-	const [isOpen, toggleIsOpen] = useState<boolean>(false)
-	const [casesCount, setCasesCount] = useState<number>(1)
 	const [requirements, setRequirements] = useState<string[]>([])
-	const [selectedCase, setSelectedCase] = useState<number>()
 	const [cases, setCases] = useState<any[]>([])
 	const [communitySearch, setCommunitySearch] = useState<string>('')
 
@@ -713,170 +710,149 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 									</div>
 								</Button>
 								<p className='mb-2 mt-4 text-[12px] text-[#768BBD]'>{t('giveaways.select_case')}</p>
-								<div className='flex gap-2'>
-									<Popover
-										isOpen={isOpen}
-										onOpenChange={v => toggleIsOpen(v)}
-									>
-										<PopoverTrigger>
-											<div className='flex w-full cursor-pointer items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
-												{selectedCase !== undefined ? (
-													<>
-														<Image
-															src='/images/case/case-full-2.png'
-															width={24}
-															height={24}
-															alt='option'
-														/>
-														<div className='flex w-full justify-between 2sm:flex-col'>
-															<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-															<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-														</div>
-														<Button
-															onPress={() => setSelectedCase(undefined)}
-															classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
-														>
-															<IconClose className='h-2 w-2 fill-[#1B2233]' />
-														</Button>
-													</>
-												) : (
-													<div className='w-full'></div>
-												)}
-												<div className='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#252C3F]'>
-													<IconArrowDown
-														className={clsx('w-[18px] fill-[#60719A] duration-150', isOpen ? 'rotate-180' : 'rotate-0')}
-													/>
-												</div>
-											</div>
-										</PopoverTrigger>
-										<PopoverContent className='p-0 text-[12px] font-medium leading-4'>
-											<div className='flex flex-col gap-2 rounded-lg bg-[#1B2233] p-2'>
-												<div className='flex items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#141925] px-4 py-[10px]'>
-													<p className={!isActive ? 'text-white' : 'text-[#60719A]'}>
-														{t('giveaways.community_cases')}
-													</p>
-													<Switch
-														isSelected={isActive}
-														onValueChange={v => toggleIsActive(v)}
-														color='default'
-														classNames={{
-															base: 'rounded-sm w-[30px]',
-															wrapper:
-																'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
-															thumb:
-																"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
-														}}
-													/>
-													<p className={isActive ? 'text-white' : 'text-[#60719A]'}>{t('giveaways.official_cases')}</p>
-												</div>
-												<Input
-													onChange={v => setCommunitySearch(v)}
-													value={communitySearch}
-													placeholder='Search'
-													startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
-													classNames={{
-														base: 'w-full max-w-none',
-														mainWrapper: 'w-full',
-														inputWrapper: 'rounded-lg'
-													}}
-												/>
-												<div className='app-popover-scrollbar max-h-[300px] overflow-auto'>
-													<div className='flex flex-col gap-2 pr-[6px]'>
-														{Array.from(new Array(12)).map((_, index) => (
-															<Button
-																key={index}
-																onPress={() => {
-																	setSelectedCase(prev => (prev === index ? undefined : index))
-																}}
-																classNames={{
-																	base: clsx(
-																		'border-1 py-[9px] pl-[7px] pr-[15px] rounded-lg flex items-center gap-2',
-																		selectedCase === index ? 'border-[#10AA7C]' : 'border-[#2D364B]'
-																	)
-																}}
-															>
+								<div className='flex flex-col gap-2'>
+									{cases.map((_case, index) => (
+										<div
+											className='flex gap-2'
+											key={index}
+										>
+											<Popover
+												isOpen={_case.isOpen}
+												onOpenChange={v =>
+													setCases(value => value.map((c, i) => (i === index ? { ...c, isOpen: v } : c)))
+												}
+											>
+												<PopoverTrigger>
+													<div className='flex w-full cursor-pointer items-center gap-2 rounded-lg bg-[#1B2233] p-2'>
+														{_case.selectedCase !== undefined ? (
+															<>
 																<Image
 																	src='/images/case/case-full-2.png'
 																	width={24}
 																	height={24}
 																	alt='option'
 																/>
-																<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-																<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-															</Button>
-														))}
+																<div className='flex w-full justify-between 2sm:flex-col'>
+																	<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+																	<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+																</div>
+																<Button
+																	onPress={() => setCases(v => v.filter((_, i) => i !== index))}
+																	classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
+																>
+																	<IconClose className='h-2 w-2 fill-[#1B2233]' />
+																</Button>
+															</>
+														) : (
+															<div className='w-full'></div>
+														)}
+														<div className='flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#252C3F]'>
+															<IconArrowDown
+																className={clsx(
+																	'w-[18px] fill-[#60719A] duration-150',
+																	_case.isOpen ? 'rotate-180' : 'rotate-0'
+																)}
+															/>
+														</div>
 													</div>
-												</div>
+												</PopoverTrigger>
+												<PopoverContent className='p-0 text-[12px] font-medium leading-4'>
+													<div className='flex flex-col gap-2 rounded-lg bg-[#1B2233] p-2'>
+														<div className='flex items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#141925] px-4 py-[10px]'>
+															<p className={!isActive ? 'text-white' : 'text-[#60719A]'}>
+																{t('giveaways.community_cases')}
+															</p>
+															<Switch
+																isSelected={isActive}
+																onValueChange={v => toggleIsActive(v)}
+																color='default'
+																classNames={{
+																	base: 'rounded-sm w-[30px]',
+																	wrapper:
+																		'rounded-[6px] h-4 bg-[#252C3F] w-[30px] group-data-[selected=true]:bg-[#252C3F]',
+																	thumb:
+																		"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
+																}}
+															/>
+															<p className={isActive ? 'text-white' : 'text-[#60719A]'}>
+																{t('giveaways.official_cases')}
+															</p>
+														</div>
+														<Input
+															onChange={v => setCommunitySearch(v)}
+															value={communitySearch}
+															placeholder='Search'
+															startContent={<IconSearch className='h-4 w-4 fill-[#60719A]' />}
+															classNames={{
+																base: 'w-full max-w-none',
+																mainWrapper: 'w-full',
+																inputWrapper: 'rounded-lg'
+															}}
+														/>
+														<div className='app-popover-scrollbar max-h-[300px] overflow-auto'>
+															<div className='flex flex-col gap-2 pr-[6px]'>
+																{Array.from(new Array(12)).map((_, ii) => (
+																	<Button
+																		key={ii}
+																		onPress={() => {
+																			setCases(c =>
+																				c.map((v, i) =>
+																					i === index
+																						? { ...v, selectedCase: v.selectedCase === ii ? undefined : ii }
+																						: v
+																				)
+																			)
+																		}}
+																		classNames={{
+																			base: clsx(
+																				'border-1 py-[9px] pl-[7px] pr-[15px] rounded-lg flex items-center gap-2',
+																				_case.selectedCase === ii ? 'border-[#10AA7C]' : 'border-[#2D364B]'
+																			)
+																		}}
+																	>
+																		<Image
+																			src='/images/case/case-full-2.png'
+																			width={24}
+																			height={24}
+																			alt='option'
+																		/>
+																		<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
+																		<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
+																	</Button>
+																))}
+															</div>
+														</div>
+													</div>
+												</PopoverContent>
+											</Popover>
+											<div className='flex flex-[0_0_100px] items-center justify-between rounded-lg bg-[#1B2233] p-[5px]'>
+												<Button
+													onPress={() =>
+														setCases(c =>
+															c.map((v, i) => (i === index ? { ...v, count: Math.max(v.count - 1, 1) } : v))
+														)
+													}
+													classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+												>
+													-
+												</Button>
+												<p className='text-[14px] text-white'>{_case.count}</p>
+												<Button
+													onPress={() =>
+														setCases(c => c.map((v, i) => (i === index ? { ...v, count: v.count + 1 } : v)))
+													}
+													classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
+												>
+													+
+												</Button>
 											</div>
-										</PopoverContent>
-									</Popover>
-									<div className='flex flex-[0_0_100px] items-center justify-between rounded-lg bg-[#1B2233] p-[5px]'>
-										<Button
-											onPress={() => setCasesCount(v => (v > 1 ? v - 1 : 1))}
-											classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
-										>
-											-
-										</Button>
-										<p className='text-[14px] text-white'>{casesCount}</p>
-										<Button
-											onPress={() => setCasesCount(v => v + 1)}
-											classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
-										>
-											+
-										</Button>
-									</div>
+										</div>
+									))}
 								</div>
-								{cases.map((_case, index) => (
-									<div
-										className='my-1 flex w-full gap-2'
-										key={index}
-									>
-										<div className='flex w-full items-center gap-2 rounded-[8px] bg-[#1B223380] px-2 py-2'>
-											<Image
-												src='/images/case/case-full-2.png'
-												width={24}
-												height={24}
-												alt='option'
-											/>
-											<p className='flex-grow text-[12px] leading-3 text-white'>New begin</p>
-											<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
-											{/* <p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>{_case.count}</p> */}
-											<Button
-												onPress={() => setCases(prev => prev.filter((_, _index) => index !== _index))}
-												classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
-											>
-												<IconClose className='h-2 w-2 fill-[#1B2233]' />
-											</Button>
-										</div>
-										<div className='flex flex-[0_0_100px] items-center justify-between rounded-lg bg-[#1B2233] p-[5px]'>
-											<Button
-												onPress={() =>
-													setCases(c => c.map((v, i) => (i === index ? { ...v, count: Math.max(v.count - 1, 1) } : v)))
-												}
-												classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
-											>
-												-
-											</Button>
-											<p className='text-[14px] text-white'>{_case.count}</p>
-											<Button
-												onPress={() => setCases(c => c.map((v, i) => (i === index ? { ...v, count: v.count + 1 } : v)))}
-												classNames={{ base: 'w-7 h-7 rounded-lg bg-[#252C3F] text-[24px] text-[#60719A] leading-6' }}
-											>
-												+
-											</Button>
-										</div>
-									</div>
-								))}
 								<Button
 									classNames={{ base: 'w-full mt-[10px]' }}
 									onPress={() => {
-										if (selectedCase) {
-											setCases(prev => [...prev, { count: casesCount }])
-											setSelectedCase(undefined)
-											setCasesCount(1)
-										} else {
-											toggleIsOpen(true)
-										}
+										setCases(prev => [...prev, { count: 1, selectedCase: undefined }])
 									}}
 								>
 									<div className='flex w-full items-center justify-center rounded-lg border-1 border-[#1B2233] p-[11px]'>
