@@ -378,7 +378,7 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 	const [ends, setEnds] = useState<string>('')
 	const [isActive, toggleIsActive] = useState<boolean>(false)
 	const [requirements, setRequirements] = useState<string[]>([])
-	const [cases, setCases] = useState<any[]>([])
+	const [cases, setCases] = useState<any[]>([{ count: 1 }])
 	const [communitySearch, setCommunitySearch] = useState<string>('')
 
 	return (
@@ -737,7 +737,9 @@ export const CreateGiveaway: FC<GiveawaysProps> = ({ className }) => {
 																	<p className='bg-clip-text text-[12px] leading-3 text-[#10AA7C]'>$3.33</p>
 																</div>
 																<Button
-																	onPress={() => setCases(v => v.filter((_, i) => i !== index))}
+																	onPress={() =>
+																		setCases(v => (v.length > 1 ? v.filter((_, i) => i !== index) : [{ count: 1 }]))
+																	}
 																	classNames={{ base: 'bg-[#AD4848] rounded-full w-4 h-4 flex-shrink-0' }}
 																>
 																	<IconClose className='h-2 w-2 fill-[#1B2233]' />

@@ -26,16 +26,21 @@ export const BlogItems = () => {
 				<div className={cls.filters}>
 					<Icon />
 					{tabs.map(tab => (
-						<Button
-							onPress={() => setActiveTab(tab.id)}
+						<div
 							key={tab.id}
-							hexagonAngleOffset={12}
-							classNames={{
-								base: `${cls.btn} ${activeTab === tab.id ? cls.active : ''}`
-							}}
+							style={{ filter: 'drop-shadow(0px 0px 18px rgba(253, 62, 36, 0.3))' }}
 						>
-							<div className={cls.btn_inner}>{tab.label}</div>
-						</Button>
+							<Button
+								onPress={() => setActiveTab(tab.id)}
+								hexagonAngleOffset={12}
+								classNames={{
+									base: `${cls.btn} overflow-hidden ${activeTab === tab.id ? cls.active : ''} [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]`,
+									content: 'overflow-hidden'
+								}}
+							>
+								<div className={cls.btn_inner}>{tab.label}</div>
+							</Button>
+						</div>
 					))}
 				</div>
 

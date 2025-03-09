@@ -35,7 +35,7 @@ function SuccessPrompt() {
 					{ hidden: isHidden || !isSuccess }
 				)}
 			>
-				<div className='3m:py-1 flex h-full w-full items-center justify-between rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] px-[23px] py-2 3sm:px-2'>
+				<div className='flex h-full w-full items-center justify-between rounded-[12px] bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] px-[23px] py-2 3sm:px-2 3sm:py-1'>
 					<div
 						style={{
 							filter: 'drop-shadow(0px 0px 12px #FD3E2440)'
@@ -57,7 +57,7 @@ function SuccessPrompt() {
 							</div>
 						</Button>
 					</div>
-					<div className='flex items-center gap-6 3sm:gap-2'>
+					<div className='flex -translate-x-[40px] items-center gap-6 3sm:-translate-x-[15px] 3sm:gap-2 sm:-translate-x-0'>
 						<div className='h-[60px] w-[81px] bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md 3sm:h-[40px] 3sm:w-[60px]'>
 							<Image
 								src='/images/case/skin-2.png'

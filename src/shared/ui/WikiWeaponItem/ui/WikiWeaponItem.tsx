@@ -11,9 +11,14 @@ export const WikiWeaponItem: React.FC<WikiWeaponItemProps> = ({ active, onClick 
 	return (
 		<div
 			onClick={onClick}
-			className={`${cls.item} z-1 relative flex cursor-pointer flex-col items-center justify-center rounded-[14px] border border-solid bg-[#161B28] p-5 pt-[30px] ${active ? 'border-[#24FDBCA6]' : 'border-[#1F2534]'}`}
+			className={`${cls.item} z-1 relative flex cursor-pointer flex-col items-center justify-center rounded-[14px] border border-solid bg-[#161B28] p-5 pt-[30px] ${active ? 'border-[#1F2534]' : 'border-[#1F2534]'}`}
 		>
-			<div className='img mb-[10px] flex justify-center'>
+			<div
+				className='img mb-[10px] flex justify-center'
+				style={{
+					background: 'radial-gradient(50% 50% at 50% 50%, rgba(200, 70, 70, 0.35) 0%, rgba(200, 70, 70, 0) 100%)'
+				}}
+			>
 				<Image
 					src='/images/skinsWiki/skins-wiki-example.png'
 					width={184}

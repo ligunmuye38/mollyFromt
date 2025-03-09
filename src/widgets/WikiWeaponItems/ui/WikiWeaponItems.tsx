@@ -16,7 +16,12 @@ export const WikiWeaponItems = () => {
 				<div
 					className={`${cls.item} z-1 relative flex flex-col items-center justify-center rounded-[14px] border border-solid border-[#1F2534] bg-[#161B28] p-5 pt-[30px]`}
 				>
-					<div className='img mb-[10px] flex justify-center'>
+					<div
+						className='img mb-[10px] flex justify-center'
+						style={{
+							background: 'radial-gradient(50% 50% at 50% 50%, rgba(200, 70, 70, 0.35) 0%, rgba(200, 70, 70, 0) 100%)'
+						}}
+					>
 						<Image
 							src='/images/skinsWiki/skins-wiki-example.png'
 							width={184}

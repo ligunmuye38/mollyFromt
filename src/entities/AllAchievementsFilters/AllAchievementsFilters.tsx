@@ -61,7 +61,7 @@ export const AllAchievementsFilters = ({ onSelect }: { onSelect: (_: string) => 
 								}}
 								classNames={{
 									base: `${cls.btn} ${activeTab === tab.id ? cls.active : ''}`,
-									content: `!w-full !h-full ${activeTab === tab.id ? '!text-[#121722] !bg-[rgba(253,_205,_36,_0.65)] px-5' : 'px-3 bg-transparent'}`
+									content: `!w-full !h-full ${activeTab === tab.id ? '!text-[#121722] !bg-[#FDCD24] px-5' : 'px-3 bg-transparent'}`
 								}}
 							>
 								{tab.label}
