@@ -43,7 +43,7 @@ export const Giveaways: FC<GiveawaysProps> = ({ className }) => {
 					</div>
 					<div style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C59)' }}>
 						<Button
-							onPress={() => router.push('/case-battles/create')}
+							onPress={() => router.push('/giveaways/create')}
 							classNames={{
 								base: clsx(cls.hexagon_btn, 'h-[42px] w-[240px]'),
 								content: clsx(cls.hexagon_btn_inner, '!gap-0')

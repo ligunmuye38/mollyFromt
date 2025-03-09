@@ -2,6 +2,12 @@ import { ICountry, ICryptoCurrency, IPaymentMethod, PaymentMethodType } from './
 
 export const paymentMethods: IPaymentMethod[] = [
 	{
+		icon: '/images/payment/methods/cryptos.png',
+		methodType: PaymentMethodType.CRYPTO,
+		title: 'cryptos',
+		color: '#345D9D'
+	},
+	{
 		icon: '/images/payment/methods/visa.png',
 		methodType: PaymentMethodType.CARD,
 		title: 'visa',
@@ -20,12 +26,6 @@ export const paymentMethods: IPaymentMethod[] = [
 		methodType: PaymentMethodType.SKRILL,
 		title: 'paybyskins',
 		color: '#0EAB5B'
-	},
-	{
-		icon: '/images/payment/methods/cryptos.png',
-		methodType: PaymentMethodType.CRYPTO,
-		title: 'cryptos',
-		color: '#345D9D'
 	}
 ]
 

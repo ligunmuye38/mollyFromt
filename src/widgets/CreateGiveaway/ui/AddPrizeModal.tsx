@@ -1,10 +1,10 @@
-import { Switch } from '@nextui-org/react'
+import { Popover, PopoverContent, PopoverTrigger, Switch } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import IconArrowTopDown from '@/shared/assets/icons/icon-arrow-top-down.svg'
+import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconBookmark from '@/shared/assets/icons/icon-bookmark.svg'
@@ -50,7 +50,7 @@ const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: bo
 		<div
 			onClick={() => onSelect(!selected)}
 			className={clsx(
-				'h-[215px] w-[194px] rounded-[12px] p-[2px] xl:w-full 2md:h-[170px] 3sm:w-full',
+				'h-[215px] w-full rounded-[12px] p-[2px] xl:w-full 2md:h-[170px] 3sm:w-full',
 				selected
 					? 'bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 					: 'bg-[#161C28]'
@@ -135,6 +135,7 @@ function AddPrizeModal() {
 	const [search, setSearch] = useState<string>('')
 	const [casesType, toggleCasesType] = useState<boolean>(false)
 	const [selectedCases, setSelectedCases] = useState<number[]>([])
+	const [dir, toggleDir] = useState<boolean>(false)
 
 	return (
 		<div className={cls.modal}>
@@ -224,7 +225,7 @@ function AddPrizeModal() {
 										'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
 								}}
 							>
-								<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'text-white')}>
+								<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 									{t('giveaways.community_cases')}
 								</p>
 								<Switch
@@ -238,19 +239,31 @@ function AddPrizeModal() {
 											"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
 									}}
 								/>
-								<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'text-white')}>
+								<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 									{t('giveaways.official_cases')}
 								</p>
 							</Button>
-							<Button
-								classNames={{
-									base: 'lg:hidden bg-[#273145A6] flex-shrink-0 h-max p-[1px] [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]',
-									content:
-										'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
-								}}
-							>
-								<IconSearch className='h-4 w-4 fill-[#60719A]' />
-							</Button>
+							<Popover placement='bottom'>
+								<PopoverTrigger>
+									<Button
+										classNames={{
+											base: 'lg:hidden bg-[#273145A6] flex-shrink-0 h-max p-[1px] [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]',
+											content:
+												'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
+										}}
+									>
+										<IconSearch className='h-4 w-4 fill-[#60719A]' />
+									</Button>
+								</PopoverTrigger>
+								<PopoverContent className='p-0'>
+									<Input
+										onChange={value => setSearch(value)}
+										value={search}
+										placeholder={t('search')}
+										startContent={<IconSearch className='h-5 w-5 fill-[#60719A]' />}
+									/>
+								</PopoverContent>
+							</Popover>
 							<Input
 								onChange={v => setSearch(v)}
 								value={search}
@@ -266,6 +279,7 @@ function AddPrizeModal() {
 						</>
 					)}
 					<Button
+						onPress={() => toggleDir(v => !v)}
 						classNames={{
 							base: 'bg-[#273145A6] flex-shrink-0 h-max p-[1px] [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]',
 							content:
@@ -273,7 +287,11 @@ function AddPrizeModal() {
 						}}
 					>
 						<p className='text-[14px] font-medium text-[#60719A]'>{t('price')}</p>
-						<IconArrowTopDown className='fill-[#60719A]' />
+						<div className='flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md bg-[#252C3F]'>
+							<IconArrowDown
+								className={clsx('w-[14px] fill-[#60719A] duration-150', dir ? 'rotate-180' : 'rotate-0')}
+							/>
+						</div>
 					</Button>
 					<Button
 						classNames={{
@@ -294,7 +312,7 @@ function AddPrizeModal() {
 									'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
 							}}
 						>
-							<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'text-white')}>
+							<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 								{t('giveaways.community_cases')}
 							</p>
 							<Switch
@@ -308,7 +326,7 @@ function AddPrizeModal() {
 										"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
 								}}
 							/>
-							<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'text-white')}>
+							<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 								{t('giveaways.official_cases')}
 							</p>
 						</Button>

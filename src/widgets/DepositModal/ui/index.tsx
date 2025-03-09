@@ -11,6 +11,7 @@ import QRCode from 'react-qr-code'
 
 import IconUAH from '@/shared/assets/icons/currencies/icon-uah.svg'
 import IconUSD from '@/shared/assets/icons/currencies/icon-usd.svg'
+import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconArrowRightCircular from '@/shared/assets/icons/icon-arrow-right-circular.svg'
 import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconCheckBox from '@/shared/assets/icons/icon-check-box.svg'
@@ -75,8 +76,12 @@ const DepositModal = () => {
 	const [usdValue, setUsdValue] = useState<string>('0')
 	const [uahValue, setUahValue] = useState<string>('0')
 	const [promoCode, setPromoCode] = useState<string>('')
-	const [selectedCrypto, setSelectedCrypto] = useState<ICryptoCurrency>(cryptos[0])
+	const [selectedCrypto, setSelectedCrypto] = useState<ICryptoCurrency>(cryptos[3])
 	const [selectedSkins, setSelectedSkins] = useState<number[]>([])
+	const [inventoryType, setInventoryType] = useState<number>(0)
+	const [search, setSearch] = useState<string>('')
+	const [dir, toggleDir] = useState<boolean>(false)
+	const [tradeUrl, setTradeUrl] = useState<string>('')
 
 	const items = countries.map(item => ({
 		value: item.title,
@@ -658,23 +663,29 @@ const DepositModal = () => {
 							<div className='rounded-[20px] border-1 border-[#232839] bg-[#141925] p-[25px] lg:border-0 lg:bg-transparent lg:p-0'>
 								<div className='mb-5'>
 									<Input
-										value=''
+										value={tradeUrl}
 										theme='theme-1'
-										onChange={() => {
-											return
-										}}
+										onChange={value => setTradeUrl(value)}
 										placeholder={t('profile_page.trade_url_placeholder')}
 										startContent={<IconSteam className='h-6 w-6 flex-[0_0_24px] fill-[#60719A]' />}
 										endContent={
-											<Link
-												href='https://google.com'
-												target='_blank'
-												className='flex-[0_0_140px]'
-											>
-												<span className='border-b-[1px] border-[#F4AD5C] text-[10px] font-[700] text-[#F4AD5C] hover:cursor-pointer md:text-[8px] 2sm:hidden'>
-													{t('profile_page.trade_link')}
-												</span>
-											</Link>
+											<div className='flex flex-[0_0_140px] -translate-y-[2px] flex-col items-end'>
+												<Link
+													href='https://google.com'
+													target='_blank'
+												>
+													<span className='border-b-[1px] border-[#F4AD5C] text-[10px] font-[700] text-[#F4AD5C] hover:cursor-pointer md:text-[8px] 2sm:hidden'>
+														{t('profile_page.trade_link')}
+													</span>
+												</Link>
+												<Button
+													classNames={{
+														content: 'uppercase text-[#10AA7C] text-[12px] font-bold px-1'
+													}}
+												>
+													{t('save')}
+												</Button>
+											</div>
 										}
 										classNames={{
 											mainWrapper: 'w-full !h-12'
@@ -688,49 +699,62 @@ const DepositModal = () => {
 									</div>
 								</div>
 								<div className='mb-5 flex gap-2 lg:flex-col'>
-									<div className='flex h-[42px] flex-shrink-0 overflow-hidden rounded-xl border-1 border-[#232B3E] bg-[#181E2C]'>
-										<div className='flex w-full items-center gap-2 border-r-1 border-[#232B3E] bg-[#121721] px-3'>
+									<div className='flex h-[42px] flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-1 border-[#232B3E] bg-[#181E2C]'>
+										<div
+											onClick={() => setInventoryType(0)}
+											className={clsx(
+												'flex w-full items-center gap-2 border-r-1 border-[#232B3E] px-3',
+												inventoryType === 0 ? 'bg-[#121721]' : ''
+											)}
+										>
 											<IconCS />
 											<p className='text-[14px] text-white'>CS:GO</p>
 										</div>
-										<div className='flex w-full items-center gap-2 border-r-1 border-[#232B3E] px-3'>
+										<div
+											onClick={() => setInventoryType(1)}
+											className={clsx(
+												'flex w-full items-center gap-2 border-r-1 border-[#232B3E] px-3',
+												inventoryType === 1 ? 'bg-[#121721]' : ''
+											)}
+										>
 											<IconDota2 className='flex-shrink-0' />
 											<p className='flex-shrink-0 text-[14px] text-[#7785B3]'>DOTA 2</p>
 										</div>
-										<div className='flex w-full items-center gap-2 px-3'>
+										<div
+											onClick={() => setInventoryType(2)}
+											className={clsx('flex w-full items-center gap-2 px-3', inventoryType === 2 ? 'bg-[#121721]' : '')}
+										>
 											<IconCSGo />
 											<p className='text-[14px] text-[#7785B3]'>CS:GO</p>
 										</div>
 									</div>
 									<div className='flex flex-grow gap-2'>
 										<Input
-											onChange={() => {
-												return
-											}}
-											value={t('search')}
+											onChange={value => setSearch(value)}
+											value={search}
+											placeholder={t('search')}
 											startContent={<IconSearch className='h-5 w-5 fill-[#60719A]' />}
 											classNames={{
 												base: 'w-full',
 												mainWrapper: 'w-full'
 											}}
 										/>
-										<Select
-											onChangeValue={() => {
-												return
-											}}
-											value={'all'}
-											theme='theme-2'
-											items={[{ label: 'Price', value: 'Price' }]}
+										<Button
+											onPress={() => toggleDir(v => !v)}
 											classNames={{
-												base: 'w-[90px]',
-												trigger: 'h-[42px] !rounded-[10px] !bg-[#181E2C] !border-[#232B3E] w-[90px]',
-												itemInner: 'text-[#60719A]',
-												selectorIcon: 'w-5 h-5'
+												base: 'shrink-0 flex items-center gap-2 rounded-[10px] border-1 border-[#232B3E] px-[10px] py-[9px] text-[14px] text-[#60719A]'
 											}}
-										/>
+										>
+											Price
+											<div className='flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-md bg-[#252C3F]'>
+												<IconArrowDown
+													className={clsx('w-[14px] fill-[#60719A] duration-150', dir ? 'rotate-180' : 'rotate-0')}
+												/>
+											</div>
+										</Button>
 									</div>
 								</div>
-								<div className='mb-5 grid auto-rows-auto grid-cols-5 justify-between gap-2 lg:grid-cols-3'>
+								<div className='app-scrollbar mb-5 grid max-h-[200px] auto-rows-auto grid-cols-5 justify-between gap-2 overflow-y-auto lg:grid-cols-3'>
 									{Array.from(new Array(12)).map((_, index) => (
 										<CaseItem
 											selected={selectedSkins.includes(index)}

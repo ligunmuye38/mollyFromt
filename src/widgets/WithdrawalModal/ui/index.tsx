@@ -1,6 +1,6 @@
 'use client'
 
-import { countries, cryptosCurrencies as cryptos, paymentMethods, paymentMethods as payments } from '../model/items'
+import { countries, cryptosCurrencies as cryptos, paymentMethods as payments } from '../model/items'
 import { ICryptoCurrency, IPaymentMethod, PaymentMethodType } from '../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
@@ -9,9 +9,8 @@ import { useState } from 'react'
 
 import IconUAH from '@/shared/assets/icons/currencies/icon-uah.svg'
 import IconUSD from '@/shared/assets/icons/currencies/icon-usd.svg'
-import IconArrowRightCircular from '@/shared/assets/icons/icon-arrow-right-circular.svg'
+// import IconArrowRightCircular from '@/shared/assets/icons/icon-arrow-right-circular.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
-import IconCopy from '@/shared/assets/icons/icon-copy-2.svg'
 import IconInfo from '@/shared/assets/icons/icon-info-3.svg'
 import IconInfo2 from '@/shared/assets/icons/icon-info.svg'
 import Close from '@/shared/assets/icons/icon-modal-close.svg'
@@ -61,8 +60,9 @@ const WithdrawalModal = () => {
 	const [usdValue, setUsdValue] = useState<string>('0')
 	const [uahValue, setUahValue] = useState<string>('0')
 	const [promoCode, setPromoCode] = useState<string>('')
-	const [selectedCrypto, setSelectedCrypto] = useState<ICryptoCurrency>(cryptos[0])
+	const [selectedCrypto, setSelectedCrypto] = useState<ICryptoCurrency>(cryptos[3])
 	const [confirmed, toggleConfirmed] = useState<boolean>(false)
+	const [paymentAddress, setPaymentAddress] = useState<string>('')
 
 	const items = countries.map(item => ({
 		value: item.title,
@@ -98,9 +98,9 @@ const WithdrawalModal = () => {
 				<div className='flex flex-shrink-0 flex-col rounded-2xl bg-[#141925] p-[30px] lg:px-3'>
 					<div className='mb-[18px]'>
 						<p className='mb-2 text-[20px] font-bold leading-4 text-white'>{t('deposits.select_method')}</p>
-						<p className='text-[14px] font-medium leading-4 text-[#7785B3]'>{t('deposits.method_description')}</p>
+						{/* <p className='text-[14px] font-medium leading-4 text-[#7785B3]'>{t('deposits.method_description')}</p> */}
 					</div>
-					<Button
+					{/* <Button
 						classNames={{
 							base: `h-[95px] mb-5 rounded-[16px] bg-[url('/images/payment/pay-by-skin-btn.png')]`,
 							content: `bg-[linear-gradient(0deg,_rgba(70,_52,_39,_0.8)_0%,_rgba(244,_188,_66,_0.8)_100%)] w-full h-full px-5`
@@ -128,7 +128,7 @@ const WithdrawalModal = () => {
 								<IconArrowRightCircular />
 							</div>
 						</div>
-					</Button>
+					</Button> */}
 					<div className='mb-[38px]'>
 						<p className='mb-2 text-[12px] font-bold leading-4 text-[#49526D]'>
 							{t('deposits.choose_country').toUpperCase()}
@@ -161,8 +161,8 @@ const WithdrawalModal = () => {
 				</div>
 				<div className='m-[30px] w-full lg:mx-3 md:m-0 md:p-3'>
 					<div className='mb-[30px]'>
-						<p className='mb-2 text-[20px] font-bold leading-4 text-white'>{t('deposits.payment')}</p>
-						<p className='text-[14px] font-medium leading-4 text-[#7785B3]'>{t('deposits.payment_description')}</p>
+						<p className='mb-2 text-[20px] font-bold leading-4 text-white'>{t('deposits.withdrawal')}</p>
+						<p className='text-[14px] font-medium leading-4 text-[#7785B3]'>{t('deposits.withdrawal_description')}</p>
 					</div>
 					<div className='app-popover-scrollbar max-h-[calc(100vh_-_210px)] overflow-y-auto pr-1 md:max-h-none'>
 						{selectedMethod.methodType === PaymentMethodType.CARD && (
@@ -171,7 +171,7 @@ const WithdrawalModal = () => {
 									<div className='mb-[15px] grid grid-cols-2 gap-5 lg:grid-cols-1'>
 										<div>
 											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
-												{t('deposits.you_are_getting').toUpperCase()}
+												{t('deposits.you_are_giving_it_away').toUpperCase()}
 											</p>
 											<Input
 												onChange={value => {
@@ -193,7 +193,7 @@ const WithdrawalModal = () => {
 										</div>
 										<div>
 											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
-												{t('deposits.you_are_giving_it_away').toUpperCase()}
+												{t('deposits.you_are_getting').toUpperCase()}
 											</p>
 											<Input
 												onChange={value => {
@@ -271,7 +271,7 @@ const WithdrawalModal = () => {
 									</Button>
 									<div className='mb-4 flex items-center gap-2 rounded-xl border-1 border-[#F0404059] bg-[#F0404026] p-[10px]'>
 										<IconInfo2 className='h-4 w-4 fill-[#F04040]' />
-										<p className='text-[10px] font-medium leading-4 text-[#F04040]'>{t('deposits.widthrawal_error')}</p>
+										<p className='text-[10px] font-medium leading-4 text-[#F04040]'>{t('deposits.withdrawal_error')}</p>
 									</div>
 									<div className='flex items-center gap-[10px] rounded-[10px] border-1 border-[#282D40] p-[15px] md:p-2'>
 										<IconInfo />
@@ -382,17 +382,16 @@ const WithdrawalModal = () => {
 									</div>
 									<div className='mb-[15px]'>
 										<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
-											{t('deposits.your_payment_address').toUpperCase()}
+											{t('deposits.withdraw_to').toUpperCase()}
 										</p>
-										<div
-											onClick={() => {
-												navigator.clipboard.writeText('3GHHYktUzUjppdUmz6yqrJ2vqiW6o5PG2D')
+										<Input
+											onChange={value => setPaymentAddress(value)}
+											value={paymentAddress}
+											classNames={{
+												base: 'rounded-[12px] h-12',
+												mainWrapper: 'w-full'
 											}}
-											className='flex cursor-pointer items-center justify-between rounded-xl border-1 border-[#232B3E] bg-[#181E2C] p-3 pl-4'
-										>
-											<p className='text-[14px] leading-4 text-white'>3GHHYktUzUjppdUmz6yqrJ2vqiW6o5PG2D</p>
-											<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
-										</div>
+										/>
 									</div>
 									<div
 										className='mb-[15px] flex cursor-pointer items-center gap-2 duration-200'

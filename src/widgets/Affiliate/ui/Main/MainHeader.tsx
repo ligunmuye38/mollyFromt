@@ -142,7 +142,7 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 									content: 'flex items-center justify-center'
 								}}
 							>
-								<p className='text-[14px] font-bold text-[white]'>{t('withdrawal').toUpperCase()}</p>
+								<p className='text-[14px] font-bold text-[white]'>{t('withdraw').toUpperCase()}</p>
 							</Button>
 						</div>
 						{type === PartnershipTypes.PARTNERSHIP && (
