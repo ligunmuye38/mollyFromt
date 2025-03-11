@@ -24,6 +24,7 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
 	const [locked, toggleLocked] = useState<boolean>(true)
+	const [times, setTimes] = useState<string>('X5')
 
 	if (isSuccess) {
 		return (
@@ -56,8 +57,8 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 
 	return (
 		<div className={clsx('relative h-[240px] w-full', className)}>
-			<div className='h-full w-full origin-top-right skew-y-3 overflow-hidden rounded-[12px] opacity-80 backdrop-blur-md'>
-				<div className='h-full w-full origin-top-right -skew-y-6 rounded-[12px] bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_81.03%)] p-[3px]'>
+			<div className='h-full w-full origin-top-right overflow-hidden rounded-[12px] opacity-80 backdrop-blur-md'>
+				<div className='h-full w-full origin-top-right rounded-[12px] bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_81.03%)] p-[3px]'>
 					{selected ? (
 						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(270deg,_rgba(206,_43,_45,_0.15)_0%,_rgba(25,_31,_45,_0.0225)_30%)]'></div>
 					) : (
@@ -69,6 +70,7 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 				) : (
 					<div className='absolute right-0 top-4 h-[208px] w-[3px] bg-[linear-gradient(270deg,_#191F2D_0%,_rgba(18,_23,_35,_0.25)_100%)]'></div>
 				)}
+				<div className='absolute right-0 top-4 h-[208px] w-[3px] bg-[linear-gradient(180deg,_#1F2534_0%,_#E5B919_50%,_#1F2534_100%)]'></div>
 			</div>
 			{selected ? (
 				<>
@@ -80,7 +82,7 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 							alt='myitem'
 						/>
 					</div>
-					<div className='absolute bottom-5 right-0 flex w-full rotate-3 items-end justify-between px-5'>
+					<div className='absolute bottom-5 right-0 flex w-full items-end justify-between px-5'>
 						<div className='h-[38px] w-[82px] bg-[#263147] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
 							<div className='flex h-full w-full items-center justify-center bg-[#1E2739] text-[12px] font-bold text-[#1AD19B] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
 								$25.62
@@ -92,12 +94,12 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 							<p className='text-right text-[12px] font-medium text-[#735E8D]'>Field-Tested</p>
 						</div>
 					</div>
-					<div className='absolute top-0 z-10 flex w-full origin-bottom-right -rotate-3'>
+					<div className='absolute top-0 z-10 flex w-full origin-bottom-right'>
 						<Button
 							onPress={() => onClose()}
 							className='-translate-x-1/2 -translate-y-1/2'
 						>
-							<div className='h-[30px] w-[30px] rotate-3 rounded-[8px] bg-[#0D1018] pl-[7px] pt-[7px]'>
+							<div className='h-[30px] w-[30px] rounded-[8px] bg-[#0D1018] pl-[7px] pt-[7px]'>
 								<IconClose className='h-4 w-4 fill-[#2F374A]' />
 							</div>
 						</Button>
@@ -111,16 +113,17 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 						<p className='text-[12px] font-medium text-[#5E6D8D]'></p>
 					</div>
 					{!isFailed && (
-						<div className='absolute bottom-0 right-0 flex w-full origin-[center_right] translate-y-1/2 rotate-3 justify-center gap-2'>
-							{['X1', 'X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
+						<div className='absolute bottom-0 right-0 flex w-full origin-[center_right] translate-y-1/2 justify-center gap-2'>
+							{['X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
 								<Button
 									key={index}
-									className={clsx('rounded-[12px]', { 'shadow-[0px_0px_24px_#FD3E2459]': index === 4 })}
+									onPress={() => setTimes(value)}
+									className={clsx('rounded-[12px]', { 'shadow-[0px_0px_24px_#FD3E2459]': times === value })}
 								>
 									<div
 										className={clsx(
 											'flex h-[44px] w-[44px] items-center justify-center rounded-[12px] border-2 font-bold',
-											index === 4
+											times === value
 												? 'border-[#FDCD24] bg-[#E2B617] text-[14px] text-[#121722] [text-shadow:0px_1px_0px_#FFD53F]'
 												: 'border-[#1E2433] bg-[#181E2C] text-[12px] text-[#60719A]'
 										)}
@@ -133,7 +136,7 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 					)}
 				</>
 			)}
-			<div className='absolute right-3 top-4 flex origin-top-right -rotate-3 items-center gap-2'>
+			<div className='absolute right-3 top-4 flex origin-top-right items-center gap-2'>
 				<p className='text-[13px] font-bold text-[#5F6C87]'>{t('lock_selected_items')}</p>
 				<ToggleButton
 					value={locked}

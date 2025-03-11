@@ -14,7 +14,7 @@ import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
-import { Input } from '@/shared/ui/Input/Input'
+import { Slider } from '@/shared/ui/Slider/Slider'
 
 import cls from './Main.module.sass'
 import MobileItemsModal from './MobileItemsModal'
@@ -25,7 +25,7 @@ const MobileSelect = () => {
 	const [items, setItems] = useState<boolean>(false)
 	const [upgradeTo, setUpgradtTo] = useState<boolean>(false)
 
-	const [times, setTimes] = useState<string>('X1')
+	const [times, setTimes] = useState<string>('X2')
 	const [bidAmount, setBidAmount] = useState<string>('0.00')
 	const { openModal } = useModal()
 
@@ -227,7 +227,7 @@ const MobileSelect = () => {
 				</Button>
 			</div>
 			<div className='mx-auto hidden w-full max-w-[300px] justify-between gap-[3px] lg:flex'>
-				{['X1', 'X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
+				{['X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
 					<Button
 						onPress={() => setTimes(value)}
 						key={index}
@@ -246,20 +246,32 @@ const MobileSelect = () => {
 					</Button>
 				))}
 			</div>
-			<div className='col-span-2 hidden flex-col items-center gap-[10px] rounded-md border-1 border-[#242C3E] bg-[#191F2D] p-[10px] lg:flex'>
+			<div className='relative col-span-2 hidden flex-col items-center gap-[10px] rounded-md border-1 border-[#242C3E] bg-[#191F2D] p-[10px] lg:flex'>
 				<p className='text-center text-[12px] text-white'>{t('enter_the_bid_amount')}</p>
-				<Input
-					onChange={setBidAmount}
-					theme='theme-1'
-					value={bidAmount}
-					type='number'
-					startContent={<p className='text-[#20E3A9]'>$</p>}
-					classNames={{
-						mainWrapper: 'w-full',
-						input: 'text-[11px]',
-						inputWrapper: '!bg-[#121722] rounded-md'
-					}}
-				/>
+				<div className='h-[35px] w-full bg-[#1F2534] p-[1px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+					<div className='flex h-full w-full items-center gap-2 bg-[#151a26] px-4 [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+						<IconWalletAdd className='h-5 w-5' />
+						<input
+							className='w-full bg-transparent text-[12px] text-white outline-none'
+							value={bidAmount}
+							type='number'
+							onChange={ev => setBidAmount(ev.target.value)}
+						/>
+					</div>
+				</div>
+				<div className='absolute bottom-[4px] left-[23px] w-[calc(100%_-_46px)]'>
+					<Slider
+						value={Number(bidAmount) / 10}
+						onChange={value => setBidAmount((Number(value) * 10).toString())}
+						minValue={0}
+						maxValue={100}
+						classNames={{
+							track: 'h-[1px] bg-[#262F41]',
+							filler: '!bg-[#04ECA8] !bg-none',
+							thumb: 'after:!w-[7px] after:!h-[7px] after:!bg-[#0EB989] !w-[6px] !h-[6px] !rounded-[14px] !bg-[#0EB989]'
+						}}
+					/>
+				</div>
 			</div>
 			<div className='col-span-2 mb-[14px] mt-2 hidden justify-center [filter:drop-shadow(0_0_14px_#FD3E2459)] lg:flex'>
 				<Button

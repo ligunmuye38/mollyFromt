@@ -6,6 +6,7 @@ import IconCopy from '@/shared/assets/icons/icon-copy-2.svg'
 import IconEye from '@/shared/assets/icons/icon-eye.svg'
 import IconWarning from '@/shared/assets/icons/icon-warning.svg'
 import Button from '@/shared/ui/Button/Button'
+import { Input } from '@/shared/ui/Input/Input'
 import { Select } from '@/shared/ui/Select/Select'
 
 import cls from './Main.module.sass'
@@ -14,6 +15,8 @@ const FairnessModal = () => {
 	const t = useTranslations()
 	const [type, setType] = useState<boolean>()
 	const [game, setGame] = useState<string>('Mines')
+	const [clientSeed, setClientSeed] = useState<string>('')
+	const [serverSeed, setServerSeed] = useState<string>('')
 
 	return (
 		<div className={cls.modal}>
@@ -50,25 +53,31 @@ const FairnessModal = () => {
 						<p className='text-[12px] font-medium leading-4 text-[#5F6C87]'>
 							{t('case_battles.client_seed').toUpperCase()}
 						</p>
-						<div
-							onClick={() => navigator.clipboard.writeText('7e2d8926de5f4df1e1205f28cc022bb2')}
-							className='flex h-[44px] w-full items-center justify-between rounded-[12px] border-1 border-transparent bg-[#1A202E] p-[12px] pl-[14px] hover:border-[#FFF4]'
-						>
-							<p className='text-[12px] font-medium leading-4 text-white'>7e2d8926de5f4df1e1205f28cc022bb2</p>
-							<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
-						</div>
+						<Input
+							value={clientSeed}
+							onChange={value => setClientSeed(value)}
+							classNames={{
+								base: '!rounded-[12px] !h-[44px]',
+								mainWrapper: 'w-full',
+								inputWrapper: 'w-full'
+							}}
+							endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
+						/>
 					</div>
 					<div className='flex w-full cursor-pointer flex-col gap-2'>
 						<p className='text-[12px] font-medium leading-4 text-[#5F6C87]'>
 							{t('case_battles.server_seed').toUpperCase()}
 						</p>
-						<div
-							className='flex h-[44px] w-full items-center justify-between rounded-[12px] border-1 border-transparent bg-[#1A202E] p-[12px] pl-[14px] hover:border-[#FFF4]'
-							onClick={() => navigator.clipboard.writeText('7e2d8926de5f4df1e1205f28cc022bb2')}
-						>
-							<p className='text-[12px] font-medium leading-4 text-white'>7e2d8926de5f4df1e1205f28cc022bb2</p>
-							<IconCopy className='h-5 w-5 fill-[#5F6C87]' />
-						</div>
+						<Input
+							value={serverSeed}
+							onChange={value => setServerSeed(value)}
+							classNames={{
+								base: '!rounded-[12px] !h-[44px]',
+								mainWrapper: 'w-full',
+								inputWrapper: 'w-full'
+							}}
+							endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
+						/>
 					</div>
 					<Select
 						value={new Set([game])}

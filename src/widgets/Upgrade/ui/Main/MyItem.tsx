@@ -11,7 +11,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
 import IconShoppingCart from '@/shared/assets/icons/icon-shopping-cart.svg'
-import IconWalletAdd from '@/shared/assets/icons/icon-wallet-add.svg'
 import Button from '@/shared/ui/Button/Button'
 
 import cls from './Main.module.sass'
@@ -161,8 +160,8 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 
 	return (
 		<div className={clsx('relative h-[240px] w-full', className)}>
-			<div className='h-full w-full origin-top-left -skew-y-3 self-start overflow-hidden rounded-[12px] backdrop-blur-sm'>
-				<div className='h-full w-full origin-top-left skew-y-6 rounded-[12px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_72.9%)] p-[3px]'>
+			<div className='h-full w-full origin-top-left self-start overflow-hidden rounded-[12px] backdrop-blur-sm'>
+				<div className='h-full w-full origin-top-left rounded-[12px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_72.9%)] p-[3px]'>
 					{selected ? (
 						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(90deg,_rgba(223,_6,_217,_0.15)_0%,_rgba(25,_31,_45,_0.0225)_30%)]'></div>
 					) : (
@@ -194,7 +193,7 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 							))}
 						</Swiper>
 					</div>
-					<div className='absolute bottom-5 flex w-full -rotate-3 justify-between px-5'>
+					<div className='absolute bottom-5 flex w-full justify-between px-5'>
 						<div>
 							<p className='text-[14px] font-bold text-white'>Exoskeleton AWP</p>
 							<p className='text-[12px] font-medium text-[#735E8D]'>Field-Tested</p>
@@ -205,12 +204,12 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 							</div>
 						</div>
 					</div>
-					<div className='absolute top-0 z-10 flex w-full rotate-3 justify-end'>
+					<div className='absolute top-0 z-10 flex w-full justify-end'>
 						<Button
 							onPress={() => toggleSelected(false)}
 							className='translate-x-1/2'
 						>
-							<div className='h-[30px] w-[30px] -rotate-3 rounded-[8px] bg-[#0D1018] pl-[7px] pt-[7px]'>
+							<div className='h-[30px] w-[30px] rounded-[8px] bg-[#0D1018] pl-[7px] pt-[7px]'>
 								<IconClose className='h-4 w-4 fill-[#2F374A]' />
 							</div>
 						</Button>
@@ -224,7 +223,7 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 						<p className='text-[12px] font-medium text-[#5E6D8D]'>{t('you_could_use_multiple_skins')}</p>
 					</div>
 					{!isFailed && (
-						<div className='absolute bottom-0 left-0 flex w-full origin-[center_left] translate-y-1/2 -rotate-3 justify-center gap-2'>
+						<div className='absolute bottom-0 left-0 flex w-full origin-[center_left] translate-y-1/2 justify-center gap-2'>
 							<div className='flex gap-[1px]'>
 								<Button onPress={() => toggleSelected(true)}>
 									<div className='h-[44px] w-[135px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(31,_37,_52,_0.15)_100%)] p-[2px] [clip-path:polygon(10px_0px,_100%_0px,_100%_100%,_10px_100%,_0px_50%)]'>
@@ -245,12 +244,6 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 									</div>
 								</Button>
 							</div>
-							<Button>
-								<div className='relative'>
-									<Hexagon />
-									<IconWalletAdd className='absolute left-1/2 top-1/2 h-[21px] w-[21px] -translate-x-1/2 -translate-y-1/2' />
-								</div>
-							</Button>
 						</div>
 					)}
 				</>

@@ -264,54 +264,56 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 										<span className='text-white'>0.00 / 5.00</span>
 									</p>
 									<div className='flex justify-between gap-2'>
-										<div
-											className='h-[42px] w-[180px] cursor-pointer p-[1px]'
-											style={{
-												background:
-													'linear-gradient(270deg, rgba(64, 106, 127, 0.45) 9.99%, rgba(27, 50, 61, 0.25) 54.99%, rgba(64, 106, 127, 0.45) 100%)',
-												clipPath:
-													'polygon(12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0px 50%)'
-											}}
-										>
+										<Button onPress={() => navigator.clipboard.writeText('ok8ryh8k'.toUpperCase())}>
 											<div
-												className='flex h-full w-full items-center justify-center'
+												className='h-[42px] w-[180px] cursor-pointer p-[1px]'
 												style={{
 													background:
-														'linear-gradient(270deg, #1B323D -32.2%, rgba(18, 36, 44, 0.45) 33.9%, #1B323D 100%)',
+														'linear-gradient(270deg, rgba(64, 106, 127, 0.45) 9.99%, rgba(27, 50, 61, 0.25) 54.99%, rgba(64, 106, 127, 0.45) 100%)',
 													clipPath:
-														'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
+														'polygon(12px 0px, calc(100% - 12px) 0px, 100% 50%, calc(100% - 12px) 100%, 12px 100%, 0px 50%)'
 												}}
 											>
-												<div className='mr-[7px]'>
-													<p className='text-center text-[10px] font-medium text-[#6490A7]'>
-														{t('giveaways.code').toUpperCase()}
-													</p>
-													<p className='text-center text-[12px] font-bold uppercase text-white'>ok8ryh8k</p>
-												</div>
 												<div
-													className='mr-[10px] h-[26px] w-[42px] p-[1px]'
+													className='flex h-full w-full items-center justify-center'
 													style={{
 														background:
-															'linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%), linear-gradient(270deg, #10AA7C 40.76%, #24FDBC 57.96%)',
+															'linear-gradient(270deg, #1B323D -32.2%, rgba(18, 36, 44, 0.45) 33.9%, #1B323D 100%)',
 														clipPath:
-															'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
+															'polygon(12px 0px, calc(100% - 12px) 0px, calc(100% - 1px) 50%, calc(100% - 12px) 100%, 12px 100%, 1px 50%)'
 													}}
 												>
+													<div className='mr-[7px]'>
+														<p className='text-center text-[10px] font-medium text-[#6490A7]'>
+															{t('giveaways.code').toUpperCase()}
+														</p>
+														<p className='text-center text-[12px] font-bold uppercase text-white'>ok8ryh8k</p>
+													</div>
 													<div
-														className='flex h-full w-full items-center justify-center'
+														className='mr-[10px] h-[26px] w-[42px] p-[1px]'
 														style={{
 															background:
-																'linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)',
+																'linear-gradient(90deg, rgba(36, 253, 188, 0) 77.44%, #24FDBC 89.52%), linear-gradient(270deg, #10AA7C 40.76%, #24FDBC 57.96%)',
 															clipPath:
-																'polygon(8px 0px, calc(100% - 8px) 0px, calc(100% - 1px) 50%, calc(100% - 8px) 100%, 8px 100%, 1px 50%)'
+																'polygon(8px 0px, calc(100% - 8px) 0px, 100% 50%, calc(100% - 8px) 100%, 8px 100%, 0px 50%)'
 														}}
 													>
-														<p className='text-[10px] font-bold leading-4 text-[#121722]'>+10%</p>
+														<div
+															className='flex h-full w-full items-center justify-center'
+															style={{
+																background:
+																	'linear-gradient(0deg, #10AA7C, #10AA7C), linear-gradient(180deg, rgba(36, 253, 188, 0) 0%, rgba(36, 253, 188, 0.65) 100%)',
+																clipPath:
+																	'polygon(8px 0px, calc(100% - 8px) 0px, calc(100% - 1px) 50%, calc(100% - 8px) 100%, 8px 100%, 1px 50%)'
+															}}
+														>
+															<p className='text-[10px] font-bold leading-4 text-[#121722]'>+10%</p>
+														</div>
 													</div>
+													<IconCopy className='h-5 w-5 fill-[#668397]' />
 												</div>
-												<IconCopy clasName='w-5 h-5 fill-[#668397]' />
 											</div>
-										</div>
+										</Button>
 										<Button
 											classNames={{
 												base: clsx(cls.hexagon_btn, 'h-[42px] w-[150px] !p-[1px]'),

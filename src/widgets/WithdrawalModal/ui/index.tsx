@@ -441,13 +441,13 @@ const WithdrawalModal = () => {
 											</p>
 											<Input
 												onChange={value => {
-													setUsdValue(value)
-													setUahValue((Number(value) * 41.34).toFixed(3))
+													setUahValue(value)
+													setUsdValue((Number(value) / 41.34).toFixed(3))
 												}}
-												value={usdValue}
+												value={uahValue}
 												startContent={
 													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<IconUSD />
+														<IconUAH />
 													</div>
 												}
 												type='number'
@@ -463,13 +463,13 @@ const WithdrawalModal = () => {
 											</p>
 											<Input
 												onChange={value => {
-													setUahValue(value)
-													setUsdValue((Number(value) / 41.34).toFixed(3))
+													setUsdValue(value)
+													setUahValue((Number(value) * 41.34).toFixed(3))
 												}}
-												value={uahValue}
+												value={usdValue}
 												startContent={
 													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<IconUAH />
+														<IconUSD />
 													</div>
 												}
 												type='number'

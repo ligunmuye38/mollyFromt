@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import Button from '@/shared/ui/Button/Button'
 
 const CircularProgress = () => {
@@ -100,22 +99,10 @@ const CircularProgress = () => {
 					strokeWidth={1}
 				></NextCircularProgress>
 				<div className='absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center'>
-					<p className='mb-4 text-[28px] font-bold leading-[28px] text-[#E1B514]'>9.274 %</p>
+					<p className='mb-2 text-[28px] font-bold leading-[28px] text-[#E1B514]'>9.274 %</p>
 					<p className='mb-[25px] text-[12px] font-medium leading-3 text-[#A6B0C6] lg:text-[16px]'>
 						{t('risky_chance')}
 					</p>
-					<div className='mb-[14px] [filter:drop-shadow(0_0_14px_#FD3E2459)] lg:hidden'>
-						<Button
-							classNames={{
-								base: '[clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)] bg-[linear-gradient(90deg,_rgba(253,_205,_36,_0)_122.17%,_#FDCD24_141.22%),_linear-gradient(270deg,_#E1B514_6.54%,_#FEDB61_33.68%)] w-[206px] h-[48px] p-[3px]',
-								content:
-									'flex items-center justify-center [clip-path:polygon(11px_0px,_calc(100%_-_11px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_11px)_100%,_11px_100%,_1px_50%)] bg-[linear-gradient(0deg,_#E1B514,_#E1B514),_linear-gradient(180deg,_rgba(253,_205,_36,_0)_0%,_rgba(253,_205,_36,_0.65)_100%)] w-full h-full'
-							}}
-						>
-							<IconUpgrade className='h-6 w-6 fill-[#121722]' />
-							<p className='text-[14px] font-bold text-[#121722]'>{t('upgrade').toUpperCase()}</p>
-						</Button>
-					</div>
 					<div className='flex gap-[6px]'>
 						<p className='text-[12px] font-bold text-[#D1D9EB]'>+5.500</p>
 						<div className='h-4 w-4 rounded-[3px] border-1 border-[#FDCD24] bg-[#E2B617]'>

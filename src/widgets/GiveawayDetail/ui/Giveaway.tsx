@@ -21,7 +21,7 @@ export const Giveaway: FC<GiveawaysProps> = ({ className }) => {
 	const t = useTranslations()
 	const pathname = usePathname()
 	const isCompleted = useMemo(() => pathname.includes('/completed'), [pathname])
-	const [completePageMode, toggleCompletePageMode] = useState<boolean>(false)
+	const [completePageMode, _toggleCompletePageMode] = useState<boolean>(false)
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -34,7 +34,10 @@ export const Giveaway: FC<GiveawaysProps> = ({ className }) => {
 						{t('giveaways.giveaways').toUpperCase()} {isCompleted ? '#12738931' : ''}
 					</div>
 					<Button
-						onPress={() => toggleCompletePageMode(v => !v)}
+						// onPress={() => toggleCompletePageMode(v => !v)}
+						onPress={() => {
+							navigator.clipboard.writeText(window.location.href)
+						}}
 						className='!absolute right-5'
 					>
 						<IconLink className='h-[38px] w-[34px]' />

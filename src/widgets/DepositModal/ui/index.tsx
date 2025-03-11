@@ -699,7 +699,7 @@ const DepositModal = () => {
 									</div>
 								</div>
 								<div className='mb-5 flex gap-2 lg:flex-col'>
-									<div className='flex h-[42px] flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-1 border-[#232B3E] bg-[#181E2C]'>
+									<div className='flex h-[42px] min-w-[300px] flex-shrink-0 cursor-pointer overflow-hidden rounded-xl border-1 border-[#232B3E] bg-[#181E2C]'>
 										<div
 											onClick={() => setInventoryType(0)}
 											className={clsx(
@@ -708,12 +708,12 @@ const DepositModal = () => {
 											)}
 										>
 											<IconCS />
-											<p className='text-[14px] text-white'>CS:GO</p>
+											<p className='text-[14px] text-white'>CS2</p>
 										</div>
 										<div
 											onClick={() => setInventoryType(1)}
 											className={clsx(
-												'flex w-full items-center gap-2 border-r-1 border-[#232B3E] px-3',
+												'flex w-full min-w-[110px] items-center gap-2 border-r-1 border-[#232B3E] px-3',
 												inventoryType === 1 ? 'bg-[#121721]' : ''
 											)}
 										>
@@ -725,7 +725,7 @@ const DepositModal = () => {
 											className={clsx('flex w-full items-center gap-2 px-3', inventoryType === 2 ? 'bg-[#121721]' : '')}
 										>
 											<IconCSGo />
-											<p className='text-[14px] text-[#7785B3]'>CS:GO</p>
+											<p className='text-[14px] text-[#7785B3]'>Rust</p>
 										</div>
 									</div>
 									<div className='flex flex-grow gap-2'>
@@ -754,7 +754,7 @@ const DepositModal = () => {
 										</Button>
 									</div>
 								</div>
-								<div className='app-scrollbar mb-5 grid max-h-[200px] auto-rows-auto grid-cols-5 justify-between gap-2 overflow-y-auto lg:grid-cols-3'>
+								<div className='app-scrollbar mb-5 grid max-h-[332px] auto-rows-auto grid-cols-5 justify-between gap-2 overflow-y-auto lg:grid-cols-3'>
 									{Array.from(new Array(12)).map((_, index) => (
 										<CaseItem
 											selected={selectedSkins.includes(index)}
@@ -765,7 +765,7 @@ const DepositModal = () => {
 										/>
 									))}
 								</div>
-								<div className='flex w-full items-center justify-between gap-4 rounded-[16px] border-1 border-[#1A202E] p-5 lg:flex-col'>
+								<div className='flex w-full items-center justify-between gap-3 rounded-[16px] border-1 border-[#1A202E] p-5 lg:flex-col'>
 									<div className='flex items-center gap-4 lg:w-full 3sm:gap-2'>
 										<div className='flex w-max items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] px-3 py-[9px] lg:w-full 3sm:w-full'>
 											<IconBagTick className='mr-2 w-6 fill-[#15C18D]' />
@@ -776,7 +776,7 @@ const DepositModal = () => {
 												</span>
 											</span>
 										</div>
-										<div className='flex w-max flex-shrink-0 items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#1A202E] px-[13px] py-[11px]'>
+										<div className='flex w-[126px] flex-shrink-0 items-center gap-2 rounded-lg border-1 border-[#1E2536] bg-[#1A202E] px-[13px] py-[11px]'>
 											<IconCheckBox className='h-[18px] w-[18px] fill-[#60719A]' />
 											<p className='text-[12px] text-[#60719A] 3sm:text-[10px]'>
 												{t('lotto.selected')}: <span>{selectedSkins.length}</span>
@@ -788,12 +788,12 @@ const DepositModal = () => {
 											onClick={() =>
 												setSelectedSkins(prev => (prev.length < 12 ? Array.from({ length: 12 }, (_, i) => i) : []))
 											}
-											className='flex w-max flex-shrink-0 items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[13px] py-[11px]'
+											className='flex w-[124px] flex-shrink-0 cursor-pointer items-center gap-2 rounded-lg border-1 border-[#1E2536] px-[13px] py-[11px]'
 										>
 											<IconCheckBox
 												className={clsx(
 													`h-[18px] w-[18px]`,
-													selectedSkins.length < 12 ? 'fill-[#24FDBC]' : 'fill-[#60719A]'
+													selectedSkins.length >= 12 ? 'fill-[#24FDBC]' : 'fill-[#60719A]'
 												)}
 											/>
 											<p className='text-[12px] text-[#60719A] 3sm:text-[10px]'>
@@ -813,7 +813,7 @@ const DepositModal = () => {
 								</div>
 							</div>
 						)}
-						<Button className='h-max w-full'>
+						{/* <Button className='h-max w-full'>
 							<Image
 								src='/images/payment/welcome_bonus.png'
 								className='!relative'
@@ -821,7 +821,7 @@ const DepositModal = () => {
 								fill
 								alt='welcome bonus'
 							/>
-						</Button>
+						</Button> */}
 					</div>
 				</div>
 			</div>

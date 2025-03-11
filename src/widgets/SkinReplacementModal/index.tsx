@@ -57,7 +57,7 @@ function ModalContent() {
 
 	return (
 		<div className='w-[1060px] lg:w-[688px] md:w-[560px] 3sm:w-[calc(100vw_-_80px)]'>
-			<div className='mb-2 flex items-center gap-4 lg:flex-col'>
+			{/* <div className='mb-2 flex items-center gap-4 lg:flex-col'>
 				{selectedCase && (
 					<div className='h-[87px] w-[120px] flex-shrink-0 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md md:h-[60px] md:w-[81px]'>
 						<Image
@@ -74,7 +74,7 @@ function ModalContent() {
 					<span className='text-[#E4B920]'>{t('skin_replacement_description_bold')}</span>
 					{t('skin_replacement_description').split(t('skin_replacement_description_bold'))[1]}
 				</p>
-			</div>
+			</div> */}
 			<div className='app-scrollbar mb-5 grid max-h-[418px] grid-cols-5 gap-[10px] overflow-y-auto lg:grid-cols-4 3sm:grid-cols-3 2sm:gap-1'>
 				{Array.from(new Array(20)).map((_, index) => (
 					<CaseItem

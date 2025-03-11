@@ -10,7 +10,7 @@ import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconBookmark from '@/shared/assets/icons/icon-bookmark.svg'
 import IconCaseOpen from '@/shared/assets/icons/icon-case-open.svg'
 import IconCheck from '@/shared/assets/icons/icon-check.svg'
-import IconFilter from '@/shared/assets/icons/icon-filter-2.svg'
+// import IconFilter from '@/shared/assets/icons/icon-filter-2.svg'
 import IconHexagonDefaultSmallVertical from '@/shared/assets/icons/icon-hexagon-default-sm-v.svg'
 import IconHexagonGreenSmallVertical from '@/shared/assets/icons/icon-hexagon-green-sm-v.svg'
 import IconRefresh from '@/shared/assets/icons/icon-refresh.svg'
@@ -50,7 +50,7 @@ const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: bo
 		<div
 			onClick={() => onSelect(!selected)}
 			className={clsx(
-				'h-[215px] w-full rounded-[12px] p-[2px] xl:w-full 2md:h-[170px] 3sm:w-full',
+				'h-[200px] w-full rounded-[12px] p-[2px] xl:w-full 2md:h-[170px] 3sm:w-full',
 				selected
 					? 'bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 					: 'bg-[#161C28]'
@@ -111,11 +111,11 @@ const CaseCard = ({ selected, onClick }: CaseCardProps) => {
 				<Image
 					className='3sm:h-[100px] 3sm:w-[100px]'
 					src='/images/skinsWiki/skins-wki-exmaple-item.png'
-					width={160}
-					height={160}
+					width={120}
+					height={120}
 					alt='Case Image'
 				/>
-				<p className={cls.title}>{t('case_accept.cases_magic')}</p>
+				<p className={cls.card_title}>{t('case_accept.cases_magic')}</p>
 				<div className='z-10 flex w-full justify-center 3sm:flex-col-reverse 3sm:items-center 3sm:gap-2'>
 					<div className={cls.price_wrapper}>
 						<div className={clsx(cls.price, '3sm:!h-[36px] 3sm:!w-[110px]')}>
@@ -193,7 +193,7 @@ function AddPrizeModal() {
 					)}
 					{activeTab === Tabs.MARKETPLACE && (
 						<>
-							<Button
+							{/* <Button
 								classNames={{
 									base: 'bg-[#273145A6] flex-shrink-0 h-max p-[1px] [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]',
 									content:
@@ -201,7 +201,7 @@ function AddPrizeModal() {
 								}}
 							>
 								<IconFilter />
-							</Button>
+							</Button> */}
 							<Input
 								onChange={v => setSearch(v)}
 								value={search}
@@ -225,7 +225,7 @@ function AddPrizeModal() {
 										'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
 								}}
 							>
-								<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
+								<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 									{t('giveaways.community_cases')}
 								</p>
 								<Switch
@@ -239,7 +239,7 @@ function AddPrizeModal() {
 											"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
 									}}
 								/>
-								<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
+								<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 									{t('giveaways.official_cases')}
 								</p>
 							</Button>
@@ -312,7 +312,7 @@ function AddPrizeModal() {
 									'flex h-full w-full py-[10px] items-center gap-3 bg-[#161c29] px-4 [clip-path:polygon(12px_0px,_calc(100%_-_12px)_0px,_100%_50%,_calc(100%_-_12px)_100%,_12px_100%,_0px_50%)]'
 							}}
 						>
-							<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
+							<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 								{t('giveaways.community_cases')}
 							</p>
 							<Switch
@@ -326,7 +326,7 @@ function AddPrizeModal() {
 										"w-[10px] h-[10px] bg-[#17E2A5] after:contet-[''] after:w-1 after:h-1 after:bg-[#12AB7D] after:rounded-sm group-data-[selected=true]:ms-3"
 								}}
 							/>
-							<p className={clsx('text-[12px]', casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
+							<p className={clsx('text-[12px]', !casesType ? 'text-[#60719A]' : 'font-bold text-white')}>
 								{t('giveaways.official_cases')}
 							</p>
 						</Button>
@@ -334,7 +334,7 @@ function AddPrizeModal() {
 				)}
 			</div>
 			{activeTab === Tabs.CASES ? (
-				<div className='app-scrollbar mb-5 grid max-h-[320px] grid-cols-5 gap-4 overflow-auto lg:gap-2 md:grid-cols-[repeat(auto-fill,140px)] md:justify-between'>
+				<div className='app-scrollbar mb-5 grid max-h-[420px] grid-cols-5 gap-4 overflow-auto lg:gap-2 2md:max-h-[390px] md:grid-cols-[repeat(auto-fill,140px)] md:justify-between'>
 					{Array.from(new Array(20)).map((_, index) => (
 						<CaseCard
 							key={index}
@@ -346,7 +346,7 @@ function AddPrizeModal() {
 					))}
 				</div>
 			) : (
-				<div className='app-scrollbar mb-5 grid max-h-[320px] grid-cols-5 gap-4 overflow-auto lg:gap-2 md:grid-cols-[repeat(auto-fill,140px)] md:justify-between'>
+				<div className='app-scrollbar mb-5 grid max-h-[420px] grid-cols-5 gap-4 overflow-auto lg:gap-2 2md:max-h-[356px] md:grid-cols-[repeat(auto-fill,140px)] md:justify-between'>
 					{Array.from(new Array(20)).map((_, index) => (
 						<CaseItem
 							key={index}
@@ -359,13 +359,14 @@ function AddPrizeModal() {
 				</div>
 			)}
 			<div className='flex justify-between rounded-xl border-1 border-[#1A202E] p-5 3sm:flex-col 3sm:items-center 3sm:gap-2 3sm:p-2'>
-				<div className='flex w-[210px] items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:pr-2'>
+				<div className='flex w-[300px] items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:pr-2'>
 					<IconBagTick className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
 						{t('case_battles.total_cost')}:{' '}
 						<span className='font-bold text-white 2sm:text-[12px]'>
-							<span className='text-[#17E2A5]'>$</span>
-							{15.5}
+							<span className='text-[#17E2A5]'>$ </span>
+							{15.5 * selectedCases.length} / <span className='text-[#17E2A5]'>$ </span>
+							<span className='text-[#60719A]'>{1749.45}</span>
 						</span>
 					</span>
 				</div>

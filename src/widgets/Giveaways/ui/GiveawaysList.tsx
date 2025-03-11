@@ -3,6 +3,7 @@ import { GiveawayStatus, GiveawaysFilters, IGiveaway } from '../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -469,23 +470,25 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 						}
 					>
 						{giveaway.status === GiveawayStatus.COMPLETED ? (
-							<div
-								className='h-[42px] w-[232px] bg-[#15BE8B] p-[1px]'
-								style={{
-									clipPath:
-										'polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)'
-								}}
-							>
+							<Link href='/giveaways/123/completed'>
 								<div
-									className='flex h-full w-full items-center justify-center bg-[#112B31] text-[12px] font-bold text-[#15BE8B]'
+									className='h-[42px] w-[232px] bg-[#15BE8B] p-[1px]'
 									style={{
 										clipPath:
-											'polygon(10px 0px, calc(100% - 10px) 0px, calc(100% - 1px) 50%, calc(100% - 10px) 100%, 10px 100%, 1px 50%)'
+											'polygon(10px 0px, calc(100% - 10px) 0px, 100% 50%, calc(100% - 10px) 100%, 10px 100%, 0px 50%)'
 									}}
 								>
-									{t('giveaways.completed').toUpperCase()}
+									<div
+										className='flex h-full w-full items-center justify-center bg-[#112B31] text-[12px] font-bold text-[#15BE8B]'
+										style={{
+											clipPath:
+												'polygon(10px 0px, calc(100% - 10px) 0px, calc(100% - 1px) 50%, calc(100% - 10px) 100%, 10px 100%, 1px 50%)'
+										}}
+									>
+										{t('giveaways.completed').toUpperCase()}
+									</div>
 								</div>
-							</div>
+							</Link>
 						) : (
 							<Button
 								classNames={{
@@ -643,15 +646,17 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 							</div>
 						</div>
 					</div>
-					<Button
-						classNames={{
-							base: 'w-full h-[42px] md:order-2 md:col-span-2 p-[1px] bg-[#213D48] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
-							content:
-								'w-full h-full bg-[#152B34] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)]'
-						}}
-					>
-						<p className='text-[10px] font-bold text-[#5B92AA]'>{t('giveaways.go_to').toUpperCase()}</p>
-					</Button>
+					<Link href='/giveaways/123'>
+						<Button
+							classNames={{
+								base: 'w-full h-[42px] md:order-2 md:col-span-2 p-[1px] bg-[#213D48] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]',
+								content:
+									'w-full h-full bg-[#152B34] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_calc(100%_-_1px)_50%,_calc(100%_-_10px)_100%,_10px_100%,_1px_50%)]'
+							}}
+						>
+							<p className='text-[10px] font-bold text-[#5B92AA]'>{t('giveaways.go_to').toUpperCase()}</p>
+						</Button>
+					</Link>
 				</>
 			)}
 		</div>
@@ -659,9 +664,13 @@ const GiveawayCard = ({ filter, giveaway }: IGiveawyCardProps) => {
 }
 
 const GiveawaysList = ({ filter }: IGiveawaysListProps) => {
+	const adjustedGiveaways =
+		filter === GiveawaysFilters.MY_PARTICIPATION
+			? giveaways.map(item => ({ ...item, status: GiveawayStatus.COMPLETED }))
+			: giveaways
 	return (
 		<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,272px)] justify-between gap-5 md:grid-cols-1'>
-			{giveaways.map((giveaway, index) => (
+			{adjustedGiveaways.map((giveaway, index) => (
 				<GiveawayCard
 					key={index}
 					filter={filter}
