@@ -413,7 +413,11 @@ const MainHeader = () => {
 					</div>
 				) : null}
 				<div className='2md:col-span-3 2md:mr-3 2md:justify-self-end'>{battleVariants()}</div>
-				<Button>
+				<Button
+					hexagon
+					hexagonAxis='y'
+					hexagonAngleOffset={8}
+				>
 					<svg
 						width='34'
 						height='38'

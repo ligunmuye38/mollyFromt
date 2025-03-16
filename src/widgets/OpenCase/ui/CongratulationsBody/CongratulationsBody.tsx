@@ -106,7 +106,12 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 			</div>
 			<div className='flex justify-center gap-[9px]'>
 				<IconExclamation className='h-[18px] w-[18px] fill-[#5F6C87]' />
-				<span className='text-[14px] text-[#5F6C87]'>{t('case_congratulation.bottom_title')}</span>
+				<span className='text-[14px] text-[#5F6C87]'>
+					{t('case_congratulation.bottom_title').substring(0, t('case_congratulation.bottom_title').lastIndexOf(' '))}
+					<span className='font-semibold text-[#9BA7C0]'>
+						{t('case_congratulation.bottom_title').slice(t('case_congratulation.bottom_title').lastIndexOf(' '))}
+					</span>
+				</span>
 			</div>
 			<div className={clsx('flex gap-2.5', items.length > 1 ? 'flex-row flex-wrap justify-center' : 'flex-col')}>
 				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_yellow)}>

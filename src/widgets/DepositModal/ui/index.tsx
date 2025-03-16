@@ -310,9 +310,9 @@ const DepositModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>
@@ -507,9 +507,9 @@ const DepositModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.go_to_payment')}</p>
@@ -649,9 +649,9 @@ const DepositModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.go_to_payment')}</p>
@@ -772,7 +772,8 @@ const DepositModal = () => {
 											<span className='text-[12px] font-medium leading-4 text-[#60719A] 3sm:text-[10px]'>
 												{t('lotto.total_cost')}:{' '}
 												<span className='font-medium text-white'>
-													<span className='text-[#17E2A5]'>$</span>15.50
+													<span className='text-[#17E2A5]'>$</span>
+													{15.5 * selectedSkins.length}
 												</span>
 											</span>
 										</div>
@@ -802,9 +803,9 @@ const DepositModal = () => {
 										</div>
 										<Button
 											classNames={{
-												base: 'rounded-[12px] lg:w-full p-[1px] h-[40px] w-max bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+												base: 'rounded-[12px] lg:w-full p-[1px] h-[40px] w-max bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 												content:
-													'h-full rounded-[12px] px-4 bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+													'h-full rounded-[12px] px-4 bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 											}}
 										>
 											<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.pay_with_skins')}</p>

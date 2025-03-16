@@ -167,7 +167,7 @@ const OpenCaseBar = () => {
 									}}
 								>
 									<span className='text-[15px] font-[900] text-[#DD2C2C]'>
-										{'$15.50 ' + t('open_case.refill') + ' $5.50'}
+										{'$15.50. ' + t('open_case.refill') + ' $5.50'}
 									</span>
 								</Button>
 							</div>

@@ -23,15 +23,15 @@ import BattleCardNew from './BattleCardNew'
 import CaseItem from './CaseItem'
 import cls from './CreateBattle.module.sass'
 
-const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
+const CreateBattleModal = ({ addCases }: { addCases: (_: number[]) => void }) => {
 	const t = useTranslations()
 
 	const { closeInnerModal, openInnerModal } = useModal()
 
 	const [amounts, setAmounts] = useState<number>(0)
 
-	const [selectedCase, toggleSelectedCase] = useState<boolean>(false)
-
+	const [selectedCase, toggleSelectedCase] = useState<boolean>(true)
+	const [amountsList, setAmountsList] = useState<{ [key: number]: number }>({})
 	const [priceRange, setPriceRange] = useState<number[]>([0, 100])
 	const [search, setSearch] = useState<string>('')
 
@@ -152,8 +152,14 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 							defaultAmount={0}
 							item={item}
 							onViewDrop={openViewDrop}
-							increaseAmount={increaseAmount}
-							decreaseAmount={decreaseAmount}
+							increaseAmount={() => {
+								setAmountsList(prev => ({ ...prev, [index]: (prev[index] ?? 0) + 1 }))
+								increaseAmount()
+							}}
+							decreaseAmount={() => {
+								setAmountsList(prev => ({ ...prev, [index]: prev[index] > 0 ? prev[index] - 1 : 0 }))
+								decreaseAmount()
+							}}
 							key={`New-Case-Type-${index}`}
 						/>
 					))}
@@ -179,7 +185,7 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[15px] md:w-full'>
 					<IconWallet className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A] 2sm:text-[12px]'>
-						{t('case_battles.user_balance')}:{' '}
+						{t('balance')}:{' '}
 						<span className='font-bold text-white'>
 							<span className='text-[#17E2A5]'>$</span>1740.00
 						</span>
@@ -189,7 +195,11 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 					<div style={{ filter: 'drop-shadow(0 0 12px #10AA7C59)' }}>
 						<Button
 							onPress={() => {
-								addCases(1)
+								addCases(
+									Object.keys(amountsList)
+										.map((key: string) => amountsList[Number(key)])
+										.filter(value => value > 0)
+								)
 							}}
 							classNames={{
 								base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),
@@ -210,7 +220,11 @@ const CreateBattleModal = ({ addCases }: { addCases: (_: number) => void }) => {
 			>
 				<Button
 					onPress={() => {
-						addCases(1)
+						addCases(
+							Object.keys(amountsList)
+								.map((key: string) => amountsList[Number(key)])
+								.filter(value => value > 0)
+						)
 					}}
 					classNames={{
 						base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px]'),

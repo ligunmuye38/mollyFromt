@@ -137,8 +137,15 @@ const SignInModal: FC<SignInModalProps> = ({ onClickSignUp, onClickForgetPasswor
 				<div className={clsx(cls.bg_gradent_gray_out, cls.border_r_12)}>
 					<Button
 						classNames={{
-							content: [cls.btn_content, cls.bg_gradent_gray, cls.border_gradent, 'text-black py-3 border-none'],
-							base: ['w-full', cls.border_r_12]
+							content: [
+								cls.btn_content,
+								'text-black py-3 border-none bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
+							],
+							base: [
+								'w-full',
+								cls.border_r_12,
+								'bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]'
+							]
 						}}
 						onClick={onClickSignIn}
 					>

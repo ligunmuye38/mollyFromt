@@ -61,7 +61,6 @@ const FairnessModal = () => {
 								mainWrapper: 'w-full',
 								inputWrapper: 'w-full'
 							}}
-							endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
 						/>
 					</div>
 					<div className='flex w-full cursor-pointer flex-col gap-2'>
@@ -76,7 +75,6 @@ const FairnessModal = () => {
 								mainWrapper: 'w-full',
 								inputWrapper: 'w-full'
 							}}
-							endContent={<IconCopy className='h-5 w-5 fill-[#5F6C87]' />}
 						/>
 					</div>
 					<Select

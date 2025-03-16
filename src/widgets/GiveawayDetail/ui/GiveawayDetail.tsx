@@ -260,7 +260,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 									<IconGift className='mb-[8px]' />
 									<p className='text-center text-[14px] font-medium text-white'>{t('giveaways.refill_by_promocode')}</p>
 									<p className='mb-[6px] text-center text-[12px] font-medium text-[#587083]'>
-										{t('refill_your_balance_for')} <span className='text-[#23F9B9]'>$</span>{' '}
+										{t('giveaways.refill_your_balance_by')} <span className='text-[#23F9B9]'>$</span>{' '}
 										<span className='text-white'>0.00 / 5.00</span>
 									</p>
 									<div className='flex justify-between gap-2'>
@@ -320,7 +320,7 @@ const GiveawayDetail = ({ mode }: IGiveawayDetailProps) => {
 												content: clsx(cls.hexagon_btn_inner, '!gap-0')
 											}}
 										>
-											<p className='text-[12px] text-[#121722]'>{t('giveaways.refill').toUpperCase()} $1.50</p>
+											<p className='text-[12px] text-[#121722]'>{t('giveaways.refill').toUpperCase()}</p>
 										</Button>
 									</div>
 								</div>

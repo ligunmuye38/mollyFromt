@@ -171,28 +171,6 @@ const WithdrawalModal = () => {
 									<div className='mb-[15px] grid grid-cols-2 gap-5 lg:grid-cols-1'>
 										<div>
 											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
-												{t('deposits.you_are_giving_it_away').toUpperCase()}
-											</p>
-											<Input
-												onChange={value => {
-													setUsdValue(value)
-													setUahValue((Number(value) * 41.34).toFixed(3))
-												}}
-												value={usdValue}
-												startContent={
-													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<IconUSD />
-													</div>
-												}
-												type='number'
-												classNames={{
-													base: 'rounded-[12px] h-12',
-													mainWrapper: 'w-full'
-												}}
-											/>
-										</div>
-										<div>
-											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
 												{t('deposits.you_are_getting').toUpperCase()}
 											</p>
 											<Input
@@ -204,6 +182,28 @@ const WithdrawalModal = () => {
 												startContent={
 													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
 														<IconUAH />
+													</div>
+												}
+												type='number'
+												classNames={{
+													base: 'rounded-[12px] h-12',
+													mainWrapper: 'w-full'
+												}}
+											/>
+										</div>
+										<div>
+											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
+												{t('deposits.you_are_giving_it_away').toUpperCase()}
+											</p>
+											<Input
+												onChange={value => {
+													setUsdValue(value)
+													setUahValue((Number(value) * 41.34).toFixed(3))
+												}}
+												value={usdValue}
+												startContent={
+													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
+														<IconUSD />
 													</div>
 												}
 												type='number'
@@ -262,9 +262,9 @@ const WithdrawalModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.go_to_withdrawal')}</p>
@@ -332,28 +332,6 @@ const WithdrawalModal = () => {
 									<div className='mb-[15px] grid grid-cols-2 gap-5 lg:grid-cols-1'>
 										<div>
 											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
-												{t('deposits.you_are_getting').toUpperCase()}
-											</p>
-											<Input
-												onChange={value => {
-													setUsdValue(value)
-													setUahValue((Number(value) / selectedCrypto.price).toFixed(3))
-												}}
-												value={usdValue}
-												startContent={
-													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<IconUSD />
-													</div>
-												}
-												type='number'
-												classNames={{
-													base: 'rounded-[12px]',
-													mainWrapper: 'w-full'
-												}}
-											/>
-										</div>
-										<div>
-											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
 												{t('deposits.you_are_giving_it_away').toUpperCase()}
 											</p>
 											<Input
@@ -370,6 +348,28 @@ const WithdrawalModal = () => {
 															height={16}
 															alt='crypto currency'
 														/>
+													</div>
+												}
+												type='number'
+												classNames={{
+													base: 'rounded-[12px]',
+													mainWrapper: 'w-full'
+												}}
+											/>
+										</div>
+										<div>
+											<p className='mb-[6px] text-[10px] font-bold leading-4 text-[#49526D]'>
+												{t('deposits.you_are_getting').toUpperCase()}
+											</p>
+											<Input
+												onChange={value => {
+													setUsdValue(value)
+													setUahValue((Number(value) / selectedCrypto.price).toFixed(3))
+												}}
+												value={usdValue}
+												startContent={
+													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
+														<IconUSD />
 													</div>
 												}
 												type='number'
@@ -409,9 +409,9 @@ const WithdrawalModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.go_to_withdrawal')}</p>
@@ -511,9 +511,9 @@ const WithdrawalModal = () => {
 									</div>
 									<Button
 										classNames={{
-											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+											base: 'mb-5 rounded-[12px] p-[1px] h-12 w-full bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
 											content:
-												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188)_100%)]'
+												'h-full rounded-[12px] bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 										}}
 									>
 										<p className='text-[14px] font-bold leading-4 text-[#141925]'>{t('deposits.go_to_withdrawal')}</p>

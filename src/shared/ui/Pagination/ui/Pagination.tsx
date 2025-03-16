@@ -13,7 +13,7 @@ interface PaginationProps {
 }
 
 const Pagination = ({ items, className, onClick }: PaginationProps) => {
-	const [activeItem, setActiveItem] = useState<string>('')
+	const [activeItem, setActiveItem] = useState<string>(items[0].content)
 
 	const setItem = (item: IPagination) => {
 		setActiveItem(item.content)

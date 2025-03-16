@@ -258,9 +258,9 @@ const MainHeader = ({ type = PartnershipTypes.PARTNERSHIP }: IMainHeader) => {
 									</div>
 									<Button
 										classNames={{
-											base: 'w-[124px] h-12 rounded-[8px] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_#10AA7C_40.76%,_#24FDBC_57.96%)] p-[1px]',
+											base: 'w-[124px] h-12 rounded-[8px] bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)] p-[1px]',
 											content:
-												'text-[#121722] text-[12px] font-bold bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] w-full h-full rounded-[8px]'
+												'text-[#121722] text-[12px] font-bold bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] w-full h-full rounded-[8px]'
 										}}
 									>
 										{t('generate_code').toUpperCase()}

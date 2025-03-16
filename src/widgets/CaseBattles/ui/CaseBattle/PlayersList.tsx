@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 import BgBubble from '@/shared/assets/bubble-bg-green.svg'
 import EmojiHappy from '@/shared/assets/icons/emoji/happy.svg'
 import IconCaseBattle from '@/shared/assets/icons/icon-case-battle.svg'
-import IconClose from '@/shared/assets/icons/icon-close.svg'
+// import IconClose from '@/shared/assets/icons/icon-close.svg'
 import IconStartWithBots from '@/shared/assets/icons/icon-start-with-bots.svg'
 import BgSnakeGreen from '@/shared/assets/snake-bg-green.svg'
 import BgSnakeRed from '@/shared/assets/snake-bg-red.svg'
@@ -474,13 +474,13 @@ const JoinedPlayerWithOffer = () => {
 						'relative flex flex-col items-center justify-center gap-3 overflow-hidden py-[20px] 3sm:justify-between 3sm:py-0'
 					)}
 				>
-					<div className='absolute right-4 top-4 3sm:hidden'>
+					{/* <div className='absolute right-4 top-4 3sm:hidden'>
 						<Button>
 							<div className='h-6 w-6 rounded-[7px] bg-[#242C3E] p-2'>
 								<IconClose className='h-8 w-8 fill-[#505C7A]' />
 							</div>
 						</Button>
-					</div>
+					</div> */}
 					<div className='relative flex items-center gap-3 rounded-b-2xl border-[#141D28] 3sm:grid 3sm:w-full 3sm:grid-cols-2 3sm:gap-0 3sm:border-b-2 3sm:bg-[linear-gradient(0deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)]'>
 						<div className='flex flex-col items-center 3sm:border-r-2 3sm:border-[#141D28] 3sm:py-1'>
 							<SmallAvatar icon='/images/avatars/2.jpg' />
@@ -970,7 +970,7 @@ const BattleCreator = ({ onStartBattle }: IBattleCreatorProps) => {
 					</div>
 					<Button
 						classNames={{
-							base: '!absolute 3sm:hidden left-1/2 -top-[2px] z-10 flex -translate-x-1/2 items-center gap-[6px] w-[106px] h-[33px]'
+							base: '!absolute 3sm:hidden left-1/2 -top-[2px] z-10 flex -translate-x-1/2 items-center gap-[6px] w-[106px] h-[33px] [clip-path:path("M10_0H96_106L96.8606_30.16C96.3495_31.8466_94.7948_33_93.0325_33H12.9675C11.2052_33_9.6505_31.8466_9.1394_30.16L0_0H10Z")]'
 						}}
 					>
 						<svg

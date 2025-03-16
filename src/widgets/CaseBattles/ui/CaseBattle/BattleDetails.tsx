@@ -2,6 +2,8 @@ import { players } from '../../model/items'
 import { BattleVariants } from '../../model/types'
 import clsx from 'clsx'
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
@@ -133,7 +135,15 @@ const DropItem = () => {
 }
 
 const BattleDetails = () => {
-	const { currentBattleVariant } = useCommonStore()
+	const params = useSearchParams()
+	const { currentBattleVariant: currentBattleVariantFromStore } = useCommonStore()
+	const [currentBattleVariant, setCurrentBattleVariant] = useState<BattleVariants>(
+		currentBattleVariantFromStore as BattleVariants
+	)
+
+	useEffect(() => {
+		setCurrentBattleVariant((params.get('battle-type') as BattleVariants) ?? BattleVariants.ONE_VS_ONE)
+	}, [params])
 
 	return (
 		<div>

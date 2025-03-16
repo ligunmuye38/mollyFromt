@@ -4,6 +4,8 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { FC, useState } from 'react'
 
+import { useCommonStore } from '@/entities/Common/model/store'
+
 import IconCaseBattles from '@/shared/assets/icons/icon-case-battle.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
 
@@ -18,6 +20,8 @@ interface CaseBattleProps {
 
 export const CaseBattle: FC<CaseBattleProps> = ({ className }) => {
 	const t = useTranslations()
+	const setSigninState = useCommonStore(state => state.setSigninState)
+	setSigninState(true)
 
 	const [battleStarted, toggleBattleStarted] = useState<boolean>(false)
 

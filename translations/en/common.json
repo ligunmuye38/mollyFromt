@@ -295,7 +295,7 @@
 		"instant_result": "Instant results",
 		"top_drops": "top drops",
 		"case_content": "Case contents",
-		"refill": "don't leave",
+		"refill": "You are short",
 		"refill_btn": "Refill balance",
 		"refill_text": "Insufficient funds to open a case"
 	},
@@ -331,7 +331,7 @@
 		"sell_everything": "Sell everything",
 		"go_inventory": "Go inventory",
 		"top_title": "Congratulations, you have won the following items:",
-		"bottom_title": "You can sell the entire item or try to open the case again."
+		"bottom_title": "You can withdraw item in your Inventory"
 	},
 	"profile_main": {
 		"title": "profile",
@@ -444,6 +444,7 @@
 		"upload_avatar": "Upload avatar"
 	},
 	"case_battles": {
+		"add": "Add",
 		"case_battle": "Case Battle",
 		"active_battles": "Active Battles",
 		"top_battles": "Top Battles",
@@ -536,7 +537,7 @@
 		"buy_giveaway_squad": "Buy Giveaway Squad",
 		"buy_new_beginning_case": "Buy New Beginning case",
 		"refill_by_promocode": "Refill by promocode",
-		"refill_your_balance_for": "Refill your balance for",
+		"refill_your_balance_by": "Refill your balance by",
 		"refill": "Refill",
 		"code": "Code",
 		"create_giveaways": "Create giveaways",

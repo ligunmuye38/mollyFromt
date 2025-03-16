@@ -19,6 +19,7 @@ const FarmToolBar = () => {
 	const t = useTranslations()
 
 	const openFarm = useCommonStore(state => state.openFarm)
+	const setOpenFarm = useCommonStore(state => state.setOpenFarm)
 
 	return (
 		openFarm == true && (
@@ -47,6 +48,7 @@ const FarmToolBar = () => {
 										<Button
 											fullWidth={true}
 											hexagon={true}
+											onPress={() => setOpenFarm(false)}
 											classNames={{
 												base: 'w-full h-full'
 											}}

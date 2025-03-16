@@ -361,7 +361,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 								<div className='flex h-full w-full items-center gap-2 bg-[#151a26] px-4 [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
 									<IconWalletAdd className='h-5 w-5' />
 									<input
-										className='bg-transparent text-[12px] text-white outline-none'
+										className='w-full bg-transparent text-[12px] text-white outline-none'
 										value={bidAmount}
 										type='number'
 										onChange={ev => setBidAmount(ev.target.value)}

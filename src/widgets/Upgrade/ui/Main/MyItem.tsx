@@ -195,7 +195,9 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 					</div>
 					<div className='absolute bottom-5 flex w-full justify-between px-5'>
 						<div>
-							<p className='text-[14px] font-bold text-white'>Exoskeleton AWP</p>
+							<p className='flex items-start gap-[6px] text-[14px] font-bold text-white'>
+								Exoskeleton AWP <span className='text-[13px] font-semibold text-[#1AD19B]'>$80.44</span>
+							</p>
 							<p className='text-[12px] font-medium text-[#735E8D]'>Field-Tested</p>
 						</div>
 						<div className='h-[38px] w-[82px] bg-[#263147] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
@@ -204,7 +206,7 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 							</div>
 						</div>
 					</div>
-					<div className='absolute top-0 z-10 flex w-full justify-end'>
+					<div className='absolute top-0 z-10 flex w-full -translate-y-1/2 justify-end'>
 						<Button
 							onPress={() => toggleSelected(false)}
 							className='translate-x-1/2'

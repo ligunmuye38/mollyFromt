@@ -276,7 +276,7 @@ export const MainListItem = ({ item }: MainListItemProps) => {
 					</div>
 					<p className={cls.main_list_case_battle_round}>{t('case_battles.rounds')}</p>
 				</div>
-				<div className='elative ml-5 flex flex-[0_0_224px] items-center gap-3 md:order-3 md:ml-0 md:ml-2 md:flex-[0_0_200px] md:gap-1'>
+				<div className='elative ml-5 flex flex-[0_0_228px] items-center gap-3 md:order-3 md:ml-0 md:ml-2 md:flex-[0_0_200px] md:gap-1'>
 					{item.joinedPlayers > 0 ? (
 						<div className='flex flex-col gap-4'>
 							<Avatar icon='/images/avatars/2.jpg' />
@@ -491,7 +491,7 @@ export const TopBattleItem = ({ item }: ITopBattleItemProps) => {
 					</div>
 				</div>
 			</div>
-			<div className='relative flex flex-[0_0_224px] items-center gap-2 2md:order-3 2md:col-span-2 2md:flex-[0_0_180px] 2md:justify-end 2md:gap-[2px]'>
+			<div className='relative flex flex-[0_0_228px] items-center gap-2 2md:order-3 2md:col-span-2 2md:flex-[0_0_180px] 2md:justify-end 2md:gap-[2px]'>
 				<div className='flex flex-col gap-4'>
 					<Avatar icon='/images/avatars/2.jpg' />
 				</div>
@@ -589,7 +589,7 @@ const MainList = ({ type }: IMainListProps) => {
 								<IconSort />
 							</Button>
 						</div>
-						<div className='mr-[10px] flex flex-[0_0_224px] items-center gap-[6px]'>
+						<div className='mr-[10px] flex flex-[0_0_228px] items-center gap-[6px]'>
 							{t('case_battles.players')}
 							<Button onPress={() => setSortBy(v => (v === 'players_asc' ? 'players_desc' : 'players_asc'))}>
 								<IconSort />
@@ -631,7 +631,7 @@ const MainList = ({ type }: IMainListProps) => {
 								<IconSort />
 							</Button>
 						</div>
-						<span className='flex-[0_0_224px]'>{t('case_battles.players')}</span>
+						<span className='flex-[0_0_228px]'>{t('case_battles.players')}</span>
 						<span className='ml-6 flex-[0_0_140px] text-end'>{t('case_battles.actions')}</span>
 					</div>
 				</div>

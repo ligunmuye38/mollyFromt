@@ -133,7 +133,7 @@ function AddPrizeModal() {
 	const [activeTab, setActiveTab] = useState<Tabs>(Tabs.INVENTORY)
 	const [canShowSelectedItems, toggleCanShowSelectedItems] = useState<boolean>(false)
 	const [search, setSearch] = useState<string>('')
-	const [casesType, toggleCasesType] = useState<boolean>(false)
+	const [casesType, toggleCasesType] = useState<boolean>(true)
 	const [selectedCases, setSelectedCases] = useState<number[]>([])
 	const [dir, toggleDir] = useState<boolean>(false)
 
@@ -359,14 +359,20 @@ function AddPrizeModal() {
 				</div>
 			)}
 			<div className='flex justify-between rounded-xl border-1 border-[#1A202E] p-5 3sm:flex-col 3sm:items-center 3sm:gap-2 3sm:p-2'>
-				<div className='flex w-[300px] items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:pr-2'>
+				<div className='flex items-center rounded-[8px] border-1 border-[#1E2536] bg-[#1A202E] py-[9px] pl-3 pr-[22px] md:pr-2'>
 					<IconBagTick className='mr-2 w-6 fill-[#60719A]' />
 					<span className='text-[14px] font-medium leading-4 text-[#60719A]'>
 						{t('case_battles.total_cost')}:{' '}
 						<span className='font-bold text-white 2sm:text-[12px]'>
 							<span className='text-[#17E2A5]'>$ </span>
-							{15.5 * selectedCases.length} / <span className='text-[#17E2A5]'>$ </span>
-							<span className='text-[#60719A]'>{1749.45}</span>
+							{15.5 * selectedCases.length}
+							{activeTab !== Tabs.INVENTORY && (
+								<>
+									{' '}
+									/ <span className='text-[#17E2A5]'>$ </span>
+									<span className='text-[#60719A]'>{1749.45}</span>
+								</>
+							)}
 						</span>
 					</span>
 				</div>
@@ -380,7 +386,7 @@ function AddPrizeModal() {
 						>
 							<IconPlus className={clsx(cls.hexagon_btn_inner_icon, cls.sm, 'w-4 !fill-[#121722]')} />
 							<span className='text-[14px] font-[900] leading-4 text-[#121722] [text-shadow:_0_1px_0_rgb(37_255_189_/_0.45)]'>
-								{t('case_battles.add_cases').toUpperCase()}
+								{t('case_battles.add').toUpperCase()}
 							</span>
 						</Button>
 					</div>
