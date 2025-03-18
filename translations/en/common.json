@@ -331,7 +331,9 @@
 		"sell_everything": "Sell everything",
 		"go_inventory": "Go inventory",
 		"top_title": "Congratulations, you have won the following items:",
-		"bottom_title": "You can withdraw item in your Inventory"
+		"bottom_title": "You can withdraw item in your Inventory",
+		"bottom_title1": "To get items, use your Inventory or sell them one by one or all at once",
+		"inventory": "Inventory"
 	},
 	"profile_main": {
 		"title": "profile",

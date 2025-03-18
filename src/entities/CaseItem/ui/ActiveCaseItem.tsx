@@ -77,12 +77,12 @@ const ActiveCaseItem = ({ title, theme, name, price, picUrl }: ActiveCaseItemPro
 		<div
 			className={clsx(
 				'relative h-[200px] w-[133px] rounded-[12px] p-0.5 hover:cursor-pointer',
-				isActive == true ? '!bg-[#10AA7C]' : cls.item_shadow,
+				isActive == true ? '!bg-[#10AA7C]' : '!bg-[#121621]',
 				cls.item
 			)}
 			onClick={active}
 		>
-			<div className='relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[12px] bg-black p-[13px]'>
+			<div className='relative flex h-full w-full flex-col justify-between overflow-hidden rounded-[12px] bg-[#121621] p-[13px]'>
 				<div className={clsx('flex items-start justify-between')}>
 					<span className='text-[10px] font-[700] uppercase text-[#2F374A]'>{title}</span>
 					<div className='flex items-start gap-2'>
@@ -100,20 +100,18 @@ const ActiveCaseItem = ({ title, theme, name, price, picUrl }: ActiveCaseItemPro
 					</div>
 				</div>
 				<div className='flex flex-col gap-1'>
-					<span className='text-[10px] font-[500] text-[#2F374A]'>{name}</span>
-					<span className='text-[12px] font-[500] text-[#D1D9EB]'>$ {price}</span>
+					<span className='text-[10px] font-[500] leading-[10px] text-[#2F374A]'>{name}</span>
+					<span className='text-[12px] font-[500] leading-3 text-[#D1D9EB]'>$ {price}</span>
 				</div>
-				<div className={clsx(cls.item_sell_btn)}>
-					<div className={clsx(cls.item_sell_btn_inner, 'h-full w-full')}>
-						<Button
-							classNames={{
-								base: 'w-full h-full px-2 py-[10px] '
-							}}
-						>
-							<span className='text-[12px] uppercase text-[#121722]'>SELL ${price}</span>
-						</Button>
-					</div>
-				</div>
+				<Button
+					classNames={{
+						base: 'w-full mt-1 h-[38px] p-[1px] rounded-lg bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),linear-gradient(270deg,_rgba(36,_253,_188,_0.445)_40.76%,_#24FDBC_57.96%)]',
+						content:
+							'rounded-lg bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] w-full h-full'
+					}}
+				>
+					<span className='text-[12px] uppercase text-[#121722]'>SELL ${price}</span>
+				</Button>
 			</div>
 		</div>
 	)

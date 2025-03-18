@@ -2,11 +2,14 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Dispatch, useMemo, useState } from 'react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+
+import { caseItems } from '@/widgets/Cases/model/items'
+import { ICaseItemType, ImageBgType } from '@/widgets/Cases/model/types'
 
 import IconAK47 from '@/shared/assets/icons/icon-ak-47.svg'
 import IconClose from '@/shared/assets/icons/icon-close-black.svg'
@@ -118,16 +121,47 @@ export const Hexagon = ({ className }: { className?: string }) => {
 	)
 }
 
-const MyItem = ({ className, isSelected }: { className?: string; isSelected: boolean }) => {
+const MyItem = ({
+	className,
+	selectedItems,
+	setSelectedItems,
+	userBalance
+}: {
+	className?: string
+	selectedItems: ICaseItemType[]
+	setSelectedItems: Dispatch<React.SetStateAction<ICaseItemType[]>>
+	userBalance: number
+}) => {
 	const t = useTranslations()
-	const [selected, toggleSelected] = useState<boolean>(false)
 	const pathname = usePathname()
 	const isFailed = pathname.includes('/failed')
 	const isSuccess = pathname.includes('/success')
+	const [currentSlide, setCurrentSlide] = useState<number>(0)
+	const totalCost = useMemo(() => {
+		return selectedItems.reduce((prev, item) => prev + Number(item.price.replace(',', '.')), 0)
+	}, [selectedItems])
 
-	useEffect(() => {
-		toggleSelected(isSelected)
-	}, [isSelected])
+	const getBackground = (type: ImageBgType) => {
+		switch (type) {
+			case 'yellow':
+				return '#FDCD24'
+
+			case 'pink':
+				return '#FF00F5'
+
+			case 'purple':
+				return '#AD00FF'
+
+			case 'blue':
+				return '#0038FF'
+
+			case 'limit_blue':
+				return '#35AAFF'
+
+			default:
+				return '#FDCD24'
+		}
+	}
 
 	if (isSuccess) {
 		return (
@@ -162,29 +196,40 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 		<div className={clsx('relative h-[240px] w-full', className)}>
 			<div className='h-full w-full origin-top-left self-start overflow-hidden rounded-[12px] backdrop-blur-sm'>
 				<div className='h-full w-full origin-top-left rounded-[12px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(64,_75,_101,_0.15)_72.9%)] p-[3px]'>
-					{selected ? (
-						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(90deg,_rgba(223,_6,_217,_0.15)_0%,_rgba(25,_31,_45,_0.0225)_30%)]'></div>
+					{selectedItems.length ? (
+						<div
+							className='h-full w-full rounded-[12px]'
+							style={{
+								background: `linear-gradient(90deg, ${getBackground(selectedItems[currentSlide].type)}1A 0%, rgba(25, 31, 45, 0.0225) 30%)`
+							}}
+						></div>
 					) : (
 						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(90deg,_#191F2D_0%,_rgba(18,_23,_35,_0.25)_100%)]'></div>
 					)}
 				</div>
 				<div className='absolute left-0 top-4 h-[208px] w-[3px] bg-[linear-gradient(180deg,_#1F2534_0%,_#E5B919_50%,_#1F2534_100%)]'></div>
 			</div>
-			{selected ? (
+			{selectedItems.length ? (
 				<>
-					<div className='absolute left-1/2 top-1/2 h-[150px] w-full -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)]'>
+					<div
+						className='absolute left-1/2 top-1/2 h-[150px] w-full -translate-x-1/2 -translate-y-1/2'
+						style={{
+							background: `radial-gradient(50% 50% at 50% 50%, ${getBackground(selectedItems[currentSlide].type)}4D 0%, rgba(18, 23, 34, 0) 100%)`
+						}}
+					>
 						<Swiper
 							direction='vertical'
 							className={cls.items_swiper}
 							loop
 							navigation
 							modules={[Navigation]}
+							onSlideChange={swiper => setCurrentSlide(swiper.realIndex)}
 						>
-							{Array.from(new Array(5)).map((_, index) => (
+							{selectedItems.map((caseItem, index) => (
 								<SwiperSlide key={index}>
 									<Image
 										className='mx-auto'
-										src='/images/livefeed/skin-9.png'
+										src={caseItem.picUrl}
 										height={138}
 										width={188}
 										alt='myitem'
@@ -196,19 +241,20 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 					<div className='absolute bottom-5 flex w-full justify-between px-5'>
 						<div>
 							<p className='flex items-start gap-[6px] text-[14px] font-bold text-white'>
-								Exoskeleton AWP <span className='text-[13px] font-semibold text-[#1AD19B]'>$80.44</span>
+								{selectedItems[currentSlide].name}{' '}
+								<span className='text-[13px] font-semibold text-[#1AD19B]'>${selectedItems[currentSlide].price}</span>
 							</p>
 							<p className='text-[12px] font-medium text-[#735E8D]'>Field-Tested</p>
 						</div>
-						<div className='h-[38px] w-[82px] bg-[#263147] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
-							<div className='flex h-full w-full items-center justify-center bg-[#1E2739] text-[12px] font-bold text-[#1AD19B] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
-								$2.64
+						<div className='h-[38px] min-w-[82px] bg-[#263147] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+							<div className='flex h-full w-full items-center justify-center gap-1 bg-[#1E2739] px-3 text-[12px] font-bold text-[#1AD19B] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
+								${totalCost} / <span className='text-white opacity-70'>{userBalance}</span>
 							</div>
 						</div>
 					</div>
 					<div className='absolute top-0 z-10 flex w-full -translate-y-1/2 justify-end'>
 						<Button
-							onPress={() => toggleSelected(false)}
+							onPress={() => setSelectedItems([])}
 							className='translate-x-1/2'
 						>
 							<div className='h-[30px] w-[30px] rounded-[8px] bg-[#0D1018] pl-[7px] pt-[7px]'>
@@ -227,7 +273,7 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 					{!isFailed && (
 						<div className='absolute bottom-0 left-0 flex w-full origin-[center_left] translate-y-1/2 justify-center gap-2'>
 							<div className='flex gap-[1px]'>
-								<Button onPress={() => toggleSelected(true)}>
+								<Button onPress={() => setSelectedItems(caseItems.slice(0, 3))}>
 									<div className='h-[44px] w-[135px] bg-[linear-gradient(90deg,_#1F2534_0%,_rgba(31,_37,_52,_0.15)_100%)] p-[2px] [clip-path:polygon(10px_0px,_100%_0px,_100%_100%,_10px_100%,_0px_50%)]'>
 										<div className='flex h-full w-full items-center bg-[#181E2C] px-5 [clip-path:polygon(10px_0px,_100%_0px,_100%_100%,_10px_100%,_0px_50%)]'>
 											<p className='w-full text-center text-[14px] font-bold text-[#60719A]'>
@@ -236,7 +282,7 @@ const MyItem = ({ className, isSelected }: { className?: string; isSelected: boo
 										</div>
 									</div>
 								</Button>
-								<Button onPress={() => toggleSelected(true)}>
+								<Button onPress={() => setSelectedItems(caseItems)}>
 									<div className='h-[44px] w-[135px] bg-[linear-gradient(270deg,_#1F2534_0%,_rgba(31,_37,_52,_0.15)_100%)] p-[2px] [clip-path:polygon(0px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_0px_100%)]'>
 										<div className='flex h-full w-full items-center bg-[#181E2C] px-5 [clip-path:polygon(0px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_0px_100%)]'>
 											<p className='w-full text-center text-[14px] font-bold text-[#60719A]'>

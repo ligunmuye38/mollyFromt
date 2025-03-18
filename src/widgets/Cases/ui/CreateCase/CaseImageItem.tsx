@@ -15,7 +15,7 @@ const CaseImageItem = ({ picUrl }: CaseImageItemProps) => {
 
 	return (
 		<div
-			className={clsx(isActive == true ? cls.case_item_active : cls.case_item_border, 'hover:cursor-pointer')}
+			className={clsx(isActive == true ? cls.case_item_active : cls.case_item_border, 'mr-[5px] hover:cursor-pointer')}
 			onClick={() => setIsActive(!isActive)}
 		>
 			<div

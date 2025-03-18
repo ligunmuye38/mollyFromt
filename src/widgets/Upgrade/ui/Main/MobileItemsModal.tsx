@@ -2,6 +2,8 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 
+import { caseItems } from '@/widgets/Cases/model/items'
+
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
 import { Input } from '@/shared/ui/Input/Input'
 import { Select } from '@/shared/ui/Select/Select'
@@ -59,8 +61,9 @@ const MobileItemsModal = () => {
 				/>
 			</div>
 			<div className='grid auto-rows-auto grid-cols-3 justify-between gap-2'>
-				{Array.from(new Array(12)).map((_, index) => (
+				{caseItems.map((item, index) => (
 					<CaseItem
+						item={item}
 						selected={selected === index}
 						onSelect={value => {
 							setSelected(value ? index : undefined)

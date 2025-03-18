@@ -3,6 +3,7 @@
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import ActiveCaseItem from '@/entities/CaseItem/ui/ActiveCaseItem'
 import { useCommonStore } from '@/entities/Common/model/store'
@@ -107,10 +108,22 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 			<div className='flex justify-center gap-[9px]'>
 				<IconExclamation className='h-[18px] w-[18px] fill-[#5F6C87]' />
 				<span className='text-[14px] text-[#5F6C87]'>
-					{t('case_congratulation.bottom_title').substring(0, t('case_congratulation.bottom_title').lastIndexOf(' '))}
-					<span className='font-semibold text-[#9BA7C0]'>
-						{t('case_congratulation.bottom_title').slice(t('case_congratulation.bottom_title').lastIndexOf(' '))}
-					</span>
+					{
+						t(`case_congratulation.bottom_title${items.length > 1 ? '1' : ''}`).split(
+							t('case_congratulation.inventory')
+						)[0]
+					}
+					<Link
+						href={'/profile'}
+						className='font-semibold text-[#9BA7C0]'
+					>
+						{t('case_congratulation.inventory')}
+					</Link>
+					{
+						t(`case_congratulation.bottom_title${items.length > 1 ? '1' : ''}`).split(
+							t('case_congratulation.inventory')
+						)[1]
+					}
 				</span>
 			</div>
 			<div className={clsx('flex gap-2.5', items.length > 1 ? 'flex-row flex-wrap justify-center' : 'flex-col')}>

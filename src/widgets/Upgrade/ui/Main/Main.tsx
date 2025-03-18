@@ -5,7 +5,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import React, { FC, useEffect, useState } from 'react'
+import React, { Dispatch, FC, useState } from 'react'
+
+import { caseItems } from '@/widgets/Cases/model/items'
+import { ICaseItemType, ImageBgType } from '@/widgets/Cases/model/types'
 
 import IconArrowDown from '@/shared/assets/icons/icon-arrow-down.svg'
 import IconFilter from '@/shared/assets/icons/icon-filter-3.svg'
@@ -32,7 +35,37 @@ interface MainProps {
 	className?: string
 }
 
-export const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect: (_: boolean) => void }) => {
+export const CaseItem = ({
+	selected,
+	onSelect,
+	item
+}: {
+	selected?: boolean
+	item: ICaseItemType
+	onSelect: (_: boolean) => void
+}) => {
+	const getBackground = (type: ImageBgType) => {
+		switch (type) {
+			case 'yellow':
+				return '#FDCD24'
+
+			case 'pink':
+				return '#FF00F5'
+
+			case 'purple':
+				return '#AD00FF'
+
+			case 'blue':
+				return '#0038FF'
+
+			case 'limit_blue':
+				return '#35AAFF'
+
+			default:
+				return '#FDCD24'
+		}
+	}
+
 	return (
 		<div
 			onClick={() => onSelect(!selected)}
@@ -45,34 +78,48 @@ export const CaseItem = ({ selected, onSelect }: { selected?: boolean; onSelect:
 		>
 			<div className='flex h-full w-full flex-col items-center justify-between rounded-[12px] bg-[#111620] p-[13px]'>
 				<div className='flex w-full justify-between'>
-					<p className='text-[10px] font-medium leading-[10px] text-[#2F374A]'>FT</p>
-					<div className='h-2 w-2 rounded-sm bg-[#FF00F5] shadow-[0_0_4px_#FF00F54D]'></div>
+					<p className='text-[10px] font-medium leading-[10px] text-[#2F374A]'>{item.title}</p>
+					<div
+						className='h-2 w-2 rounded-sm'
+						style={{
+							background: getBackground(item.type),
+							boxShadow: `0 0 4px ${getBackground(item.type)}4D`
+						}}
+					></div>
 				</div>
-				<div className='h-[60px] w-[81px] bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(255,_0,_245,_0.45)_0%,_rgba(18,_23,_34,_0)_100%)] backdrop-blur-md'>
+				<div
+					className='h-[60px] w-[81px] backdrop-blur-md'
+					style={{
+						background: `radial-gradient(50% 50% at 50% 50%, ${getBackground(item.type)}50 0%, rgba(18, 23, 34, 0) 100%)`
+					}}
+				>
 					<Image
-						src='/images/case/skin-2.png'
+						src={item.picUrl}
 						width={81}
 						height={60}
 						alt='gun'
 					/>
 				</div>
 				<div>
-					<p className='w-full text-left text-[10px] font-medium text-[#2F374A]'>AK-47 | Fire Serpent</p>
-					<p className='w-full text-left text-[12px] font-bold text-[#D1D9EB]'>$ 456,05</p>
+					<p className='w-full text-left text-[10px] font-medium text-[#2F374A]'>{item.name}</p>
+					<p className='w-full text-left text-[12px] font-bold text-[#D1D9EB]'>$ {item.price}</p>
 				</div>
 			</div>
 		</div>
 	)
 }
 
-const MyItems = ({ className, onSelect }: { className?: string; onSelect: (_: boolean) => void }) => {
+const MyItems = ({
+	className,
+	selectedItems,
+	setSelectedItems
+}: {
+	className?: string
+	selectedItems: ICaseItemType[]
+	setSelectedItems: Dispatch<React.SetStateAction<ICaseItemType[]>>
+}) => {
 	const t = useTranslations()
-	const [selectedItems, setSelectedItems] = useState<number[]>([])
 	const [dir, toggleDir] = useState<boolean>(false)
-
-	useEffect(() => {
-		onSelect(selectedItems.length > 0)
-	}, [selectedItems, onSelect])
 
 	return (
 		<div
@@ -103,10 +150,13 @@ const MyItems = ({ className, onSelect }: { className?: string; onSelect: (_: bo
 				</div>
 				<div className='app-scrollbar overflow-auto px-1'>
 					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,125px)] justify-between gap-2'>
-						{Array.from(new Array(12)).map((_, index) => (
+						{caseItems.map((caseItem, index) => (
 							<CaseItem
-								selected={selectedItems.includes(index)}
-								onSelect={value => setSelectedItems(prev => (value ? [...prev, index] : prev.filter(v => v !== index)))}
+								selected={Boolean(selectedItems.find(v => caseItem.id === v.id))}
+								item={caseItem}
+								onSelect={value =>
+									setSelectedItems(prev => (value ? [...prev, caseItem] : prev.filter(v => v !== caseItem)))
+								}
 								key={index}
 							/>
 						))}
@@ -286,8 +336,9 @@ const UpgradeItems = ({
 				</div>
 				<div className='app-scrollbar overflow-auto px-1'>
 					<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,125px)] justify-between gap-2'>
-						{Array.from(new Array(12)).map((_, index) => (
+						{caseItems.map((item, index) => (
 							<CaseItem
+								item={item}
 								selected={selected === index}
 								onSelect={value => {
 									onSelect(value ? index : undefined)
@@ -307,8 +358,8 @@ export const Main: FC<MainProps> = ({ className }) => {
 
 	const [type, setType] = useState<UpgradeTypes>(UpgradeTypes.UPGRADE)
 	const [selectedUpgrade, setSelectedUpgrade] = useState<number>()
-	const [selected, toggleSelected] = useState<boolean>(false)
 	const [bidAmount, setBidAmount] = useState<string>('0')
+	const [selectedItems, setSelectedItems] = useState<ICaseItemType[]>([])
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -345,8 +396,10 @@ export const Main: FC<MainProps> = ({ className }) => {
 						<div className='relative px-5'>
 							<div className='relative flex items-center justify-center gap-16'>
 								<MyItem
-									isSelected={selected}
+									selectedItems={selectedItems}
+									setSelectedItems={setSelectedItems}
 									className='lg:!hidden'
+									userBalance={8000}
 								/>
 								<div className='relative'>
 									<CircularProgress />
@@ -417,7 +470,10 @@ export const Main: FC<MainProps> = ({ className }) => {
 			{type === UpgradeTypes.UPGRADE && (
 				<>
 					<div className='grid grid-cols-2 gap-5 px-5 lg:hidden lg:gap-3 2sm:px-[10px]'>
-						<MyItems onSelect={v => toggleSelected(v)} />
+						<MyItems
+							selectedItems={selectedItems}
+							setSelectedItems={setSelectedItems}
+						/>
 						<UpgradeItems
 							onSelect={v => setSelectedUpgrade(v)}
 							selected={selectedUpgrade}

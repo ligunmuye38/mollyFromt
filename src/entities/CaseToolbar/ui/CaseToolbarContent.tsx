@@ -231,7 +231,7 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 								label: cls.checkbox_label
 							}}
 						>
-							{t('toolbar.community_case')}
+							{t('toolbar.community_case')}s
 						</Checkbox>
 					</div>
 				</div>
