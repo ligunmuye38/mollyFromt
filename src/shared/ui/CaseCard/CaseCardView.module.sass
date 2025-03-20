@@ -7,6 +7,42 @@
     background: linear-gradient(0deg, rgba(23,29,42,1) 0%, rgba(32,37,52,1) 100%)
     .card_inner
       background: linear-gradient(0deg, rgba(19,24,36,1) 0%, rgba(25,31,46,1) 100%)
+  &:hover
+    position: relative
+    background: linear-gradient(0deg, rgba(85,75,35,1) 0%, rgba(31,37,52,1) 100%)
+    &::after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      border-radius: 4px
+      width: 10%
+      height: 2px
+      background-color: #FDCD24
+      box-shadow: 0 0 12px 0 rgba(253, 62, 36, 1), 0 0 4px 0 rgba(253, 62, 36, 0.45)
+    .card_inner
+      background: linear-gradient(0deg, rgba(45,44,36,1) 0%, rgba(24,30,44,1) 100%)
+    .price
+      background: linear-gradient(90deg, rgba(252,204,35,1) 0%, rgba(226,182,23,1) 30%, rgba(226,182,23,1) 70%, rgba(252,204,35,1) 100%)
+      &_wrapper
+        position: relative
+        &::after
+          content: ''
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          z-index: -1
+          width: calc(100% - 10px)
+          height: calc(100% + 5px)
+          background-color: rgba(253, 62, 36, 0.4)
+          filter: blur(8px)
+      &_inner
+        background: #E2B617
+        @apply font-primary-black
+        text-shadow: 0 1px 0 #FFD53F
+        color: #121722
   &.gradient-yellow
     position: relative
     background: linear-gradient(0deg, rgba(85,75,35,1) 0%, rgba(31,37,52,1) 100%)

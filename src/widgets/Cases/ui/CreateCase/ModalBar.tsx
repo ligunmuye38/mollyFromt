@@ -56,6 +56,7 @@ const ModalBar = () => {
 					</div>
 				</Button>
 				<Button
+					onPress={() => (window.location.href = '/upgrade')}
 					classNames={{
 						base: clsx(cls.modal_body_bar_type, 'h-full lg:order-3 md:h-[32px]'),
 						content: clsx(

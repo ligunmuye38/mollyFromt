@@ -16,14 +16,22 @@ const SelectCaseImage = () => {
 	// The values are to reference swiper and swiper index.
 	const [swiperIndex, _setSwiperIndex] = useState<number>(0)
 	const swiperRef = useRef<SwiperRef>(null)
+	const [activeIndex, setActiveIndex] = useState<number>()
 
 	// responsive
 	const breakpoints = useAppResponsive()
 
 	// For slider(Select Images)
-	const slides = selectImages.map(item => (
+	const slides = selectImages.map((item, index) => (
 		<SwiperSlide key={item.id}>
-			<CaseImageItem picUrl={item.picUrl} />
+			<CaseImageItem
+				picUrl={item.picUrl}
+				isActive={activeIndex === index}
+				setIsActive={v => {
+					if (v) setActiveIndex(index)
+					else setActiveIndex(undefined)
+				}}
+			/>
 		</SwiperSlide>
 	))
 

@@ -2,17 +2,16 @@
 
 import clsx from 'clsx'
 import Image from 'next/image'
-import { useState } from 'react'
 
 import cls from '../Cases.module.sass'
 
 interface CaseImageItemProps {
 	picUrl: string
+	isActive: boolean
+	setIsActive: (_: boolean) => void
 }
 
-const CaseImageItem = ({ picUrl }: CaseImageItemProps) => {
-	const [isActive, setIsActive] = useState<boolean>(false)
-
+const CaseImageItem = ({ picUrl, isActive, setIsActive }: CaseImageItemProps) => {
 	return (
 		<div
 			className={clsx(isActive == true ? cls.case_item_active : cls.case_item_border, 'mr-[5px] hover:cursor-pointer')}

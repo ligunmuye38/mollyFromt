@@ -1,5 +1,6 @@
 'use client'
 
+import { Popover, PopoverContent, PopoverTrigger } from '@nextui-org/react'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -7,6 +8,7 @@ import Image from 'next/image'
 import { useCommonStore } from '@/entities/Common/model/store'
 
 import IconCase from '@/shared/assets/icons/icon-case-open.svg'
+import IconHint from '@/shared/assets/icons/icon-hint.svg'
 import Button from '@/shared/ui/Button/Button'
 
 import OpenAcceptCase from './OpenAcceptCase'
@@ -22,7 +24,24 @@ const MysteryBody = () => {
 	const setOpenAcceptCase = useCommonStore(state => state.setOpenAcceptCase)
 
 	return (
-		<div className={clsx(cls.base)}>
+		<div className={clsx(cls.base, 'relative')}>
+			<Popover
+				placement='bottom'
+				offset={15}
+			>
+				<PopoverTrigger>
+					<p className='absolute -top-1 left-3 hidden w-max md:block'>
+						<IconHint className='h-[34px] w-[34px] fill-[#FFA3A3]' />
+					</p>
+				</PopoverTrigger>
+				<PopoverContent className='w-max p-0'>
+					<div className='w-full max-w-[350px] rounded-[12px] bg-[linear-gradient(90deg,_#FAAA65_0%,_#161E37_100%)] p-[1px]'>
+						<div className='h-full w-full rounded-[12px] bg-[linear-gradient(270deg,_#151E39_0%,_#714825_100%)] p-[15px]'>
+							<p className='mb-[6px] text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_accept.hint')}</p>
+						</div>
+					</div>
+				</PopoverContent>
+			</Popover>
 			<div className={clsx(cls.container, 'md:!pt-9')}>
 				{openAcceptCase && (
 					<div className={clsx(cls.inner, 'flex items-center justify-center')}>
@@ -57,6 +76,21 @@ const MysteryBody = () => {
 												</span>
 											</Button>
 										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div
+							className={clsx(
+								cls.grid,
+								'!absolute flex w-full flex-row justify-end md:ml-3 md:hidden md:justify-start'
+							)}
+						>
+							<div className={clsx(cls.farm_hint, 'mr-5 w-[calc(50%_-_228px)] max-w-[374px] md:mx-1 md:mr-0')}>
+								<div className={clsx(cls.farm_hint_inner, 'flex gap-2 p-4')}>
+									<IconHint className='absolute h-[34px] w-[34px] fill-[#FFA3A3] md:-top-9' />
+									<div className='ml-12 flex flex-col gap-1 text-[12px] font-[500] text-[#FFA3A3] md:ml-[15px]'>
+										<span className='text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_accept.hint')}</span>
 									</div>
 								</div>
 							</div>

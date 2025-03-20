@@ -3,13 +3,24 @@ import Image from 'next/image'
 
 import cls from '../Cases.module.sass'
 
-const DropChance = () => {
+const DropChance = ({
+	chance,
+	setChance,
+	onRemove
+}: {
+	chance: number
+	setChance: (_: number) => void
+	onRemove: () => void
+}) => {
 	return (
 		<div className={clsx(cls.chance_item)}>
 			<div className={clsx(cls.chance_item_inner, 'flex gap-[10px] p-[10px]')}>
 				<div className='w-[100px]'>
 					<div className={clsx('w-full rounded-md bg-[#121721] py-1')}>
-						<div className={clsx('px-3 py-2', cls.chance_item_bg)}>
+						<div
+							className={clsx('px-3 py-2', cls.chance_item_bg)}
+							onClick={onRemove}
+						>
 							<Image
 								src={'/images/livefeed/skin-8.png'}
 								width={75}
@@ -36,7 +47,15 @@ const DropChance = () => {
 								</div>
 								<div className='flex flex-1 items-center justify-center sm:gap-1'>
 									<span className='hidden text-[14px] font-[700] text-white sm:flex'>%</span>
-									<span className='text-[14px] font-[700] text-white'>14</span>
+									<input
+										className='bg-transparent text-[14px] font-[700] text-white outline-none'
+										min={1}
+										max={100}
+										width={30}
+										value={chance}
+										onChange={ev => setChance(Number(ev.target.value))}
+										type='number'
+									/>
 								</div>
 							</div>
 						</div>

@@ -7,25 +7,26 @@ import cls from './ProgressBar.module.sass'
 
 interface ProgressBarProps {
 	items?: any[]
+	progress: number
+	setProgress: (v: number) => void
 }
 
-const ProgressBar = ({ items }: ProgressBarProps) => {
-	const [progress, setProgress] = useState(0)
+const ProgressBar = ({ items, progress, setProgress }: ProgressBarProps) => {
 	const [isDragging, setIsDragging] = useState(false)
 	const ref = useRef<HTMLDivElement>(null)
 
-	const updateProgress = (clientX: any) => {
+	const updateProgress = useRef((clientX: any) => {
 		if (ref.current) {
 			const { left, width } = ref.current.getBoundingClientRect()
 			const newProgress = Math.min(Math.max(((clientX - left) / width) * 100, 0), 100)
 			setProgress(newProgress)
 		}
-	}
+	})
 
 	const handleMouseMove = useCallback(
 		(e: any) => {
 			if (isDragging) {
-				updateProgress(e.clientX)
+				updateProgress.current(e.clientX)
 			}
 		},
 		[isDragging]
@@ -34,7 +35,7 @@ const ProgressBar = ({ items }: ProgressBarProps) => {
 	const handleTouchMove = useCallback(
 		(e: any) => {
 			if (isDragging) {
-				updateProgress(e.touches[0].clientX)
+				updateProgress.current(e.touches[0].clientX)
 			}
 		},
 		[isDragging]
@@ -109,7 +110,7 @@ const ProgressBar = ({ items }: ProgressBarProps) => {
 							key={index}
 							className={clsx(
 								'text-[10px] text-[#5A6487] md:text-[7px]',
-								item.min <= progress && item.max > progress && '!text-white'
+								item.min <= progress && item.max >= progress && '!text-white'
 							)}
 						>
 							{item.title}

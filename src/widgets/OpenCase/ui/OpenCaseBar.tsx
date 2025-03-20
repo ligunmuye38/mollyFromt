@@ -3,7 +3,7 @@
 import { paginationData } from '../model/items'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useCommonStore } from '@/entities/Common/model/store'
 
@@ -47,6 +47,9 @@ const OpenCaseBar = () => {
 
 	const { openModal, closeModal } = useModal()
 
+	const openModalRef = useRef(openModal)
+	const closeModalRef = useRef(closeModal)
+
 	// For open case function
 	const openCase = () => {
 		if (count > 0) {
@@ -66,10 +69,10 @@ const OpenCaseBar = () => {
 	useEffect(() => {
 		if (caseCount == currentCaseNumber && caseCount > 0) {
 			setTimeout(() => {
-				openModal(
+				openModalRef.current(
 					<CongratulationsBody
 						items={caseItems}
-						onClose={closeModal}
+						onClose={closeModalRef.current}
 					/>,
 					{},
 					<CongratulationsHeader />,
@@ -83,7 +86,7 @@ const OpenCaseBar = () => {
 				)
 			}, 1500)
 		}
-	}, [caseCount, caseItems, closeModal, currentCaseNumber, openModal])
+	}, [caseCount, caseItems, currentCaseNumber])
 
 	return (
 		<div>

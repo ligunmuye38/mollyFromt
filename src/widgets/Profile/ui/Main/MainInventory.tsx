@@ -15,9 +15,6 @@ import Button from '@/shared/ui/Button/Button'
 import cls from './Main.module.sass'
 
 const MainInventory = () => {
-	// To get the chat hidden state(Desktop)
-	// const chatViewHidden = useCommonStore(state => state.chatViewHidden)
-
 	const [sellingAmount, setSellingAmount] = useState<{
 		selected: number
 		amount: number

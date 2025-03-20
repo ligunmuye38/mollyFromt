@@ -11,8 +11,6 @@
   mask-size: 100%
   mask-repeat: no-repeat
   background-clip: text
-  font-family: Gotham Ultra, system-ui, -apple-system, BlinkMacSystemFont, sans-serif
-
 
 .container
   position: relative
@@ -124,6 +122,17 @@
       &_inner
         clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
         background: linear-gradient(90deg, #2D374F 0%, rgba(45, 55, 79, 0.45) 50%, #2D374F 100%)
+        &:hover
+          background: rgba(45, 55, 79, 1)
+    &_white
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0) 56.8%, #FFFFFF 65.65%), linear-gradient(270deg, rgba(255, 255, 255, 0.65) 56.55%, #FFFFFF 69.17%)
+      clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
+      position: relative
+      padding: 2px
+
+      &_inner
+        clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%)
+        background: linear-gradient(0deg, #BDC4CD, #BDC4CD), linear-gradient(180deg, rgba(251, 252, 255, 0) 0%, rgba(255, 255, 255, 0.65) 100%)
         &:hover
           background: rgba(45, 55, 79, 1)
     &_yellow

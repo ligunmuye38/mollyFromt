@@ -91,6 +91,14 @@ const FairnessModal = () => {
 							selectorIcon: '!w-7 !h-7'
 						}}
 					/>
+					<Button
+						classNames={{
+							base: clsx(cls.hexagon_btn, 'h-[42px] w-[200px] mx-auto'),
+							content: clsx(cls.hexagon_btn_inner, '!gap-0')
+						}}
+					>
+						{t('show_results').toUpperCase()}
+					</Button>
 				</div>
 			) : (
 				<div className='flex flex-col gap-4'>

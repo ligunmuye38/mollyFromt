@@ -304,7 +304,8 @@
 		"cases_magic": "Cases Magic",
 		"try_again": "Try again",
 		"sell_for": "Sell for",
-		"upgrade": "Upgrade"
+		"upgrade": "Upgrade",
+		"hint": "It all depends on your choice In cases of this type, each box has an item from that case. Make no mistake!"
 	},
 	"case_mystery": {
 		"title": "Mystery Case",
@@ -760,5 +761,6 @@
 	"show_selected_items": "Show selected items",
 	"date_of_opening": "Date of opening",
 	"case": "Case",
-	"home": "Home"
+	"home": "Home",
+	"show_results": "Show results"
 }

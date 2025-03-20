@@ -8,12 +8,10 @@ const CaseItems = () => {
 		<CaseItem
 			key={index}
 			title={item.title}
-			content={item.content}
 			price={item.price}
 			picUrl={item.picUrl}
 			type={item.type}
 			name={item.name}
-			percent={item.percent}
 		/>
 	))
 	return <div className='relative flex h-full flex-wrap justify-between gap-1 sm:justify-center'>{cases}</div>

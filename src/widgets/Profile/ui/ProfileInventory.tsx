@@ -61,6 +61,7 @@ const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
 			name={item.name}
 			percent={item.percent}
 			isActive={selectedId.includes(item.id) ? true : false}
+			onClick={() => handleClick(item.id)}
 			hoverContent={
 				<div className='flex h-full w-full items-center justify-center gap-2'>
 					<Button

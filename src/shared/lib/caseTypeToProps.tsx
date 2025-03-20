@@ -45,7 +45,6 @@ export const caseTypeToProps: Record<CaseType, Props> = {
 		iconShadow: true
 	},
 	[CaseType.EXPIRED_AT]: {
-		theme: 'gradient-yellow',
 		badgeMode: 'wide',
 		icon: <IconTimer />,
 		iconTheme: 'grey',

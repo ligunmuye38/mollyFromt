@@ -1,6 +1,7 @@
 import { progressData } from '../../model/items'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
@@ -13,15 +14,21 @@ const CreateCaseFooter = () => {
 	// For translation
 	const t = useTranslations()
 
+	const [progress, setProgress] = useState(0)
+
 	return (
 		<div className={clsx(cls.footer_body, 'w-full')}>
 			<div className={clsx(cls.footer_body_inner, 'h-full w-full px-4 py-3')}>
 				<div className='flex flex-row items-center justify-between gap-6 md:flex-col md:items-center md:justify-center md:gap-4'>
 					<div className='flex h-full flex-1 flex-col items-center justify-center gap-[5px] px-4 md:order-1 md:w-full'>
 						<span className='text-[9px] font-[700] uppercase text-[#60719A]'>
-							{t('cases_header.percent_of_income')}
+							{t('cases_header.percent_of_income')} <span className='text-[#FDCD24]'>{progress.toFixed(1)}%</span>
 						</span>
-						<ProgressBar items={progressData} />
+						<ProgressBar
+							items={progressData}
+							progress={progress}
+							setProgress={setProgress}
+						/>
 					</div>
 					<div className={clsx(cls.footer_body_btn, 'md:order-2')}>
 						<div className={clsx(cls.footer_body_btn_inner, 'flex items-center gap-2 px-3 py-[10px]')}>

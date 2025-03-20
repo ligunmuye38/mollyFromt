@@ -121,7 +121,7 @@ const CaseItem = ({
 		if (isMobile == true && isHover == true && isHovered == false) {
 			setIsHovered(true)
 		} else {
-			setIsHovered(false)
+			if (isMobile && isHover) setIsHovered(false)
 			if (isRotated == true) {
 				if (isOpened == false) {
 					setIsRotation(true)
@@ -166,8 +166,8 @@ const CaseItem = ({
 										<span className='text-[10px] font-[700] uppercase text-[#2F374A]'>{title}</span>
 										<div className='flex items-start gap-2'>
 											<div className={clsx('flex flex-col items-end justify-end gap-[3px]')}>
-												<span className='text-[8px] font-[500] uppercase text-[#2F374A]'>{content}</span>
-												<span className='text-[12px] font-[500] text-[#10AA7C]'>{percent}%</span>
+												{content && <span className='text-[8px] font-[500] uppercase text-[#2F374A]'>{content}</span>}
+												{percent && <span className='text-[12px] font-[500] text-[#10AA7C]'>{percent}%</span>}
 											</div>
 											<div className={clsx('mt-1 h-[8px] w-[8px] rounded-[2px]', getMarkBackground(type))}></div>
 										</div>
@@ -191,8 +191,7 @@ const CaseItem = ({
 								</div>
 								<div
 									className={clsx(
-										'absolute left-0 z-[1] h-full w-full bg-[#1E2536A6] duration-400',
-										cls.hover_blur,
+										'absolute left-0 z-[1] h-max w-full bg-transparent py-3 duration-400',
 										isHovered == true ? 'top-0' : 'top-full'
 									)}
 								>

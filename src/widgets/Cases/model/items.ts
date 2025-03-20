@@ -328,33 +328,39 @@ export const caseItems: ICaseItemType[] = [
 // Progressbar data
 export const progressData: IProgress[] = [
 	{
+		id: 0,
+		title: '0%',
+		min: 0,
+		max: 10
+	},
+	{
 		id: 1,
 		title: '1%',
-		min: 0,
-		max: 20
+		min: 10,
+		max: 30
 	},
 	{
 		id: 2,
 		title: '2%',
-		min: 20,
-		max: 40
+		min: 30,
+		max: 50
 	},
 	{
 		id: 3,
 		title: '3%',
-		min: 40,
-		max: 60
+		min: 50,
+		max: 70
 	},
 	{
 		id: 4,
 		title: '4%',
-		min: 60,
-		max: 80
+		min: 70,
+		max: 90
 	},
 	{
 		id: 5,
 		title: '5%',
-		min: 80,
+		min: 90,
 		max: 100
 	}
 ]

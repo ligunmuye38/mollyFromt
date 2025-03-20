@@ -1,6 +1,7 @@
 'use client'
 
 import { chances } from '../../model/items'
+import { IChance } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useEffect, useRef, useState } from 'react'
@@ -18,11 +19,29 @@ const SetDropChances = () => {
 	// The values are to reference swiper and swiper index.
 	const [swiperIndex, setSwiperIndex] = useState<number>(0)
 	const swiperRef = useRef<SwiperRef>(null)
+	const [dropChances, setDropChances] = useState<number[]>(Array.from(new Array(chances.length)).map(() => 1))
+	const [adjustedChances, setAdjustedChances] = useState<IChance[]>(chances)
 
 	// For slider(Select Images)
-	const slides = chances.map(item => (
+	const slides = adjustedChances.map((item, index) => (
 		<SwiperSlide key={item.id}>
-			<DropChance />
+			<DropChance
+				onRemove={() => {
+					setDropChances(prev => {
+						return [...prev.filter((_, i) => i !== index)]
+					})
+					setAdjustedChances(prev => {
+						return [...prev.filter((_, i) => i !== index)]
+					})
+				}}
+				chance={dropChances[index]}
+				setChance={value =>
+					setDropChances(prev => {
+						prev[index] = value
+						return [...prev]
+					})
+				}
+			/>
 		</SwiperSlide>
 	))
 
@@ -34,7 +53,9 @@ const SetDropChances = () => {
 		<div className={clsx('relative flex flex-col')}>
 			<div className='flex justify-between'>
 				<span className='text-[14px] font-[500] text-white'>{t('create_case.set_drop_chances')}</span>
-				<span className='text-[14px] font-[500] text-[#17E2A5]'>100%</span>
+				<span className='text-[14px] font-[500] text-[#17E2A5]'>
+					{dropChances.length > 0 ? dropChances.reduce((prev, current) => prev + current) : 0}%
+				</span>
 			</div>
 			<div className={clsx('h-[406px] overflow-hidden pt-2 md:h-[370px]')}>
 				<Swiper

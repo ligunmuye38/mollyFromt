@@ -11,6 +11,7 @@ import { useCommonStore } from '@/entities/Common/model/store'
 import IconDollar from '@/shared/assets/icons/icon-dollar.svg'
 import IconExclamation from '@/shared/assets/icons/icon-exclamation-mark.svg'
 import IconTryagain from '@/shared/assets/icons/icon-try-again.svg'
+import IconUpgrade from '@/shared/assets/icons/icon-upgrade.svg'
 import Backshape from '@/shared/assets/open-case-backshape.svg'
 import BackdropRays from '@/shared/assets/radial-rays-grey-3.png'
 import Button from '@/shared/ui/Button/Button'
@@ -114,7 +115,7 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 						)[0]
 					}
 					<Link
-						href={'/profile'}
+						href={'/profile/user'}
 						className='font-semibold text-[#9BA7C0]'
 					>
 						{t('case_congratulation.inventory')}
@@ -142,7 +143,7 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 						</Button>
 					</div>
 				</div>
-				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_green)}>
+				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_green, items.length > 1 ? 'hidden' : 'flex')}>
 					<div className={clsx('h-full w-full', cls.btn_hexagon_green_inner)}>
 						<Button
 							fullWidth={true}
@@ -156,16 +157,17 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 						</Button>
 					</div>
 				</div>
-				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_purple, items.length > 1 ? 'hidden' : 'flex')}>
-					<div className={clsx('h-full w-full', cls.btn_hexagon_purple_inner)}>
+				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_white)}>
+					<div className={clsx('h-full w-full', cls.btn_hexagon_white_inner)}>
 						<Button
 							fullWidth={true}
 							hexagon={true}
 							classNames={{
 								base: 'w-full h-full'
 							}}
+							startContent={<IconUpgrade className='h-[20px] w-[22px]' />}
 						>
-							<span className='text-[15px] font-[900] text-[#000000]'>{t('case_congratulation.go_inventory')}</span>
+							<span className='text-[15px] font-[900] text-[#000000]'>{t('upgrade')}</span>
 						</Button>
 					</div>
 				</div>

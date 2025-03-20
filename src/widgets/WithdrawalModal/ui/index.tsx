@@ -336,18 +336,13 @@ const WithdrawalModal = () => {
 											</p>
 											<Input
 												onChange={value => {
-													setUahValue(value)
-													setUsdValue((Number(value) * selectedCrypto.price).toFixed(3))
+													setUsdValue(value)
+													setUahValue((Number(value) / selectedCrypto.price).toFixed(3))
 												}}
-												value={uahValue}
+												value={usdValue}
 												startContent={
 													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<Image
-															src={selectedCrypto.icon}
-															width={16}
-															height={16}
-															alt='crypto currency'
-														/>
+														<IconUSD />
 													</div>
 												}
 												type='number'
@@ -363,13 +358,18 @@ const WithdrawalModal = () => {
 											</p>
 											<Input
 												onChange={value => {
-													setUsdValue(value)
-													setUahValue((Number(value) / selectedCrypto.price).toFixed(3))
+													setUahValue(value)
+													setUsdValue((Number(value) * selectedCrypto.price).toFixed(3))
 												}}
-												value={usdValue}
+												value={uahValue}
 												startContent={
 													<div className='flex h-6 !w-6 flex-[0_0_24px] items-center justify-center rounded-full bg-[linear-gradient(0deg,_#222B3F_0%,_#353D51_100%)]'>
-														<IconUSD />
+														<Image
+															src={selectedCrypto.icon}
+															width={16}
+															height={16}
+															alt='crypto currency'
+														/>
 													</div>
 												}
 												type='number'
