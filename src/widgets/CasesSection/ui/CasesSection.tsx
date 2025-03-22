@@ -1,10 +1,10 @@
 'use client'
 
 import { caseSection } from '../model/items'
-import { CaseCategory } from '../model/types'
+import { CaseCategory, CaseSection } from '../model/types'
 import { useSize } from 'ahooks'
 import clsx from 'clsx'
-import React, { FC, useRef } from 'react'
+import React, { FC, useMemo, useRef } from 'react'
 
 import { CaseCard } from '@/entities/CaseCard/ui/CaseCard'
 
@@ -16,17 +16,26 @@ interface CasesSectionProps {
 	className?: string
 	categoryKey: CaseCategory
 	barElement?: React.ReactNode
+	page?: number
 }
 
-export const CasesSection: FC<CasesSectionProps> = ({ className, categoryKey, barElement }) => {
+export const CasesSection: FC<CasesSectionProps> = ({ className, categoryKey, barElement, page = 1 }) => {
 	const barRef = useRef(null)
 	const barSize = useSize(barRef)
 
-	if (!categoryKey) {
+	const section = useMemo<CaseSection | undefined>(() => {
+		if (!categoryKey) return
+		if (categoryKey === 'communityCases')
+			return {
+				...caseSection[categoryKey],
+				items: caseSection[categoryKey].items.slice((page - 1) * 5, page * 5)
+			}
+		return caseSection[categoryKey]
+	}, [categoryKey, page])
+
+	if (!categoryKey || !section) {
 		return <div>The selected case category does not exist</div>
 	}
-
-	const section = caseSection[categoryKey]
 
 	const cases = section.items.map(item => (
 		<div

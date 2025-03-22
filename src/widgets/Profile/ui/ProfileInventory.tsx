@@ -45,7 +45,7 @@ const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
 				value.selected++
 			}
 		})
-		onSelect!(value)
+		if (onSelect) onSelect(value)
 	}, [items, onSelect, selectedId])
 
 	// Build item list

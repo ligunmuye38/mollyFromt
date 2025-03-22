@@ -1,10 +1,10 @@
 'use client'
 
-import { chances } from '../../model/items'
+import { caseItems } from '../../model/items'
 import { IChance } from '../../model/types'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Mousewheel } from 'swiper/modules'
 import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react'
 
@@ -12,33 +12,52 @@ import DropChance from './DropChance'
 
 import cls from '../Cases.module.sass'
 
-const SetDropChances = () => {
+interface ICaseItemsProps {
+	chances?: number[]
+	onUpdate?: (_: number[]) => void
+}
+
+const SetDropChances = ({
+	chances = [],
+	onUpdate = (_: number[]) => {
+		return
+	}
+}: ICaseItemsProps) => {
 	// For translation
 	const t = useTranslations()
 
 	// The values are to reference swiper and swiper index.
 	const [swiperIndex, setSwiperIndex] = useState<number>(0)
 	const swiperRef = useRef<SwiperRef>(null)
-	const [dropChances, setDropChances] = useState<number[]>(Array.from(new Array(chances.length)).map(() => 1))
-	const [adjustedChances, setAdjustedChances] = useState<IChance[]>(chances)
+	const [dropChances, setDropChances] = useState<{ [key: string]: number | undefined }>({})
+	const adjustedChances = useMemo<IChance[]>(() => {
+		return chances.map(index => ({
+			price: Number(caseItems[index].price.replace(',', '.')),
+			percent: 14,
+			add_price: 400.33,
+			content: caseItems[index].name,
+			id: caseItems[index].id,
+			imageType: caseItems[index].type,
+			name: caseItems[index].title,
+			picUrl: caseItems[index].picUrl
+		}))
+	}, [chances])
 
 	// For slider(Select Images)
 	const slides = adjustedChances.map((item, index) => (
 		<SwiperSlide key={item.id}>
 			<DropChance
+				item={item}
 				onRemove={() => {
 					setDropChances(prev => {
-						return [...prev.filter((_, i) => i !== index)]
+						return { ...prev, [item.id]: undefined }
 					})
-					setAdjustedChances(prev => {
-						return [...prev.filter((_, i) => i !== index)]
-					})
+					onUpdate([...chances.filter((_, i) => i !== index)])
 				}}
-				chance={dropChances[index]}
+				chance={dropChances[item.id] ?? 0}
 				setChance={value =>
 					setDropChances(prev => {
-						prev[index] = value
-						return [...prev]
+						return { ...prev, [item.id]: value }
 					})
 				}
 			/>
@@ -54,7 +73,10 @@ const SetDropChances = () => {
 			<div className='flex justify-between'>
 				<span className='text-[14px] font-[500] text-white'>{t('create_case.set_drop_chances')}</span>
 				<span className='text-[14px] font-[500] text-[#17E2A5]'>
-					{dropChances.length > 0 ? dropChances.reduce((prev, current) => prev + current) : 0}%
+					{Object.keys(dropChances).length > 0
+						? Object.keys(dropChances).reduce((prev, current) => prev + (dropChances[current] ?? 0), 0)
+						: 0}
+					%
 				</span>
 			</div>
 			<div className={clsx('h-[406px] overflow-hidden pt-2 md:h-[370px]')}>

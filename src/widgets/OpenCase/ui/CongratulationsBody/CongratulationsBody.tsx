@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 import ActiveCaseItem from '@/entities/CaseItem/ui/ActiveCaseItem'
 import { useCommonStore } from '@/entities/Common/model/store'
@@ -30,6 +31,7 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 	// Set case count and Current case number
 	const setCaseCount = useCommonStore(state => state.setCaseCount)
 	const setCurrentCaseNumber = useCommonStore(state => state.setCurrentCaseNumber)
+	const [totalCost, setTotalCost] = useState<number>(0)
 
 	// Try again function
 	const tryAgain = () => {
@@ -98,6 +100,11 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 							price={item.price}
 							theme={item.type}
 							picUrl={item.picUrl}
+							onClick={v =>
+								setTotalCost(
+									prev => prev + (v ? Number(item.price.replace(',', '.')) : -Number(item.price.replace(',', '.')))
+								)
+							}
 						/>
 					))}
 				</div>
@@ -127,7 +134,12 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 					}
 				</span>
 			</div>
-			<div className={clsx('flex gap-2.5', items.length > 1 ? 'flex-row flex-wrap justify-center' : 'flex-col')}>
+			<div
+				className={clsx(
+					'flex max-w-[640px] gap-2.5',
+					items.length > 1 ? 'flex-row flex-wrap justify-center' : 'flex-col'
+				)}
+			>
 				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_yellow)}>
 					<div className={clsx('h-full w-full', cls.btn_hexagon_yellow_inner)}>
 						<Button
@@ -143,7 +155,7 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 						</Button>
 					</div>
 				</div>
-				<div className={clsx('h-[48px] w-[313px]', cls.btn_hexagon_green, items.length > 1 ? 'hidden' : 'flex')}>
+				<div className={clsx('flex h-[48px] w-[313px]', cls.btn_hexagon_green, items.length > 1 ? 'order-1' : '')}>
 					<div className={clsx('h-full w-full', cls.btn_hexagon_green_inner)}>
 						<Button
 							fullWidth={true}
@@ -153,7 +165,10 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 							}}
 							startContent={<IconDollar className='h-[20px] w-[22px]' />}
 						>
-							<span className='text-[15px] font-[900] text-[#000000]'>{t('case_congratulation.sell_everything')}</span>
+							<span className='text-[15px] font-[900] text-[#000000]'>
+								{t(`case_congratulation.${items.length > 1 ? 'sell_selected' : 'sell_everything'}`)}
+								{items.length ? ` • $${totalCost.toFixed(3)}` : ''}
+							</span>
 						</Button>
 					</div>
 				</div>

@@ -192,7 +192,7 @@ const CaseItem = ({
 								<div
 									className={clsx(
 										'absolute left-0 z-[1] h-max w-full bg-transparent py-3 duration-400',
-										isHovered == true ? 'top-0' : 'top-full'
+										isHovered == true ? 'top-0' : '-top-full'
 									)}
 								>
 									{hoverContent && hoverContent}

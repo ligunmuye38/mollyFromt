@@ -6,6 +6,8 @@ import { useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { FC, useEffect, useMemo, useState } from 'react'
 
+import { useCommonStore } from '@/entities/Common/model/store'
+
 import IconCase from '@/shared/assets/icons/icon-case.svg'
 import IconClear from '@/shared/assets/icons/icon-clear-gradient-grey.svg'
 import IconSearch from '@/shared/assets/icons/icon-search.svg'
@@ -78,7 +80,8 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 	const [viewSearch, setViewSearch] = useState<string>(initialState.search)
 	const [viewPriceRange, setViewPriceRange] = useState<PriceRange>(initialState.priceRange)
 	const [viewIsEnoughBalance, setViewIsEnoughBalance] = useState<boolean>(initialState.isEnoughBalance)
-	const [viewOfficialCase, setViewOfficialCase] = useState<boolean>(false)
+	const showCommunityCases = useCommonStore(state => state.showCommunityCases)
+	const setShowCommunityCases = useCommonStore(state => state.setShowCommunityCases)
 
 	const { type, search, weaponType, mode, cases, priceRange, isEnoughBalance, clearFilter, setFilter } =
 		useCasesToolbarStore(state => state)
@@ -220,9 +223,9 @@ export const CaseToolbarContent: FC<CaseToolbarContentProps> = ({ className }) =
 							name='balance'
 							value='enough'
 							icon='2'
-							isSelected={viewOfficialCase}
+							isSelected={showCommunityCases}
 							onValueChange={v => {
-								setViewOfficialCase(v)
+								setShowCommunityCases(v)
 								onFilterChange('isOfficialCase', v)
 							}}
 							theme='theme-2'

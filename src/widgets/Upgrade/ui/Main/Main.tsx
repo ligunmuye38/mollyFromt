@@ -399,7 +399,7 @@ export const Main: FC<MainProps> = ({ className }) => {
 									selectedItems={selectedItems}
 									setSelectedItems={setSelectedItems}
 									className='lg:!hidden'
-									userBalance={8000}
+									userBalance={Number(bidAmount)}
 								/>
 								<div className='relative'>
 									<CircularProgress />

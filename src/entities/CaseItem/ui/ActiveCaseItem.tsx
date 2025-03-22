@@ -16,9 +16,10 @@ interface ActiveCaseItemProps {
 	name: string
 	price: string
 	picUrl: string
+	onClick?: (v?: boolean) => void
 }
 
-const ActiveCaseItem = ({ title, theme, name, price, picUrl }: ActiveCaseItemProps) => {
+const ActiveCaseItem = ({ title, theme, name, price, picUrl, onClick }: ActiveCaseItemProps) => {
 	// Active state
 	const [isActive, setIsActive] = useState<boolean>(false)
 
@@ -71,6 +72,7 @@ const ActiveCaseItem = ({ title, theme, name, price, picUrl }: ActiveCaseItemPro
 	// Active click function
 	const active = () => {
 		setIsActive(!isActive)
+		if (onClick) onClick(!isActive)
 	}
 
 	return (

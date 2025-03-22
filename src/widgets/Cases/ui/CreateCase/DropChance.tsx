@@ -1,3 +1,4 @@
+import { IChance } from '../../model/types'
 import clsx from 'clsx'
 import Image from 'next/image'
 
@@ -6,11 +7,13 @@ import cls from '../Cases.module.sass'
 const DropChance = ({
 	chance,
 	setChance,
-	onRemove
+	onRemove,
+	item
 }: {
 	chance: number
 	setChance: (_: number) => void
 	onRemove: () => void
+	item: IChance
 }) => {
 	return (
 		<div className={clsx(cls.chance_item)}>
@@ -18,11 +21,11 @@ const DropChance = ({
 				<div className='w-[100px]'>
 					<div className={clsx('w-full rounded-md bg-[#121721] py-1')}>
 						<div
-							className={clsx('px-3 py-2', cls.chance_item_bg)}
+							className={clsx('px-3 py-2', cls[`chance_item_bg_${item.imageType}`])}
 							onClick={onRemove}
 						>
 							<Image
-								src={'/images/livefeed/skin-8.png'}
+								src={item.picUrl}
 								width={75}
 								height={55}
 								alt='skin'
@@ -32,11 +35,11 @@ const DropChance = ({
 				</div>
 				<div className='flex flex-1 flex-col justify-between gap-0.5'>
 					<div className='flex flex-col gap-[2px]'>
-						<span className='text-[10px] font-[500] text-[#576386]'>P2000</span>
-						<span className='text-[12px] font-[500] text-white'>Blue Laminate</span>
+						<span className='text-[10px] font-[500] text-[#576386]'>{item.name}</span>
+						<span className='text-[12px] font-[500] text-white'>{item.content}</span>
 						<div className='flex gap-0.5'>
 							<span className='text-[11px] font-[600] text-[#17E2A5]'>$</span>
-							<span className='text-[11px] font-[600] text-white'>13.35</span>
+							<span className='text-[11px] font-[600] text-white'>{item.price}</span>
 						</div>
 					</div>
 					<div className='flex w-full gap-2'>

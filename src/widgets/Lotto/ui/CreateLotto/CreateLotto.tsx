@@ -5,8 +5,6 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
 
-import FairnessModal from '@/widgets/CaseBattles/ui/Main/FairnessModal'
-
 import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCheck from '@/shared/assets/icons/icon-check-box.svg'
@@ -17,9 +15,7 @@ import IconLink from '@/shared/assets/icons/icon-link-2.svg'
 import IconLotto from '@/shared/assets/icons/icon-lottery-ticket.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconUnprotected from '@/shared/assets/icons/icon-unprotected.svg'
-import IconVerification from '@/shared/assets/icons/icon-verification-profile.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
-import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
 import cls from './CreateLotto.module.sass'
@@ -281,22 +277,6 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 	const [joined, setJoined] = useState<boolean>(false)
 	const [selectedRooms, setSelectedRooms] = useState<number[]>([])
 
-	const { openModal } = useModal()
-
-	const onClickProvablyFair = () => {
-		openModal(
-			<FairnessModal />,
-			{},
-			<IconVerification className='h-[19px] w-[19px] fill-[#19D099]' />,
-			t('case_battles.fairness'),
-			{
-				body: '',
-				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
-			},
-			true
-		)
-	}
-
 	return (
 		<div className={clsx(cls.container, className)}>
 			<div className={clsx(cls.h, 'relative', joined ? 'mb-2' : 'mb-0')}>
@@ -483,16 +463,6 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className='flex justify-center'>
-				<Button
-					onPress={onClickProvablyFair}
-					classNames={{
-						base: 'w-[101px] mx-auto mt-5 h-[29px] border-[#1C223040] border-[2px] rounded-lg bg-[#181E2B40] text-[#272F42] text-[12px] leading-[14px] font-medium'
-					}}
-				>
-					{t('pages.provablyFair')}
-				</Button>
 			</div>
 		</div>
 	)
