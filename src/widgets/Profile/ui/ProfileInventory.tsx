@@ -15,9 +15,10 @@ import cls from './Profile.module.sass'
 interface ProfileInventoryProps {
 	items: IInvestoryItemType[]
 	onSelect?: (value: { selected: number; amount: number }) => void
+	canHover?: boolean
 }
 
-const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
+const ProfileInventory = ({ items, onSelect, canHover }: ProfileInventoryProps) => {
 	// Selected item id
 	const [selectedId, setSelectedId] = useState<string[]>([])
 
@@ -51,7 +52,7 @@ const ProfileInventory = ({ items, onSelect }: ProfileInventoryProps) => {
 	// Build item list
 	const cases = items.map(item => (
 		<CaseItem
-			isHover={true}
+			isHover={canHover}
 			key={item.id}
 			title={item.title}
 			content={item.content}

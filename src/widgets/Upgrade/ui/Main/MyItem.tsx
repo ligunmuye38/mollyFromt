@@ -248,7 +248,7 @@ const MyItem = ({
 						</div>
 						<div className='h-[38px] min-w-[82px] bg-[#263147] p-[2px] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
 							<div className='flex h-full w-full items-center justify-center gap-1 bg-[#1E2739] px-3 text-[12px] font-bold text-[#1AD19B] [clip-path:polygon(10px_0px,_calc(100%_-_10px)_0px,_100%_50%,_calc(100%_-_10px)_100%,_10px_100%,_0px_50%)]'>
-								${totalCost} / <span className='text-white opacity-70'>{userBalance}</span>
+								${totalCost + userBalance}
 							</div>
 						</div>
 					</div>

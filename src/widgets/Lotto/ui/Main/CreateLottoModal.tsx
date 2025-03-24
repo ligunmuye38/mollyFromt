@@ -33,7 +33,7 @@ const CaseItem = ({ item }: { item: ICaseItemType }) => {
 		<div
 			onClick={() => setSelected(v => !v)}
 			className={clsx(
-				'h-[215px] w-[194px] cursor-pointer rounded-[12px] p-[2px] 2sm:w-auto',
+				'h-[215px] w-full cursor-pointer rounded-[12px] p-[2px] 2sm:w-auto',
 				selected
 					? 'bg-[linear-gradient(0deg,_#10AA7C,_#10AA7C),_linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)]'
 					: 'bg-[#161C28]'
@@ -130,7 +130,7 @@ const CreateLottoModal = () => {
 				</div>
 			</div>
 			<div className='app-scrollbar mb-5 h-[calc(100vh_-_320px)] max-h-[440px] overflow-auto'>
-				<div className='grid auto-rows-auto grid-cols-[repeat(auto-fill,194px)] justify-between gap-[10px] md:grid-cols-2'>
+				<div className='grid auto-rows-auto grid-cols-5 justify-between gap-[10px] md:grid-cols-4 3sm:grid-cols-3 2sm:grid-cols-2'>
 					{caseItems.slice(0, 15).map((item, index) => (
 						<CaseItem
 							key={index}

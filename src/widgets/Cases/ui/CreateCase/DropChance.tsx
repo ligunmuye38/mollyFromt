@@ -44,7 +44,7 @@ const DropChance = ({
 					</div>
 					<div className='flex w-full gap-2'>
 						<div className={clsx(cls.chance_item_btn, 'w-[90px] sm:w-auto')}>
-							<div className={clsx(cls.chance_item_btn_inner, 'flex items-center p-1.5 sm:px-2 sm:py-2.5')}>
+							<div className={clsx(cls.chance_item_btn_inner, 'flex items-center gap-[2px] p-1.5 sm:px-2 sm:py-2.5')}>
 								<div className='flex rounded-md bg-[#17E2A5] px-[9px] py-[5px] text-[14px] font-[900] text-[#141925] sm:hidden'>
 									<div>%</div>
 								</div>
@@ -52,9 +52,10 @@ const DropChance = ({
 									<span className='hidden text-[14px] font-[700] text-white sm:flex'>%</span>
 									<input
 										className='bg-transparent text-[14px] font-[700] text-white outline-none'
-										min={1}
+										min={0}
 										max={100}
 										width={30}
+										step={0.0001}
 										value={chance}
 										onChange={ev => setChance(Number(ev.target.value))}
 										type='number'

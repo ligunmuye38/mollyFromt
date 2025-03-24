@@ -277,7 +277,7 @@ const MainList = ({ type }: IMainListProps) => {
 							</Button>
 						</div>
 						<div className='flex flex-[0_0_20%] items-center justify-center gap-[6px] md:hidden'>
-							{t('lotto.winning_amount')}
+							{t('lotto.cost_of_participation')}
 							<Button>
 								<IconSort />
 							</Button>

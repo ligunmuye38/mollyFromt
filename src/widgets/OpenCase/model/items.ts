@@ -379,6 +379,46 @@ export const caseItems: ICaseItemType[] = [
 		name: 'AK-47 | Fire Serpent',
 		price: '456,05',
 		type: 'limit_blue'
+	},
+	{
+		id: 'case-21',
+		title: 'FT',
+		content: 'CHANCE',
+		percent: 0.064,
+		picUrl: '/images/case/skin-1.png',
+		name: 'AK-47 | Fire Serpent',
+		price: '456,05',
+		type: 'yellow'
+	},
+	{
+		id: 'case-22',
+		title: 'FT',
+		content: 'CHANCE',
+		percent: 0.064,
+		picUrl: '/images/case/skin-2.png',
+		name: 'AK-47 | Fire Serpent',
+		price: '456,05',
+		type: 'pink'
+	},
+	{
+		id: 'case-23',
+		title: 'FT',
+		content: 'CHANCE',
+		percent: 0.064,
+		picUrl: '/images/case/skin-3.png',
+		name: 'AK-47 | Fire Serpent',
+		price: '456,05',
+		type: 'purple'
+	},
+	{
+		id: 'case-24',
+		title: 'FT',
+		content: 'CHANCE',
+		percent: 0.064,
+		picUrl: '/images/case/skin-4.png',
+		name: 'AK-47 | Fire Serpent',
+		price: '456,05',
+		type: 'blue'
 	}
 ]
 

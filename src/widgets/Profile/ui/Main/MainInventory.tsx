@@ -100,6 +100,7 @@ const MainInventory = () => {
 					<ProfileInventory
 						items={investoryItems}
 						onSelect={setSellingAmount}
+						canHover={true}
 					/>
 				</div>
 			</div>

@@ -22,7 +22,9 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 	const t = useTranslations()
 	const pathname = usePathname()
 
-	const fairnessPages = ['/profile', '/case/open', '/upgrade', '/case-battles', '/lotto']
+	const fairnessPages = ['/profile', '/case/open', '/upgrade', /^\/case-battles\/[^\/]+$/, '/lotto/create']
+
+	console.log('rabi', pathname)
 
 	const { openModal } = useModal()
 
@@ -42,7 +44,10 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 
 	return (
 		<footer className={clsx(className)}>
-			{fairnessPages.includes(pathname.slice(3)) && (
+			{fairnessPages.find((value: string | RegExp) => {
+				if (typeof value === 'string') return value === pathname.slice(3)
+				else return value.test(pathname.slice(3))
+			}) ? (
 				<div className='my-5 flex justify-center'>
 					<Button
 						onPress={onClickProvablyFair}
@@ -53,6 +58,8 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 						{t('pages.provablyFair')}
 					</Button>
 				</div>
+			) : (
+				<></>
 			)}
 			<div className={cls.base}>
 				<div className={clsx(cls.inner, 'p-5')}>

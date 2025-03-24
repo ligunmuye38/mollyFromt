@@ -44,7 +44,10 @@ const MysteryBody = () => {
 					<PopoverContent className='w-max p-0'>
 						<div className='w-full max-w-[350px] rounded-[12px] bg-[linear-gradient(90deg,_#FAAA65_0%,_#161E37_100%)] p-[1px]'>
 							<div className='h-full w-full rounded-[12px] bg-[linear-gradient(270deg,_#151E39_0%,_#714825_100%)] p-[15px]'>
-								<p className='mb-[6px] text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_accept.hint')}</p>
+								<p className='mb-[6px] text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_farm.hint_title')}</p>
+								<span className='flex flex-col text-[12px] text-[#FFA3A3]'>
+									<span>{t('case_accept.hint')}</span>
+								</span>
 							</div>
 						</div>
 					</PopoverContent>
@@ -172,9 +175,7 @@ const MysteryBody = () => {
 													}}
 													startContent={<IconCase className='h-[20px] w-[22px]' />}
 												>
-													<span className='text-[15px] font-[900] text-[#000000]'>
-														{t('open_case.open_case') + ' • $15.50'}
-													</span>
+													<span className='text-[15px] font-[900] text-[#000000]'>{'$15.50'}</span>
 												</Button>
 											</div>
 										</div>
@@ -191,7 +192,12 @@ const MysteryBody = () => {
 									<div className={clsx(cls.farm_hint_inner, 'flex gap-2 p-4')}>
 										<IconHint className='absolute h-[34px] w-[34px] fill-[#FFA3A3] md:-top-9' />
 										<div className='ml-12 flex flex-col gap-1 text-[12px] font-[500] text-[#FFA3A3] md:ml-[15px]'>
-											<span className='text-[14px] font-[500] uppercase text-[#FFA3A3]'>{t('case_accept.hint')}</span>
+											<span className='text-[14px] font-[500] uppercase text-[#FFA3A3]'>
+												{t('case_farm.hint_title')}
+											</span>
+											<span className='flex flex-col text-[12px] text-[#FFA3A3]'>
+												<span>{t('case_accept.hint')}</span>
+											</span>
 										</div>
 									</div>
 								</div>

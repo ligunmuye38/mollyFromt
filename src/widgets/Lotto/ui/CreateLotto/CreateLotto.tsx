@@ -5,17 +5,21 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import React, { FC, useState } from 'react'
 
+import HelpModal from '@/widgets/Upgrade/ui/Main/HelpModal'
+
 import IconBagTick from '@/shared/assets/icons/icon-bag-tick.svg'
 import IconPlus from '@/shared/assets/icons/icon-black-plus.svg'
 import IconCheck from '@/shared/assets/icons/icon-check-box.svg'
 import IconCopySuccess from '@/shared/assets/icons/icon-copy-success.svg'
 import IconGift from '@/shared/assets/icons/icon-gift.svg'
 import IconHint from '@/shared/assets/icons/icon-hint.svg'
+import IconInfo from '@/shared/assets/icons/icon-info-2.svg'
 import IconLink from '@/shared/assets/icons/icon-link-2.svg'
 import IconLotto from '@/shared/assets/icons/icon-lottery-ticket.svg'
 import IconPeople from '@/shared/assets/icons/icon-profile-2user.svg'
 import IconUnprotected from '@/shared/assets/icons/icon-unprotected.svg'
 import HeaderBg from '@/shared/assets/section-header-bg.svg'
+import { useModal } from '@/shared/context/ModalContext'
 import Button from '@/shared/ui/Button/Button'
 
 import cls from './CreateLotto.module.sass'
@@ -239,7 +243,7 @@ const Ticket = ({
 	onSelect: () => void
 	opened?: boolean
 }) => {
-	if (opened) {
+	if (opened && selected) {
 		return (
 			<div className='flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1D2433] text-[14px] text-[#FFFFFF]'>
 				<TicketAvatar />
@@ -249,25 +253,24 @@ const Ticket = ({
 	}
 	return (
 		<>
-			{selectable ? (
-				<Button onPress={onSelect}>
-					{selected ? (
-						<div className='h-12 w-full rounded-xl bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.65)_40.76%,_#24FDBC_57.96%)] p-[1px]'>
-							<div className='flex h-full w-full items-center justify-center rounded-xl bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] text-[#121722]'>
-								{index}
-							</div>
-						</div>
-					) : (
-						<div className='flex h-12 w-full items-center justify-center rounded-xl border-1 border-[#1E2635] bg-[#121722] text-[14px] text-[#6C7998]'>
+			<Button
+				onPress={() => {
+					if (selectable || selected) onSelect()
+				}}
+				classNames={{ base: 'rounded-xl' }}
+			>
+				{selected ? (
+					<div className='h-12 w-full rounded-xl bg-[linear-gradient(90deg,_rgba(36,_253,_188,_0)_77.44%,_#24FDBC_89.52%),_linear-gradient(270deg,_rgba(36,_253,_188,_0.65)_40.76%,_#24FDBC_57.96%)] p-[1px]'>
+						<div className='flex h-full w-full items-center justify-center rounded-xl bg-[linear-gradient(0deg,_#24FDBC,_#10AA7C),linear-gradient(180deg,_rgba(36,_253,_188,_0)_0%,_rgba(36,_253,_188,_0.65)_100%)] text-[#121722]'>
 							{index}
 						</div>
-					)}
-				</Button>
-			) : (
-				<div className='flex h-12 w-full items-center justify-center rounded-xl border-1 border-[#1E2635] bg-[#121722] text-[14px] text-[#6C7998]'>
-					{index}
-				</div>
-			)}
+					</div>
+				) : (
+					<div className='flex h-12 w-full items-center justify-center rounded-xl border-1 border-[#1E2635] bg-[#121722] text-[14px] text-[#6C7998]'>
+						{index}
+					</div>
+				)}
+			</Button>
 		</>
 	)
 }
@@ -276,6 +279,20 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 	const t = useTranslations()
 	const [joined, setJoined] = useState<boolean>(false)
 	const [selectedRooms, setSelectedRooms] = useState<number[]>([])
+	const { openModal } = useModal()
+	const handleOnClikHelp = () => {
+		openModal(
+			<HelpModal />,
+			{},
+			<IconInfo />,
+			t('upgrade_how_does_it_work.title'),
+			{
+				body: '',
+				modal: 'relative w-full lg:h-full h-screen flex lg:items-start justify-center items-center'
+			},
+			true
+		)
+	}
 
 	return (
 		<div className={clsx(cls.container, className)}>
@@ -290,25 +307,28 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 					<div className={cls.title}>{t('lotto.lotto').toUpperCase()}</div>
 				</div>
 			</div>
-			<div className={clsx('mx-auto max-w-[824px]', { '-translate-y-6': !joined })}>
-				{!joined && (
-					<div className='mb-4 flex justify-between'>
-						<div className='w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
-							<div className='flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'>
-								<IconCopySuccess className='h-[18px] w-[18px] fill-[#3B455C]' />
-								<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>
-									{t('lotto.select_10_cells').toUpperCase()}
-								</p>
-							</div>
-						</div>
-						<div className='w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
-							<div className='flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'>
-								<IconHint className='h-[18px] w-[18px] fill-[#3B455C]' />
-								<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>FAQ</p>
-							</div>
+			<div className={clsx('mx-auto max-w-[824px] -translate-y-6')}>
+				<div className='mb-4 flex justify-between'>
+					<div className='w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]'>
+						<div className='flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'>
+							<IconCopySuccess className='h-[18px] w-[18px] fill-[#3B455C]' />
+							<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>
+								{t('lotto.select_10_cells').toUpperCase()}
+							</p>
 						</div>
 					</div>
-				)}
+					<Button
+						onPress={handleOnClikHelp}
+						classNames={{
+							base: 'w-max rounded-lg bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[1px]',
+							content:
+								'flex h-full w-max items-center bg-[linear-gradient(180deg,_#191F2D_0%,_rgba(25,_31,_45,_0.25)_100%)] p-2'
+						}}
+					>
+						<IconHint className='h-[18px] w-[18px] fill-[#3B455C]' />
+						<p className='ml-1 text-[12px] font-bold text-[#3B455C] md:text-[8px]'>FAQ</p>
+					</Button>
+				</div>
 				<div className='z-10 mb-12 rounded-[14px] bg-[linear-gradient(180deg,_#1F2534_0%,_rgba(31,_37,_52,_0.25)_100%)] p-[2px]'>
 					<div className='rounded-[14px] bg-[linear-gradient(270deg,_rgba(25,_31,_45,_0.65)_0%,_rgba(25,_31,_45,_0.15)_50%,_rgba(25,_31,_45,_0.65)_100%)] p-[26px] md:p-[12px]'>
 						<div className='relative flex justify-between'>
@@ -371,7 +391,7 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						)}
 					</div>
 					<div className='h-full w-full rounded-[14px] bg-[linear-gradient(180deg,_#191F2D_0%,_#131924_100%)] px-[30px] pb-[30px] pt-[70px] md:px-3'>
-						{selectedRooms.length < 10 ? (
+						{!joined ? (
 							<div className='mb-[30px] grid grid-cols-5 gap-4'>
 								{Array.from(new Array(20)).map((_, index) => (
 									<Ticket
@@ -381,9 +401,9 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 											if (selectedRooms.includes(index)) setSelectedRooms(selectedRooms.filter(v => v !== index))
 											else setSelectedRooms(v => [...v, index])
 										}}
-										selectable={joined}
+										selectable={selectedRooms.length < 10}
 										index={index}
-										opened={joined && index === 12}
+										opened={index === 12}
 									/>
 								))}
 							</div>
@@ -406,10 +426,10 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 						<div
 							className={clsx(
 								'flex items-center gap-4 rounded-xl border-1 border-[#1A202E] py-[18px] pl-5 pr-[14px] 3sm:grid 3sm:grid-cols-1 3sm:gap-2 3sm:px-2 3sm:py-2',
-								selectedRooms.length < 10 ? 'justify-between' : 'justify-center'
+								!joined ? 'justify-between' : 'justify-center'
 							)}
 						>
-							{selectedRooms.length < 10 ? (
+							{!joined ? (
 								<>
 									<div className='flex items-center gap-4 3sm:gap-2'>
 										<div className='flex w-max items-center rounded-[8px] border-1 border-[#15C18F] bg-[#1A202E] px-3 py-[9px] 3sm:w-full'>
@@ -430,7 +450,9 @@ export const CreateLotto: FC<MainProps> = ({ className }) => {
 									</div>
 									<div style={{ filter: 'drop-shadow(0px 0px 12px #10AA7C40)' }}>
 										<Button
-											onPress={() => setJoined(true)}
+											onPress={() => {
+												if (selectedRooms.length > 0) setJoined(true)
+											}}
 											classNames={{
 												base: clsx(cls.hexagon_btn, cls.sm, 'h-[44px] w-[200px] 3sm:w-full'),
 												content: clsx(cls.hexagon_btn_inner, cls.sm, '!gap-[6px]')

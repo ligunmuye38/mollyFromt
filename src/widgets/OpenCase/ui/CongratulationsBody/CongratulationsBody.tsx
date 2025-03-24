@@ -40,6 +40,8 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 		onClose()
 	}
 
+	console.log('totalCost', totalCost)
+
 	return (
 		<div className='app-scrollbar relative mt-4 flex h-full max-h-[calc(100vh-150px)] w-full flex-col items-center gap-5 overflow-x-hidden lg:max-h-full'>
 			{items.length == 1 && (
@@ -102,7 +104,10 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 							picUrl={item.picUrl}
 							onClick={v =>
 								setTotalCost(
-									prev => prev + (v ? Number(item.price.replace(',', '.')) : -Number(item.price.replace(',', '.')))
+									prev =>
+										(prev * 100 +
+											(v ? Number(item.price.replace(',', '.')) : -Number(item.price.replace(',', '.'))) * 100) /
+										100
 								)
 							}
 						/>
@@ -166,8 +171,10 @@ const CongratulationsBody = ({ items, onClose }: CongratulationsBodyProps) => {
 							startContent={<IconDollar className='h-[20px] w-[22px]' />}
 						>
 							<span className='text-[15px] font-[900] text-[#000000]'>
-								{t(`case_congratulation.${items.length > 1 ? 'sell_selected' : 'sell_everything'}`)}
-								{items.length ? ` • $${totalCost.toFixed(3)}` : ''}
+								{t(
+									`case_congratulation.${items.length > 1 ? (totalCost === 0 ? 'sell_all' : 'sell_selected') : 'sell_everything'}`
+								)}
+								{items.length && totalCost > 0 ? ` • $${totalCost.toFixed(2)}` : ''}
 							</span>
 						</Button>
 					</div>
