@@ -22,9 +22,7 @@ export const Footer: FC<FooterProps> = ({ className }) => {
 	const t = useTranslations()
 	const pathname = usePathname()
 
-	const fairnessPages = ['/profile', '/case/open', '/upgrade', /^\/case-battles\/[^\/]+$/, '/lotto/create']
-
-	console.log('rabi', pathname)
+	const fairnessPages = ['/profile', '/upgrade', /^\/case-battles\/[^\/]+$/, /^\/case\/[^\/]+$/, '/lotto/create']
 
 	const { openModal } = useModal()
 

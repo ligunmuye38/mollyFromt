@@ -101,6 +101,7 @@ const MainInventory = () => {
 						items={investoryItems}
 						onSelect={setSellingAmount}
 						canHover={true}
+						selectable
 					/>
 				</div>
 			</div>

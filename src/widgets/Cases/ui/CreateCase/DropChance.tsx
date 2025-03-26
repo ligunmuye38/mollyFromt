@@ -53,7 +53,7 @@ const DropChance = ({
 									<input
 										className='bg-transparent text-[14px] font-[700] text-white outline-none'
 										min={0}
-										max={100}
+										max={5}
 										width={30}
 										step={0.0001}
 										value={chance}

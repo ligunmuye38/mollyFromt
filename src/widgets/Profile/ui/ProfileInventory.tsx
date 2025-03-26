@@ -15,10 +15,11 @@ import cls from './Profile.module.sass'
 interface ProfileInventoryProps {
 	items: IInvestoryItemType[]
 	onSelect?: (value: { selected: number; amount: number }) => void
+	selectable?: boolean
 	canHover?: boolean
 }
 
-const ProfileInventory = ({ items, onSelect, canHover }: ProfileInventoryProps) => {
+const ProfileInventory = ({ items, onSelect, canHover, selectable }: ProfileInventoryProps) => {
 	// Selected item id
 	const [selectedId, setSelectedId] = useState<string[]>([])
 
@@ -61,8 +62,10 @@ const ProfileInventory = ({ items, onSelect, canHover }: ProfileInventoryProps) 
 			type={item.type}
 			name={item.name}
 			percent={item.percent}
-			isActive={selectedId.includes(item.id) ? true : false}
-			onClick={() => handleClick(item.id)}
+			isActive={selectable && selectedId.includes(item.id) ? true : false}
+			onClick={() => {
+				if (selectable) handleClick(item.id)
+			}}
 			hoverContent={
 				<div className='flex h-full w-full items-center justify-center gap-2'>
 					<Button
