@@ -112,29 +112,29 @@ const UpgradeItem = ({ selected, onClose, className }: IUpgradeItemProps) => {
 						<p className='text-[12px] font-bold text-[#FFFFFF]'>{t('select_an_item_to_upgrade_to')}</p>
 						<p className='text-[12px] font-medium text-[#5E6D8D]'></p>
 					</div>
-					{!isFailed && (
-						<div className='absolute bottom-0 right-0 flex w-full origin-[center_right] translate-y-1/2 justify-center gap-2'>
-							{['X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
-								<Button
-									key={index}
-									onPress={() => setTimes(value)}
-									className={clsx('rounded-[12px]', { 'shadow-[0px_0px_24px_#FD3E2459]': times === value })}
-								>
-									<div
-										className={clsx(
-											'flex h-[44px] w-[44px] items-center justify-center rounded-[12px] border-2 font-bold',
-											times === value
-												? 'border-[#FDCD24] bg-[#E2B617] text-[14px] text-[#121722] [text-shadow:0px_1px_0px_#FFD53F]'
-												: 'border-[#1E2433] bg-[#181E2C] text-[12px] text-[#60719A]'
-										)}
-									>
-										{value}
-									</div>
-								</Button>
-							))}
-						</div>
-					)}
 				</>
+			)}
+			{!isFailed && (
+				<div className='absolute bottom-0 right-0 flex w-full origin-[center_right] translate-y-1/2 justify-center gap-2'>
+					{['X2', 'X3', 'X4', 'X5', 'X10'].map((value, index) => (
+						<Button
+							key={index}
+							onPress={() => setTimes(value)}
+							className={clsx('rounded-[12px]', { 'shadow-[0px_0px_24px_#FD3E2459]': times === value })}
+						>
+							<div
+								className={clsx(
+									'flex h-[44px] w-[44px] items-center justify-center rounded-[12px] border-2 font-bold',
+									times === value
+										? 'border-[#FDCD24] bg-[#E2B617] text-[14px] text-[#121722] [text-shadow:0px_1px_0px_#FFD53F]'
+										: 'border-[#1E2433] bg-[#181E2C] text-[12px] text-[#60719A]'
+								)}
+							>
+								{value}
+							</div>
+						</Button>
+					))}
+				</div>
 			)}
 			<div className='absolute right-3 top-4 flex origin-top-right items-center gap-2'>
 				<p className='text-[13px] font-bold text-[#5F6C87]'>{t('lock_selected_items')}</p>

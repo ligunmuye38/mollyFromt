@@ -22,40 +22,40 @@ export const caseTypeToProps: Record<CaseType, Props> = {
 	[CaseType.AVAILABLE]: {
 		badgeMode: 'wide',
 		badgeTheme: 'green',
-		icon: <IconSuccess />,
+		icon: <IconSuccess className='w-6' />,
 		iconTheme: 'green',
 		iconShadow: true
 	},
 	[CaseType.AVAILABELED_IN]: {
 		badgeMode: 'wide',
-		icon: <IconLock />,
+		icon: <IconLock className='w-6' />,
 		iconTheme: 'yellow',
 		iconShadow: true
 	},
 	[CaseType.DISCOUNTED]: {
-		icon: <IconDiscount />,
+		icon: <IconDiscount className='w-6' />,
 		badgeTheme: 'gradient-green',
 		iconTheme: 'outline-green',
 		iconShadow: true
 	},
 	[CaseType.UNIQUE]: {
-		icon: <IconUser />,
+		icon: <IconUser className='w-6' />,
 		badgeTheme: 'gradient-yellow',
 		iconTheme: 'outline-yellow',
 		iconShadow: true
 	},
 	[CaseType.EXPIRED_AT]: {
 		badgeMode: 'wide',
-		icon: <IconTimer />,
+		icon: <IconTimer className='w-6' />,
 		iconTheme: 'grey',
 		iconShadow: true
 	},
 	[CaseType.LIMITED]: {
-		icon: <IconLightning />,
+		icon: <IconLightning className='w-6' />,
 		iconTheme: 'outline-yellow',
 		iconShadow: true
 	},
 	[CaseType.LOCKED]: {
-		icon: <IconLock />
+		icon: <IconLock className='w-6' />
 	}
 }

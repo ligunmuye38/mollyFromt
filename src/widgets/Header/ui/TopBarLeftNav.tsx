@@ -35,7 +35,7 @@ const TopBarLeftNav: FC<TopBarLeftNavProps> = ({ className }) => {
 					href='/'
 					className={clsx('h-[40px] w-[50px]')}
 					style={{
-						backgroundImage: 'url(/images/logo-header-mobile.svg)',
+						backgroundImage: 'url(/images/logo-header-mobile.png)',
 						backgroundSize: 'contain',
 						backgroundRepeat: 'no-repeat'
 					}}

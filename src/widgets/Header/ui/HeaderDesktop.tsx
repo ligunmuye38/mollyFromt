@@ -13,14 +13,14 @@ interface HeaderDesktopProps {
 
 export const HeaderDesktop: FC<HeaderDesktopProps> = ({ className }) => {
 	return (
-		<header className={clsx(className, 'relative flex items-center justify-between gap-2')}>
+		<header className={clsx(className, 'relative flex min-h-[62px] items-center justify-between gap-2')}>
 			<HeaderNav />
 			<div className={clsx('absolute left-1/2', cls.logo_center)}>
 				<Link
 					href='/'
 					className='flex h-[92px] w-[386px] items-center justify-center 3xl:h-[72px] 3xl:w-[300px]'
 					style={{
-						backgroundImage: 'url(/images/logo-header.svg)',
+						backgroundImage: 'url(/images/logo-header.png)',
 						backgroundSize: 'contain',
 						backgroundRepeat: 'no-repeat'
 					}}

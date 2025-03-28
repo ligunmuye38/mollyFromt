@@ -51,7 +51,7 @@ export const HeaderMobile: FC<HeaderMobileProps> = ({ className }) => {
 						href='/'
 						className='relative z-[2] block h-full w-full'
 						style={{
-							backgroundImage: 'url(/images/logo-header-mobile.svg)',
+							backgroundImage: 'url(/images/logo-header-mobile.png)',
 							backgroundSize: 'contain',
 							backgroundRepeat: 'no-repeat'
 						}}

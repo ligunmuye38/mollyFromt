@@ -69,11 +69,11 @@
   padding: 3px
   font-size: 12px
   line-height: 16px
-  font-weight: 900
 
   &_wrapper
     width: max-content
     position: relative
+    font-family: Gotham Ultra, system-ui, -apple-system, BlinkMacSystemFont, sans-serif
 
   &_inner
     display: flex
@@ -106,7 +106,6 @@
   &_track
     font-size: 12px
     line-height: 16px
-    font-weight: 900
     height: 34px
     padding: 2px
     clip-path: polygon(11px 0px, calc(100% - 11px) 0px, 100% 50%, calc(100% - 11px) 100%, 11px 100%, 0px 50%)
@@ -120,6 +119,8 @@
 
       &_inner
         filter: drop-shadow(0px 0px 12px #FD3E2459) drop-shadow(0px 0px 12px #FD3E2440)
+        transform: translateZ(0)
+        -webkit-transform: translateZ(0)
 
     &_icon
       width: 16px
